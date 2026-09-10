@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Igor Augusto de Melo | Engenharia Aeronáutica</title>
+<meta name="description" content="Portfólio de Igor Augusto de Melo, estudante de Engenharia Aeronáutica na EESC-USP: aerodinâmica, CFD, mecânica de voo e engenharia de sistemas.">
+<meta property="og:title" content="Igor Augusto de Melo | Engenharia Aeronáutica">
+<meta property="og:description" content="Aerodinâmica, CFD, mecânica de voo e engenharia de sistemas. EESC-USP e École Centrale de Marseille.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..650;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tunnel:#E9EDF0;
+  --surface:#F5F7F9;
+  --ink:#16233A;
+  --ink-2:#4A5668;
+  --rule:#C5CDD6;
+  --suction:#2F45B5;
+  --stagnation:#B0232F;
+  --free:#8792A2;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --text:"Source Serif 4",Georgia,serif;
+  --max:1240px;
+  --gutter:clamp(20px,4vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--tunnel);color:var(--ink);font-family:var(--text);font-size:1.125rem;line-height:1.62;font-optical-sizing:auto;text-rendering:optimizeLegibility}
+html[lang="pt-BR"] [lang="en"],html[lang="en"] [lang="pt-BR"]{display:none!important}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;font-weight:700}
+p{margin:0 0 1em}
+a{color:var(--suction);text-underline-offset:3px;text-decoration-thickness:1px}
+:focus-visible{outline:2px solid var(--suction);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:8px 12px;font-family:var(--display);z-index:20}
+.skip:focus{left:8px}
+
+/* Cabeçalho */
+.site-header{position:sticky;top:0;z-index:10;background:rgba(233,237,240,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .2s}
+.site-header.scrolled{border-bottom-color:var(--rule)}
+.bar{max-width:var(--max);margin:0 auto;padding:12px var(--gutter);display:flex;align-items:center;gap:28px}
+.mark{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:1rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+.nav{display:flex;gap:22px;margin-left:auto;font-family:var(--display);font-size:.9375rem}
+.nav a{color:var(--ink-2);text-decoration:none;padding:4px 0}
+.nav a:hover{color:var(--ink);text-decoration:underline}
+.lang{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;flex:none}
+.lang button{font:600 .8125rem/1 var(--display);padding:8px 10px;background:transparent;border:0;color:var(--ink-2);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+/* Abertura */
+.hero{max-width:var(--max);margin:0 auto;padding:clamp(28px,5vw,64px) var(--gutter) clamp(24px,3vw,36px);display:grid;grid-template-columns:1fr 1.5fr;gap:28px clamp(24px,5vw,72px);align-items:end}
+.name{grid-column:1/-1;font-stretch:125%;font-weight:800;font-size:clamp(2.1rem,7.4vw,6rem);line-height:.9;letter-spacing:-.018em}
+.facts{margin:0;font-family:var(--display);font-size:.9375rem;line-height:1.5;color:var(--ink-2);align-self:start;padding-top:6px}
+.intro{max-width:36rem}
+.intro p{font-size:1.125rem;margin-bottom:.6em}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;font-family:var(--display);font-size:.9375rem;font-weight:600;margin-top:18px}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;padding:12px 18px;border-radius:2px}
+.btn:hover{background:var(--suction)}
+
+/* Túnel (figura interativa) */
+.tunnel{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.tunnel-frame{position:relative;height:clamp(300px,50vh,520px);background:var(--surface);border-radius:4px;overflow:hidden}
+.tunnel-frame canvas{display:block;width:100%;height:100%}
+.tunnel-meta{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 40px;align-items:start;padding-top:14px;font-family:var(--display);font-size:.875rem;line-height:1.5;color:var(--ink-2)}
+.tunnel-meta p{margin:0;max-width:44rem}
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;color:var(--ink)}
+.controls label{font-weight:600}
+.controls input[type=range]{width:150px;accent-color:var(--ink);margin:0}
+.controls output{font-variant-numeric:tabular-nums;min-width:3.2em;display:inline-block}
+.cl{white-space:nowrap}
+.legend{display:inline-flex;align-items:center;gap:8px;color:var(--ink-2)}
+.legend i{display:block;width:84px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--suction),var(--free) 62%,var(--stagnation))}
+
+/* Seções */
+main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 40px}
+.section{display:grid;grid-template-columns:minmax(150px,1fr) 3fr;gap:20px clamp(24px,5vw,72px);padding-top:clamp(64px,9vw,120px)}
+.section>h2{font-size:clamp(1.5rem,2.4vw,1.875rem);font-stretch:112%;position:sticky;top:84px;align-self:start}
+.body{max-width:46rem;min-width:0}
+.lead{font-size:1.25rem;line-height:1.55}
+.muted{color:var(--ink-2)}
+
+/* Linha do tempo */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline>li{display:grid;grid-template-columns:9.5rem minmax(0,1fr);gap:6px 24px;padding-bottom:44px}
+.timeline>li:last-child{padding-bottom:0}
+.when{font-family:var(--display);font-size:.9375rem;color:var(--ink-2);font-variant-numeric:tabular-nums;padding-top:3px}
+.entry h3{font-size:1.25rem;font-stretch:108%}
+.org{margin:4px 0 12px;font-family:var(--display);font-size:.9375rem;color:var(--ink-2)}
+.entry ul{margin:0;padding-left:1.1em}
+.entry li{margin-bottom:6px}
+.entry li::marker{color:var(--ink-2)}
+.entry .note{margin:12px 0 0;font-size:1rem;color:var(--ink-2)}
+
+/* Projetos */
+.project{padding-bottom:56px}
+.project:last-child{padding-bottom:0}
+.project h3{font-size:1.5rem;font-stretch:110%}
+.project.feature h3{font-size:clamp(1.75rem,3vw,2.25rem)}
+.method{font-size:1rem;color:var(--ink-2);margin:0}
+.method b{font-family:var(--display);font-weight:600;color:var(--ink)}
+.results{border-collapse:collapse;width:100%;max-width:34rem;font-family:var(--display);font-size:.9375rem;margin:6px 0 22px}
+.results caption{text-align:left;color:var(--ink-2);padding-bottom:8px}
+.results th{text-align:left;font-weight:600;padding:8px 16px 8px 0;border-bottom:2px solid var(--ink)}
+.results td{padding:10px 16px 10px 0;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+
+/* Competências e formação */
+.skills{display:grid;grid-template-columns:10.5rem minmax(0,1fr);gap:16px 24px;margin:0}
+.skills dt{font-family:var(--display);font-weight:600;font-size:1rem;padding-top:2px}
+.skills dd{margin:0}
+.sublist{margin:40px 0 0}
+.sublist>h3{font-size:1.125rem;font-stretch:108%;margin-bottom:10px}
+.plain{margin:0;padding-left:1.1em}
+.plain li{margin-bottom:4px}
+.sublist .timeline>li{padding-bottom:22px}
+.sublist .entry h3{font-size:1.0625rem}
+.sublist .org{margin-bottom:0}
+
+/* Contato */
+.contact-mail{display:inline-block;font-family:var(--display);font-stretch:112%;font-weight:700;font-size:clamp(1.5rem,4.2vw,2.75rem);line-height:1.15;color:var(--ink);text-decoration-thickness:2px;text-underline-offset:6px;overflow-wrap:anywhere;margin:6px 0 20px}
+.contact-mail:hover{color:var(--suction)}
+.site-footer{max-width:var(--max);margin:0 auto;padding:72px var(--gutter) 40px;font-family:var(--display);font-size:.8125rem;color:var(--ink-2)}
+
+@media (max-width:860px){
+  .nav{display:none}
+  .lang{margin-left:auto}
+  .hero{grid-template-columns:1fr}
+  .facts{order:3}
+  .tunnel-meta{grid-template-columns:1fr}
+  .section{grid-template-columns:1fr}
+  .section>h2{position:static}
+}
+@media (max-width:560px){
+  body{font-size:1.0625rem}
+  .timeline>li{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr;gap:4px}
+  .skills dd{margin-bottom:14px}
+  .tunnel-frame{height:300px}
+}
+@media print{
+  .site-header,.tunnel,.skip{display:none}
+  body{background:#fff}
+  .section>h2{position:static}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo"><span lang="pt-BR">Pular para o conteúdo</span><span lang="en">Skip to content</span></a>
+
+<header class="site-header" id="topo">
+  <div class="bar">
+    <a class="mark" href="#topo">Igor de Melo</a>
+    <nav class="nav" aria-label="Seções / Sections">
+      <a href="#sobre"><span lang="pt-BR">Sobre</span><span lang="en">About</span></a>
+      <a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span></a>
+      <a href="#projetos"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span></a>
+      <a href="#pesquisa"><span lang="pt-BR">Pesquisa</span><span lang="en">Research</span></a>
+      <a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span></a>
+      <a href="#contato"><span lang="pt-BR">Contato</span><span lang="en">Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt-BR" aria-pressed="true">PT</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" aria-labelledby="nome">
+  <h1 class="name" id="nome">Igor Augusto<br>de Melo</h1>
+  <p class="facts">
+    <span lang="pt-BR">Engenharia Aeronáutica, EESC-USP<br>São Carlos, SP</span>
+    <span lang="en">Aeronautical Engineering, EESC-USP<br>São Carlos, Brazil</span>
+  </p>
+  <div class="intro">
+    <p lang="pt-BR">Estudante de Engenharia Aeronáutica na Universidade de São Paulo, com intercâmbio no ciclo de engenharia generalista da École Centrale de Marseille. Trabalho com aerodinâmica, CFD, mecânica de voo e engenharia de sistemas, de foguetes de competição a um VANT autônomo de asa fixa.</p>
+    <p lang="en">Aeronautical Engineering student at the University of São Paulo, with an exchange in the general engineering curriculum at École Centrale de Marseille. I work on aerodynamics, CFD, flight mechanics and systems engineering, from competition rockets to an autonomous fixed-wing UAV.</p>
+    <p lang="pt-BR" class="muted">Busco estágio ou posição júnior no setor aeroespacial.</p>
+    <p lang="en" class="muted">Looking for internships and junior roles in aerospace.</p>
+    <div class="actions">
+      <a class="btn" href="CV_EN_v3__Igor_DE_MELO__Digital.pdf" download><span lang="pt-BR">Baixar currículo (PDF, em inglês)</span><span lang="en">Download CV (PDF)</span></a>
+      <a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a>
+      <a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<figure class="tunnel" aria-describedby="legenda-tunel" style="margin-top:0;margin-bottom:0">
+  <div class="tunnel-frame">
+    <canvas id="flow" role="img" aria-label="Simulação: linhas de corrente em torno de um aerofólio / Simulation: streamlines around an airfoil"></canvas>
+  </div>
+  <figcaption class="tunnel-meta">
+    <p id="legenda-tunel">
+      <span lang="pt-BR">Escoamento potencial em torno de um aerofólio de Joukowski com condição de Kutta, calculado no navegador. As partículas são coloridas pelo coeficiente de pressão. O modelo é invíscido e não prevê estol.</span>
+      <span lang="en">Potential flow around a Joukowski airfoil with the Kutta condition, computed in the browser. Particles are coloured by pressure coefficient. The model is inviscid and does not predict stall.</span>
+    </p>
+    <div class="controls">
+      <label for="aoa"><span lang="pt-BR">Ângulo de ataque</span><span lang="en">Angle of attack</span></label>
+      <input id="aoa" type="range" min="-4" max="12" step="0.5" value="5">
+      <output id="aoa-out" for="aoa">5,0°</output>
+      <span class="cl">C<sub>L</sub> = <output id="cl-out">1,03</output></span>
+      <span class="legend" aria-hidden="true"><span>C<sub>p</sub></span> <span lang="pt-BR">sucção</span><span lang="en">suction</span><i></i><span lang="pt-BR">estagnação</span><span lang="en">stagnation</span></span>
+    </div>
+  </figcaption>
+</figure>
+
+<main id="conteudo">
+
+  <section class="section" id="sobre" aria-labelledby="h-sobre">
+    <h2 id="h-sobre"><span lang="pt-BR">Sobre</span><span lang="en">About</span></h2>
+    <div class="body">
+      <p class="lead" lang="pt-BR">Minha formação combina a graduação na EESC-USP, um ano na École Centrale de Marseille e estudos especiais em CFD no ICMC-USP. Em equipes de competição, atuei em propulsão, mecânica de voo, aeroestruturas e engenharia de sistemas. Hoje coordeno o desenvolvimento de um VANT autônomo de asa fixa no grupo SEMEAR.</p>
+      <p class="lead" lang="en">My background combines the degree at EESC-USP, a year at École Centrale de Marseille and special studies in CFD at ICMC-USP. On competition teams I have worked on propulsion, flight mechanics, aerostructures and systems engineering. I currently lead the development of an autonomous fixed-wing UAV at the SEMEAR group.</p>
+      <p lang="pt-BR">Na pesquisa, trabalho com simulação de escoamentos turbulentos, modelagem atmosférica e modelos semi-empíricos de cargas aerodinâmicas não estacionárias.</p>
+      <p lang="en">In research, I work on turbulent flow simulation, atmospheric modelling and semi-empirical models of unsteady aerodynamic loads.</p>
+      <p lang="pt-BR">Áreas de interesse: aerodinâmica, turbulência e CFD, aeroelasticidade, termodinâmica, sistemas de controle de voo, engenharia de sistemas e gestão técnica de projetos. Também me interesso por sistemas embarcados e cibersegurança.</p>
+      <p lang="en">Areas of interest: aerodynamics, turbulence and CFD, aeroelasticity, thermodynamics, flight control systems, systems engineering and technical project management. I am also interested in embedded systems and cybersecurity.</p>
+      <p class="muted" lang="pt-BR">Fora da engenharia, fui voluntário no grupo Gatos do C2, no campus 2 da USP São Carlos, coordenando a logística de resgates do programa de castração, cuidados e soltura.</p>
+      <p class="muted" lang="en">Outside engineering, I volunteered with Gatos do C2 at USP São Carlos, coordinating rescue logistics for a trap, neuter and release programme.</p>
+      <div class="sublist">
+        <h3><span lang="pt-BR">Formação</span><span lang="en">Education</span></h3>
+        <ol class="timeline" reversed>
+          <li>
+            <p class="when"><span lang="pt-BR">2023 – atual</span><span lang="en">2023 – present</span></p>
+            <div class="entry">
+              <h3><span lang="pt-BR">Certificado de Estudos Especiais em Mecânica dos Fluidos Computacional</span><span lang="en">Special Studies Certificate in Computational Fluid Dynamics</span></h3>
+              <p class="org">ICMC-USP</p>
+            </div>
+          </li>
+          <li>
+            <p class="when">2022 – 2023</p>
+            <div class="entry">
+              <h3><span lang="pt-BR">Intercâmbio acadêmico, engenharia generalista</span><span lang="en">Academic exchange, general engineering curriculum</span></h3>
+              <p class="org">École Centrale de Marseille</p>
+            </div>
+          </li>
+          <li>
+            <p class="when"><span lang="pt-BR">2020 – 2027 (previsão)</span><span lang="en">2020 – 2027 (expected)</span></p>
+            <div class="entry">
+              <h3><span lang="pt-BR">Bacharelado em Engenharia Aeronáutica</span><span lang="en">BSc in Aeronautical Engineering</span></h3>
+              <p class="org"><span lang="pt-BR">Escola de Engenharia de São Carlos, USP</span><span lang="en">São Carlos School of Engineering, University of São Paulo</span></p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experiencia" aria-labelledby="h-exp">
+    <h2 id="h-exp"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span></h2>
+    <div class="body">
+      <ol class="timeline" reversed>
+        <li>
+          <p class="when"><span lang="pt-BR">abr. 2025 – atual</span><span lang="en">Apr 2025 – present</span></p>
+          <div class="entry">
+            <h3><span lang="pt-BR">Gerente de projeto, VANT autônomo de asa fixa</span><span lang="en">Project Manager, autonomous fixed-wing UAV</span></h3>
+            <p class="org"><span lang="pt-BR">Grupo SEMEAR, Núcleo de Robótica Aérea, EESC-USP</span><span lang="en">SEMEAR Aerial Robotics Group, EESC-USP</span></p>
+            <ul lang="pt-BR">
+              <li>Liderança do desenvolvimento do VANT, com definição da arquitetura do sistema e dos requisitos técnicos.</li>
+              <li>Coordenação das frentes de aerodinâmica, propulsão, aviônica, controle e telecomunicações.</li>
+              <li>Gestão da integração, da estratégia de validação e da avaliação de desempenho, com metodologia de engenharia de sistemas da NASA.</li>
+            </ul>
+            <ul lang="en">
+              <li>Leading development of the UAV, defining system architecture and technical requirements.</li>
+              <li>Coordinating aerodynamics, propulsion, avionics, control and telecommunications teams.</li>
+              <li>Managing integration, validation strategy and performance evaluation using NASA systems engineering practice.</li>
+            </ul>
+            <p class="note" lang="pt-BR">Também no subsistema de Aerodinâmica e Dinâmica de Voo: análise aerodinâmica, avaliação de desempenho e simulações voltadas ao controle.</p>
+            <p class="note" lang="en">Also in the Aerodynamics and Flight Dynamics subsystem: aerodynamic analysis, performance assessment and control-oriented simulations.</p>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span lang="pt-BR">dez. 2024 – mar. 2025</span><span lang="en">Dec 2024 – Mar 2025</span></p>
+          <div class="entry">
+            <h3><span lang="pt-BR">Análise e desenvolvimento de dados</span><span lang="en">Data analysis and development</span></h3>
+            <p class="org">Pilea Labs</p>
+            <ul lang="pt-BR">
+              <li>Análise e manipulação de dados de e-commerce com SQL, com execução de consultas no Google Cloud.</li>
+              <li>Versionamento e automação de consultas com Git e GitHub.</li>
+              <li>Integração de scripts ao site da empresa e suporte a dashboards online.</li>
+            </ul>
+            <ul lang="en">
+              <li>Analysed and processed e-commerce data with SQL, running queries on Google Cloud.</li>
+              <li>Versioned and automated queries with Git and GitHub.</li>
+              <li>Integrated scripts into the company website and supported online dashboards.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span lang="pt-BR">mar. 2020 – dez. 2023</span><span lang="en">Mar 2020 – Dec 2023</span></p>
+          <div class="entry">
+            <h3><span lang="pt-BR">Membro da equipe</span><span lang="en">Team member</span></h3>
+            <p class="org">TOPUS Projetos Aeroespaciais</p>
+            <ul lang="pt-BR">
+              <li>Propulsão: projeto de motor sólido com termodinâmica, transferência de calor, análise estrutural e CFD, com testes computacionais e experimentais.</li>
+              <li>Injeção de oxidante para motor híbrido: tanque, tubulação, válvulas e injetor de vórtice.</li>
+              <li>Mecânica de voo: modelo de 6 graus de liberdade em MATLAB e simulações de Monte Carlo para dispersão de trajetória e mapeamento de áreas de queda.</li>
+              <li>Engenharia de sistemas: métodos da NASA para gestão de projetos internos, padronização de documentos e controle de projetos.</li>
+            </ul>
+            <ul lang="en">
+              <li>Propulsion: solid motor design using thermodynamics, heat transfer, structural analysis and CFD, with computational and experimental testing.</li>
+              <li>Oxidiser injection for a hybrid motor: tank, piping, valves and a swirl injector.</li>
+              <li>Flight mechanics: 6-DOF model in MATLAB and Monte Carlo simulations for trajectory dispersion and impact area mapping.</li>
+              <li>Systems engineering: NASA methods for internal project management, document standardisation and project control.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span lang="pt-BR">mar. 2017 – jan. 2018</span><span lang="en">Mar 2017 – Jan 2018</span></p>
+          <div class="entry">
+            <h3><span lang="pt-BR">Membro da equipe, estruturas</span><span lang="en">Team member, structures</span></h3>
+            <p class="org">Keep Flying, AeroDesign (USP)</p>
+            <ul lang="pt-BR">
+              <li>Dimensionamento estrutural e análise de cargas de aeronave de alta carga útil.</li>
+              <li>Estudos de compromisso entre peso estrutural e capacidade de carga útil.</li>
+            </ul>
+            <ul lang="en">
+              <li>Structural sizing and load analysis for a high-payload aircraft.</li>
+              <li>Trade-off studies between structural weight and payload capacity.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="projetos" aria-labelledby="h-proj">
+    <h2 id="h-proj"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span></h2>
+    <div class="body">
+
+      <article class="project feature">
+        <h3><span lang="pt-BR">VANT autônomo de asa fixa</span><span lang="en">Autonomous fixed-wing UAV</span></h3>
+        <p class="org"><span lang="pt-BR">SEMEAR, 2025 – atual</span><span lang="en">SEMEAR, 2025 – present</span></p>
+        <p lang="pt-BR">Projeto de extensão para desenvolver, do zero, um veículo aéreo não tripulado autônomo, com foco em maximizar o desempenho aerodinâmico e a autonomia de voo pela otimização do sistema de propulsão elétrica. Como gerente de projeto, conduzo a arquitetura, os requisitos, a integração entre subsistemas e o planejamento de verificação e riscos.</p>
+        <p lang="en">An extracurricular project to develop an autonomous unmanned aircraft from scratch, focused on maximising aerodynamic performance and endurance by optimising the electric propulsion system. As project manager, I own the architecture, requirements, subsystem integration, and verification and risk planning.</p>
+        <p class="method"><b lang="pt-BR">Métodos:</b><b lang="en">Methods:</b> <span lang="pt-BR">engenharia de sistemas (metodologia NASA), engenharia de requisitos, modelagem de dinâmica de voo, simulações para controle.</span><span lang="en">systems engineering (NASA methodology), requirements engineering, flight dynamics modelling, control-oriented simulation.</span></p>
+      </article>
+
+      <article class="project">
+        <h3><span lang="pt-BR">Foguetes de competição na LASC</span><span lang="en">Competition rockets at LASC</span></h3>
+        <p class="org"><span lang="pt-BR">TOPUS, Latin American Space Challenge, 2020 – 2022</span><span lang="en">TOPUS, Latin American Space Challenge, 2020 – 2022</span></p>
+        <table class="results">
+          <caption><span lang="pt-BR">Três títulos em três edições</span><span lang="en">Three titles in three editions</span></caption>
+          <thead>
+            <tr>
+              <th scope="col"><span lang="pt-BR">Ano</span><span lang="en">Year</span></th>
+              <th scope="col"><span lang="pt-BR">Projeto</span><span lang="en">Project</span></th>
+              <th scope="col"><span lang="pt-BR">Categoria</span><span lang="en">Category</span></th>
+              <th scope="col"><span lang="pt-BR">Resultado</span><span lang="en">Result</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>2020</td><td>Curupira</td><td>500 m</td><td><span lang="pt-BR">Campeão</span><span lang="en">Winner</span></td></tr>
+            <tr><td>2021</td><td>Rigel</td><td>1 km</td><td><span lang="pt-BR">Campeão</span><span lang="en">Winner</span></td></tr>
+            <tr><td>2022</td><td>Rigel</td><td>1 km</td><td><span lang="pt-BR">Campeão</span><span lang="en">Winner</span></td></tr>
+          </tbody>
+        </table>
+        <p lang="pt-BR">Atuei nos subsistemas de propulsão e mecânica de voo dos dois projetos. A simulação de trajetória em 6 graus de liberdade verificava o desempenho e as condições de voo, e as rodadas de Monte Carlo mapeavam as regiões de queda balística e não balística para a análise de segurança.</p>
+        <p lang="en">I worked in the propulsion and flight mechanics subsystems of both projects. The 6-DOF trajectory simulation verified performance and flight conditions, and Monte Carlo runs mapped ballistic and non-ballistic impact regions for the safety analysis.</p>
+        <p class="method"><b lang="pt-BR">Ferramentas:</b><b lang="en">Tools:</b> MATLAB, <span lang="pt-BR">método de Monte Carlo</span><span lang="en">Monte Carlo method</span>, CFD.</p>
+      </article>
+
+      <article class="project">
+        <h3><span lang="pt-BR">Veículo de 5 km de apogeu</span><span lang="en">5 km apogee launch vehicle</span></h3>
+        <p class="org"><span lang="pt-BR">LASC Cooperation Program, 2020 – 2022</span><span lang="en">LASC Cooperation Program, 2020 – 2022</span></p>
+        <p lang="pt-BR">Projeto de cooperação internacional para projetar, construir e lançar um foguete com apogeu de 5 km. A TOPUS era responsável pela aeroestrutura. Fiz os desenhos técnicos e planos de fabricação da coifa, apoiei estudos de fabricação em compósitos e rodei simulações CFD 2D e 3D para buscar o melhor desempenho aerodinâmico do veículo.</p>
+        <p lang="en">An international cooperation project to design, build and launch a rocket with a 5 km apogee. TOPUS was responsible for the aerostructure. I produced the nose cone's technical drawings and manufacturing plans, supported composite manufacturing studies and ran 2D and 3D CFD simulations to improve the vehicle's aerodynamic performance.</p>
+        <p class="method"><b lang="pt-BR">Ferramentas:</b><b lang="en">Tools:</b> ANSYS Fluent, CAD.</p>
+      </article>
+
+      <article class="project">
+        <h3><span lang="pt-BR">Motor híbrido Boitatá</span><span lang="en">Boitatá hybrid rocket motor</span></h3>
+        <p class="org"><span lang="pt-BR">TOPUS, 2020 – 2023</span><span lang="en">TOPUS, 2020 – 2023</span></p>
+        <p lang="pt-BR">Desenvolvimento de um motor híbrido de foguete que recebeu, em 2020, uma bolsa de Bancada de Testes da Agência Espacial Brasileira. Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas que levam o oxidante à câmara de combustão com segurança, e trabalhei no injetor de vórtice.</p>
+        <p lang="en">Development of a hybrid rocket motor that received a Brazilian Space Agency (AEB) test stand grant in 2020. On the oxidiser injection team, I designed and tested the tank, piping and valves that deliver oxidiser safely to the combustion chamber, and worked on the swirl injector.</p>
+        <p class="method"><b lang="pt-BR">Métodos:</b><b lang="en">Methods:</b> <span lang="pt-BR">termodinâmica, modelagem numérica, ensaios.</span><span lang="en">thermodynamics, numerical modelling, testing.</span></p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" id="pesquisa" aria-labelledby="h-pesq">
+    <h2 id="h-pesq"><span lang="pt-BR">Pesquisa</span><span lang="en">Research</span></h2>
+    <div class="body">
+      <ol class="timeline" reversed>
+        <li>
+          <p class="when"><span lang="pt-BR">2023 – atual</span><span lang="en">2023 – present</span></p>
+          <div class="entry">
+            <h3><span lang="pt-BR">Simulação de escoamentos turbulentos</span><span lang="en">Turbulent flow simulation</span></h3>
+            <p class="org"><span lang="pt-BR">ICMC-USP, bolsa FAPESP</span><span lang="en">ICMC-USP, FAPESP grant</span></p>
+            <p lang="pt-BR">Pesquisa em simulação de escoamentos turbulentos e métodos numéricos, com abordagem LES aplicada à análise de estruturas coerentes na turbulência atmosférica. Desenvolvimento e execução de rotinas numéricas em ambiente HPC.</p>
+            <p lang="en">Research on turbulent flow simulation and numerical methods, with an LES approach applied to coherent structures in atmospheric turbulence. Development and execution of numerical routines in HPC environments.</p>
+            <p class="method"><b lang="pt-BR">Métodos:</b><b lang="en">Methods:</b> <span lang="pt-BR">LES, modelos de submalha, Fortran, HPC, Linux.</span><span lang="en">LES, subgrid-scale models, Fortran, HPC, Linux.</span></p>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span lang="pt-BR">jul. 2023 – dez. 2024</span><span lang="en">Jul 2023 – Dec 2024</span></p>
+          <div class="entry">
+            <h3><span lang="pt-BR">Cargas aerodinâmicas não estacionárias</span><span lang="en">Unsteady aerodynamic loads</span></h3>
+            <p class="org"><span lang="pt-BR">Iniciação científica</span><span lang="en">Undergraduate research</span></p>
+            <p lang="pt-BR">Desenvolvimento de modelos semi-empíricos para cargas aerodinâmicas não estacionárias em superfícies sustentadoras, com identificação e calibração de parâmetros a partir de dados experimentais e de CFD.</p>
+            <p lang="en">Semi-empirical models for unsteady aerodynamic loads on lifting surfaces, with parameter identification and calibration against experimental and CFD data.</p>
+            <p class="method"><b lang="pt-BR">Métodos:</b><b lang="en">Methods:</b> <span lang="pt-BR">algoritmos genéticos, redes neurais, otimização.</span><span lang="en">genetic algorithms, neural networks, optimisation.</span></p>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span lang="pt-BR">fev. – jul. 2023</span><span lang="en">Feb – Jul 2023</span></p>
+          <div class="entry">
+            <h3><span lang="pt-BR">Energia eólica e modelagem atmosférica</span><span lang="en">Wind energy and atmospheric modelling</span></h3>
+            <p class="org">IRPHE, École Centrale de Marseille</p>
+            <p lang="pt-BR">Simulações atmosféricas com o modelo WRF, análise de incerteza para previsão de vento e avaliação do desempenho de turbinas eólicas sob diferentes condições atmosféricas.</p>
+            <p lang="en">Atmospheric simulations with the WRF model, uncertainty analysis for wind forecasting and wind turbine performance under varying atmospheric conditions.</p>
+            <p class="method"><b lang="pt-BR">Ferramentas:</b><b lang="en">Tools:</b> WRF.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="competencias" aria-labelledby="h-comp">
+    <h2 id="h-comp"><span lang="pt-BR">Competências</span><span lang="en">Skills</span></h2>
+    <div class="body">
+      <dl class="skills">
+        <dt><span lang="pt-BR">Engenharia</span><span lang="en">Engineering</span></dt>
+        <dd><span lang="pt-BR">Aerodinâmica, CFD, propulsão, mecânica de voo, engenharia de sistemas, FEA, sistemas de controle (fundamentos).</span><span lang="en">Aerodynamics, CFD, propulsion, flight mechanics, systems engineering, FEA, control systems (fundamentals).</span></dd>
+        <dt><span lang="pt-BR">Simulação</span><span lang="en">Simulation</span></dt>
+        <dd><span lang="pt-BR">ANSYS Fluent, CFX, OpenFOAM, XFOIL, XFLR5, WRF, Patran/Nastran (básico), Abaqus (básico).</span><span lang="en">ANSYS Fluent, CFX, OpenFOAM, XFOIL, XFLR5, WRF, Patran/Nastran (basic), Abaqus (basic).</span></dd>
+        <dt><span lang="pt-BR">Programação</span><span lang="en">Programming</span></dt>
+        <dd><span lang="pt-BR">Python, MATLAB/Simulink, Fortran, SQL, C++ e Java (básico).</span><span lang="en">Python, MATLAB/Simulink, Fortran, SQL, C++ and Java (basic).</span></dd>
+        <dt><span lang="pt-BR">Ferramentas</span><span lang="en">Tools</span></dt>
+        <dd><span lang="pt-BR">Git, Linux, HPC, Google Cloud, SolidWorks, Fusion 360, CATIA (básico), LaTeX.</span><span lang="en">Git, Linux, HPC, Google Cloud, SolidWorks, Fusion 360, CATIA (basic), LaTeX.</span></dd>
+        <dt><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span></dt>
+        <dd><span lang="pt-BR">Português (nativo), inglês (avançado), francês (avançado), alemão (básico).</span><span lang="en">Portuguese (native), English (advanced), French (advanced), German (basic).</span></dd>
+      </dl>
+
+
+      <div class="sublist">
+        <h3><span lang="pt-BR">Cursos e certificados</span><span lang="en">Courses and certificates</span></h3>
+        <ul class="plain" lang="pt-BR">
+          <li>Curso de Machine Learning (2025)</li>
+          <li>Análise de Elementos Finitos com MATLAB: mecânica estrutural e transferência de calor</li>
+          <li>Minicurso online de XFOIL</li>
+          <li>Treinamento básico do software GOM Inspect Suite</li>
+          <li>Latin American Space Challenge, participação em 2020, 2021 e 2022</li>
+        </ul>
+        <ul class="plain" lang="en">
+          <li>Machine Learning course (2025)</li>
+          <li>Finite Element Analysis with MATLAB: structural mechanics and heat transfer</li>
+          <li>XFOIL online short course</li>
+          <li>GOM Inspect Suite basic training</li>
+          <li>Latin American Space Challenge, participation in 2020, 2021 and 2022</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contato" aria-labelledby="h-cont">
+    <h2 id="h-cont"><span lang="pt-BR">Contato</span><span lang="en">Contact</span></h2>
+    <div class="body">
+      <p lang="pt-BR">Para vagas de estágio, posições júnior ou projetos de pesquisa, escreva para:</p>
+      <p lang="en">For internships, junior roles or research projects, write to:</p>
+      <a class="contact-mail" href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a>
+      <p><a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">linkedin.com/in/igorademelo</a></p>
+      <p class="muted"><span lang="pt-BR">São Carlos, SP, Brasil</span><span lang="en">São Carlos, São Paulo, Brazil</span></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 Igor Augusto de Melo</p>
+</footer>
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement;
+
+  /* ---------- Idioma ---------- */
+  var langButtons = document.querySelectorAll(".lang button");
+  var titles = {
+    "pt-BR": "Igor Augusto de Melo | Engenharia Aeronáutica",
+    "en": "Igor Augusto de Melo | Aeronautical Engineering"
+  };
+  function setLang(l) {
+    root.lang = l;
+    langButtons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === l)); });
+    document.title = titles[l];
+    updateReadout();
+  }
+  langButtons.forEach(function (b) { b.addEventListener("click", function () { setLang(b.dataset.lang); }); });
+
+  /* ---------- Cabeçalho ---------- */
+  var header = document.querySelector(".site-header");
+  function onScroll() { header.classList.toggle("scrolled", window.scrollY > 8); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Escoamento potencial: aerofólio de Joukowski ----------
+     Plano ζ: cilindro de centro μ e raio R passando por ζ = 1.
+     z = ζ + 1/ζ.  w(ζ) = U[(ζ-μ)e^{-iα} + R² e^{iα}/(ζ-μ)] + iΓ/(2π) ln(ζ-μ)
+     Kutta: Γ = 4πUR sin(α+β).  Vista em referencial do túnel (aerofólio girado de α). */
+  var MU_X = -0.09, MU_Y = 0.07, U = 1;
+  var R = Math.hypot(1 - MU_X, MU_Y);
+  var BETA = Math.atan2(MU_Y, 1 - MU_X);
+  var alpha = 0, ca = 1, sa = 0, gamma = 0;
+
+  var foil = [], chord = 4;
+  (function buildFoil() {
+    var minX = Infinity, maxX = -Infinity, n = 240;
+    for (var i = 0; i < n; i++) {
+      var th = (i / n) * 2 * Math.PI;
+      var zx = MU_X + R * Math.cos(th), zy = MU_Y + R * Math.sin(th);
+      var m = zx * zx + zy * zy;
+      var X = zx + zx / m, Y = zy - zy / m;
+      foil.push([X, Y]);
+      if (X < minX) minX = X;
+      if (X > maxX) maxX = X;
+    }
+    chord = maxX - minX;
+  })();
+
+  function setAlpha(deg) {
+    alpha = (deg * Math.PI) / 180;
+    ca = Math.cos(alpha); sa = Math.sin(alpha);
+    gamma = 4 * Math.PI * U * R * Math.sin(alpha + BETA);
+  }
+
+  // Velocidade no referencial do túnel. Retorna false dentro do aerofólio.
+  function vel(x, y, out) {
+    var bx = x * ca - y * sa, by = x * sa + y * ca;
+    var a = bx * bx - by * by - 4, b = 2 * bx * by, r = Math.hypot(a, b);
+    var sr = Math.sqrt(Math.max(0, (r + a) / 2));
+    var si = Math.sqrt(Math.max(0, (r - a) / 2));
+    if (b < 0) si = -si;
+    var z1x = (bx + sr) / 2, z1y = (by + si) / 2, z2x = (bx - sr) / 2, z2y = (by - si) / 2;
+    var d1 = Math.hypot(z1x - MU_X, z1y - MU_Y), d2 = Math.hypot(z2x - MU_X, z2y - MU_Y);
+    var zx, zy, dd;
+    if (d1 >= d2) { zx = z1x; zy = z1y; dd = d1; } else { zx = z2x; zy = z2y; dd = d2; }
+    if (dd < R * 1.0005) return false;
+    var dx = zx - MU_X, dy = zy - MU_Y, dm2 = dx * dx + dy * dy;
+    var wx = U * ca, wy = -U * sa;
+    var d2x = dx * dx - dy * dy, d2y = -2 * dx * dy, k = (U * R * R) / (dm2 * dm2);
+    wx -= k * (ca * d2x - sa * d2y);
+    wy -= k * (ca * d2y + sa * d2x);
+    var g = gamma / (2 * Math.PI * dm2);
+    wx += g * dy; wy += g * dx;
+    var zm2 = zx * zx + zy * zy, zi4 = 1 / (zm2 * zm2);
+    var jx = 1 - (zx * zx - zy * zy) * zi4, jy = 2 * zx * zy * zi4, jm2 = jx * jx + jy * jy;
+    if (jm2 < 1e-7) return false;
+    var ub = (wx * jx + wy * jy) / jm2, vb = -((wy * jx - wx * jy) / jm2);
+    var sp2 = ub * ub + vb * vb;
+    if (sp2 > 9) { var s = 3 / Math.sqrt(sp2); ub *= s; vb *= s; sp2 = 9; }
+    out[0] = ub * ca + vb * sa;
+    out[1] = -ub * sa + vb * ca;
+    out[2] = sp2;
+    return true;
+  }
+
+  /* ---------- Leitura (ângulo e C_L) ---------- */
+  var aoa = document.getElementById("aoa");
+  var aoaOut = document.getElementById("aoa-out");
+  var clOut = document.getElementById("cl-out");
+  function fmt(v, d) {
+    return new Intl.NumberFormat(root.lang, { minimumFractionDigits: d, maximumFractionDigits: d }).format(v);
+  }
+  function updateReadout() {
+    var deg = parseFloat(aoa.value);
+    var cl = (8 * Math.PI * R * Math.sin((deg * Math.PI) / 180 + BETA)) / chord;
+    aoaOut.textContent = fmt(deg, 1) + "°";
+    clOut.textContent = fmt(cl, 2);
+    aoa.setAttribute("aria-valuetext", fmt(deg, 1) + "°, CL " + fmt(cl, 2));
+  }
+
+  /* ---------- Canvas ---------- */
+  var canvas = document.getElementById("flow");
+  var ctx = canvas.getContext("2d");
+  var W = 0, H = 0, S = 1, CX = 0, CY = 0, XMIN = -4, XMAX = 4, YMIN = -2, YMAX = 2;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Paleta Cp: sucção (azul) -> escoamento livre (ardósia) -> estagnação (vermelho)
+  var BUCKETS = 48, CP_MIN = -1.2, CP_MAX = 0.7;
+  var colors = [];
+  (function buildColors() {
+    var suc = [47, 69, 181], fre = [135, 146, 162], sta = [176, 35, 47];
+    var zero = (0 - CP_MIN) / (CP_MAX - CP_MIN);
+    for (var i = 0; i < BUCKETS; i++) {
+      var t = i / (BUCKETS - 1), c;
+      if (t < zero) { var u = t / zero; c = suc.map(function (v, j) { return Math.round(v + (fre[j] - v) * u); }); }
+      else { var q = (t - zero) / (1 - zero); c = fre.map(function (v, j) { return Math.round(v + (sta[j] - v) * q); }); }
+      colors.push("rgb(" + c.join(",") + ")");
+    }
+  })();
+  function bucketOf(sp2) {
+    var cp = 1 - sp2 / (U * U);
+    var t = (cp - CP_MIN) / (CP_MAX - CP_MIN);
+    return Math.max(0, Math.min(BUCKETS - 1, Math.round(t * (BUCKETS - 1))));
+  }
+
+  function resize() {
+    var rect = canvas.getBoundingClientRect();
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = rect.width; H = rect.height;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var wide = W > 700;
+    S = Math.min((wide ? 0.42 : 0.72) * W / chord, H / 2.9);
+    CX = W * (wide ? 0.56 : 0.5); CY = H * 0.5;
+    XMIN = -CX / S - 0.2; XMAX = (W - CX) / S + 0.2;
+    YMIN = -(H - CY) / S; YMAX = CY / S;
+    initParticles();
+    if (reduce.matches) drawStatic();
+  }
+
+  function drawFoil() {
+    ctx.beginPath();
+    for (var i = 0; i < foil.length; i++) {
+      var X = foil[i][0] * ca + foil[i][1] * sa, Y = -foil[i][0] * sa + foil[i][1] * ca;
+      var px = CX + X * S, py = CY - Y * S;
+      if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.closePath();
+    ctx.fillStyle = "#16233A";
+    ctx.fill();
+  }
+
+  /* Partículas com rastro */
+  var TRAIL = 16, particles = [], tmp = [0, 0, 0], tmp2 = [0, 0, 0];
+  function spawn(p, anywhere) {
+    for (var tries = 0; tries < 20; tries++) {
+      p.x = anywhere ? XMIN + Math.random() * (XMAX - XMIN) : XMIN + Math.random() * 0.3;
+      p.y = YMIN + Math.random() * (YMAX - YMIN);
+      if (vel(p.x, p.y, tmp)) break;
+    }
+    p.n = 0;
+    p.age = 0;
+    p.life = 4 + Math.random() * 6;
+    p.b = bucketOf(tmp[2]);
+  }
+  function initParticles() {
+    var count = Math.max(160, Math.min(720, Math.round((W * H) / 1500)));
+    particles = [];
+    for (var i = 0; i < count; i++) {
+      var p = { tx: new Float32Array(TRAIL), ty: new Float32Array(TRAIL) };
+      spawn(p, true);
+      particles.push(p);
+    }
+  }
+
+  function advance(dt) {
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      if (!vel(p.x, p.y, tmp)) { spawn(p, false); continue; }
+      var mx = p.x + tmp[0] * dt * 0.5, my = p.y + tmp[1] * dt * 0.5;
+      if (!vel(mx, my, tmp2)) { spawn(p, false); continue; }
+      p.x += tmp2[0] * dt; p.y += tmp2[1] * dt;
+      p.age += dt;
+      p.b = bucketOf(tmp2[2]);
+      if (p.n < TRAIL) { p.tx[p.n] = p.x; p.ty[p.n] = p.y; p.n++; }
+      else { p.tx.copyWithin(0, 1); p.ty.copyWithin(0, 1); p.tx[TRAIL - 1] = p.x; p.ty[TRAIL - 1] = p.y; }
+      if (p.x > XMAX || p.y < YMIN - 0.5 || p.y > YMAX + 0.5 || p.age > p.life) spawn(p, p.age > p.life);
+    }
+  }
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.lineWidth = 1.4;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.globalAlpha = 0.85;
+    for (var b = 0; b < BUCKETS; b++) {
+      var started = false;
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        if (p.b !== b || p.n < 2) continue;
+        if (!started) { ctx.beginPath(); started = true; }
+        ctx.moveTo(CX + p.tx[0] * S, CY - p.ty[0] * S);
+        for (var k = 1; k < p.n; k++) ctx.lineTo(CX + p.tx[k] * S, CY - p.ty[k] * S);
+      }
+      if (started) { ctx.strokeStyle = colors[b]; ctx.stroke(); }
+    }
+    ctx.globalAlpha = 1;
+    drawFoil();
+  }
+
+  /* Versão estática (movimento reduzido): linhas de corrente integradas */
+  function drawStatic() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.lineWidth = 1.3;
+    ctx.lineCap = "round";
+    var paths = [];
+    for (var b = 0; b < BUCKETS; b++) paths.push([]);
+    var seeds = 44;
+    for (var s = 0; s < seeds; s++) {
+      var x = XMIN, y = YMIN + ((s + 0.5) / seeds) * (YMAX - YMIN);
+      for (var step = 0; step < 2400 && x < XMAX; step++) {
+        if (!vel(x, y, tmp)) break;
+        var sp = Math.sqrt(tmp[2]) || 1, h = 0.02 / sp;
+        var nx = x + tmp[0] * h, ny = y + tmp[1] * h;
+        paths[bucketOf(tmp[2])].push(x, y, nx, ny);
+        x = nx; y = ny;
+      }
+    }
+    for (var c = 0; c < BUCKETS; c++) {
+      var seg = paths[c];
+      if (!seg.length) continue;
+      ctx.beginPath();
+      for (var i = 0; i < seg.length; i += 4) {
+        ctx.moveTo(CX + seg[i] * S, CY - seg[i + 1] * S);
+        ctx.lineTo(CX + seg[i + 2] * S, CY - seg[i + 3] * S);
+      }
+      ctx.strokeStyle = colors[c];
+      ctx.stroke();
+    }
+    drawFoil();
+  }
+
+  /* Laço de animação: só roda quando a figura está visível */
+  var visible = true, rafId = 0, last = 0;
+  function frame(t) {
+    rafId = 0;
+    if (!visible || document.hidden || reduce.matches) return;
+    var dt = last ? Math.min(0.05, (t - last) / 1000) : 0.016;
+    last = t;
+    advance(dt * 1.5);
+    drawParticles();
+    rafId = requestAnimationFrame(frame);
+  }
+  function start() { if (!rafId && !reduce.matches) { last = 0; rafId = requestAnimationFrame(frame); } }
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      if (visible) start();
+    }).observe(canvas);
+  }
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) start(); });
+  reduce.addEventListener && reduce.addEventListener("change", function () { if (reduce.matches) drawStatic(); else start(); });
+
+  aoa.addEventListener("input", function () {
+    setAlpha(parseFloat(aoa.value));
+    updateReadout();
+    if (reduce.matches) drawStatic();
+  });
+
+  if ("ResizeObserver" in window) new ResizeObserver(resize).observe(canvas.parentElement);
+  else window.addEventListener("resize", resize);
+
+  setAlpha(parseFloat(aoa.value));
+  var params = new URLSearchParams(window.location.search);
+  setLang(params.get("lang") === "en" ? "en" : "pt-BR");
+  resize();
+  start();
+})();
+</script>
+</body>
+</html>
