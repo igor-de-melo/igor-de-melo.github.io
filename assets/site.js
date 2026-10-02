@@ -41,6 +41,53 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+
+  /* ---------- Tema claro/escuro ---------- */
+  // Padrão: segue o sistema. O botão grava a escolha (localStorage "theme"); um script no <head> a aplica antes da pintura.
+  // Quem desenha em canvas escuta o evento "sitethemechange" e relê as cores.
+  var themeBtn = document.querySelector(".theme-toggle");
+  var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  function isDark() {
+    var t = root.dataset.theme;
+    return t ? t === "dark" : darkQuery.matches;
+  }
+  function syncTheme() {
+    if (themeBtn) themeBtn.setAttribute("aria-pressed", String(isDark()));
+    document.dispatchEvent(new CustomEvent("sitethemechange", { detail: { dark: isDark() } }));
+  }
+  if (themeBtn) themeBtn.addEventListener("click", function () {
+    var next = isDark() ? "light" : "dark";
+    root.dataset.theme = next;
+    try { window.localStorage.setItem("theme", next); } catch (e) { /* sem persistência */ }
+    syncTheme();
+  });
+  if (darkQuery.addEventListener) darkQuery.addEventListener("change", function () { if (!root.dataset.theme) syncTheme(); });
+  if (themeBtn) themeBtn.setAttribute("aria-pressed", String(isDark()));
+
+  /* ---------- Menu de seções no celular ---------- */
+  var navToggle = document.querySelector(".nav-toggle"), nav = document.getElementById("secoes");
+  if (navToggle && nav) {
+    var closeNav = function () { nav.classList.remove("open"); navToggle.setAttribute("aria-expanded", "false"); };
+    navToggle.addEventListener("click", function () {
+      var open = !nav.classList.contains("open");
+      nav.classList.toggle("open", open);
+      navToggle.setAttribute("aria-expanded", String(open));
+    });
+    nav.addEventListener("click", function (e) { if (e.target.closest("a")) closeNav(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && nav.classList.contains("open")) { closeNav(); navToggle.focus(); } });
+  }
+
+  /* ---------- Seções surgem ao rolar (só com movimento permitido) ---------- */
+  var motionOK = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (motionOK && "IntersectionObserver" in window) {
+    var secs = document.querySelectorAll("main .section");
+    root.classList.add("reveal-on");
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    secs.forEach(function (s) { io.observe(s); });
+  }
+
   /* ---------- Idioma inicial: ?lang=, depois localStorage, depois PT ---------- */
   var requested = new URLSearchParams(window.location.search).get("lang");
   if (VALID.indexOf(requested) >= 0) setLang(requested, true);

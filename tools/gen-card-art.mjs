@@ -83,7 +83,7 @@ function mazeSvg() {
     `<rect class="art-goal" x="${ox + gx[0] * cs}" y="${oy + gx[1] * cs}" width="${cs}" height="${cs}"/>` +
     `<circle class="art-dot" cx="${ox + gx[0] * cs + cs / 2}" cy="${oy + gx[1] * cs + cs / 2}" r="${cs * 0.22}"/>` +
     `<circle class="art-start" cx="${ox + s[0] * cs + cs / 2}" cy="${oy + s[1] * cs + cs / 2}" r="${cs * 0.34}"/>` +
-    `<path class="art-route" d="${route}"/>` +
+    `<path class="art-route" pathLength="1" d="${route}"/>` +
     `<circle class="art-agent" cx="${f(ox + mid[0] * cs + cs / 2)}" cy="${f(oy + mid[1] * cs + cs / 2)}" r="${cs * 0.3}"/></svg>`;
 }
 

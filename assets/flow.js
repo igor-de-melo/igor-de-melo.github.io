@@ -94,6 +94,10 @@
   var ctx = canvas.getContext("2d");
   var W = 0, H = 0, S = 1, CX = 0, CY = 0, XMIN = -4, XMAX = 4, YMIN = -2, YMAX = 2;
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var foilColor = "#16233A";
+  function readFoil() { foilColor = getComputedStyle(canvas).getPropertyValue("--ink").trim() || "#16233A"; }
+  readFoil();
+  document.addEventListener("sitethemechange", function () { readFoil(); if (reduce.matches) drawStatic(); });
 
   // Paleta Cp: sucção (azul) -> escoamento livre (ardósia) -> estagnação (vermelho)
   var BUCKETS = 48, CP_MIN = -1.2, CP_MAX = 0.7;
@@ -137,7 +141,7 @@
       if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
     }
     ctx.closePath();
-    ctx.fillStyle = "#16233A";
+    ctx.fillStyle = foilColor;
     ctx.fill();
   }
 
