@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" data-desc-pt-br="Igor Augusto de Melo busca estágio em cibersegurança: Linux, Bash, SSH, OAuth2, Python e automação em servidores na nuvem." data-desc-en="Igor Augusto de Melo, Cybersecurity Intern candidate: Linux, Bash scripting, SSH, OAuth2, Python and cloud server automation." data-desc-fr="Igor Augusto de Melo recherche un stage en cybersécurité : Linux, Bash, SSH, OAuth2, Python et automatisation de serveurs cloud." data-title-pt-br="Igor Augusto de Melo | Cibersegurança" data-title-en="Igor Augusto de Melo | Cybersecurity" data-title-fr="Igor Augusto de Melo | Cybersécurité">
+<html lang="pt-BR" data-desc-pt-br="Igor Augusto de Melo busca estágio em cibersegurança: Linux, Bash, SSH, OAuth2, Python e automação em servidores na nuvem." data-desc-en="Igor Augusto de Melo, seeking cybersecurity internships: Linux, Bash scripting, SSH, OAuth2, Python and cloud server automation." data-desc-fr="Igor Augusto de Melo recherche un stage en cybersécurité : Linux, Bash, SSH, OAuth2, Python et automatisation de serveurs cloud." data-title-pt-br="Igor Augusto de Melo | Cibersegurança" data-title-en="Igor Augusto de Melo | Cybersecurity" data-title-fr="Igor Augusto de Melo | Cybersécurité">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
  "@context": "https://schema.org",
  "@type": "Person",
  "name": "Igor Augusto de Melo",
- "jobTitle": "Cybersecurity Intern (in training)",
+ "jobTitle": "Aeronautical Engineering student",
  "url": "https://igor-de-melo.github.io/cyber/",
  "email": "mailto:igor_amelo@usp.br",
  "address": {
@@ -94,7 +94,7 @@
 
 <section class="hero" aria-labelledby="nome">
   <h1 class="name" id="nome">Igor Augusto<br>de Melo</h1>
-  <p class="role"><span lang="pt-BR">Estágio em Cibersegurança (em formação)</span><span lang="en">Cybersecurity Intern (in training)</span><span lang="fr">Stagiaire en cybersécurité (en formation)</span></p>
+  <p class="area-title"><span lang="pt-BR">Cibersegurança (em formação)</span><span lang="en">Cybersecurity (in training)</span><span lang="fr">Cybersécurité (en formation)</span></p>
   <p class="facts">
     <span lang="pt-BR">Engenharia Aeronáutica, EESC-USP<br>São Carlos, SP</span>
     <span lang="en">Aeronautical Engineering, EESC-USP<br>São Carlos, Brazil</span>
@@ -114,6 +114,38 @@
     </div>
   </div>
 </section>
+
+<div class="sims" data-sims>
+<figure class="tunnel sim-panel" data-sim="malware" data-label-pt-br="Malware numa rede" data-label-en="Malware on a network" data-label-fr="Malware dans un réseau" aria-describedby="legenda-mw">
+  <div class="tunnel-frame tunnel-frame--net">
+    <canvas id="net" role="img" aria-label="Simulação: um malware se espalha por uma rede de computadores enquanto um defensor isola as máquinas infectadas"></canvas>
+  </div>
+  <figcaption class="tunnel-meta">
+    <p id="legenda-mw">
+      <span lang="pt-BR">Propagação de malware numa rede de 64 máquinas, com o modelo epidemiológico SIR rodando no navegador. A cada passo, uma máquina infectada (vermelho) contamina cada vizinha vulnerável (cinza) com probabilidade β, e o defensor detecta e isola cada infectada (anel azul) com probabilidade γ. Clique numa máquina para infectá-la.</span>
+      <span lang="en">Malware spreading through a 64-machine network, with the SIR epidemic model running in the browser. At each step, an infected machine (red) compromises each susceptible neighbor (gray) with probability β, and the defender detects and isolates each infected machine (blue ring) with probability γ. Click a machine to infect it.</span>
+      <span lang="fr">Propagation d’un logiciel malveillant dans un réseau de 64 machines, avec le modèle épidémiologique SIR exécuté dans le navigateur. À chaque pas, une machine infectée (rouge) contamine chaque voisine vulnérable (gris) avec une probabilité β, et le défenseur détecte et isole chaque machine infectée (anneau bleu) avec une probabilité γ. Cliquez sur une machine pour l’infecter.</span>
+    </p>
+    <div class="controls">
+      <label for="mw-beta"><span lang="pt-BR">Taxa de infecção β</span><span lang="en">Infection rate β</span><span lang="fr">Taux d’infection β</span></label>
+      <input id="mw-beta" type="range" min="0.05" max="0.6" step="0.01" value="0.3">
+      <output id="mw-beta-out" for="mw-beta">0,30</output>
+      <label for="mw-gamma"><span lang="pt-BR">Resposta do defensor γ</span><span lang="en">Defender response γ</span><span lang="fr">Réponse du défenseur γ</span></label>
+      <input id="mw-gamma" type="range" min="0" max="0.6" step="0.01" value="0.15">
+      <output id="mw-gamma-out" for="mw-gamma">0,15</output>
+      <span>R<sub>0</sub> ≈ <output id="mw-r0">2,8</output></span>
+    </div>
+    <div class="controls">
+      <span><span lang="pt-BR">Passo</span><span lang="en">Step</span><span lang="fr">Pas</span> <output id="mw-t">0</output></span>
+      <span><span lang="pt-BR">Vulneráveis</span><span lang="en">Susceptible</span><span lang="fr">Vulnérables</span> <output id="mw-s">63</output></span>
+      <span><span lang="pt-BR">Infectadas</span><span lang="en">Infected</span><span lang="fr">Infectées</span> <output id="mw-i">1</output></span>
+      <span><span lang="pt-BR">Isoladas</span><span lang="en">Isolated</span><span lang="fr">Isolées</span> <output id="mw-r">0</output></span>
+      <button type="button" class="rl-btn" id="mw-pause"><span data-mw-when="running"><span lang="pt-BR">Pausar</span><span lang="en">Pause</span><span lang="fr">Pause</span></span><span data-mw-when="paused" hidden><span lang="pt-BR">Continuar</span><span lang="en">Resume</span><span lang="fr">Reprendre</span></span></button>
+      <button type="button" class="rl-btn" id="mw-restart"><span lang="pt-BR">Novo surto</span><span lang="en">New outbreak</span><span lang="fr">Nouvelle épidémie</span></button>
+    </div>
+  </figcaption>
+</figure>
+</div>
 
 <main id="conteudo">
 
@@ -284,5 +316,7 @@
   <p>© 2026 Igor Augusto de Melo</p>
 </footer>
 <script src="../assets/site.js"></script>
+<script src="../assets/sims.js"></script>
+<script src="../assets/malware.js"></script>
 </body>
 </html>

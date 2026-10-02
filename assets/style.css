@@ -260,5 +260,10 @@ html{scroll-padding-top:112px}
 .art-node-i{fill:var(--stagnation)}
 .art-node-r{fill:var(--surface);stroke:var(--suction);stroke-width:2.5}
 
-/* Cargo-alvo na abertura (P2) */
-.role{grid-column:1/-1;margin:14px 0 0;font-family:var(--display);font-weight:700;font-size:clamp(1.05rem,1.8vw,1.375rem);color:var(--accent)}
+/* Nome da área na abertura */
+.area-title{grid-column:1/-1;margin:14px 0 0;font-family:var(--display);font-weight:700;font-size:clamp(1.05rem,1.8vw,1.375rem);color:var(--accent)}
+
+/* Simulação de Cibersegurança (assets/malware.js) */
+.tunnel-frame--net{height:clamp(300px,52vh,500px);cursor:pointer}
+.tunnel-frame--net+.tunnel-meta{grid-template-columns:1fr}
+@media (max-width:560px){.tunnel-frame--net{height:420px}}
