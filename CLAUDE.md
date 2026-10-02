@@ -7,4 +7,5 @@ Site estático (GitHub Pages, repositório de usuário). Sem build, sem framewor
 - Inglês Americano (optimization, modeling). Francês com espaço inseparável antes de ":" e apóstrofo tipográfico.
 - Nunca inventar informação sobre o Igor. Se faltar dado, perguntar.
 - Respeitar prefers-reduced-motion e manter foco visível por teclado.
-- Estrutura alvo: / (porta de entrada), /aero/, /ti/, /assets/.
+- Estrutura alvo: / (porta de entrada), /aero/, /ti/, /cyber/ (noindex até ter conteúdo), /assets/, /tests/, /tools/.
+- Testes: node tests/check-parity.mjs (PT/EN/FR) e node tests/check-maze.mjs (Q-learning).

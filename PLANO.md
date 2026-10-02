@@ -3,7 +3,7 @@
 Documento de continuidade. Quem retomar o trabalho numa nova conversa deve ler este arquivo primeiro,
 junto com o `index.html` atual do repositório.
 
-Última atualização: setembro de 2026 (Fase 1 respondida).
+Última atualização: outubro de 2026 (Fases 2 e 3 concluídas).
 
 ---
 
@@ -118,7 +118,7 @@ não front-end: o entregável do Igor era a base e a consulta que alimentavam os
 citáveis: dezenas de influenciadores, dezenas de cupons, milhares de pedidos, ~15 indicadores
 levantados. Nada de faturamento ou dado de cliente.
 
-### Fase 2 — Refatoração técnica `[pendente]`
+### Fase 2 — Refatoração técnica `[concluída]`
 
 Preparar a base para duas páginas, sem mudar o conteúdo visível:
 
@@ -132,7 +132,13 @@ Preparar a base para duas páginas, sem mudar o conteúdo visível:
 **Aceite:** as duas páginas carregam sem rede externa, Lighthouse acima de 95 em desempenho e
 acessibilidade, e a troca de perfil mantém o idioma.
 
-### Fase 3 — Conteúdo da face TI e Dados `[pendente — depende da Fase 2]`
+### Fase 3 — Conteúdo da face TI e Dados `[concluída]`
+Entregue: porta de entrada com nome, contato e dois cartões (Aeronáutica; TI e Dados com link secundário
+para Cibersegurança); `/ti/` completa e trilíngue com agente de Q-learning num labirinto como abertura
+(`assets/maze.js`, validado por `tests/check-maze.mjs`); `/cyber/` com espaços reservados
+(estudos, certificados, laboratórios e projetos), `noindex` e fora do sitemap até ter conteúdo; as três
+faces ligadas pelo seletor do cabeçalho. URL real do site: `https://igor-de-melo.github.io/`.
+Texto original da fase, mantido como referência:
 
 - **Abertura:** visual próprio no lugar do aerofólio, calculado ao vivo, como o atual. Candidatos:
   agrupamento (k-médias) convergindo sobre pontos, regressão se ajustando a dados, grafo dirigido por
