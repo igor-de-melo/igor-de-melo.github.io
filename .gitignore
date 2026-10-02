@@ -1,0 +1,27 @@
+# Sistema operacional
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+*.swp
+
+# Claude Code: configurações locais desta máquina (o CLAUDE.md continua versionado)
+.claude/settings.local.json
+
+# Node e Python (ferramentas e testes)
+node_modules/
+__pycache__/
+*.pyc
+
+# Saídas temporárias de testes e capturas de tela
+screenshots/
+*.log
+tmp/
+
+# Segredos: nunca versionar
+.env
+.env.*
+*.key
+*.pem
