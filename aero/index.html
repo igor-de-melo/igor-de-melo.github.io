@@ -137,6 +137,30 @@
       <span class="cl">C<sub>L</sub> = <output id="cl-out">1,03</output></span>
       <span class="legend" aria-hidden="true"><span>C<sub>p</sub></span> <span lang="pt-BR">sucção</span><span lang="en">suction</span><span lang="fr">dépression</span><i></i><span lang="pt-BR">estagnação</span><span lang="en">stagnation</span><span lang="fr">surpression</span></span>
     </div>
+    <details class="how">
+      <summary><span lang="pt-BR">Como funciona</span><span lang="en">How it works</span><span lang="fr">Comment ça marche</span></summary>
+      <ol lang="pt-BR">
+        <li>A transformação de Joukowski <i>z</i> = ζ + 1/ζ leva um círculo deslocado do centro num perfil com espessura e arqueamento.</li>
+        <li>Em volta do círculo, o escoamento potencial é a soma de um escoamento uniforme, um dipolo e um vórtice de circulação Γ.</li>
+        <li>A condição de Kutta fixa Γ = 4π<i>UR</i>·sen(α + β), para que o escoamento deixe o bordo de fuga suavemente.</li>
+        <li>Pelo teorema de Kutta–Joukowski, <i>L</i>′ = ρ<i>U</i>Γ, logo <i>C<sub>L</sub></i> = 8π<i>R</i>·sen(α + β)/<i>c</i>.</li>
+        <li>Cada partícula segue a velocidade local, integrada pelo método do ponto médio a cada quadro, e recebe a cor de <i>C<sub>p</sub></i> = 1 − (<i>V</i>/<i>U</i>)².</li>
+      </ol>
+      <ol lang="en">
+        <li>The Joukowski transform <i>z</i> = ζ + 1/ζ maps an off-center circle onto an airfoil with thickness and camber.</li>
+        <li>Around the circle, the potential flow is the sum of a uniform stream, a doublet and a vortex of circulation Γ.</li>
+        <li>The Kutta condition sets Γ = 4π<i>UR</i>·sin(α + β), so the flow leaves the trailing edge smoothly.</li>
+        <li>By the Kutta–Joukowski theorem, <i>L</i>′ = ρ<i>U</i>Γ, so <i>C<sub>L</sub></i> = 8π<i>R</i>·sin(α + β)/<i>c</i>.</li>
+        <li>Each particle follows the local velocity, integrated with the midpoint method every frame, and is colored by <i>C<sub>p</sub></i> = 1 − (<i>V</i>/<i>U</i>)².</li>
+      </ol>
+      <ol lang="fr">
+        <li>La transformation de Joukowski <i>z</i> = ζ + 1/ζ envoie un cercle décentré sur un profil avec épaisseur et cambrure.</li>
+        <li>Autour du cercle, l’écoulement potentiel est la somme d’un écoulement uniforme, d’un doublet et d’un tourbillon de circulation Γ.</li>
+        <li>La condition de Kutta impose Γ = 4π<i>UR</i>·sin(α + β), pour que l’écoulement quitte le bord de fuite sans contournement.</li>
+        <li>D’après le théorème de Kutta–Joukowski, <i>L</i>′ = ρ<i>U</i>Γ, donc <i>C<sub>L</sub></i> = 8π<i>R</i>·sin(α + β)/<i>c</i>.</li>
+        <li>Chaque particule suit la vitesse locale, intégrée par la méthode du point milieu à chaque image, et prend la couleur de <i>C<sub>p</sub></i> = 1 − (<i>V</i>/<i>U</i>)².</li>
+      </ol>
+    </details>
   </figcaption>
 </figure>
 </div>
@@ -158,6 +182,9 @@
       <p class="muted" lang="pt-BR">Fora da engenharia, fui voluntário no grupo Gatos do C2, no campus 2 da USP São Carlos, coordenando a logística de resgates do programa de castração, cuidados e soltura.</p>
       <p class="muted" lang="en">Outside engineering, I volunteered with Gatos do C2 on campus 2 of USP São Carlos, coordinating rescue logistics for a neutering, care and release program.</p>
       <p class="muted" lang="fr">En dehors de l’ingénierie, j’ai été bénévole au sein du groupe Gatos do C2, sur le campus 2 de l’USP São Carlos, où je coordonnais la logistique des sauvetages du programme de stérilisation, de soins et de remise en liberté.</p>
+      <p class="bridge" lang="pt-BR">A mesma base de modelagem e simulação, com Monte Carlo, otimização e análise de incerteza, sustenta meu trabalho na página de <a href="../ti/index.html" data-face>TI e Dados</a>.</p>
+      <p class="bridge" lang="en">The same modeling and simulation foundation, with Monte Carlo, optimization and uncertainty analysis, underpins my work on the <a href="../ti/index.html" data-face>IT and Data</a> page.</p>
+      <p class="bridge" lang="fr">La même base de modélisation et de simulation, avec Monte-Carlo, optimisation et analyse d’incertitude, sous-tend mon travail sur la page <a href="../ti/index.html" data-face>Informatique et données</a>.</p>
     </div>
   </section>
 
@@ -267,15 +294,23 @@
       <article class="project feature">
         <h3><span lang="pt-BR">VANT autônomo de asa fixa</span><span lang="en">Autonomous fixed-wing UAV</span><span lang="fr">Drone autonome à voilure fixe</span></h3>
         <p class="org"><span lang="pt-BR">SEMEAR, 2025 – atual</span><span lang="en">SEMEAR, 2025 – present</span><span lang="fr">SEMEAR, 2025 – aujourd’hui</span></p>
-        <p lang="pt-BR">Projeto de extensão para desenvolver do zero um veículo aéreo não tripulado autônomo, com foco em maximizar o desempenho aerodinâmico e a autonomia de voo pela otimização do sistema de propulsão elétrica. Como gerente de projeto, respondo pela arquitetura, pelos requisitos, pela integração entre subsistemas e pelo planejamento de verificação e de riscos.</p>
-        <p lang="en">An extracurricular project to develop an autonomous unmanned aircraft from scratch, focused on maximizing aerodynamic performance and flight endurance by optimizing the electric propulsion system. As project manager, I am responsible for the architecture, requirements, subsystem integration, and verification and risk planning.</p>
-        <p lang="fr">Projet étudiant visant à développer à partir de zéro un drone autonome, avec pour objectif de maximiser les performances aérodynamiques et l’autonomie de vol grâce à l’optimisation de la propulsion électrique. En tant que chef de projet, je suis responsable de l’architecture, des exigences, de l’intégration des sous-systèmes et de la planification de la vérification et des risques.</p>
-        <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">engenharia de sistemas (metodologia NASA), engenharia de requisitos, modelagem de dinâmica de voo, simulações voltadas ao controle.</span><span lang="en">systems engineering (NASA methodology), requirements engineering, flight dynamics modeling, control-oriented simulations.</span><span lang="fr">ingénierie système (méthodologie NASA), ingénierie des exigences, modélisation de la dynamique du vol, simulations orientées commande.</span></p>
+        <dl class="par">
+          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Desenvolver do zero um veículo aéreo não tripulado autônomo de asa fixa, maximizando o desempenho aerodinâmico e a autonomia de voo.</span><span lang="en">Develop an autonomous fixed-wing unmanned aircraft from scratch, maximizing aerodynamic performance and flight endurance.</span><span lang="fr">Développer à partir de zéro un drone autonome à voilure fixe, en maximisant les performances aérodynamiques et l’autonomie de vol.</span></dd></div>
+          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Como gerente de projeto, respondo pela arquitetura, pelos requisitos, pela integração entre subsistemas e pelo planejamento de verificação e de riscos, com a metodologia de engenharia de sistemas da NASA. A autonomia vem da otimização do sistema de propulsão elétrica.</span><span lang="en">As project manager, I am responsible for the architecture, requirements, subsystem integration, and verification and risk planning, following NASA systems engineering methodology. Endurance comes from optimizing the electric propulsion system.</span><span lang="fr">En tant que chef de projet, je suis responsable de l’architecture, des exigences, de l’intégration des sous-systèmes et de la planification de la vérification et des risques, selon la méthodologie d’ingénierie système de la NASA. L’autonomie repose sur l’optimisation de la propulsion électrique.</span></dd></div>
+          <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Em andamento desde 2025.</span><span lang="en">In progress since 2025.</span><span lang="fr">En cours depuis 2025.</span></dd></div>
+          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">Engenharia de sistemas (NASA), engenharia de requisitos, modelagem de dinâmica de voo, simulações voltadas ao controle.</span><span lang="en">Systems engineering (NASA), requirements engineering, flight dynamics modeling, control-oriented simulation.</span><span lang="fr">Ingénierie système (NASA), ingénierie des exigences, modélisation de la dynamique du vol, simulations orientées commande.</span></dd></div>
+        </dl>
       </article>
 
       <article class="project">
         <h3><span lang="pt-BR">Foguetes de competição na LASC</span><span lang="en">Competition rockets at LASC</span><span lang="fr">Fusées de compétition à la LASC</span></h3>
         <p class="org">TOPUS, Latin American Space Challenge, 2020 – 2022</p>
+        <dl class="par">
+          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Projetar foguetes de competição que atinjam o apogeu da categoria e voem com segurança.</span><span lang="en">Design competition rockets that reach their category apogee and fly safely.</span><span lang="fr">Concevoir des fusées de compétition qui atteignent l’apogée de leur catégorie et volent en sécurité.</span></dd></div>
+          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Atuei nos subsistemas de propulsão e mecânica de voo. A simulação de trajetória com 6 graus de liberdade verificava o desempenho e as condições de voo, e rodadas de Monte Carlo mapeavam as regiões de queda balística e não balística para a análise de segurança.</span><span lang="en">I worked in the propulsion and flight mechanics subsystems. A 6-DOF trajectory simulation verified performance and flight conditions, and Monte Carlo runs mapped ballistic and non-ballistic impact regions for the safety analysis.</span><span lang="fr">J’ai travaillé dans les sous-systèmes propulsion et mécanique du vol. Une simulation de trajectoire à 6 degrés de liberté vérifiait les performances et les conditions de vol, et des tirages de Monte-Carlo cartographiaient les zones de retombée balistique et non balistique pour l’analyse de sécurité.</span></dd></div>
+          <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Três títulos em três edições (tabela abaixo).</span><span lang="en">Three titles in three editions (table below).</span><span lang="fr">Trois titres en trois éditions (tableau ci-dessous).</span></dd></div>
+          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">MATLAB, simulação com 6 graus de liberdade, método de Monte Carlo, CFD.</span><span lang="en">MATLAB, 6-DOF simulation, Monte Carlo method, CFD.</span><span lang="fr">MATLAB, simulation à 6 degrés de liberté, méthode de Monte-Carlo, CFD.</span></dd></div>
+        </dl>
         <table class="results">
           <caption><span lang="pt-BR">Três títulos em três edições</span><span lang="en">Three titles in three editions</span><span lang="fr">Trois titres en trois éditions</span></caption>
           <thead>
@@ -292,28 +327,27 @@
             <tr><td>2022</td><td>Rigel</td><td>1 km</td><td><span lang="pt-BR">Campeão</span><span lang="en">Winner</span><span lang="fr">Vainqueur</span></td></tr>
           </tbody>
         </table>
-        <p lang="pt-BR">Atuei nos subsistemas de propulsão e mecânica de voo dos dois projetos. A simulação de trajetória com 6 graus de liberdade verificava o desempenho e as condições de voo, e as rodadas de Monte Carlo mapeavam as regiões de queda balística e não balística para a análise de segurança.</p>
-        <p lang="en">I worked in the propulsion and flight mechanics subsystems of both projects. The 6-DOF trajectory simulation verified performance and flight conditions, and Monte Carlo runs mapped ballistic and non-ballistic impact regions for the safety analysis.</p>
-        <p lang="fr">J’ai travaillé dans les sous-systèmes propulsion et mécanique du vol des deux projets. La simulation de trajectoire à 6 degrés de liberté permettait de vérifier les performances et les conditions de vol, et les tirages de Monte-Carlo cartographiaient les zones de retombée balistique et non balistique pour l’analyse de sécurité.</p>
-        <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">MATLAB, simulação com 6 graus de liberdade, método de Monte Carlo, CFD.</span><span lang="en">MATLAB, 6-DOF simulation, Monte Carlo method, CFD.</span><span lang="fr">MATLAB, simulation à 6 degrés de liberté, méthode de Monte-Carlo, CFD.</span></p>
       </article>
 
       <article class="project">
         <h3><span lang="pt-BR">Foguete com apogeu de 5 km</span><span lang="en">Rocket with a 5 km apogee</span><span lang="fr">Fusée à apogée de 5 km</span></h3>
         <p class="org">LASC Cooperation Program, 2020 – 2022</p>
-        <p lang="pt-BR">Programa de cooperação internacional para projetar, construir e lançar um foguete com apogeu de 5 km, no qual a TOPUS era responsável pela aeroestrutura. Elaborei os desenhos técnicos e os planos de fabricação da coifa, apoiei estudos de fabricação em compósitos e realizei simulações de CFD 2D e 3D para buscar o melhor desempenho aerodinâmico do veículo.</p>
-        <p lang="en">An international cooperation program to design, build and launch a rocket with a 5 km apogee, in which TOPUS was responsible for the aerostructure. I produced the technical drawings and manufacturing plans for the nose cone, supported composite manufacturing studies and ran 2D and 3D CFD simulations to improve the vehicle’s aerodynamic performance.</p>
-        <p lang="fr">Programme de coopération internationale visant à concevoir, construire et lancer une fusée à apogée de 5 km, dans lequel l’équipe TOPUS était responsable de l’aérostructure. J’ai réalisé les plans techniques et les dossiers de fabrication de la coiffe, participé aux études de fabrication en matériaux composites et mené des simulations CFD 2D et 3D pour améliorer les performances aérodynamiques du véhicule.</p>
-        <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">ANSYS Fluent (CFD 2D e 3D), desenho técnico.</span><span lang="en">ANSYS Fluent (2D and 3D CFD), technical drawing.</span><span lang="fr">ANSYS Fluent (CFD 2D et 3D), dessin technique.</span></p>
+        <dl class="par">
+          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Projetar, construir e lançar um foguete com apogeu de 5 km num programa de cooperação internacional, no qual a TOPUS era responsável pela aeroestrutura.</span><span lang="en">Design, build and launch a rocket with a 5 km apogee in an international cooperation program, in which TOPUS was responsible for the aerostructure.</span><span lang="fr">Concevoir, construire et lancer une fusée à apogée de 5 km dans un programme de coopération internationale, où l’équipe TOPUS était responsable de l’aérostructure.</span></dd></div>
+          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Elaborei os desenhos técnicos e os planos de fabricação da coifa, apoiei estudos de fabricação em compósitos e realizei simulações de CFD 2D e 3D para buscar o melhor desempenho aerodinâmico do veículo.</span><span lang="en">I produced the technical drawings and manufacturing plans for the nose cone, supported composite manufacturing studies and ran 2D and 3D CFD simulations to improve the vehicle’s aerodynamic performance.</span><span lang="fr">J’ai réalisé les plans techniques et les dossiers de fabrication de la coiffe, participé aux études de fabrication en composites et mené des simulations CFD 2D et 3D pour améliorer les performances aérodynamiques du véhicule.</span></dd></div>
+          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">ANSYS Fluent (CFD 2D e 3D), desenho técnico, compósitos.</span><span lang="en">ANSYS Fluent (2D and 3D CFD), technical drawing, composites.</span><span lang="fr">ANSYS Fluent (CFD 2D et 3D), dessin technique, composites.</span></dd></div>
+        </dl>
       </article>
 
       <article class="project">
         <h3><span lang="pt-BR">Motor híbrido Boitatá</span><span lang="en">Boitatá hybrid rocket motor</span><span lang="fr">Moteur hybride Boitatá</span></h3>
         <p class="org">TOPUS, 2020 – 2023</p>
-        <p lang="pt-BR">Desenvolvimento de um motor-foguete híbrido que recebeu, em 2020, uma bolsa de Bancada de Testes da Agência Espacial Brasileira (AEB). Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas que levam o oxidante com segurança à câmara de combustão, e trabalhei no injetor de vórtice.</p>
-        <p lang="en">Development of a hybrid rocket motor that received a test stand grant from the Brazilian Space Agency (AEB) in 2020. On the oxidiser injection team, I designed and tested the tank, piping and valves that deliver the oxidiser safely to the combustion chamber, and worked on the swirl injector.</p>
-        <p lang="fr">Développement d’un moteur-fusée hybride qui a obtenu en 2020 une bourse de banc d’essai de l’Agence spatiale brésilienne (AEB). Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes qui acheminent l’oxydant en toute sécurité jusqu’à la chambre de combustion, et j’ai travaillé sur l’injecteur tourbillonnaire.</p>
-        <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">termodinâmica, modelagem numérica, ensaios experimentais.</span><span lang="en">thermodynamics, numerical modeling, experimental testing.</span><span lang="fr">thermodynamique, modélisation numérique, essais expérimentaux.</span></p>
+        <dl class="par">
+          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Levar o oxidante com segurança até a câmara de combustão de um motor-foguete híbrido.</span><span lang="en">Deliver the oxidizer safely to the combustion chamber of a hybrid rocket motor.</span><span lang="fr">Acheminer l’oxydant en toute sécurité jusqu’à la chambre de combustion d’un moteur-fusée hybride.</span></dd></div>
+          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas, e trabalhei no injetor de vórtice.</span><span lang="en">On the oxidizer injection team, I designed and tested the tank, piping and valves, and worked on the swirl injector.</span><span lang="fr">Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes, et j’ai travaillé sur l’injecteur tourbillonnaire.</span></dd></div>
+          <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">O projeto recebeu, em 2020, uma bolsa de Bancada de Testes da Agência Espacial Brasileira (AEB).</span><span lang="en">The project received a test stand grant from the Brazilian Space Agency (AEB) in 2020.</span><span lang="fr">Le projet a obtenu en 2020 une bourse de banc d’essai de l’Agence spatiale brésilienne (AEB).</span></dd></div>
+          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">Termodinâmica, modelagem numérica, ensaios experimentais.</span><span lang="en">Thermodynamics, numerical modeling, experimental testing.</span><span lang="fr">Thermodynamique, modélisation numérique, essais expérimentaux.</span></dd></div>
+        </dl>
       </article>
 
     </div>

@@ -267,3 +267,17 @@ html{scroll-padding-top:112px}
 .tunnel-frame--net{height:clamp(300px,52vh,500px);cursor:pointer}
 .tunnel-frame--net+.tunnel-meta{grid-template-columns:1fr}
 @media (max-width:560px){.tunnel-frame--net{height:420px}}
+
+/* P4: formato Problema / Abordagem / Resultado / Stack */
+.par{margin:14px 0 0;display:grid;gap:10px}
+.par>div{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:4px 16px}
+.par dt{font-family:var(--display);font-weight:700;font-size:.875rem;color:var(--ink);padding-top:3px}
+.par dd{margin:0}
+@media (max-width:560px){.par>div{grid-template-columns:1fr}}
+/* P4: caixa "Como funciona" sob as simulações */
+.how{grid-column:1/-1;margin-top:4px;border:1px solid var(--rule);border-radius:4px;background:var(--surface);font-family:var(--text);font-size:1rem;color:var(--ink)}
+.how summary{cursor:pointer;padding:10px 14px;font-family:var(--display);font-weight:700;font-size:.875rem}
+.how ol{margin:0;padding:0 18px 14px 36px}
+.how li{margin-bottom:6px}
+/* P4: ponte entre áreas */
+.bridge{border-left:3px solid var(--accent);padding-left:14px;color:var(--ink-2)}
