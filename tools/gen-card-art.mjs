@@ -87,4 +87,27 @@ function mazeSvg() {
     `<circle class="art-agent" cx="${f(ox + mid[0] * cs + cs / 2)}" cy="${f(oy + mid[1] * cs + cs / 2)}" r="${cs * 0.3}"/></svg>`;
 }
 
-process.stdout.write(JSON.stringify({ aero: aeroSvg(), ti: mazeSvg() }));
+/* ---------- Rede com propagação de malware (modelo SIR) ---------- */
+function netSvg() {
+  const rnd = RL.mulberry32(29), nodes = [];
+  // nós espalhados com distância mínima (amostragem por rejeição, determinística)
+  for (let tries = 0; nodes.length < 34 && tries < 5000; tries++) {
+    const x = 26 + rnd() * (VB_W - 52), y = 22 + rnd() * (VB_H - 44);
+    if (nodes.every((n) => Math.hypot(n.x - x, n.y - y) > 44)) nodes.push({ x, y });
+  }
+  const edges = [];
+  nodes.forEach((a, i) => nodes.forEach((b, j) => { if (j > i && Math.hypot(a.x - b.x, a.y - b.y) < 82) edges.push([i, j]); }));
+  // estado: infecção a partir do nó mais à esquerda, por saltos; parte da rede já isolada pelo defensor
+  const src = nodes.reduce((m, n, i) => (n.x < nodes[m].x ? i : m), 0), hop = nodes.map(() => Infinity);
+  hop[src] = 0; const q = [src];
+  while (q.length) { const u = q.shift(); edges.forEach(([a, b]) => { const v = a === u ? b : b === u ? a : -1; if (v >= 0 && hop[v] === Infinity) { hop[v] = hop[u] + 1; q.push(v); } }); }
+  const state = nodes.map((n, i) => (hop[i] <= 2 ? "i" : hop[i] === 3 ? "r" : "s"));
+  const e = edges.map(([a, b]) => {
+    const hot = state[a] === "i" && state[b] === "i", cut = state[a] === "r" || state[b] === "r";
+    return `<line class="art-edge${hot ? " art-edge-hot" : cut ? " art-edge-cut" : ""}" x1="${f(nodes[a].x)}" y1="${f(nodes[a].y)}" x2="${f(nodes[b].x)}" y2="${f(nodes[b].y)}"/>`;
+  }).join("");
+  const n = nodes.map((p, i) => `<circle class="art-node art-node-${state[i]}" cx="${f(p.x)}" cy="${f(p.y)}" r="${state[i] === "s" ? 6 : 7}"/>`).join("");
+  return `<svg viewBox="0 0 ${VB_W} ${VB_H}" role="presentation" focusable="false" preserveAspectRatio="xMidYMid slice">${e}${n}</svg>`;
+}
+
+process.stdout.write(JSON.stringify({ aero: aeroSvg(), ti: mazeSvg(), cyber: netSvg() }));

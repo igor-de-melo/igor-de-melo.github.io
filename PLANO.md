@@ -284,3 +284,45 @@ disponíveis e é possível abrir a página num navegador sem instalar nada.
 
 Regras que valem sempre: não inventar informação sobre o Igor; perguntar quando faltar dado; manter as
 três línguas em paridade; avaliar vagas com honestidade e escrever cartas sem apontar lacunas.
+
+---
+
+## 6. Revisão de estrutura (out. 2026) — executar por pacotes
+
+Decisões do Igor:
+- Inglês americano em todo o site (CV e demais materiais ele ajusta depois).
+- Conteúdo baseado na formação e trajetória; o CV será adaptado por caso depois.
+- Cibersegurança tem página própria e cartão próprio na Home (três cartões: Aero, TI e Dados, Cibersegurança).
+- Nome da área no site: "Cibersegurança" / "Cybersecurity" / "Cybersécurité" (nunca só "Cyber").
+- Botão "Início / Home / Accueil" no seletor de páginas, além do nome.
+- Design (cores, posição, animações, efeitos) fica para depois; a arquitetura já está pronta.
+- Texto para ATS/IA de recrutamento (palavras-chave padrão) e direto para humanos.
+- Simulações: várias por página, escolhidas por abas (uma visível por vez), nunca lado a lado.
+
+Termos: "Home" = página inicial (/). "Abertura" (hero) = bloco do topo de cada página: nome,
+cargo-alvo, resumo, contatos e simulação.
+
+Esqueleto comum das três páginas:
+Abertura → Sobre → Experiência → Projetos → Formação → Competências → Contato.
+Específico de cada área: Aero tem "Pesquisa" como seção própria (entre Projetos e Formação);
+Cibersegurança tem "Estudos e laboratórios" (entre Experiência e Projetos) e certificados dentro de Formação.
+
+Pacotes:
+- P1 Estrutura `[concluído]`: esqueleto comum, botão Início, três cartões na Home, inglês americano
+  (`tools/to-american.py`), `body[data-area]` com token `--accent` por área, cabeçalho em duas linhas,
+  seletor de simulações (`assets/sims.js`, painéis `.sim-panel` dentro de `[data-sims]`).
+- P2 Texto e palavras-chave `[próximo]`: cargo-alvo na abertura de cada página, resumo com termos
+  padrão de vaga, Competências agrupadas por termos de mercado, JSON-LD `Person` com `knowsAbout`,
+  meta descriptions por idioma.
+- P3 Simulação de Cibersegurança: propagação de malware numa rede (modelo SIR) com defensor isolando nós.
+- P4 Melhorias aprovadas: B, C, E, G, H (lista abaixo).
+- P5 Design visual (fase separada).
+
+## 7. Melhorias aprovadas (P4)
+
+- B. Caixa "Como funciona" sob cada simulação, com a equação ou o algoritmo em 4 a 5 linhas.
+- C. Projetos em cartões Problema / Abordagem / Resultado / Stack.
+- E. Botão de CV por área (depende da Fase 5).
+- G. Pontes entre áreas ("a modelagem do CFD reaparece na análise de dados").
+- H. og:image por área (Fase 7).
+Recusadas: A (linha de disponibilidade), D (faixa de números), F (folha de impressão).

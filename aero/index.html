@@ -17,7 +17,7 @@
 <!-- TODO Fase 7: og:image -->
 <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body data-area="aero">
 <a class="skip" href="#conteudo"><span lang="pt-BR">Pular para o conteúdo</span><span lang="en">Skip to content</span><span lang="fr">Aller au contenu</span></a>
 
 <header class="site-header" id="topo">
@@ -28,13 +28,15 @@
       <a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a>
       <a href="#projetos"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></a>
       <a href="#pesquisa"><span lang="pt-BR">Pesquisa</span><span lang="en">Research</span><span lang="fr">Recherche</span></a>
+      <a href="#formacao"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></a>
       <a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></a>
       <a href="#contato"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></a>
     </nav>
-    <div class="face" role="group" aria-label="Área / Area / Domaine">
+    <div class="face" role="group" aria-label="Páginas / Pages / Pages">
+      <a class="face-home" href="../index.html" data-face><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></a>
       <a href="../aero/index.html" data-face aria-current="page"><span lang="pt-BR">Aeronáutica</span><span lang="en">Aeronautics</span><span lang="fr">Aéronautique</span></a>
       <a href="../ti/index.html" data-face><span lang="pt-BR">TI e Dados</span><span lang="en">IT and Data</span><span lang="fr">Informatique</span></a>
-      <a href="../cyber/index.html" data-face><span lang="pt-BR">Cyber</span><span lang="en">Cyber</span><span lang="fr">Cyber</span></a>
+      <a href="../cyber/index.html" data-face><span lang="pt-BR">Cibersegurança</span><span lang="en">Cybersecurity</span><span lang="fr">Cybersécurité</span></a>
     </div>
     <div class="lang" role="group" aria-label="Idioma / Language / Langue">
       <button type="button" data-lang="pt-BR" aria-pressed="true" title="Português">PT</button>
@@ -53,7 +55,7 @@
   </p>
   <div class="intro">
     <p lang="pt-BR">Estudante de Engenharia Aeronáutica na Universidade de São Paulo, com intercâmbio no ciclo de engenharia generalista da École Centrale de Marseille. Trabalho com aerodinâmica, CFD, mecânica de voo e engenharia de sistemas, de foguetes de competição a um VANT autônomo de asa fixa.</p>
-    <p lang="en">Aeronautical Engineering student at the University of São Paulo, with an exchange in the general engineering programme at École Centrale de Marseille. I work on aerodynamics, CFD, flight mechanics and systems engineering, from competition rockets to an autonomous fixed-wing UAV.</p>
+    <p lang="en">Aeronautical Engineering student at the University of São Paulo, with an exchange in the general engineering program at École Centrale de Marseille. I work on aerodynamics, CFD, flight mechanics and systems engineering, from competition rockets to an autonomous fixed-wing UAV.</p>
     <p lang="fr">Étudiant en ingénierie aéronautique à l’Université de São Paulo, avec un échange académique dans le cursus ingénieur généraliste de l’École Centrale de Marseille. Je travaille en aérodynamique, CFD, mécanique du vol et ingénierie système, des fusées de compétition à un drone autonome à voilure fixe.</p>
     <p lang="pt-BR" class="muted">Busco estágio ou vaga júnior no setor aeroespacial.</p>
     <p lang="en" class="muted">I am looking for internships and junior roles in aerospace.</p>
@@ -66,14 +68,15 @@
   </div>
 </section>
 
-<figure class="tunnel" aria-describedby="legenda-tunel" style="margin-top:0;margin-bottom:0">
+<div class="sims" data-sims>
+<figure class="tunnel sim-panel" data-sim="flow" data-label-pt-br="Escoamento em aerofólio" data-label-en="Airfoil flow" data-label-fr="Écoulement autour d’un profil" aria-describedby="legenda-tunel">
   <div class="tunnel-frame">
     <canvas id="flow" role="img" aria-label="Simulação: linhas de corrente em torno de um aerofólio"></canvas>
   </div>
   <figcaption class="tunnel-meta">
     <p id="legenda-tunel">
       <span lang="pt-BR">Escoamento potencial em torno de um aerofólio de Joukowski com condição de Kutta, calculado no navegador. As partículas são coloridas pelo coeficiente de pressão. O modelo é invíscido e não prevê estol.</span>
-      <span lang="en">Potential flow around a Joukowski airfoil with the Kutta condition, computed in the browser. Particles are coloured by pressure coefficient. The model is inviscid and does not predict stall.</span>
+      <span lang="en">Potential flow around a Joukowski airfoil with the Kutta condition, computed in the browser. Particles are colored by pressure coefficient. The model is inviscid and does not predict stall.</span>
       <span lang="fr">Écoulement potentiel autour d’un profil de Joukowski avec condition de Kutta, calculé dans le navigateur. Les particules sont colorées selon le coefficient de pression. Le modèle est non visqueux et ne prédit pas le décrochage.</span>
     </p>
     <div class="controls">
@@ -85,6 +88,7 @@
     </div>
   </figcaption>
 </figure>
+</div>
 
 <main id="conteudo">
 
@@ -95,41 +99,14 @@
       <p class="lead" lang="en">My education combines an Aeronautical Engineering degree at EESC-USP, a year at École Centrale de Marseille and special studies in CFD at ICMC-USP. On competition teams, I have worked on propulsion, flight mechanics, aerostructures and systems engineering. I currently lead the development of an autonomous fixed-wing UAV in the SEMEAR group.</p>
       <p class="lead" lang="fr">Ma formation associe un cursus d’ingénierie aéronautique à l’EESC-USP, une année à l’École Centrale de Marseille et des études spécialisées en CFD à l’ICMC-USP. Au sein d’équipes de compétition, j’ai travaillé en propulsion, mécanique du vol, aérostructures et ingénierie système. Je coordonne aujourd’hui le développement d’un drone autonome à voilure fixe dans le groupe SEMEAR.</p>
       <p lang="pt-BR">Na pesquisa, trabalhei com simulação de escoamentos turbulentos no ICMC-USP, modelagem atmosférica no IRPHE e modelos semiempíricos de cargas aerodinâmicas não estacionárias.</p>
-      <p lang="en">In research, I have worked on turbulent flow simulation at ICMC-USP, atmospheric modelling at IRPHE and semi-empirical models of unsteady aerodynamic loads.</p>
+      <p lang="en">In research, I have worked on turbulent flow simulation at ICMC-USP, atmospheric modeling at IRPHE and semi-empirical models of unsteady aerodynamic loads.</p>
       <p lang="fr">En recherche, j’ai travaillé sur la simulation d’écoulements turbulents à l’ICMC-USP, sur la modélisation atmosphérique à l’IRPHE et sur des modèles semi-empiriques de charges aérodynamiques instationnaires.</p>
       <p lang="pt-BR">Áreas de interesse: aerodinâmica, turbulência e CFD, aeroelasticidade, termodinâmica, sistemas de controle de voo, engenharia de sistemas e gestão técnica de projetos. Também me interesso por sistemas embarcados e cibersegurança.</p>
       <p lang="en">Areas of interest: aerodynamics, turbulence and CFD, aeroelasticity, thermodynamics, flight control systems, systems engineering and technical project management. I am also interested in embedded systems and cybersecurity.</p>
       <p lang="fr">Domaines d’intérêt&nbsp;: aérodynamique, turbulence et CFD, aéroélasticité, thermodynamique, systèmes de commande de vol, ingénierie système et gestion technique de projets. Je m’intéresse également aux systèmes embarqués et à la cybersécurité.</p>
       <p class="muted" lang="pt-BR">Fora da engenharia, fui voluntário no grupo Gatos do C2, no campus 2 da USP São Carlos, coordenando a logística de resgates do programa de castração, cuidados e soltura.</p>
-      <p class="muted" lang="en">Outside engineering, I volunteered with Gatos do C2 on campus 2 of USP São Carlos, coordinating rescue logistics for a neutering, care and release programme.</p>
+      <p class="muted" lang="en">Outside engineering, I volunteered with Gatos do C2 on campus 2 of USP São Carlos, coordinating rescue logistics for a neutering, care and release program.</p>
       <p class="muted" lang="fr">En dehors de l’ingénierie, j’ai été bénévole au sein du groupe Gatos do C2, sur le campus 2 de l’USP São Carlos, où je coordonnais la logistique des sauvetages du programme de stérilisation, de soins et de remise en liberté.</p>
-
-      <div class="sublist">
-        <h3><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></h3>
-        <ol class="timeline" reversed>
-          <li>
-            <p class="when"><span lang="pt-BR">2023 – atual</span><span lang="en">2023 – present</span><span lang="fr">2023 – aujourd’hui</span></p>
-            <div class="entry">
-              <h3><span lang="pt-BR">Certificado de Estudos Especiais em Mecânica dos Fluidos Computacional</span><span lang="en">Special Studies Certificate in Computational Fluid Dynamics</span><span lang="fr">Certificat d’études spéciales en mécanique des fluides numérique</span></h3>
-              <p class="org">ICMC-USP</p>
-            </div>
-          </li>
-          <li>
-            <p class="when">2022 – 2023</p>
-            <div class="entry">
-              <h3><span lang="pt-BR">Intercâmbio acadêmico, engenharia generalista</span><span lang="en">Academic exchange, general engineering programme</span><span lang="fr">Échange académique, cursus ingénieur généraliste</span></h3>
-              <p class="org">École Centrale de Marseille</p>
-            </div>
-          </li>
-          <li>
-            <p class="when"><span lang="pt-BR">2020 – 2027 (previsão)</span><span lang="en">2020 – 2027 (expected)</span><span lang="fr">2020 – 2027 (prévu)</span></p>
-            <div class="entry">
-              <h3><span lang="pt-BR">Bacharelado em Engenharia Aeronáutica</span><span lang="en">BSc in Aeronautical Engineering</span><span lang="fr">Cursus d’ingénieur aéronautique (Bacharelado)</span></h3>
-              <p class="org"><span lang="pt-BR">Escola de Engenharia de São Carlos, USP</span><span lang="en">São Carlos School of Engineering, University of São Paulo</span><span lang="fr">École d’ingénieurs de São Carlos, Université de São Paulo</span></p>
-            </div>
-          </li>
-        </ol>
-      </div>
     </div>
   </section>
 
@@ -173,7 +150,7 @@
               <li>Integração de scripts ao site da empresa e suporte a dashboards on-line.</li>
             </ul>
             <ul lang="en">
-              <li>Analysed and processed e-commerce data with SQL, running queries on Google Cloud.</li>
+              <li>Analyzed and processed e-commerce data with SQL, running queries on Google Cloud.</li>
               <li>Versioned and automated queries with Git and GitHub.</li>
               <li>Integrated scripts into the company website and supported online dashboards.</li>
             </ul>
@@ -199,7 +176,7 @@
               <li>Propulsion: solid rocket motor design applying thermodynamics, heat transfer, structural analysis and CFD, with computational and experimental testing.</li>
               <li>Oxidiser injection for a hybrid motor: design and testing of the tank, piping and valves, and development of a swirl injector.</li>
               <li>Flight mechanics: 6-DOF flight dynamics model in MATLAB and Monte Carlo simulations for trajectory dispersion and impact area mapping.</li>
-              <li>Systems engineering: NASA methods applied to the management and control of internal projects and to documentation standardisation.</li>
+              <li>Systems engineering: NASA methods applied to the management and control of internal projects and to documentation standardization.</li>
             </ul>
             <ul lang="fr">
               <li>Propulsion&nbsp;: conception d’un moteur-fusée à propergol solide en appliquant la thermodynamique, les transferts thermiques, l’analyse structurale et la CFD, avec des essais numériques et expérimentaux.</li>
@@ -240,9 +217,9 @@
         <h3><span lang="pt-BR">VANT autônomo de asa fixa</span><span lang="en">Autonomous fixed-wing UAV</span><span lang="fr">Drone autonome à voilure fixe</span></h3>
         <p class="org"><span lang="pt-BR">SEMEAR, 2025 – atual</span><span lang="en">SEMEAR, 2025 – present</span><span lang="fr">SEMEAR, 2025 – aujourd’hui</span></p>
         <p lang="pt-BR">Projeto de extensão para desenvolver do zero um veículo aéreo não tripulado autônomo, com foco em maximizar o desempenho aerodinâmico e a autonomia de voo pela otimização do sistema de propulsão elétrica. Como gerente de projeto, respondo pela arquitetura, pelos requisitos, pela integração entre subsistemas e pelo planejamento de verificação e de riscos.</p>
-        <p lang="en">An extracurricular project to develop an autonomous unmanned aircraft from scratch, focused on maximising aerodynamic performance and flight endurance by optimising the electric propulsion system. As project manager, I am responsible for the architecture, requirements, subsystem integration, and verification and risk planning.</p>
+        <p lang="en">An extracurricular project to develop an autonomous unmanned aircraft from scratch, focused on maximizing aerodynamic performance and flight endurance by optimizing the electric propulsion system. As project manager, I am responsible for the architecture, requirements, subsystem integration, and verification and risk planning.</p>
         <p lang="fr">Projet étudiant visant à développer à partir de zéro un drone autonome, avec pour objectif de maximiser les performances aérodynamiques et l’autonomie de vol grâce à l’optimisation de la propulsion électrique. En tant que chef de projet, je suis responsable de l’architecture, des exigences, de l’intégration des sous-systèmes et de la planification de la vérification et des risques.</p>
-        <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">engenharia de sistemas (metodologia NASA), engenharia de requisitos, modelagem de dinâmica de voo, simulações voltadas ao controle.</span><span lang="en">systems engineering (NASA methodology), requirements engineering, flight dynamics modelling, control-oriented simulations.</span><span lang="fr">ingénierie système (méthodologie NASA), ingénierie des exigences, modélisation de la dynamique du vol, simulations orientées commande.</span></p>
+        <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">engenharia de sistemas (metodologia NASA), engenharia de requisitos, modelagem de dinâmica de voo, simulações voltadas ao controle.</span><span lang="en">systems engineering (NASA methodology), requirements engineering, flight dynamics modeling, control-oriented simulations.</span><span lang="fr">ingénierie système (méthodologie NASA), ingénierie des exigences, modélisation de la dynamique du vol, simulations orientées commande.</span></p>
       </article>
 
       <article class="project">
@@ -274,7 +251,7 @@
         <h3><span lang="pt-BR">Foguete com apogeu de 5 km</span><span lang="en">Rocket with a 5 km apogee</span><span lang="fr">Fusée à apogée de 5 km</span></h3>
         <p class="org">LASC Cooperation Program, 2020 – 2022</p>
         <p lang="pt-BR">Programa de cooperação internacional para projetar, construir e lançar um foguete com apogeu de 5 km, no qual a TOPUS era responsável pela aeroestrutura. Elaborei os desenhos técnicos e os planos de fabricação da coifa, apoiei estudos de fabricação em compósitos e realizei simulações de CFD 2D e 3D para buscar o melhor desempenho aerodinâmico do veículo.</p>
-        <p lang="en">An international cooperation programme to design, build and launch a rocket with a 5 km apogee, in which TOPUS was responsible for the aerostructure. I produced the technical drawings and manufacturing plans for the nose cone, supported composite manufacturing studies and ran 2D and 3D CFD simulations to improve the vehicle’s aerodynamic performance.</p>
+        <p lang="en">An international cooperation program to design, build and launch a rocket with a 5 km apogee, in which TOPUS was responsible for the aerostructure. I produced the technical drawings and manufacturing plans for the nose cone, supported composite manufacturing studies and ran 2D and 3D CFD simulations to improve the vehicle’s aerodynamic performance.</p>
         <p lang="fr">Programme de coopération internationale visant à concevoir, construire et lancer une fusée à apogée de 5 km, dans lequel l’équipe TOPUS était responsable de l’aérostructure. J’ai réalisé les plans techniques et les dossiers de fabrication de la coiffe, participé aux études de fabrication en matériaux composites et mené des simulations CFD 2D et 3D pour améliorer les performances aérodynamiques du véhicule.</p>
         <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">ANSYS Fluent (CFD 2D e 3D), desenho técnico.</span><span lang="en">ANSYS Fluent (2D and 3D CFD), technical drawing.</span><span lang="fr">ANSYS Fluent (CFD 2D et 3D), dessin technique.</span></p>
       </article>
@@ -285,7 +262,7 @@
         <p lang="pt-BR">Desenvolvimento de um motor-foguete híbrido que recebeu, em 2020, uma bolsa de Bancada de Testes da Agência Espacial Brasileira (AEB). Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas que levam o oxidante com segurança à câmara de combustão, e trabalhei no injetor de vórtice.</p>
         <p lang="en">Development of a hybrid rocket motor that received a test stand grant from the Brazilian Space Agency (AEB) in 2020. On the oxidiser injection team, I designed and tested the tank, piping and valves that deliver the oxidiser safely to the combustion chamber, and worked on the swirl injector.</p>
         <p lang="fr">Développement d’un moteur-fusée hybride qui a obtenu en 2020 une bourse de banc d’essai de l’Agence spatiale brésilienne (AEB). Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes qui acheminent l’oxydant en toute sécurité jusqu’à la chambre de combustion, et j’ai travaillé sur l’injecteur tourbillonnaire.</p>
-        <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">termodinâmica, modelagem numérica, ensaios experimentais.</span><span lang="en">thermodynamics, numerical modelling, experimental testing.</span><span lang="fr">thermodynamique, modélisation numérique, essais expérimentaux.</span></p>
+        <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">termodinâmica, modelagem numérica, ensaios experimentais.</span><span lang="en">thermodynamics, numerical modeling, experimental testing.</span><span lang="fr">thermodynamique, modélisation numérique, essais expérimentaux.</span></p>
       </article>
 
     </div>
@@ -314,13 +291,13 @@
             <p lang="pt-BR">Desenvolvimento de modelos semiempíricos para cargas aerodinâmicas não estacionárias em superfícies sustentadoras, com identificação e calibração de parâmetros a partir de dados experimentais e de CFD.</p>
             <p lang="en">Development of semi-empirical models for unsteady aerodynamic loads on lifting surfaces, with parameter identification and calibration against experimental and CFD data.</p>
             <p lang="fr">Développement de modèles semi-empiriques de charges aérodynamiques instationnaires sur des surfaces portantes, avec identification et calibration des paramètres à partir de données expérimentales et CFD.</p>
-            <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">algoritmos genéticos, redes neurais, otimização.</span><span lang="en">genetic algorithms, neural networks, optimisation.</span><span lang="fr">algorithmes génétiques, réseaux de neurones, optimisation.</span></p>
+            <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">algoritmos genéticos, redes neurais, otimização.</span><span lang="en">genetic algorithms, neural networks, optimization.</span><span lang="fr">algorithmes génétiques, réseaux de neurones, optimisation.</span></p>
           </div>
         </li>
         <li>
           <p class="when"><span lang="pt-BR">fev. – jul. 2023</span><span lang="en">Feb – Jul 2023</span><span lang="fr">févr. – juil. 2023</span></p>
           <div class="entry">
-            <h3><span lang="pt-BR">Energia eólica e modelagem atmosférica</span><span lang="en">Wind energy and atmospheric modelling</span><span lang="fr">Énergie éolienne et modélisation atmosphérique</span></h3>
+            <h3><span lang="pt-BR">Energia eólica e modelagem atmosférica</span><span lang="en">Wind energy and atmospheric modeling</span><span lang="fr">Énergie éolienne et modélisation atmosphérique</span></h3>
             <p class="org">IRPHE, École Centrale de Marseille</p>
             <p lang="pt-BR">Simulações com o modelo meteorológico WRF, análise de incerteza na previsão de vento e avaliação do desempenho de turbinas eólicas sob diferentes condições atmosféricas.</p>
             <p lang="en">Simulations with the WRF weather model, uncertainty analysis in wind forecasting and assessment of wind turbine performance under varying atmospheric conditions.</p>
@@ -329,6 +306,63 @@
           </div>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <section class="section" id="formacao" aria-labelledby="h-form">
+    <h2 id="h-form"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></h2>
+    <div class="body">
+      <ol class="timeline" reversed>
+        <li>
+          <p class="when"><span lang="pt-BR">2023 – atual</span><span lang="en">2023 – present</span><span lang="fr">2023 – aujourd’hui</span></p>
+          <div class="entry">
+            <h3><span lang="pt-BR">Certificado de Estudos Especiais em Mecânica dos Fluidos Computacional</span><span lang="en">Special Studies Certificate in Computational Fluid Dynamics</span><span lang="fr">Certificat d’études spéciales en mécanique des fluides numérique</span></h3>
+            <p class="org">ICMC-USP</p>
+          </div>
+        </li>
+        <li>
+          <p class="when">2022 – 2023</p>
+          <div class="entry">
+            <h3><span lang="pt-BR">Intercâmbio acadêmico, engenharia generalista</span><span lang="en">Academic exchange, general engineering program</span><span lang="fr">Échange académique, cursus ingénieur généraliste</span></h3>
+            <p class="org">École Centrale de Marseille</p>
+          </div>
+        </li>
+        <li>
+          <p class="when"><span lang="pt-BR">2020 – 2027 (previsão)</span><span lang="en">2020 – 2027 (expected)</span><span lang="fr">2020 – 2027 (prévu)</span></p>
+          <div class="entry">
+            <h3><span lang="pt-BR">Bacharelado em Engenharia Aeronáutica</span><span lang="en">BSc in Aeronautical Engineering</span><span lang="fr">Cursus d’ingénieur aéronautique (Bacharelado)</span></h3>
+            <p class="org"><span lang="pt-BR">Escola de Engenharia de São Carlos, USP</span><span lang="en">São Carlos School of Engineering, University of São Paulo</span><span lang="fr">École d’ingénieurs de São Carlos, Université de São Paulo</span></p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="sublist">
+        <h3><span lang="pt-BR">Cursos e certificados</span><span lang="en">Courses and certificates</span><span lang="fr">Formations et certificats</span></h3>
+        <ul class="plain" lang="pt-BR">
+          <li><a href="https://github.com/icmc-data/Curso-de-Machine-Learning-2025" target="_blank" rel="noopener">Curso de Machine Learning</a>, Data ICMC-USP (2025)</li>
+          <li><a href="https://github.com/icmc-data/Curso-RL-2025" target="_blank" rel="noopener">Curso de Aprendizado por Reforço</a>, Data ICMC-USP (2025)</li>
+          <li>Análise de Elementos Finitos com MATLAB: mecânica estrutural e transferência de calor</li>
+          <li>Minicurso on-line de XFOIL</li>
+          <li>Treinamento básico no software GOM Inspect Suite</li>
+          <li>Latin American Space Challenge: certificados de participação de 2020, 2021 e 2022</li>
+        </ul>
+        <ul class="plain" lang="en">
+          <li><a href="https://github.com/icmc-data/Curso-de-Machine-Learning-2025" target="_blank" rel="noopener">Machine Learning course</a>, Data ICMC-USP (2025)</li>
+          <li><a href="https://github.com/icmc-data/Curso-RL-2025" target="_blank" rel="noopener">Reinforcement Learning course</a>, Data ICMC-USP (2025)</li>
+          <li>Finite Element Analysis with MATLAB: structural mechanics and heat transfer</li>
+          <li>XFOIL online short course</li>
+          <li>GOM Inspect Suite basic training</li>
+          <li>Latin American Space Challenge: participation certificates for 2020, 2021 and 2022</li>
+        </ul>
+        <ul class="plain" lang="fr">
+          <li><a href="https://github.com/icmc-data/Curso-de-Machine-Learning-2025" target="_blank" rel="noopener">Cours de Machine Learning</a>, Data ICMC-USP (2025)</li>
+          <li><a href="https://github.com/icmc-data/Curso-RL-2025" target="_blank" rel="noopener">Cours d’apprentissage par renforcement</a>, Data ICMC-USP (2025)</li>
+          <li>Analyse par éléments finis avec MATLAB&nbsp;: mécanique des structures et transferts thermiques</li>
+          <li>Mini-cours en ligne sur XFOIL</li>
+          <li>Formation de base au logiciel GOM Inspect Suite</li>
+          <li>Latin American Space Challenge&nbsp;: attestations de participation 2020, 2021 et 2022</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -347,34 +381,6 @@
         <dt><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></dt>
         <dd><span lang="pt-BR">Português (nativo), inglês (avançado), francês (avançado), alemão (básico).</span><span lang="en">Portuguese (native), English (advanced), French (advanced), German (basic).</span><span lang="fr">Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions).</span></dd>
       </dl>
-
-      <div class="sublist">
-        <h3><span lang="pt-BR">Cursos e certificados</span><span lang="en">Courses and certificates</span><span lang="fr">Formations et certificats</span></h3>
-        <ul class="plain" lang="pt-BR">
-          <li>Curso de Machine Learning, Data ICMC-USP (2025)</li>
-          <li>Curso de Aprendizado por Reforço, Data ICMC-USP (2025)</li>
-          <li>Análise de Elementos Finitos com MATLAB: mecânica estrutural e transferência de calor</li>
-          <li>Minicurso on-line de XFOIL</li>
-          <li>Treinamento básico no software GOM Inspect Suite</li>
-          <li>Latin American Space Challenge: certificados de participação de 2020, 2021 e 2022</li>
-        </ul>
-        <ul class="plain" lang="en">
-          <li>Machine Learning course, Data ICMC-USP (2025)</li>
-          <li>Reinforcement Learning course, Data ICMC-USP (2025)</li>
-          <li>Finite Element Analysis with MATLAB: structural mechanics and heat transfer</li>
-          <li>XFOIL online short course</li>
-          <li>GOM Inspect Suite basic training</li>
-          <li>Latin American Space Challenge: participation certificates for 2020, 2021 and 2022</li>
-        </ul>
-        <ul class="plain" lang="fr">
-          <li>Cours de Machine Learning, Data ICMC-USP (2025)</li>
-          <li>Cours d’apprentissage par renforcement, Data ICMC-USP (2025)</li>
-          <li>Analyse par éléments finis avec MATLAB&nbsp;: mécanique des structures et transferts thermiques</li>
-          <li>Mini-cours en ligne sur XFOIL</li>
-          <li>Formation de base au logiciel GOM Inspect Suite</li>
-          <li>Latin American Space Challenge&nbsp;: attestations de participation 2020, 2021 et 2022</li>
-        </ul>
-      </div>
     </div>
   </section>
 
@@ -396,6 +402,7 @@
   <p>© 2026 Igor Augusto de Melo</p>
 </footer>
 <script src="../assets/site.js"></script>
+<script src="../assets/sims.js"></script>
 <script src="../assets/flow.js"></script>
 </body>
 </html>

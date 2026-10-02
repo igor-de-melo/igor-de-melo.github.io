@@ -17,7 +17,7 @@
 <!-- TODO Fase 7: og:image -->
 <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body data-area="ti">
 <a class="skip" href="#conteudo"><span lang="pt-BR">Pular para o conteúdo</span><span lang="en">Skip to content</span><span lang="fr">Aller au contenu</span></a>
 
 <header class="site-header" id="topo">
@@ -31,10 +31,11 @@
       <a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></a>
       <a href="#contato"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></a>
     </nav>
-    <div class="face" role="group" aria-label="Área / Area / Domaine">
+    <div class="face" role="group" aria-label="Páginas / Pages / Pages">
+      <a class="face-home" href="../index.html" data-face><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></a>
       <a href="../aero/index.html" data-face><span lang="pt-BR">Aeronáutica</span><span lang="en">Aeronautics</span><span lang="fr">Aéronautique</span></a>
       <a href="../ti/index.html" data-face aria-current="page"><span lang="pt-BR">TI e Dados</span><span lang="en">IT and Data</span><span lang="fr">Informatique</span></a>
-      <a href="../cyber/index.html" data-face><span lang="pt-BR">Cyber</span><span lang="en">Cyber</span><span lang="fr">Cyber</span></a>
+      <a href="../cyber/index.html" data-face><span lang="pt-BR">Cibersegurança</span><span lang="en">Cybersecurity</span><span lang="fr">Cybersécurité</span></a>
     </div>
     <div class="lang" role="group" aria-label="Idioma / Language / Langue">
       <button type="button" data-lang="pt-BR" aria-pressed="true" title="Português">PT</button>
@@ -53,7 +54,7 @@
   </p>
   <div class="intro">
     <p lang="pt-BR">Estudante de Engenharia Aeronáutica na USP, direcionando a carreira para TI e dados. Na Pilea Labs, construí as bases e consultas em SQL que alimentavam os painéis de uma plataforma de marketing de influência. Também desenvolvi um sistema próprio de triagem de e-mails com IA e trago da engenharia a prática de computação científica: Monte Carlo, redes neurais e HPC.</p>
-    <p lang="en">Aeronautical Engineering student at USP, moving my career towards IT and data. At Pilea Labs, I built the SQL databases and queries behind the dashboards of an influencer marketing platform. I also developed my own AI-based email triage system, and I bring hands-on scientific computing from engineering: Monte Carlo, neural networks and HPC.</p>
+    <p lang="en">Aeronautical Engineering student at USP, moving my career toward IT and data. At Pilea Labs, I built the SQL databases and queries behind the dashboards of an influencer marketing platform. I also developed my own AI-based email triage system, and I bring hands-on scientific computing from engineering: Monte Carlo, neural networks and HPC.</p>
     <p lang="fr">Étudiant en ingénierie aéronautique à l’USP, je fais évoluer ma carrière vers l’informatique et les données. Chez Pilea Labs, j’ai construit les bases et les requêtes SQL qui alimentaient les tableaux de bord d’une plateforme de marketing d’influence. J’ai aussi développé mon propre système de tri d’e-mails par IA, et j’apporte de l’ingénierie une pratique du calcul scientifique : Monte-Carlo, réseaux de neurones et HPC.</p>
     <p lang="pt-BR" class="muted">Busco estágio ou vaga júnior em análise, engenharia ou ciência de dados e em TI.</p>
     <p lang="en" class="muted">I am looking for internships and junior roles in data analysis, data engineering or data science, and in IT.</p>
@@ -66,7 +67,8 @@
   </div>
 </section>
 
-<figure class="tunnel" aria-describedby="legenda-rl" style="margin-top:0;margin-bottom:0">
+<div class="sims" data-sims>
+<figure class="tunnel sim-panel" data-sim="maze" data-label-pt-br="Agente aprendendo um labirinto" data-label-en="Agent learning a maze" data-label-fr="Agent qui apprend un labyrinthe" aria-describedby="legenda-rl">
   <div class="tunnel-frame tunnel-frame--maze">
     <canvas id="maze" role="img" aria-label="Simulação: um agente aprende por tentativa e erro a atravessar um labirinto e a evitar as armadilhas"></canvas>
   </div>
@@ -94,6 +96,7 @@
     </div>
   </figcaption>
 </figure>
+</div>
 
 <main id="conteudo">
 
@@ -101,10 +104,10 @@
     <h2 id="h-sobre"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></h2>
     <div class="body">
       <p class="lead" lang="pt-BR">Estou direcionando a carreira da engenharia aeronáutica para TI e dados. A base quantitativa da graduação, a experiência com SQL e Python em dados reais de e-commerce e os projetos de automação que construo por conta própria são meu ponto de partida.</p>
-      <p class="lead" lang="en">I am moving my career from aeronautical engineering towards IT and data. The quantitative foundation of my degree, hands-on SQL and Python experience with real e-commerce data, and the automation projects I build on my own are my starting point.</p>
+      <p class="lead" lang="en">I am moving my career from aeronautical engineering toward IT and data. The quantitative foundation of my degree, hands-on SQL and Python experience with real e-commerce data, and the automation projects I build on my own are my starting point.</p>
       <p class="lead" lang="fr">Je fais évoluer ma carrière de l’ingénierie aéronautique vers l’informatique et les données. La base quantitative de mon cursus, mon expérience de SQL et de Python sur des données réelles d’e-commerce et les projets d’automatisation que je construis par moi-même sont mon point de départ.</p>
       <p lang="pt-BR">Da engenharia, trago prática de computação científica: simulação de Monte Carlo, otimização com algoritmos genéticos e redes neurais, análise de incerteza e rotinas numéricas em ambiente de HPC. Em TI, trabalho com Linux, Git, Bash, Google Cloud e integração de APIs, incluindo modelos de linguagem.</p>
-      <p lang="en">From engineering, I bring hands-on scientific computing: Monte Carlo simulation, optimisation with genetic algorithms and neural networks, uncertainty analysis and numerical routines in HPC environments. In IT, I work with Linux, Git, Bash, Google Cloud and API integration, including language models.</p>
+      <p lang="en">From engineering, I bring hands-on scientific computing: Monte Carlo simulation, optimization with genetic algorithms and neural networks, uncertainty analysis and numerical routines in HPC environments. In IT, I work with Linux, Git, Bash, Google Cloud and API integration, including language models.</p>
       <p lang="fr">De l’ingénierie, j’apporte une pratique du calcul scientifique : simulation de Monte-Carlo, optimisation par algorithmes génétiques et réseaux de neurones, analyse d’incertitude et routines numériques en environnement HPC. En informatique, je travaille avec Linux, Git, Bash, Google Cloud et l’intégration d’API, y compris de modèles de langage.</p>
       <p class="muted" lang="pt-BR">A cibersegurança é uma área que estou estudando. Ela tem uma <a href="../cyber/index.html" data-face>página própria</a>, que vou preencher com certificados, laboratórios e estudos conforme os concluir.</p>
       <p class="muted" lang="en">Cybersecurity is an area I am studying. It has its <a href="../cyber/index.html" data-face>own page</a>, which I will fill with certificates, labs and studies as I complete them.</p>
@@ -132,7 +135,7 @@
                 <li>Versionamento das consultas com Git e GitHub e integração de scripts em Python ao site da empresa.</li>
               </ul>
               <ul lang="en">
-                <li>Modelled and built, in MySQL on Google Cloud, the databases and queries that fed the lists, tables and charts in the platform’s interfaces.</li>
+                <li>Modeled and built, in MySQL on Google Cloud, the databases and queries that fed the lists, tables and charts in the platform’s interfaces.</li>
                 <li>Joined sales attributed to each influencer’s coupons with social media metrics such as views and comments.</li>
                 <li>Scale: dozens of influencers, dozens of coupons and thousands of e-commerce orders. Drew up about 15 indicator ideas to turn into dashboards.</li>
                 <li>Analyses that updated in real time from the database, with something new delivered almost every day.</li>
@@ -166,7 +169,7 @@
               <ul lang="en">
                 <li>Defining the system architecture and technical requirements.</li>
                 <li>Coordinating the aerodynamics, propulsion, avionics, control and telecommunications teams.</li>
-                <li>Flight dynamics modelling and control-oriented simulations.</li>
+                <li>Flight dynamics modeling and control-oriented simulations.</li>
               </ul>
               <ul lang="fr">
                 <li>Définition de l’architecture système et des exigences techniques.</li>
@@ -186,7 +189,7 @@
               </ul>
               <ul lang="en">
                 <li>Semi-empirical models of unsteady aerodynamic loads, with parameter identification and calibration against experimental and CFD data.</li>
-                <li>Genetic algorithms and neural networks applied to parameter optimisation.</li>
+                <li>Genetic algorithms and neural networks applied to parameter optimization.</li>
               </ul>
               <ul lang="fr">
                 <li>Modèles semi-empiriques de charges aérodynamiques instationnaires, avec identification et calibration des paramètres à partir de données expérimentales et CFD.</li>
@@ -200,14 +203,14 @@
               <h3><span lang="pt-BR">Simulação de escoamentos turbulentos</span><span lang="en">Turbulent flow simulation</span><span lang="fr">Simulation d’écoulements turbulents</span></h3>
               <p class="org"><span lang="pt-BR">ICMC-USP, bolsa FAPESP</span><span lang="en">ICMC-USP, FAPESP grant</span><span lang="fr">ICMC-USP, bourse FAPESP</span></p>
               <p lang="pt-BR">Participação em pesquisa sobre simulação de escoamentos turbulentos e métodos numéricos, com contato com abordagens de modelagem de turbulência, incluindo conceitos de LES. Desenvolvimento e execução de rotinas numéricas em ambiente de HPC.</p>
-              <p lang="en">Took part in research on turbulent flow simulation and numerical methods, with exposure to turbulence modelling approaches, including LES concepts. Development and execution of numerical routines in HPC environments.</p>
+              <p lang="en">Took part in research on turbulent flow simulation and numerical methods, with exposure to turbulence modeling approaches, including LES concepts. Development and execution of numerical routines in HPC environments.</p>
               <p lang="fr">Participation à des travaux de recherche sur la simulation d’écoulements turbulents et les méthodes numériques, avec une exposition aux approches de modélisation de la turbulence, dont les concepts de LES. Développement et exécution de routines numériques en environnement HPC.</p>
             </div>
           </li>
           <li>
             <p class="when"><span lang="pt-BR">fev. – jul. 2023</span><span lang="en">Feb – Jul 2023</span><span lang="fr">févr. – juil. 2023</span></p>
             <div class="entry">
-              <h3><span lang="pt-BR">Energia eólica e modelagem atmosférica</span><span lang="en">Wind energy and atmospheric modelling</span><span lang="fr">Énergie éolienne et modélisation atmosphérique</span></h3>
+              <h3><span lang="pt-BR">Energia eólica e modelagem atmosférica</span><span lang="en">Wind energy and atmospheric modeling</span><span lang="fr">Énergie éolienne et modélisation atmosphérique</span></h3>
               <p class="org">IRPHE, École Centrale de Marseille</p>
               <p lang="pt-BR">Simulações atmosféricas com o modelo meteorológico WRF, análise de incerteza na previsão de vento e análise do desempenho de turbinas eólicas sob diferentes condições atmosféricas.</p>
               <p lang="en">Atmospheric simulations with the WRF weather model, uncertainty analysis in wind forecasting and analysis of wind turbine performance under varying atmospheric conditions.</p>
@@ -218,7 +221,7 @@
           <li>
             <p class="when"><span lang="pt-BR">mar. 2020 – dez. 2023</span><span lang="en">Mar 2020 – Dec 2023</span><span lang="fr">mars 2020 – déc. 2023</span></p>
             <div class="entry">
-              <h3><span lang="pt-BR">Membro da equipe, simulação e modelagem</span><span lang="en">Team member, simulation and modelling</span><span lang="fr">Membre de l’équipe, simulation et modélisation</span></h3>
+              <h3><span lang="pt-BR">Membro da equipe, simulação e modelagem</span><span lang="en">Team member, simulation and modeling</span><span lang="fr">Membre de l’équipe, simulation et modélisation</span></h3>
               <p class="org">TOPUS Projetos Aeroespaciais</p>
               <ul lang="pt-BR">
                 <li>Modelo de dinâmica de voo com 6 graus de liberdade em MATLAB e simulações de Monte Carlo para dispersão de trajetória e análise de segurança.</li>
@@ -226,7 +229,7 @@
               </ul>
               <ul lang="en">
                 <li>6-DOF flight dynamics model in MATLAB and Monte Carlo simulations for trajectory dispersion and safety analysis.</li>
-                <li>Numerical modelling and CFD of propulsion and oxidiser feed systems.</li>
+                <li>Numerical modeling and CFD of propulsion and oxidiser feed systems.</li>
               </ul>
               <ul lang="fr">
                 <li>Modèle de dynamique du vol à 6 degrés de liberté sous MATLAB et simulations de Monte-Carlo pour la dispersion des trajectoires et l’analyse de sécurité.</li>
@@ -249,7 +252,7 @@
         <p class="org"><span lang="pt-BR">Projeto pessoal. Python, API do Claude, Oracle Cloud</span><span lang="en">Personal project. Python, Claude API, Oracle Cloud</span><span lang="fr">Projet personnel. Python, API Claude, Oracle Cloud</span></p>
         <p class="status"><span lang="pt-BR">Em migração para a Oracle Cloud</span><span lang="en">Migrating to Oracle Cloud</span><span lang="fr">Migration vers Oracle Cloud en cours</span></p>
         <p lang="pt-BR">Pipeline em Python que classifica e organiza automaticamente os e-mails de duas contas Gmail, uma pessoal e uma institucional da USP, usando a API do Claude (um modelo de linguagem) com acesso por IMAP e OAuth2. O sistema gera resumos diários e semanais com os prazos em ordem cronológica e as ações sugeridas, e os entrega pelo Telegram, onde um bot também aceita comandos manuais.</p>
-        <p lang="en">A Python pipeline that automatically classifies and organises the emails of two Gmail accounts, one personal and one institutional at USP, using the Claude API (a language model) with IMAP and OAuth2 access. The system produces daily and weekly summaries with deadlines in chronological order and suggested actions, and delivers them through Telegram, where a bot also accepts manual commands.</p>
+        <p lang="en">A Python pipeline that automatically classifies and organizes the emails of two Gmail accounts, one personal and one institutional at USP, using the Claude API (a language model) with IMAP and OAuth2 access. The system produces daily and weekly summaries with deadlines in chronological order and suggested actions, and delivers them through Telegram, where a bot also accepts manual commands.</p>
         <p lang="fr">Pipeline Python qui classe et organise automatiquement les e-mails de deux comptes Gmail, l’un personnel et l’autre institutionnel de l’USP, avec l’API Claude (un modèle de langage) et un accès par IMAP et OAuth2. Le système produit des synthèses quotidiennes et hebdomadaires avec les échéances dans l’ordre chronologique et les actions suggérées, et les livre par Telegram, où un bot accepte aussi des commandes manuelles.</p>
         <p lang="pt-BR">A arquitetura é híbrida: a formatação determinística fica no Python e a IA entra só na análise estratégica, o que reduz o consumo de tokens. O sistema está sendo migrado para um servidor virtual (VPS) na Oracle Cloud, com execução agendada por cron, deploy por Git e acesso por SSH, para funcionar sem depender do meu computador.</p>
         <p lang="en">The architecture is hybrid: deterministic formatting stays in Python and the AI is used only for strategic analysis, which reduces token consumption. The system is being migrated to a virtual private server (VPS) on Oracle Cloud, with scheduled execution through cron, deployment through Git and SSH access, so it runs without depending on my own computer.</p>
@@ -294,7 +297,7 @@
         <li>
           <p class="when">2022 – 2023</p>
           <div class="entry">
-            <h3><span lang="pt-BR">Intercâmbio acadêmico, engenharia generalista</span><span lang="en">Academic exchange, general engineering programme</span><span lang="fr">Échange académique, cursus ingénieur généraliste</span></h3>
+            <h3><span lang="pt-BR">Intercâmbio acadêmico, engenharia generalista</span><span lang="en">Academic exchange, general engineering program</span><span lang="fr">Échange académique, cursus ingénieur généraliste</span></h3>
             <p class="org">École Centrale de Marseille</p>
           </div>
         </li>
@@ -332,7 +335,7 @@
         <dt><span lang="pt-BR">Linguagens</span><span lang="en">Languages</span><span lang="fr">Langages</span></dt>
         <dd><span lang="pt-BR">Python, SQL (MySQL), Bash, MATLAB, Fortran, C++ e Java (básico).</span><span lang="en">Python, SQL (MySQL), Bash, MATLAB, Fortran, C++ and Java (basic).</span><span lang="fr">Python, SQL (MySQL), Bash, MATLAB, Fortran, C++ et Java (bases).</span></dd>
         <dt><span lang="pt-BR">Dados</span><span lang="en">Data</span><span lang="fr">Données</span></dt>
-        <dd><span lang="pt-BR">Modelagem de bases e consultas para painéis e relatórios, simulação de Monte Carlo, algoritmos genéticos, redes neurais, análise de incerteza.</span><span lang="en">Database and query modelling for dashboards and reports, Monte Carlo simulation, genetic algorithms, neural networks, uncertainty analysis.</span><span lang="fr">Modélisation de bases et de requêtes pour tableaux de bord et rapports, simulation de Monte-Carlo, algorithmes génétiques, réseaux de neurones, analyse d’incertitude.</span></dd>
+        <dd><span lang="pt-BR">Modelagem de bases e consultas para painéis e relatórios, simulação de Monte Carlo, algoritmos genéticos, redes neurais, análise de incerteza.</span><span lang="en">Database and query modeling for dashboards and reports, Monte Carlo simulation, genetic algorithms, neural networks, uncertainty analysis.</span><span lang="fr">Modélisation de bases et de requêtes pour tableaux de bord et rapports, simulation de Monte-Carlo, algorithmes génétiques, réseaux de neurones, analyse d’incertitude.</span></dd>
         <dt><span lang="pt-BR">IA aplicada</span><span lang="en">Applied AI</span><span lang="fr">IA appliquée</span></dt>
         <dd><span lang="pt-BR">Integração de modelos de linguagem por API, bots do Telegram, arquitetura híbrida com regras determinísticas e IA.</span><span lang="en">Language model integration through APIs, Telegram bots, hybrid architecture combining deterministic rules and AI.</span><span lang="fr">Intégration de modèles de langage par API, bots Telegram, architecture hybride associant règles déterministes et IA.</span></dd>
         <dt><span lang="pt-BR">Nuvem e infraestrutura</span><span lang="en">Cloud and infrastructure</span><span lang="fr">Cloud et infrastructure</span></dt>
@@ -361,6 +364,7 @@
   <p>© 2026 Igor Augusto de Melo</p>
 </footer>
 <script src="../assets/site.js"></script>
+<script src="../assets/sims.js"></script>
 <script src="../assets/maze.js"></script>
 </body>
 </html>
