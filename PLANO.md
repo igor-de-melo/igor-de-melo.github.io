@@ -314,7 +314,11 @@ Pacotes:
 - P2 Texto e palavras-chave `[concluído]`: cargo-alvo na abertura de cada página, resumo com termos
   padrão de vaga, Competências agrupadas por termos de mercado, JSON-LD `Person` com `knowsAbout`,
   meta descriptions por idioma.
-- P3 Simulação de Cibersegurança: propagação de malware numa rede (modelo SIR) com defensor isolando nós.
+- P3 Simulação de Cibersegurança `[concluído]`: propagação de malware numa rede de 64 máquinas (modelo SIR
+  discreto em grafo, `assets/malware.js`, validado por `tests/check-malware.mjs`); controles β e γ, R0 ≈ k̄·T com
+  T = β / (1 − (1−β)(1−γ)), curvas S/I/R ao vivo, clique para infectar, novo surto automático.
+- P2b: cargos-alvo removidos da abertura; no lugar fica o nome da área (Engenharia Aeronáutica, Análise e
+  Engenharia de Dados, Cibersegurança (em formação)).
 - P4 Melhorias aprovadas: B, C, E, G, H (lista abaixo).
 - P5 Design visual (fase separada).
 

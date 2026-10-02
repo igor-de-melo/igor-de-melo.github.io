@@ -18,6 +18,8 @@ jobs:
         run: node tests/check-parity.mjs
       - name: Q-learning maze
         run: node tests/check-maze.mjs
+      - name: Malware spread model (SIR)
+        run: node tests/check-malware.mjs
       - name: Internal links
         run: node tests/check-links.mjs
       - name: External links (warning only)
