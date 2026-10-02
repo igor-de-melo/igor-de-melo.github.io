@@ -3,6 +3,7 @@
 exclude:
   - PLANO.md
   - CLAUDE.md
+  - HANDOFF.md
   - index.template.html
   - tests/
   - tools/
