@@ -1,0 +1,25 @@
+# Roda os testes do site a cada push e pull request. Resultado na aba "Actions" do GitHub.
+name: Site checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Language parity (PT/EN/FR)
+        run: node tests/check-parity.mjs
+      - name: Q-learning maze
+        run: node tests/check-maze.mjs
+      - name: Internal links
+        run: node tests/check-links.mjs
+      - name: External links (warning only)
+        run: node tests/check-links.mjs --external
+        continue-on-error: true
