@@ -8,7 +8,7 @@ Site estático (GitHub Pages, repositório de usuário). Sem build, sem framewor
 - Nunca inventar informação sobre o Igor. Se faltar dado, perguntar.
 - Respeitar prefers-reduced-motion e manter foco visível por teclado.
 - Estrutura alvo: / (porta de entrada), /aero/, /ti/, /cyber/ (noindex até ter conteúdo), /assets/, /tests/, /tools/.
-- Testes: node tests/check-parity.mjs (PT/EN/FR) e node tests/check-maze.mjs (Q-learning).
+- Testes: node tests/check-parity.mjs (PT/EN/FR), node tests/check-maze.mjs (Q-learning), node tests/check-links.mjs [--external] (links). Rodam no GitHub Actions a cada push (.github/workflows/checks.yml).
 - Esqueleto das páginas: Abertura → Sobre → Experiência → Projetos → Formação → Competências → Contato (+ Pesquisa em Aero, + Estudos e laboratórios em Cibersegurança).
 - Simulações: cada uma é um `<figure class="tunnel sim-panel" data-sim="id" data-label-pt-br/en/fr>` dentro de `<div class="sims" data-sims>`; `assets/sims.js` cria as abas quando há mais de uma.
 - Cor por área: `body[data-area]` e token `--accent` em `assets/style.css`.
