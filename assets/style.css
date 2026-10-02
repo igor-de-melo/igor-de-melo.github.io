@@ -141,3 +141,92 @@ main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 40px}
   body{background:#fff}
   .section>h2{position:static}
 }
+
+/* ---------- Fase 3: porta de entrada, face TI e Dados, face Cyber ---------- */
+
+/* Cabeçalho com três áreas: a navegação interna some mais cedo */
+@media (max-width:1100px){
+  .nav{display:none}
+  .face{margin-left:auto}
+}
+
+/* Porta de entrada */
+.bar--end .lang{margin-left:auto}
+.gate-hero{max-width:var(--max);margin:0 auto;padding:clamp(28px,6vw,72px) var(--gutter) 0}
+.gate-lead{max-width:38rem;margin:22px 0 0;font-size:1.25rem;line-height:1.5}
+.gate-contact{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:18px;font-family:var(--display);font-size:.9375rem;font-weight:600}
+.gate-pick{max-width:var(--max);margin:clamp(40px,7vw,72px) auto 0;padding:0 var(--gutter);font-family:var(--display);font-size:1rem;color:var(--ink-2)}
+.gate-pick p{margin:0}
+.gate-grid{max-width:var(--max);margin:14px auto 0;padding:0 var(--gutter) 24px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,32px)}
+.gate-card{position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--rule);border-radius:4px;overflow:hidden;transition:border-color .15s}
+.gate-card:hover{border-color:var(--ink)}
+.gate-art{aspect-ratio:2/1;border-bottom:1px solid var(--rule);overflow:hidden}
+.gate-art svg{display:block;width:100%;height:100%}
+.gate-body{padding:20px 22px 24px}
+.gate-body h2{font-size:clamp(1.4rem,2.2vw,1.75rem);font-stretch:112%}
+.gate-link{color:var(--ink);text-decoration:none}
+.gate-link::after{content:"";position:absolute;inset:0}
+.gate-link:focus-visible{outline:none}
+.gate-link:focus-visible::after{outline:3px solid var(--suction);outline-offset:-3px;border-radius:4px}
+.gate-body p{margin:10px 0 0;color:var(--ink-2);font-size:1.0625rem}
+.gate-body .gate-sub{margin-top:16px;font-family:var(--display);font-size:.9375rem}
+.gate-sub a{position:relative;z-index:1;font-weight:600}
+.art-flow{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.art-up{stroke:var(--suction)}
+.art-dn{stroke:var(--free);opacity:.8}
+.art-foil{fill:var(--ink)}
+.art-wall{fill:var(--ink)}
+.art-pit{fill:var(--stagnation);fill-opacity:.92}
+.art-val rect{fill:var(--suction)}
+.art-goal{fill:var(--suction)}
+.art-dot{fill:var(--surface)}
+.art-start{fill:none;stroke:var(--ink);stroke-width:2}
+.art-route{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+.art-agent{fill:var(--ink);stroke:var(--surface);stroke-width:2}
+
+/* Abertura da face TI: agente de aprendizado por reforço */
+.tunnel-frame--maze{height:clamp(240px,46vh,470px)}
+.controls .rl-state{font-weight:600}
+.controls .rl-state[hidden]{display:none}
+.rl-btn{font:600 .8125rem/1 var(--display);padding:8px 12px;background:transparent;border:1px solid var(--rule);border-radius:2px;color:var(--ink);cursor:pointer}
+.rl-btn:hover{border-color:var(--ink)}
+.rl-btn[hidden]{display:none}
+.legend--rl{flex-wrap:wrap;gap:6px 16px}
+.legend--rl .lg{display:inline-flex;align-items:center;gap:6px}
+.legend--rl .sw{display:inline-block;width:12px;height:12px;border-radius:2px}
+.sw-pit{background:var(--stagnation)}
+.sw-goal{background:var(--suction)}
+.ramp{display:inline-block;width:64px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--tunnel),var(--suction));box-shadow:inset 0 0 0 1px var(--rule)}
+
+/* Projetos ainda sem repositório público */
+.repo-soon{margin:14px 0 0;font-family:var(--display);font-size:.875rem;color:var(--ink-2)}
+.status{display:inline-block;margin:0 0 12px;font-family:var(--display);font-size:.875rem;font-weight:600;color:var(--ink);border:1px solid var(--rule);border-radius:2px;padding:3px 8px}
+.link-list a{font-family:var(--display);font-weight:600}
+
+/* Espaços reservados (página Cyber): borda tracejada = ainda vazio */
+.slot{border:1px dashed var(--ink-2);border-radius:2px;padding:18px 20px;margin:0 0 16px;max-width:38rem}
+.slot h3{font-size:1.0625rem;font-stretch:108%;margin-bottom:6px}
+.slot p{margin:0;color:var(--ink-2);font-size:1rem}
+.base-list{margin:0;padding-left:1.1em}
+.base-list li{margin-bottom:6px}
+.page-note{font-family:var(--display);font-size:.875rem;color:var(--ink-2);margin:0 0 14px}
+
+@media (max-width:860px){
+  .gate-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .tunnel-frame--maze{height:230px}
+  .controls .rl-btn{padding:8px 10px}
+}
+@media print{
+  .gate-art{display:none}
+}
+
+.body>.sublist:first-child{margin-top:0}
+@media (max-width:560px){
+  .bar{flex-wrap:wrap;row-gap:8px}
+  .lang{order:2;margin-left:auto}
+  .face{order:3;width:100%;margin-left:0}
+  .face a{flex:1;text-align:center;padding:8px 4px}
+}
+.tunnel-frame--maze+.tunnel-meta{grid-template-columns:1fr}

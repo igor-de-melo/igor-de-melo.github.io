@@ -4,7 +4,7 @@ import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const files = ["index.html", "aero/index.html", "ti/index.html"];
+const files = ["index.html", "aero/index.html", "ti/index.html", "cyber/index.html"];
 const LANGS = ["pt-BR", "en", "fr"];
 const VOID = new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"]);
 const RAW = new Set(["script", "style"]);
