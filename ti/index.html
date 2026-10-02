@@ -146,6 +146,30 @@
         <span class="lg"><span class="ramp"></span><span lang="pt-BR">valor aprendido</span><span lang="en">learned value</span><span lang="fr">valeur apprise</span></span>
       </span>
     </div>
+    <details class="how">
+      <summary><span lang="pt-BR">Como funciona</span><span lang="en">How it works</span><span lang="fr">Comment ça marche</span></summary>
+      <ol lang="pt-BR">
+        <li>O labirinto é um processo de decisão de Markov: o estado é a célula e as ações são as quatro direções.</li>
+        <li>Recompensas: −0,04 por passo, −1 ao cair numa armadilha e +1 na meta. O custo por passo favorece rotas curtas; a penalidade, rotas seguras.</li>
+        <li>A cada passo: <i>Q</i>(<i>s</i>,<i>a</i>) ← <i>Q</i>(<i>s</i>,<i>a</i>) + α[<i>r</i> + γ·max <i>Q</i>(<i>s</i>′,·) − <i>Q</i>(<i>s</i>,<i>a</i>)], com α = 0,5 e γ = 0,96.</li>
+        <li>Exploração ε-gulosa: com probabilidade ε o agente sorteia uma ação; ε começa em 0,35 e cai 1,5% por episódio até 0,04.</li>
+        <li>O azul mostra max <i>Q</i> em cada célula e as setas, a melhor ação. O aprendizado termina quando a rota gulosa é a ótima segura por 15 episódios seguidos.</li>
+      </ol>
+      <ol lang="en">
+        <li>The maze is a Markov decision process: the state is the cell and the actions are the four directions.</li>
+        <li>Rewards: −0.04 per step, −1 for falling into a trap and +1 at the goal. The step cost favors short routes; the penalty, safe ones.</li>
+        <li>At each step: <i>Q</i>(<i>s</i>,<i>a</i>) ← <i>Q</i>(<i>s</i>,<i>a</i>) + α[<i>r</i> + γ·max <i>Q</i>(<i>s</i>′,·) − <i>Q</i>(<i>s</i>,<i>a</i>)], with α = 0.5 and γ = 0.96.</li>
+        <li>ε-greedy exploration: with probability ε the agent picks a random action; ε starts at 0.35 and drops 1.5% per episode down to 0.04.</li>
+        <li>Blue shows max <i>Q</i> in each cell and the arrows show the best action. Learning ends when the greedy route is the optimal safe one for 15 episodes in a row.</li>
+      </ol>
+      <ol lang="fr">
+        <li>Le labyrinthe est un processus de décision markovien&nbsp;: l’état est la case et les actions sont les quatre directions.</li>
+        <li>Récompenses&nbsp;: −0,04 par pas, −1 en tombant dans un piège et +1 à l’objectif. Le coût par pas favorise les routes courtes&nbsp;; la pénalité, les routes sûres.</li>
+        <li>À chaque pas&nbsp;: <i>Q</i>(<i>s</i>,<i>a</i>) ← <i>Q</i>(<i>s</i>,<i>a</i>) + α[<i>r</i> + γ·max <i>Q</i>(<i>s</i>′,·) − <i>Q</i>(<i>s</i>,<i>a</i>)], avec α = 0,5 et γ = 0,96.</li>
+        <li>Exploration ε-gloutonne&nbsp;: avec une probabilité ε, l’agent tire une action au hasard&nbsp;; ε part de 0,35 et baisse de 1,5&nbsp;% par épisode jusqu’à 0,04.</li>
+        <li>Le bleu montre max <i>Q</i> dans chaque case et les flèches, la meilleure action. L’apprentissage s’arrête quand la route gloutonne est la route sûre optimale pendant 15 épisodes consécutifs.</li>
+      </ol>
+    </details>
   </figcaption>
 </figure>
 </div>
@@ -164,6 +188,9 @@
       <p class="muted" lang="pt-BR">A cibersegurança é uma área que estou estudando. Ela tem uma <a href="../cyber/index.html" data-face>página própria</a>, que vou preencher com certificados, laboratórios e estudos conforme os concluir.</p>
       <p class="muted" lang="en">Cybersecurity is an area I am studying. It has its <a href="../cyber/index.html" data-face>own page</a>, which I will fill with certificates, labs and studies as I complete them.</p>
       <p class="muted" lang="fr">La cybersécurité est un domaine que j’étudie. Elle a sa <a href="../cyber/index.html" data-face>propre page</a>, que je compléterai avec des certificats, des laboratoires et des études au fur et à mesure.</p>
+      <p class="bridge" lang="pt-BR">Os métodos quantitativos que uso com dados vêm da engenharia: simulação de trajetória, Monte Carlo e CFD estão na página de <a href="../aero/index.html" data-face>Engenharia Aeronáutica</a>.</p>
+      <p class="bridge" lang="en">The quantitative methods I use with data come from engineering: trajectory simulation, Monte Carlo and CFD are on the <a href="../aero/index.html" data-face>Aeronautical Engineering</a> page.</p>
+      <p class="bridge" lang="fr">Les méthodes quantitatives que j’utilise avec les données viennent de l’ingénierie&nbsp;: simulation de trajectoire, Monte-Carlo et CFD sont sur la page <a href="../aero/index.html" data-face>Ingénierie aéronautique</a>.</p>
     </div>
   </section>
 
@@ -281,7 +308,7 @@
               </ul>
               <ul lang="en">
                 <li>6-DOF flight dynamics model in MATLAB and Monte Carlo simulations for trajectory dispersion and safety analysis.</li>
-                <li>Numerical modeling and CFD of propulsion and oxidiser feed systems.</li>
+                <li>Numerical modeling and CFD of propulsion and oxidizer feed systems.</li>
               </ul>
               <ul lang="fr">
                 <li>Modèle de dynamique du vol à 6 degrés de liberté sous MATLAB et simulations de Monte-Carlo pour la dispersion des trajectoires et l’analyse de sécurité.</li>
@@ -303,13 +330,12 @@
         <h3><span lang="pt-BR">Triagem inteligente de e-mails</span><span lang="en">Intelligent email triage</span><span lang="fr">Tri intelligent d’e-mails</span></h3>
         <p class="org"><span lang="pt-BR">Projeto pessoal. Python, API do Claude, Oracle Cloud</span><span lang="en">Personal project. Python, Claude API, Oracle Cloud</span><span lang="fr">Projet personnel. Python, API Claude, Oracle Cloud</span></p>
         <p class="status"><span lang="pt-BR">Em migração para a Oracle Cloud</span><span lang="en">Migrating to Oracle Cloud</span><span lang="fr">Migration vers Oracle Cloud en cours</span></p>
-        <p lang="pt-BR">Pipeline em Python que classifica e organiza automaticamente os e-mails de duas contas Gmail, uma pessoal e uma institucional da USP, usando a API do Claude (um modelo de linguagem) com acesso por IMAP e OAuth2. O sistema gera resumos diários e semanais com os prazos em ordem cronológica e as ações sugeridas, e os entrega pelo Telegram, onde um bot também aceita comandos manuais.</p>
-        <p lang="en">A Python pipeline that automatically classifies and organizes the emails of two Gmail accounts, one personal and one institutional at USP, using the Claude API (a language model) with IMAP and OAuth2 access. The system produces daily and weekly summaries with deadlines in chronological order and suggested actions, and delivers them through Telegram, where a bot also accepts manual commands.</p>
-        <p lang="fr">Pipeline Python qui classe et organise automatiquement les e-mails de deux comptes Gmail, l’un personnel et l’autre institutionnel de l’USP, avec l’API Claude (un modèle de langage) et un accès par IMAP et OAuth2. Le système produit des synthèses quotidiennes et hebdomadaires avec les échéances dans l’ordre chronologique et les actions suggérées, et les livre par Telegram, où un bot accepte aussi des commandes manuelles.</p>
-        <p lang="pt-BR">A arquitetura é híbrida: a formatação determinística fica no Python e a IA entra só na análise estratégica, o que reduz o consumo de tokens. O sistema está sendo migrado para um servidor virtual (VPS) na Oracle Cloud, com execução agendada por cron, deploy por Git e acesso por SSH, para funcionar sem depender do meu computador.</p>
-        <p lang="en">The architecture is hybrid: deterministic formatting stays in Python and the AI is used only for strategic analysis, which reduces token consumption. The system is being migrated to a virtual private server (VPS) on Oracle Cloud, with scheduled execution through cron, deployment through Git and SSH access, so it runs without depending on my own computer.</p>
-        <p lang="fr">L’architecture est hybride : la mise en forme déterministe reste en Python et l’IA n’intervient que pour l’analyse stratégique, ce qui réduit la consommation de tokens. Le système est en cours de migration vers un serveur privé virtuel (VPS) sur Oracle Cloud, avec exécution planifiée par cron, déploiement par Git et accès par SSH, afin de fonctionner sans dépendre de mon ordinateur.</p>
-        <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">Python, API do Claude, IMAP, OAuth2, API de bots do Telegram, Linux, cron, Git, SSH, Oracle Cloud.</span><span lang="en">Python, Claude API, IMAP, OAuth2, Telegram Bot API, Linux, cron, Git, SSH, Oracle Cloud.</span><span lang="fr">Python, API Claude, IMAP, OAuth2, API Bot de Telegram, Linux, cron, Git, SSH, Oracle Cloud.</span></p>
+        <dl class="par">
+          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Acompanhar duas contas Gmail, uma pessoal e uma institucional da USP, sem perder prazos nem ações pendentes.</span><span lang="en">Keep track of two Gmail accounts, one personal and one institutional at USP, without missing deadlines or pending actions.</span><span lang="fr">Suivre deux comptes Gmail, l’un personnel et l’autre institutionnel de l’USP, sans manquer d’échéances ni d’actions en attente.</span></dd></div>
+          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Pipeline em Python que classifica e organiza os e-mails com a API do Claude (um modelo de linguagem), com acesso por IMAP e OAuth2. A arquitetura é híbrida: a formatação determinística fica no Python e a IA entra só na análise estratégica, o que reduz o consumo de tokens.</span><span lang="en">A Python pipeline classifies and organizes the emails with the Claude API (a language model), with IMAP and OAuth2 access. The architecture is hybrid: deterministic formatting stays in Python and the AI is used only for strategic analysis, which reduces token consumption.</span><span lang="fr">Un pipeline Python classe et organise les e-mails avec l’API Claude (un modèle de langage), avec un accès par IMAP et OAuth2. L’architecture est hybride&nbsp;: la mise en forme déterministe reste en Python et l’IA n’intervient que pour l’analyse stratégique, ce qui réduit la consommation de tokens.</span></dd></div>
+          <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Resumos diários e semanais com os prazos em ordem cronológica e as ações sugeridas, entregues pelo Telegram, onde um bot também aceita comandos manuais. A migração para um servidor virtual (VPS) na Oracle Cloud, com cron, deploy por Git e acesso por SSH, faz o sistema rodar sem depender do meu computador.</span><span lang="en">Daily and weekly summaries with deadlines in chronological order and suggested actions, delivered through Telegram, where a bot also accepts manual commands. The migration to a virtual private server (VPS) on Oracle Cloud, with cron, Git deployment and SSH access, lets the system run without depending on my computer.</span><span lang="fr">Des synthèses quotidiennes et hebdomadaires avec les échéances dans l’ordre chronologique et les actions suggérées, livrées par Telegram, où un bot accepte aussi des commandes manuelles. La migration vers un serveur privé virtuel (VPS) sur Oracle Cloud, avec cron, déploiement par Git et accès SSH, permet au système de fonctionner sans dépendre de mon ordinateur.</span></dd></div>
+          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">Python, API do Claude, IMAP, OAuth2, API de bots do Telegram, Linux, cron, Git, SSH, Oracle Cloud.</span><span lang="en">Python, Claude API, IMAP, OAuth2, Telegram Bot API, Linux, cron, Git, SSH, Oracle Cloud.</span><span lang="fr">Python, API Claude, IMAP, OAuth2, API Bot de Telegram, Linux, cron, Git, SSH, Oracle Cloud.</span></dd></div>
+        </dl>
         <!-- REPO: quando publicar, troque este parágrafo (3 idiomas) por um link para o repositório -->
         <p class="repo-soon" lang="pt-BR">Repositório: será publicado em breve.</p>
         <p class="repo-soon" lang="en">Repository: to be published soon.</p>
@@ -320,12 +346,12 @@
         <h3><span lang="pt-BR">Motor de busca e classificação de vagas</span><span lang="en">Job search and ranking engine</span><span lang="fr">Moteur de recherche et de classement d’offres</span></h3>
         <p class="org"><span lang="pt-BR">Projeto pessoal. Claude, Claude Code, automação de navegador</span><span lang="en">Personal project. Claude, Claude Code, browser automation</span><span lang="fr">Projet personnel. Claude, Claude Code, automatisation du navigateur</span></p>
         <p class="status"><span lang="pt-BR">Em desenvolvimento</span><span lang="en">In development</span><span lang="fr">En développement</span></p>
-        <p lang="pt-BR">Pipeline que percorre fontes cadastradas de vagas de estágio e emprego, remove duplicatas e atribui a cada vaga uma nota de aderência de 0 a 10, com base em critérios definidos: tipo de vaga, localização e requisitos de elegibilidade. O resultado vai para uma planilha de controle, com resumo dos requisitos e das atividades de cada vaga.</p>
-        <p lang="en">A pipeline that goes through registered sources of internship and job listings, removes duplicates and gives each listing a fit score from 0 to 10 based on defined criteria: type of role, location and eligibility requirements. The result goes to a tracking spreadsheet, with a summary of each listing’s requirements and duties.</p>
-        <p lang="fr">Pipeline qui parcourt des sources enregistrées d’offres de stage et d’emploi, supprime les doublons et attribue à chaque offre une note d’adéquation de 0 à 10 selon des critères définis : type de poste, localisation et conditions d’éligibilité. Le résultat alimente un tableau de suivi, avec un résumé des exigences et des missions de chaque offre.</p>
-        <p lang="pt-BR">Nenhuma candidatura é enviada sem a minha revisão e confirmação: a automação prepara, a decisão é minha.</p>
-        <p lang="en">No application is sent without my review and confirmation: the automation prepares, and the decision is mine.</p>
-        <p lang="fr">Aucune candidature n’est envoyée sans ma relecture et ma confirmation : l’automatisation prépare, la décision m’appartient.</p>
+        <dl class="par">
+          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Encontrar e triar vagas de estágio e emprego espalhadas por muitas fontes.</span><span lang="en">Find and screen internship and job listings spread across many sources.</span><span lang="fr">Trouver et trier des offres de stage et d’emploi réparties sur de nombreuses sources.</span></dd></div>
+          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Pipeline que percorre fontes cadastradas, remove duplicatas e atribui a cada vaga uma nota de aderência de 0 a 10, com base em critérios definidos: tipo de vaga, localização e requisitos de elegibilidade.</span><span lang="en">A pipeline goes through registered sources, removes duplicates and gives each listing a fit score from 0 to 10 based on defined criteria: type of role, location and eligibility requirements.</span><span lang="fr">Un pipeline parcourt des sources enregistrées, supprime les doublons et attribue à chaque offre une note d’adéquation de 0 à 10 selon des critères définis&nbsp;: type de poste, localisation et conditions d’éligibilité.</span></dd></div>
+          <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Uma planilha de controle com o resumo dos requisitos e das atividades de cada vaga. Nenhuma candidatura é enviada sem a minha revisão e confirmação: a automação prepara, a decisão é minha.</span><span lang="en">A tracking spreadsheet with a summary of each listing’s requirements and duties. No application is sent without my review and confirmation: the automation prepares, and the decision is mine.</span><span lang="fr">Un tableau de suivi avec un résumé des exigences et des missions de chaque offre. Aucune candidature n’est envoyée sans ma relecture et ma confirmation&nbsp;: l’automatisation prépare, la décision m’appartient.</span></dd></div>
+          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">Claude, Claude Code, automação de navegador.</span><span lang="en">Claude, Claude Code, browser automation.</span><span lang="fr">Claude, Claude Code, automatisation du navigateur.</span></dd></div>
+        </dl>
         <!-- REPO: quando publicar a versão higienizada (só o motor, sem dados pessoais), troque este parágrafo (3 idiomas) por um link -->
         <p class="repo-soon" lang="pt-BR">Repositório: será publicado em breve, em versão sem dados pessoais.</p>
         <p class="repo-soon" lang="en">Repository: to be published soon, in a version without personal data.</p>

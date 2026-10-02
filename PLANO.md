@@ -319,7 +319,7 @@ Pacotes:
   T = β / (1 − (1−β)(1−γ)), curvas S/I/R ao vivo, clique para infectar, novo surto automático.
 - P2b: cargos-alvo removidos da abertura; no lugar fica o nome da área (Engenharia Aeronáutica, Análise e
   Engenharia de Dados, Cibersegurança (em formação)).
-- P4 Melhorias aprovadas: B, C, E, G, H (lista abaixo).
+- P4 Melhorias aprovadas `[B, C, G concluídas; E depende da Fase 5; H da Fase 7]`: caixas "Como funciona" (`details.how`) nas três simulações, projetos em `dl.par` (Problema / Abordagem / Resultado / Stack, linha Resultado omitida quando não há resultado documentado), ponte `.bridge` no fim de Sobre.
 - P5 Design visual (fase separada).
 
 ## 7. Melhorias aprovadas (P4)

@@ -143,6 +143,30 @@
       <button type="button" class="rl-btn" id="mw-pause"><span data-mw-when="running"><span lang="pt-BR">Pausar</span><span lang="en">Pause</span><span lang="fr">Pause</span></span><span data-mw-when="paused" hidden><span lang="pt-BR">Continuar</span><span lang="en">Resume</span><span lang="fr">Reprendre</span></span></button>
       <button type="button" class="rl-btn" id="mw-restart"><span lang="pt-BR">Novo surto</span><span lang="en">New outbreak</span><span lang="fr">Nouvelle épidémie</span></button>
     </div>
+    <details class="how">
+      <summary><span lang="pt-BR">Como funciona</span><span lang="en">How it works</span><span lang="fr">Comment ça marche</span></summary>
+      <ol lang="pt-BR">
+        <li>A rede tem 64 máquinas; cada uma se liga às três mais próximas e às que estão num raio fixo, com grau médio <i>k̄</i> ≈ 3,8.</li>
+        <li>Modelo SIR discreto: a cada passo, cada máquina infectada contamina cada vizinha vulnerável com probabilidade β; depois, cada infectada é isolada com probabilidade γ.</li>
+        <li>A chance de uma infectada contaminar uma vizinha antes de ser isolada é <i>T</i> = β / [1 − (1 − β)(1 − γ)].</li>
+        <li>O número básico de reprodução é <i>R</i><sub>0</sub> ≈ <i>k̄</i>·<i>T</i>. Acima de 1 o surto tende a crescer; abaixo de 1, a se extinguir. Em redes reais, a estrutura das ligações também pesa.</li>
+        <li>Na prática de segurança, γ representa detecção e resposta (monitoramento, isolamento de máquinas) e β, a superfície de ataque (correções, segmentação, menor privilégio).</li>
+      </ol>
+      <ol lang="en">
+        <li>The network has 64 machines; each links to its three nearest neighbors and to those within a fixed radius, with mean degree <i>k̄</i> ≈ 3.8.</li>
+        <li>Discrete SIR model: at each step, every infected machine compromises each susceptible neighbor with probability β; then each infected machine is isolated with probability γ.</li>
+        <li>The chance that an infected machine compromises a neighbor before being isolated is <i>T</i> = β / [1 − (1 − β)(1 − γ)].</li>
+        <li>The basic reproduction number is <i>R</i><sub>0</sub> ≈ <i>k̄</i>·<i>T</i>. Above 1 the outbreak tends to grow; below 1, to die out. In real networks, the link structure also matters.</li>
+        <li>In security practice, γ stands for detection and response (monitoring, host isolation) and β for the attack surface (patching, segmentation, least privilege).</li>
+      </ol>
+      <ol lang="fr">
+        <li>Le réseau compte 64 machines&nbsp;; chacune est reliée à ses trois plus proches voisines et à celles situées dans un rayon fixe, avec un degré moyen <i>k̄</i> ≈ 3,8.</li>
+        <li>Modèle SIR discret&nbsp;: à chaque pas, chaque machine infectée contamine chaque voisine vulnérable avec une probabilité β&nbsp;; puis chaque machine infectée est isolée avec une probabilité γ.</li>
+        <li>La probabilité qu’une machine infectée contamine une voisine avant d’être isolée est <i>T</i> = β / [1 − (1 − β)(1 − γ)].</li>
+        <li>Le nombre de reproduction de base est <i>R</i><sub>0</sub> ≈ <i>k̄</i>·<i>T</i>. Au-dessus de 1, l’épidémie tend à croître&nbsp;; en dessous, à s’éteindre. Dans les réseaux réels, la structure des liens compte aussi.</li>
+        <li>En pratique, γ représente la détection et la réponse (supervision, isolement des machines) et β, la surface d’attaque (correctifs, segmentation, moindre privilège).</li>
+      </ol>
+    </details>
   </figcaption>
 </figure>
 </div>
@@ -158,6 +182,9 @@
       <p lang="pt-BR">As seções de estudos, projetos e certificados serão preenchidas aos poucos. Enquanto isso, meus trabalhos com dados, automação e computação científica estão na página de <a href="../ti/index.html" data-face>TI e Dados</a>.</p>
       <p lang="en">The studies, projects and certificates sections will be filled in gradually. Meanwhile, my work in data, automation and scientific computing is on the <a href="../ti/index.html" data-face>IT and Data</a> page.</p>
       <p lang="fr">Les sections études, projets et certificats seront complétées progressivement. En attendant, mes travaux en données, automatisation et calcul scientifique sont sur la page <a href="../ti/index.html" data-face>Informatique et données</a>.</p>
+      <p class="bridge" lang="pt-BR">A simulação acima aplica à segurança um modelo epidemiológico, o mesmo tipo de modelagem dinâmica que uso na <a href="../aero/index.html" data-face>engenharia</a> e em <a href="../ti/index.html" data-face>dados</a>.</p>
+      <p class="bridge" lang="en">The simulation above applies an epidemic model to security, the same kind of dynamic modeling I use in <a href="../aero/index.html" data-face>engineering</a> and <a href="../ti/index.html" data-face>data</a>.</p>
+      <p class="bridge" lang="fr">La simulation ci-dessus applique à la sécurité un modèle épidémiologique, le même type de modélisation dynamique que j’utilise en <a href="../aero/index.html" data-face>ingénierie</a> et en <a href="../ti/index.html" data-face>données</a>.</p>
     </div>
   </section>
 
@@ -231,9 +258,12 @@
       <article class="project">
         <h3><span lang="pt-BR">Triagem inteligente de e-mails</span><span lang="en">Intelligent email triage</span><span lang="fr">Tri intelligent d’e-mails</span></h3>
         <p class="org"><span lang="pt-BR">Projeto pessoal. Python, IMAP, OAuth2, SSH, Oracle Cloud</span><span lang="en">Personal project. Python, IMAP, OAuth2, SSH, Oracle Cloud</span><span lang="fr">Projet personnel. Python, IMAP, OAuth2, SSH, Oracle Cloud</span></p>
-        <p lang="pt-BR">Bot que lê duas contas de e-mail e envia resumos pelo Telegram. Do ponto de vista de segurança: acesso às caixas por IMAP com autenticação OAuth2 e implantação num servidor Linux remoto acessado por SSH, com atualização via Git. A descrição completa está na página de <a href="../ti/index.html#projetos" data-face>TI e Dados</a>.</p>
-        <p lang="en">A bot that reads two email accounts and sends summaries over Telegram. From a security standpoint: mailbox access over IMAP with OAuth2 authentication, and deployment on a remote Linux server accessed over SSH, updated through Git. The full description is on the <a href="../ti/index.html#projetos" data-face>IT and Data</a> page.</p>
-        <p lang="fr">Bot qui lit deux comptes e-mail et envoie des résumés via Telegram. Côté sécurité&nbsp;: accès aux boîtes par IMAP avec authentification OAuth2 et déploiement sur un serveur Linux distant accessible par SSH, mis à jour via Git. La description complète est sur la page <a href="../ti/index.html#projetos" data-face>Informatique et données</a>.</p>
+        <dl class="par">
+          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Dar a um bot automatizado acesso seguro a duas caixas de e-mail e mantê-lo rodando num servidor remoto.</span><span lang="en">Give an automated bot secure access to two mailboxes and keep it running on a remote server.</span><span lang="fr">Donner à un bot automatisé un accès sécurisé à deux boîtes e-mail et le faire tourner sur un serveur distant.</span></dd></div>
+          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Acesso às caixas por IMAP com autenticação OAuth2 e implantação num servidor Linux remoto acessado por SSH, com atualização via Git e execução agendada por cron.</span><span lang="en">Mailbox access over IMAP with OAuth2 authentication, and deployment on a remote Linux server accessed over SSH, updated through Git and scheduled with cron.</span><span lang="fr">Accès aux boîtes par IMAP avec authentification OAuth2, et déploiement sur un serveur Linux distant accessible par SSH, mis à jour via Git et planifié avec cron.</span></dd></div>
+          <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Resumos diários pelo Telegram; migração para um VPS na Oracle Cloud em andamento. A descrição completa está na página de <a href="../ti/index.html#projetos" data-face>TI e Dados</a>.</span><span lang="en">Daily summaries over Telegram; migration to an Oracle Cloud VPS in progress. The full description is on the <a href="../ti/index.html#projetos" data-face>IT and Data</a> page.</span><span lang="fr">Synthèses quotidiennes via Telegram&nbsp;; migration vers un VPS Oracle Cloud en cours. La description complète est sur la page <a href="../ti/index.html#projetos" data-face>Informatique et données</a>.</span></dd></div>
+          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">Python, IMAP, OAuth2, SSH, Linux, cron, Git, Oracle Cloud.</span><span lang="en">Python, IMAP, OAuth2, SSH, Linux, cron, Git, Oracle Cloud.</span><span lang="fr">Python, IMAP, OAuth2, SSH, Linux, cron, Git, Oracle Cloud.</span></dd></div>
+        </dl>
       </article>
       <div class="slot">
         <h3><span lang="pt-BR">Próximos projetos</span><span lang="en">Upcoming projects</span><span lang="fr">Projets à venir</span></h3>
