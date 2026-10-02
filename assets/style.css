@@ -15,7 +15,15 @@
   --text:"Source Serif 4",Georgia,serif;
   --max:1240px;
   --gutter:clamp(20px,4vw,48px);
+  /* Cor de destaque da área. Por enquanto igual nas três; na fase de design, cada área recebe a sua. */
+  --accent:var(--suction);
+  --accent-ink:#fff;
 }
+/* Tokens por área (body[data-area]). Ajustar aqui na fase de design. */
+body[data-area="home"]{}
+body[data-area="aero"]{--accent:var(--suction)}
+body[data-area="ti"]{--accent:var(--suction)}
+body[data-area="cyber"]{--accent:var(--suction)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -144,10 +152,15 @@ main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 40px}
 
 /* ---------- Fase 3: porta de entrada, face TI e Dados, face Cyber ---------- */
 
-/* Cabeçalho com três áreas: a navegação interna some mais cedo */
-@media (max-width:1100px){
+/* Cabeçalho em duas linhas: (1) nome, páginas, idioma; (2) seções da página.
+   Assim o seletor com Início e três áreas cabe em qualquer idioma. */
+.bar{flex-wrap:wrap;row-gap:4px}
+.bar .face{margin-left:auto}
+.nav{order:4;flex-basis:100%;margin-left:0;gap:20px;font-size:.875rem}
+html{scroll-padding-top:112px}
+@media (max-width:860px){
   .nav{display:none}
-  .face{margin-left:auto}
+  html{scroll-padding-top:80px}
 }
 
 /* Porta de entrada */
@@ -157,7 +170,7 @@ main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 40px}
 .gate-contact{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:18px;font-family:var(--display);font-size:.9375rem;font-weight:600}
 .gate-pick{max-width:var(--max);margin:clamp(40px,7vw,72px) auto 0;padding:0 var(--gutter);font-family:var(--display);font-size:1rem;color:var(--ink-2)}
 .gate-pick p{margin:0}
-.gate-grid{max-width:var(--max);margin:14px auto 0;padding:0 var(--gutter) 24px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,32px)}
+.gate-grid{max-width:var(--max);margin:14px auto 0;padding:0 var(--gutter) 24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.5vw,28px)}
 .gate-card{position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--rule);border-radius:4px;overflow:hidden;transition:border-color .15s}
 .gate-card:hover{border-color:var(--ink)}
 .gate-art{aspect-ratio:2/1;border-bottom:1px solid var(--rule);overflow:hidden}
@@ -211,7 +224,7 @@ main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 40px}
 .base-list li{margin-bottom:6px}
 .page-note{font-family:var(--display);font-size:.875rem;color:var(--ink-2);margin:0 0 14px}
 
-@media (max-width:860px){
+@media (max-width:1000px){
   .gate-grid{grid-template-columns:1fr}
 }
 @media (max-width:560px){
@@ -230,3 +243,19 @@ main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 40px}
   .face a{flex:1;text-align:center;padding:8px 4px}
 }
 .tunnel-frame--maze+.tunnel-meta{grid-template-columns:1fr}
+
+/* Botão Início no seletor de páginas */
+.face a.face-home{border-right:1px solid var(--rule)}
+/* Seletor de simulações (assets/sims.js). Aparece só com duas ou mais simulações. */
+.sim-tabs{max-width:var(--max);margin:0 auto 10px;padding:0 var(--gutter);display:flex;flex-wrap:wrap;gap:6px}
+.sim-tab{font:600 .8125rem/1 var(--display);padding:8px 12px;border:1px solid var(--rule);border-radius:2px;background:transparent;color:var(--ink-2);cursor:pointer}
+.sim-tab[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sim-panel[hidden]{display:none}
+/* Ilustração do cartão de Cibersegurança */
+.art-edge{stroke:var(--rule);stroke-width:1.5}
+.art-edge-hot{stroke:var(--stagnation);stroke-opacity:.6}
+.art-edge-cut{stroke-dasharray:3 4}
+.art-node{stroke:var(--surface);stroke-width:2}
+.art-node-s{fill:var(--free)}
+.art-node-i{fill:var(--stagnation)}
+.art-node-r{fill:var(--surface);stroke:var(--suction);stroke-width:2.5}
