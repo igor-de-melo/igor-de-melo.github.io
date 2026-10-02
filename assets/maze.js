@@ -141,13 +141,13 @@ if (typeof document !== "undefined") (function () {
   var pauseBtn = document.getElementById("rl-pause"), restartBtn = document.getElementById("rl-restart");
 
   function cssVar(name, fallback) {
-    var v = getComputedStyle(root).getPropertyValue(name).trim();
+    var v = getComputedStyle(canvas).getPropertyValue(name).trim();
     return v || fallback;
   }
   var C = {};
   function readColors() {
     C.ink = cssVar("--ink", "#16233A"); C.surface = cssVar("--surface", "#F5F7F9"); C.rule = cssVar("--rule", "#C5CDD6");
-    C.blue = cssVar("--suction", "#2F45B5"); C.red = cssVar("--stagnation", "#B0232F");
+    C.blue = cssVar("--accent", "#2F45B5"); C.red = cssVar("--stagnation", "#B0232F");
   }
   readColors();
 
@@ -300,6 +300,7 @@ if (typeof document !== "undefined") (function () {
   document.addEventListener("visibilitychange", function () { if (!document.hidden) startLoop(); });
   if (reduce.addEventListener) reduce.addEventListener("change", function () { if (pauseBtn) pauseBtn.hidden = reduce.matches; restart(); });
   document.addEventListener("sitelangchange", function (e) { canvas.setAttribute("aria-label", labels[e.detail.lang]); readout(); });
+  document.addEventListener("sitethemechange", function () { readColors(); draw(); });
   if ("ResizeObserver" in window) new ResizeObserver(resize).observe(canvas.parentElement); else window.addEventListener("resize", resize);
 
   canvas.setAttribute("aria-label", labels[root.lang] || labels["pt-BR"]);

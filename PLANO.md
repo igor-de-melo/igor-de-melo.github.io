@@ -320,7 +320,12 @@ Pacotes:
 - P2b: cargos-alvo removidos da abertura; no lugar fica o nome da área (Engenharia Aeronáutica, Análise e
   Engenharia de Dados, Cibersegurança (em formação)).
 - P4 Melhorias aprovadas `[B, C, G concluídas; E depende da Fase 5; H da Fase 7]`: caixas "Como funciona" (`details.how`) nas três simulações, projetos em `dl.par` (Problema / Abordagem / Resultado / Stack, linha Resultado omitida quando não há resultado documentado), ponte `.bridge` no fim de Sobre.
-- P5 Design visual (fase separada).
+- P5 Design visual `[concluído]`: cores por área (Aero #2F45B5, Dados #0F766E, Cibersegurança #5B3FA0; no escuro
+  #8EA0FF, #2DD4BF, #B39DFF; contraste AA verificado), modo escuro com botão (`data-theme` + localStorage "theme",
+  evento `sitethemechange` para os canvas), IBM Plex Mono em datas e contadores, etiquetas (`ul.chips`) em Stack e
+  Competências, linha do tempo vertical, painel de instrumentos nas simulações, seções surgindo ao rolar, cartões da
+  Home animados ao passar o mouse, menu de seções no celular, rede de Cibersegurança transposta em tela em pé,
+  rodapé com contatos e áreas.
 
 ## 7. Melhorias aprovadas (P4)
 

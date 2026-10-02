@@ -2,6 +2,8 @@
 <html lang="pt-BR" data-title-pt-br="Igor Augusto de Melo" data-title-en="Igor Augusto de Melo" data-title-fr="Igor Augusto de Melo">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Igor Augusto de Melo</title>
 <meta name="description" content="Portfólio de Igor Augusto de Melo: Engenharia Aeronáutica, TI e Dados, Cibersegurança.">
@@ -27,6 +29,7 @@
       <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
       <button type="button" data-lang="fr" aria-pressed="false" title="Français">FR</button>
     </div>
+    <button type="button" class="theme-toggle" aria-pressed="false"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2.5a7.5 7.5 0 0 1 0 15z" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Modo escuro</span><span lang="en">Dark mode</span><span lang="fr">Mode sombre</span></span></button>
   </div>
 </header>
 
@@ -50,7 +53,7 @@
   </div>
 
   <div class="gate-grid">
-    <article class="gate-card">
+    <article class="gate-card gate-card--aero">
       <div class="gate-art" aria-hidden="true"><!--ART_AERO--></div>
       <div class="gate-body">
         <h2><a class="gate-link" href="aero/index.html" data-face><span lang="pt-BR">Engenharia Aeronáutica</span><span lang="en">Aeronautical Engineering</span><span lang="fr">Ingénierie aéronautique</span></a></h2>
@@ -60,7 +63,7 @@
       </div>
     </article>
 
-    <article class="gate-card">
+    <article class="gate-card gate-card--ti">
       <div class="gate-art" aria-hidden="true"><!--ART_TI--></div>
       <div class="gate-body">
         <h2><a class="gate-link" href="ti/index.html" data-face><span lang="pt-BR">TI e Dados</span><span lang="en">IT and Data</span><span lang="fr">Informatique et données</span></a></h2>
@@ -69,7 +72,7 @@
         <p lang="fr">SQL et Python sur des données e-commerce, IA appliquée à l’automatisation et calcul scientifique issu de l’ingénierie.</p>
       </div>
     </article>
-    <article class="gate-card">
+    <article class="gate-card gate-card--cyber">
       <div class="gate-art" aria-hidden="true"><!--ART_CYBER--></div>
       <div class="gate-body">
         <h2><a class="gate-link" href="cyber/index.html" data-face><span lang="pt-BR">Cibersegurança</span><span lang="en">Cybersecurity</span><span lang="fr">Cybersécurité</span></a></h2>
@@ -82,7 +85,19 @@
 </main>
 
 <footer class="site-footer">
-  <p>© 2026 Igor Augusto de Melo</p>
+  <div class="foot">
+    <div class="foot-id">
+      <p class="foot-name">Igor Augusto de Melo</p>
+      <p class="foot-links"><a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a><a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">GitHub</a></p>
+    </div>
+    <nav class="foot-areas" aria-label="Áreas / Areas / Domaines">
+      <a href="index.html" data-face><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></a>
+      <a href="aero/index.html" data-face><span lang="pt-BR">Engenharia Aeronáutica</span><span lang="en">Aeronautical Engineering</span><span lang="fr">Ingénierie aéronautique</span></a>
+      <a href="ti/index.html" data-face><span lang="pt-BR">TI e Dados</span><span lang="en">IT and Data</span><span lang="fr">Informatique et données</span></a>
+      <a href="cyber/index.html" data-face><span lang="pt-BR">Cibersegurança</span><span lang="en">Cybersecurity</span><span lang="fr">Cybersécurité</span></a>
+    </nav>
+    <p class="foot-meta">© 2026 Igor Augusto de Melo. <span lang="pt-BR">Atualizado em outubro de 2026.</span><span lang="en">Updated October 2026.</span><span lang="fr">Mis à jour en octobre 2026.</span></p>
+  </div>
 </footer>
 <script src="assets/site.js"></script>
 </body>

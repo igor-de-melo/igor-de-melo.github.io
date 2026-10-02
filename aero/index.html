@@ -2,6 +2,8 @@
 <html lang="pt-BR" data-desc-pt-br="Igor Augusto de Melo, estudante de Engenharia Aeronáutica na EESC-USP, busca estágio em engenharia aeroespacial: aerodinâmica, CFD, mecânica de voo, propulsão e engenharia de sistemas." data-desc-en="Igor Augusto de Melo, Aeronautical Engineering student at EESC-USP seeking an aerospace engineering internship: aerodynamics, CFD, flight mechanics, propulsion and systems engineering." data-desc-fr="Igor Augusto de Melo, étudiant en ingénierie aéronautique à l’EESC-USP, recherche un stage en ingénierie aérospatiale : aérodynamique, CFD, mécanique du vol, propulsion et ingénierie système." data-title-pt-br="Igor Augusto de Melo | Engenharia Aeronáutica" data-title-en="Igor Augusto de Melo | Aeronautical Engineering" data-title-fr="Igor Augusto de Melo | Ingénierie aéronautique">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Igor Augusto de Melo | Engenharia Aeronáutica</title>
 <meta name="description" content="Igor Augusto de Melo, estudante de Engenharia Aeronáutica na EESC-USP, busca estágio em engenharia aeroespacial: aerodinâmica, CFD, mecânica de voo, propulsão e engenharia de sistemas.">
@@ -73,7 +75,8 @@
 <header class="site-header" id="topo">
   <div class="bar">
     <a class="mark" href="#topo">Igor de Melo</a>
-    <nav class="nav" aria-label="Seções / Sections / Sections">
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="secoes"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="sr"><span lang="pt-BR">Seções da página</span><span lang="en">Page sections</span><span lang="fr">Sections de la page</span></span></button>
+    <nav class="nav" id="secoes" aria-label="Seções / Sections / Sections">
       <a href="#sobre"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></a>
       <a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a>
       <a href="#projetos"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></a>
@@ -93,6 +96,7 @@
       <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
       <button type="button" data-lang="fr" aria-pressed="false" title="Français">FR</button>
     </div>
+    <button type="button" class="theme-toggle" aria-pressed="false"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2.5a7.5 7.5 0 0 1 0 15z" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Modo escuro</span><span lang="en">Dark mode</span><span lang="fr">Mode sombre</span></span></button>
   </div>
 </header>
 
@@ -298,7 +302,11 @@
           <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Desenvolver do zero um veículo aéreo não tripulado autônomo de asa fixa, maximizando o desempenho aerodinâmico e a autonomia de voo.</span><span lang="en">Develop an autonomous fixed-wing unmanned aircraft from scratch, maximizing aerodynamic performance and flight endurance.</span><span lang="fr">Développer à partir de zéro un drone autonome à voilure fixe, en maximisant les performances aérodynamiques et l’autonomie de vol.</span></dd></div>
           <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Como gerente de projeto, respondo pela arquitetura, pelos requisitos, pela integração entre subsistemas e pelo planejamento de verificação e de riscos, com a metodologia de engenharia de sistemas da NASA. A autonomia vem da otimização do sistema de propulsão elétrica.</span><span lang="en">As project manager, I am responsible for the architecture, requirements, subsystem integration, and verification and risk planning, following NASA systems engineering methodology. Endurance comes from optimizing the electric propulsion system.</span><span lang="fr">En tant que chef de projet, je suis responsable de l’architecture, des exigences, de l’intégration des sous-systèmes et de la planification de la vérification et des risques, selon la méthodologie d’ingénierie système de la NASA. L’autonomie repose sur l’optimisation de la propulsion électrique.</span></dd></div>
           <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Em andamento desde 2025.</span><span lang="en">In progress since 2025.</span><span lang="fr">En cours depuis 2025.</span></dd></div>
-          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">Engenharia de sistemas (NASA), engenharia de requisitos, modelagem de dinâmica de voo, simulações voltadas ao controle.</span><span lang="en">Systems engineering (NASA), requirements engineering, flight dynamics modeling, control-oriented simulation.</span><span lang="fr">Ingénierie système (NASA), ingénierie des exigences, modélisation de la dynamique du vol, simulations orientées commande.</span></dd></div>
+          <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
+            <ul class="chips" lang="pt-BR"><li>Engenharia de sistemas (NASA)</li><li>Engenharia de requisitos</li><li>Modelagem de dinâmica de voo</li><li>Simulações voltadas ao controle</li></ul>
+            <ul class="chips" lang="en"><li>Systems engineering (NASA)</li><li>Requirements engineering</li><li>Flight dynamics modeling</li><li>Control-oriented simulation</li></ul>
+            <ul class="chips" lang="fr"><li>Ingénierie système (NASA)</li><li>Ingénierie des exigences</li><li>Modélisation de la dynamique du vol</li><li>Simulations orientées commande</li></ul>
+          </dd></div>
         </dl>
       </article>
 
@@ -309,7 +317,11 @@
           <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Projetar foguetes de competição que atinjam o apogeu da categoria e voem com segurança.</span><span lang="en">Design competition rockets that reach their category apogee and fly safely.</span><span lang="fr">Concevoir des fusées de compétition qui atteignent l’apogée de leur catégorie et volent en sécurité.</span></dd></div>
           <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Atuei nos subsistemas de propulsão e mecânica de voo. A simulação de trajetória com 6 graus de liberdade verificava o desempenho e as condições de voo, e rodadas de Monte Carlo mapeavam as regiões de queda balística e não balística para a análise de segurança.</span><span lang="en">I worked in the propulsion and flight mechanics subsystems. A 6-DOF trajectory simulation verified performance and flight conditions, and Monte Carlo runs mapped ballistic and non-ballistic impact regions for the safety analysis.</span><span lang="fr">J’ai travaillé dans les sous-systèmes propulsion et mécanique du vol. Une simulation de trajectoire à 6 degrés de liberté vérifiait les performances et les conditions de vol, et des tirages de Monte-Carlo cartographiaient les zones de retombée balistique et non balistique pour l’analyse de sécurité.</span></dd></div>
           <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Três títulos em três edições (tabela abaixo).</span><span lang="en">Three titles in three editions (table below).</span><span lang="fr">Trois titres en trois éditions (tableau ci-dessous).</span></dd></div>
-          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">MATLAB, simulação com 6 graus de liberdade, método de Monte Carlo, CFD.</span><span lang="en">MATLAB, 6-DOF simulation, Monte Carlo method, CFD.</span><span lang="fr">MATLAB, simulation à 6 degrés de liberté, méthode de Monte-Carlo, CFD.</span></dd></div>
+          <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
+            <ul class="chips" lang="pt-BR"><li>MATLAB</li><li>Simulação com 6 graus de liberdade</li><li>Método de Monte Carlo</li><li>CFD</li></ul>
+            <ul class="chips" lang="en"><li>MATLAB</li><li>6-DOF simulation</li><li>Monte Carlo method</li><li>CFD</li></ul>
+            <ul class="chips" lang="fr"><li>MATLAB</li><li>Simulation à 6 degrés de liberté</li><li>Méthode de Monte-Carlo</li><li>CFD</li></ul>
+          </dd></div>
         </dl>
         <table class="results">
           <caption><span lang="pt-BR">Três títulos em três edições</span><span lang="en">Three titles in three editions</span><span lang="fr">Trois titres en trois éditions</span></caption>
@@ -335,7 +347,11 @@
         <dl class="par">
           <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Projetar, construir e lançar um foguete com apogeu de 5 km num programa de cooperação internacional, no qual a TOPUS era responsável pela aeroestrutura.</span><span lang="en">Design, build and launch a rocket with a 5 km apogee in an international cooperation program, in which TOPUS was responsible for the aerostructure.</span><span lang="fr">Concevoir, construire et lancer une fusée à apogée de 5 km dans un programme de coopération internationale, où l’équipe TOPUS était responsable de l’aérostructure.</span></dd></div>
           <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Elaborei os desenhos técnicos e os planos de fabricação da coifa, apoiei estudos de fabricação em compósitos e realizei simulações de CFD 2D e 3D para buscar o melhor desempenho aerodinâmico do veículo.</span><span lang="en">I produced the technical drawings and manufacturing plans for the nose cone, supported composite manufacturing studies and ran 2D and 3D CFD simulations to improve the vehicle’s aerodynamic performance.</span><span lang="fr">J’ai réalisé les plans techniques et les dossiers de fabrication de la coiffe, participé aux études de fabrication en composites et mené des simulations CFD 2D et 3D pour améliorer les performances aérodynamiques du véhicule.</span></dd></div>
-          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">ANSYS Fluent (CFD 2D e 3D), desenho técnico, compósitos.</span><span lang="en">ANSYS Fluent (2D and 3D CFD), technical drawing, composites.</span><span lang="fr">ANSYS Fluent (CFD 2D et 3D), dessin technique, composites.</span></dd></div>
+          <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
+            <ul class="chips" lang="pt-BR"><li>ANSYS Fluent (CFD 2D e 3D)</li><li>Desenho técnico</li><li>Compósitos</li></ul>
+            <ul class="chips" lang="en"><li>ANSYS Fluent (2D and 3D CFD)</li><li>Technical drawing</li><li>Composites</li></ul>
+            <ul class="chips" lang="fr"><li>ANSYS Fluent (CFD 2D et 3D)</li><li>Dessin technique</li><li>Composites</li></ul>
+          </dd></div>
         </dl>
       </article>
 
@@ -346,7 +362,11 @@
           <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Levar o oxidante com segurança até a câmara de combustão de um motor-foguete híbrido.</span><span lang="en">Deliver the oxidizer safely to the combustion chamber of a hybrid rocket motor.</span><span lang="fr">Acheminer l’oxydant en toute sécurité jusqu’à la chambre de combustion d’un moteur-fusée hybride.</span></dd></div>
           <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas, e trabalhei no injetor de vórtice.</span><span lang="en">On the oxidizer injection team, I designed and tested the tank, piping and valves, and worked on the swirl injector.</span><span lang="fr">Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes, et j’ai travaillé sur l’injecteur tourbillonnaire.</span></dd></div>
           <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">O projeto recebeu, em 2020, uma bolsa de Bancada de Testes da Agência Espacial Brasileira (AEB).</span><span lang="en">The project received a test stand grant from the Brazilian Space Agency (AEB) in 2020.</span><span lang="fr">Le projet a obtenu en 2020 une bourse de banc d’essai de l’Agence spatiale brésilienne (AEB).</span></dd></div>
-          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">Termodinâmica, modelagem numérica, ensaios experimentais.</span><span lang="en">Thermodynamics, numerical modeling, experimental testing.</span><span lang="fr">Thermodynamique, modélisation numérique, essais expérimentaux.</span></dd></div>
+          <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
+            <ul class="chips" lang="pt-BR"><li>Termodinâmica</li><li>Modelagem numérica</li><li>Ensaios experimentais</li></ul>
+            <ul class="chips" lang="en"><li>Thermodynamics</li><li>Numerical modeling</li><li>Experimental testing</li></ul>
+            <ul class="chips" lang="fr"><li>Thermodynamique</li><li>Modélisation numérique</li><li>Essais expérimentaux</li></ul>
+          </dd></div>
         </dl>
       </article>
 
@@ -456,17 +476,41 @@
     <div class="body">
       <dl class="skills">
         <dt><span lang="pt-BR">Engenharia aeroespacial</span><span lang="en">Aerospace engineering</span><span lang="fr">Ingénierie aérospatiale</span></dt>
-        <dd><span lang="pt-BR">Aerodinâmica, CFD, propulsão, mecânica de voo, engenharia de sistemas, análise por elementos finitos, sistemas de controle (fundamentos).</span><span lang="en">Aerodynamics, CFD, propulsion, flight mechanics, systems engineering, finite element analysis, control systems (fundamentals).</span><span lang="fr">Aérodynamique, CFD, propulsion, mécanique du vol, ingénierie système, analyse par éléments finis, systèmes de commande (bases).</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Aerodinâmica</li><li>CFD</li><li>Propulsão</li><li>Mecânica de voo</li><li>Engenharia de sistemas</li><li>Análise por elementos finitos</li><li>Sistemas de controle (fundamentos)</li></ul>
+          <ul class="chips" lang="en"><li>Aerodynamics</li><li>CFD</li><li>Propulsion</li><li>Flight mechanics</li><li>Systems engineering</li><li>Finite element analysis</li><li>Control systems (fundamentals)</li></ul>
+          <ul class="chips" lang="fr"><li>Aérodynamique</li><li>CFD</li><li>Propulsion</li><li>Mécanique du vol</li><li>Ingénierie système</li><li>Analyse par éléments finis</li><li>Systèmes de commande (bases)</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Simulação</span><span lang="en">Simulation</span><span lang="fr">Simulation</span></dt>
-        <dd><span lang="pt-BR">ANSYS Fluent, CFX, OpenFOAM, XFOIL, XFLR5, WRF, Patran/Nastran (básico), Abaqus (básico).</span><span lang="en">ANSYS Fluent, CFX, OpenFOAM, XFOIL, XFLR5, WRF, Patran/Nastran (basic), Abaqus (basic).</span><span lang="fr">ANSYS Fluent, CFX, OpenFOAM, XFOIL, XFLR5, WRF, Patran/Nastran (bases), Abaqus (bases).</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>ANSYS Fluent</li><li>CFX</li><li>OpenFOAM</li><li>XFOIL</li><li>XFLR5</li><li>WRF</li><li>Patran/Nastran (básico)</li><li>Abaqus (básico)</li></ul>
+          <ul class="chips" lang="en"><li>ANSYS Fluent</li><li>CFX</li><li>OpenFOAM</li><li>XFOIL</li><li>XFLR5</li><li>WRF</li><li>Patran/Nastran (basic)</li><li>Abaqus (basic)</li></ul>
+          <ul class="chips" lang="fr"><li>ANSYS Fluent</li><li>CFX</li><li>OpenFOAM</li><li>XFOIL</li><li>XFLR5</li><li>WRF</li><li>Patran/Nastran (bases)</li><li>Abaqus (bases)</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Programação</span><span lang="en">Programming</span><span lang="fr">Programmation</span></dt>
-        <dd><span lang="pt-BR">Python, MATLAB/Simulink, Fortran, SQL, Bash, C++ e Java (básico).</span><span lang="en">Python, MATLAB/Simulink, Fortran, SQL, Bash, C++ and Java (basic).</span><span lang="fr">Python, MATLAB/Simulink, Fortran, SQL, Bash, C++ et Java (bases).</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Python</li><li>MATLAB/Simulink</li><li>Fortran</li><li>SQL</li><li>Bash</li><li>C++ (básico)</li><li>Java (básico)</li></ul>
+          <ul class="chips" lang="en"><li>Python</li><li>MATLAB/Simulink</li><li>Fortran</li><li>SQL</li><li>Bash</li><li>C++ (basic)</li><li>Java (basic)</li></ul>
+          <ul class="chips" lang="fr"><li>Python</li><li>MATLAB/Simulink</li><li>Fortran</li><li>SQL</li><li>Bash</li><li>C++ (bases)</li><li>Java (bases)</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Ferramentas</span><span lang="en">Tools</span><span lang="fr">Outils</span></dt>
-        <dd><span lang="pt-BR">Git, Linux, HPC, Google Cloud, SolidWorks, Fusion 360, CATIA (básico), LaTeX.</span><span lang="en">Git, Linux, HPC, Google Cloud, SolidWorks, Fusion 360, CATIA (basic), LaTeX.</span><span lang="fr">Git, Linux, HPC, Google Cloud, SolidWorks, Fusion 360, CATIA (bases), LaTeX.</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Git</li><li>Linux</li><li>HPC</li><li>Google Cloud</li><li>SolidWorks</li><li>Fusion 360</li><li>CATIA (básico)</li><li>LaTeX</li></ul>
+          <ul class="chips" lang="en"><li>Git</li><li>Linux</li><li>HPC</li><li>Google Cloud</li><li>SolidWorks</li><li>Fusion 360</li><li>CATIA (basic)</li><li>LaTeX</li></ul>
+          <ul class="chips" lang="fr"><li>Git</li><li>Linux</li><li>HPC</li><li>Google Cloud</li><li>SolidWorks</li><li>Fusion 360</li><li>CATIA (bases)</li><li>LaTeX</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Gestão</span><span lang="en">Management</span><span lang="fr">Gestion</span></dt>
-        <dd><span lang="pt-BR">Gestão de projeto de VANT, engenharia de sistemas pelo NASA Systems Engineering Handbook, documentação técnica e rastreabilidade.</span><span lang="en">UAV project management, systems engineering following the NASA Systems Engineering Handbook, technical documentation and traceability.</span><span lang="fr">Gestion de projet de drone, ingénierie système selon le NASA Systems Engineering Handbook, documentation technique et traçabilité.</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Gestão de projeto de VANT</li><li>Engenharia de sistemas pelo NASA Systems Engineering Handbook</li><li>Documentação técnica</li><li>Rastreabilidade</li></ul>
+          <ul class="chips" lang="en"><li>UAV project management</li><li>Systems engineering following the NASA Systems Engineering Handbook</li><li>Technical documentation</li><li>Traceability</li></ul>
+          <ul class="chips" lang="fr"><li>Gestion de projet de drone</li><li>Ingénierie système selon le NASA Systems Engineering Handbook</li><li>Documentation technique</li><li>Traçabilité</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></dt>
-        <dd><span lang="pt-BR">Português (nativo), inglês (avançado), francês (avançado), alemão (básico).</span><span lang="en">Portuguese (native), English (advanced), French (advanced), German (basic).</span><span lang="fr">Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions).</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Português (nativo)</li><li>Inglês (avançado)</li><li>Francês (avançado)</li><li>Alemão (básico)</li></ul>
+          <ul class="chips" lang="en"><li>Portuguese (native)</li><li>English (advanced)</li><li>French (advanced)</li><li>German (basic)</li></ul>
+          <ul class="chips" lang="fr"><li>Portugais (langue maternelle)</li><li>Anglais (avancé)</li><li>Français (avancé)</li><li>Allemand (notions)</li></ul>
+        </dd>
       </dl>
     </div>
   </section>
@@ -486,7 +530,19 @@
 </main>
 
 <footer class="site-footer">
-  <p>© 2026 Igor Augusto de Melo</p>
+  <div class="foot">
+    <div class="foot-id">
+      <p class="foot-name">Igor Augusto de Melo</p>
+      <p class="foot-links"><a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a><a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">GitHub</a></p>
+    </div>
+    <nav class="foot-areas" aria-label="Áreas / Areas / Domaines">
+      <a href="../index.html" data-face><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></a>
+      <a href="../aero/index.html" data-face><span lang="pt-BR">Engenharia Aeronáutica</span><span lang="en">Aeronautical Engineering</span><span lang="fr">Ingénierie aéronautique</span></a>
+      <a href="../ti/index.html" data-face><span lang="pt-BR">TI e Dados</span><span lang="en">IT and Data</span><span lang="fr">Informatique et données</span></a>
+      <a href="../cyber/index.html" data-face><span lang="pt-BR">Cibersegurança</span><span lang="en">Cybersecurity</span><span lang="fr">Cybersécurité</span></a>
+    </nav>
+    <p class="foot-meta">© 2026 Igor Augusto de Melo. <span lang="pt-BR">Atualizado em outubro de 2026.</span><span lang="en">Updated October 2026.</span><span lang="fr">Mis à jour en octobre 2026.</span></p>
+  </div>
 </footer>
 <script src="../assets/site.js"></script>
 <script src="../assets/sims.js"></script>

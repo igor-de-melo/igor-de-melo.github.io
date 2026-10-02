@@ -11,7 +11,7 @@ Site estático (GitHub Pages, repositório de usuário). Sem build, sem framewor
 - Testes: node tests/check-parity.mjs (PT/EN/FR), node tests/check-maze.mjs (Q-learning), node tests/check-malware.mjs (SIR), node tests/check-links.mjs [--external] (links). Rodam no GitHub Actions a cada push (.github/workflows/checks.yml).
 - Esqueleto das páginas: Abertura → Sobre → Experiência → Projetos → Formação → Competências → Contato (+ Pesquisa em Aero, + Estudos e laboratórios em Cibersegurança).
 - Simulações: cada uma é um `<figure class="tunnel sim-panel" data-sim="id" data-label-pt-br/en/fr>` dentro de `<div class="sims" data-sims>`; `assets/sims.js` cria as abas quando há mais de uma.
-- Cor por área: `body[data-area]` e token `--accent` em `assets/style.css`.
+- Cor por área: `body[data-area]` e token `--accent` em `assets/style.css` (bloco P5). Modo escuro: `:root[data-theme="dark"]` e `prefers-color-scheme`; todo novo componente usa só variáveis (nunca cor fixa). Canvas leem cores com getComputedStyle(canvas) e escutam `sitethemechange`.
 - A Home é gerada de `index.template.html` + `node tools/gen-card-art.mjs` (substituir `<!--ART_AERO|TI|CYBER-->`).
 
 ## Commits

@@ -2,6 +2,8 @@
 <html lang="pt-BR" data-desc-pt-br="Igor Augusto de Melo busca estágio em análise e engenharia de dados: SQL (MySQL), Python, modelagem de dados, dashboards, Google Cloud, automação com IA e machine learning." data-desc-en="Igor Augusto de Melo, seeking data analysis and data engineering internships: SQL (MySQL), Python, data modeling, dashboards, Google Cloud, AI automation and machine learning." data-desc-fr="Igor Augusto de Melo recherche un stage en analyse et ingénierie des données : SQL (MySQL), Python, modélisation de données, tableaux de bord, Google Cloud, automatisation par IA et machine learning." data-title-pt-br="Igor Augusto de Melo | TI e Dados" data-title-en="Igor Augusto de Melo | IT and Data" data-title-fr="Igor Augusto de Melo | Informatique et données">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Igor Augusto de Melo | TI e Dados</title>
 <meta name="description" content="Igor Augusto de Melo busca estágio em análise e engenharia de dados: SQL (MySQL), Python, modelagem de dados, dashboards, Google Cloud, automação com IA e machine learning.">
@@ -74,7 +76,8 @@
 <header class="site-header" id="topo">
   <div class="bar">
     <a class="mark" href="../index.html" data-face>Igor de Melo</a>
-    <nav class="nav" aria-label="Seções / Sections / Sections">
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="secoes"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="sr"><span lang="pt-BR">Seções da página</span><span lang="en">Page sections</span><span lang="fr">Sections de la page</span></span></button>
+    <nav class="nav" id="secoes" aria-label="Seções / Sections / Sections">
       <a href="#sobre"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></a>
       <a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a>
       <a href="#projetos"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></a>
@@ -93,6 +96,7 @@
       <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
       <button type="button" data-lang="fr" aria-pressed="false" title="Français">FR</button>
     </div>
+    <button type="button" class="theme-toggle" aria-pressed="false"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2.5a7.5 7.5 0 0 1 0 15z" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Modo escuro</span><span lang="en">Dark mode</span><span lang="fr">Mode sombre</span></span></button>
   </div>
 </header>
 
@@ -126,9 +130,9 @@
   </div>
   <figcaption class="tunnel-meta">
     <p id="legenda-rl">
-      <span lang="pt-BR">Q-learning tabular rodando no navegador. O agente começa sem saber nada, testa caminhos, cai nas armadilhas e atualiza o valor de cada célula (em azul) até achar a rota segura. As setas mostram a ação preferida em cada célula. O atalho pelas armadilhas é mais curto, e o agente aprende que não compensa. Recompensa: +1 na meta, −1 nas armadilhas, −0,04 por passo.</span>
-      <span lang="en">Tabular Q-learning running in the browser. The agent starts knowing nothing, tries paths, falls into traps and updates the value of each cell (in blue) until it finds the safe route. Arrows show the preferred action in each cell. The shortcut through the traps is shorter, and the agent learns it does not pay off. Reward: +1 at the goal, −1 on traps, −0.04 per step.</span>
-      <span lang="fr">Q-learning tabulaire exécuté dans le navigateur. L’agent part sans rien savoir, essaie des chemins, tombe dans les pièges et met à jour la valeur de chaque case (en bleu) jusqu’à trouver la route sûre. Les flèches montrent l’action préférée dans chaque case. Le raccourci par les pièges est plus court, et l’agent apprend qu’il n’en vaut pas la peine. Récompense : +1 à l’objectif, −1 sur les pièges, −0,04 par pas.</span>
+      <span lang="pt-BR">Q-learning tabular rodando no navegador. O agente começa sem saber nada, testa caminhos, cai nas armadilhas e atualiza o valor de cada célula (sombreado em verde) até achar a rota segura. As setas mostram a ação preferida em cada célula. O atalho pelas armadilhas é mais curto, e o agente aprende que não compensa. Recompensa: +1 na meta, −1 nas armadilhas, −0,04 por passo.</span>
+      <span lang="en">Tabular Q-learning running in the browser. The agent starts knowing nothing, tries paths, falls into traps and updates the value of each cell (shaded in green) until it finds the safe route. Arrows show the preferred action in each cell. The shortcut through the traps is shorter, and the agent learns it does not pay off. Reward: +1 at the goal, −1 on traps, −0.04 per step.</span>
+      <span lang="fr">Q-learning tabulaire exécuté dans le navigateur. L’agent part sans rien savoir, essaie des chemins, tombe dans les pièges et met à jour la valeur de chaque case (ombrée en vert) jusqu’à trouver la route sûre. Les flèches montrent l’action préférée dans chaque case. Le raccourci par les pièges est plus court, et l’agent apprend qu’il n’en vaut pas la peine. Récompense : +1 à l’objectif, −1 sur les pièges, −0,04 par pas.</span>
     </p>
     <div class="controls">
       <span aria-live="polite">
@@ -153,21 +157,21 @@
         <li>Recompensas: −0,04 por passo, −1 ao cair numa armadilha e +1 na meta. O custo por passo favorece rotas curtas; a penalidade, rotas seguras.</li>
         <li>A cada passo: <i>Q</i>(<i>s</i>,<i>a</i>) ← <i>Q</i>(<i>s</i>,<i>a</i>) + α[<i>r</i> + γ·max <i>Q</i>(<i>s</i>′,·) − <i>Q</i>(<i>s</i>,<i>a</i>)], com α = 0,5 e γ = 0,96.</li>
         <li>Exploração ε-gulosa: com probabilidade ε o agente sorteia uma ação; ε começa em 0,35 e cai 1,5% por episódio até 0,04.</li>
-        <li>O azul mostra max <i>Q</i> em cada célula e as setas, a melhor ação. O aprendizado termina quando a rota gulosa é a ótima segura por 15 episódios seguidos.</li>
+        <li>O sombreado mostra max <i>Q</i> em cada célula e as setas, a melhor ação. O aprendizado termina quando a rota gulosa é a ótima segura por 15 episódios seguidos.</li>
       </ol>
       <ol lang="en">
         <li>The maze is a Markov decision process: the state is the cell and the actions are the four directions.</li>
         <li>Rewards: −0.04 per step, −1 for falling into a trap and +1 at the goal. The step cost favors short routes; the penalty, safe ones.</li>
         <li>At each step: <i>Q</i>(<i>s</i>,<i>a</i>) ← <i>Q</i>(<i>s</i>,<i>a</i>) + α[<i>r</i> + γ·max <i>Q</i>(<i>s</i>′,·) − <i>Q</i>(<i>s</i>,<i>a</i>)], with α = 0.5 and γ = 0.96.</li>
         <li>ε-greedy exploration: with probability ε the agent picks a random action; ε starts at 0.35 and drops 1.5% per episode down to 0.04.</li>
-        <li>Blue shows max <i>Q</i> in each cell and the arrows show the best action. Learning ends when the greedy route is the optimal safe one for 15 episodes in a row.</li>
+        <li>The shading shows max <i>Q</i> in each cell and the arrows show the best action. Learning ends when the greedy route is the optimal safe one for 15 episodes in a row.</li>
       </ol>
       <ol lang="fr">
         <li>Le labyrinthe est un processus de décision markovien&nbsp;: l’état est la case et les actions sont les quatre directions.</li>
         <li>Récompenses&nbsp;: −0,04 par pas, −1 en tombant dans un piège et +1 à l’objectif. Le coût par pas favorise les routes courtes&nbsp;; la pénalité, les routes sûres.</li>
         <li>À chaque pas&nbsp;: <i>Q</i>(<i>s</i>,<i>a</i>) ← <i>Q</i>(<i>s</i>,<i>a</i>) + α[<i>r</i> + γ·max <i>Q</i>(<i>s</i>′,·) − <i>Q</i>(<i>s</i>,<i>a</i>)], avec α = 0,5 et γ = 0,96.</li>
         <li>Exploration ε-gloutonne&nbsp;: avec une probabilité ε, l’agent tire une action au hasard&nbsp;; ε part de 0,35 et baisse de 1,5&nbsp;% par épisode jusqu’à 0,04.</li>
-        <li>Le bleu montre max <i>Q</i> dans chaque case et les flèches, la meilleure action. L’apprentissage s’arrête quand la route gloutonne est la route sûre optimale pendant 15 épisodes consécutifs.</li>
+        <li>L’ombrage montre max <i>Q</i> dans chaque case et les flèches, la meilleure action. L’apprentissage s’arrête quand la route gloutonne est la route sûre optimale pendant 15 épisodes consécutifs.</li>
       </ol>
     </details>
   </figcaption>
@@ -334,7 +338,11 @@
           <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Acompanhar duas contas Gmail, uma pessoal e uma institucional da USP, sem perder prazos nem ações pendentes.</span><span lang="en">Keep track of two Gmail accounts, one personal and one institutional at USP, without missing deadlines or pending actions.</span><span lang="fr">Suivre deux comptes Gmail, l’un personnel et l’autre institutionnel de l’USP, sans manquer d’échéances ni d’actions en attente.</span></dd></div>
           <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Pipeline em Python que classifica e organiza os e-mails com a API do Claude (um modelo de linguagem), com acesso por IMAP e OAuth2. A arquitetura é híbrida: a formatação determinística fica no Python e a IA entra só na análise estratégica, o que reduz o consumo de tokens.</span><span lang="en">A Python pipeline classifies and organizes the emails with the Claude API (a language model), with IMAP and OAuth2 access. The architecture is hybrid: deterministic formatting stays in Python and the AI is used only for strategic analysis, which reduces token consumption.</span><span lang="fr">Un pipeline Python classe et organise les e-mails avec l’API Claude (un modèle de langage), avec un accès par IMAP et OAuth2. L’architecture est hybride&nbsp;: la mise en forme déterministe reste en Python et l’IA n’intervient que pour l’analyse stratégique, ce qui réduit la consommation de tokens.</span></dd></div>
           <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Resumos diários e semanais com os prazos em ordem cronológica e as ações sugeridas, entregues pelo Telegram, onde um bot também aceita comandos manuais. A migração para um servidor virtual (VPS) na Oracle Cloud, com cron, deploy por Git e acesso por SSH, faz o sistema rodar sem depender do meu computador.</span><span lang="en">Daily and weekly summaries with deadlines in chronological order and suggested actions, delivered through Telegram, where a bot also accepts manual commands. The migration to a virtual private server (VPS) on Oracle Cloud, with cron, Git deployment and SSH access, lets the system run without depending on my computer.</span><span lang="fr">Des synthèses quotidiennes et hebdomadaires avec les échéances dans l’ordre chronologique et les actions suggérées, livrées par Telegram, où un bot accepte aussi des commandes manuelles. La migration vers un serveur privé virtuel (VPS) sur Oracle Cloud, avec cron, déploiement par Git et accès SSH, permet au système de fonctionner sans dépendre de mon ordinateur.</span></dd></div>
-          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">Python, API do Claude, IMAP, OAuth2, API de bots do Telegram, Linux, cron, Git, SSH, Oracle Cloud.</span><span lang="en">Python, Claude API, IMAP, OAuth2, Telegram Bot API, Linux, cron, Git, SSH, Oracle Cloud.</span><span lang="fr">Python, API Claude, IMAP, OAuth2, API Bot de Telegram, Linux, cron, Git, SSH, Oracle Cloud.</span></dd></div>
+          <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
+            <ul class="chips" lang="pt-BR"><li>Python</li><li>API do Claude</li><li>IMAP</li><li>OAuth2</li><li>API de bots do Telegram</li><li>Linux</li><li>cron</li><li>Git</li><li>SSH</li><li>Oracle Cloud</li></ul>
+            <ul class="chips" lang="en"><li>Python</li><li>Claude API</li><li>IMAP</li><li>OAuth2</li><li>Telegram Bot API</li><li>Linux</li><li>cron</li><li>Git</li><li>SSH</li><li>Oracle Cloud</li></ul>
+            <ul class="chips" lang="fr"><li>Python</li><li>API Claude</li><li>IMAP</li><li>OAuth2</li><li>API Bot de Telegram</li><li>Linux</li><li>cron</li><li>Git</li><li>SSH</li><li>Oracle Cloud</li></ul>
+          </dd></div>
         </dl>
         <!-- REPO: quando publicar, troque este parágrafo (3 idiomas) por um link para o repositório -->
         <p class="repo-soon" lang="pt-BR">Repositório: será publicado em breve.</p>
@@ -350,7 +358,11 @@
           <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Encontrar e triar vagas de estágio e emprego espalhadas por muitas fontes.</span><span lang="en">Find and screen internship and job listings spread across many sources.</span><span lang="fr">Trouver et trier des offres de stage et d’emploi réparties sur de nombreuses sources.</span></dd></div>
           <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Pipeline que percorre fontes cadastradas, remove duplicatas e atribui a cada vaga uma nota de aderência de 0 a 10, com base em critérios definidos: tipo de vaga, localização e requisitos de elegibilidade.</span><span lang="en">A pipeline goes through registered sources, removes duplicates and gives each listing a fit score from 0 to 10 based on defined criteria: type of role, location and eligibility requirements.</span><span lang="fr">Un pipeline parcourt des sources enregistrées, supprime les doublons et attribue à chaque offre une note d’adéquation de 0 à 10 selon des critères définis&nbsp;: type de poste, localisation et conditions d’éligibilité.</span></dd></div>
           <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Uma planilha de controle com o resumo dos requisitos e das atividades de cada vaga. Nenhuma candidatura é enviada sem a minha revisão e confirmação: a automação prepara, a decisão é minha.</span><span lang="en">A tracking spreadsheet with a summary of each listing’s requirements and duties. No application is sent without my review and confirmation: the automation prepares, and the decision is mine.</span><span lang="fr">Un tableau de suivi avec un résumé des exigences et des missions de chaque offre. Aucune candidature n’est envoyée sans ma relecture et ma confirmation&nbsp;: l’automatisation prépare, la décision m’appartient.</span></dd></div>
-          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">Claude, Claude Code, automação de navegador.</span><span lang="en">Claude, Claude Code, browser automation.</span><span lang="fr">Claude, Claude Code, automatisation du navigateur.</span></dd></div>
+          <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
+            <ul class="chips" lang="pt-BR"><li>Claude</li><li>Claude Code</li><li>Automação de navegador</li></ul>
+            <ul class="chips" lang="en"><li>Claude</li><li>Claude Code</li><li>Browser automation</li></ul>
+            <ul class="chips" lang="fr"><li>Claude</li><li>Claude Code</li><li>Automatisation du navigateur</li></ul>
+          </dd></div>
         </dl>
         <!-- REPO: quando publicar a versão higienizada (só o motor, sem dados pessoais), troque este parágrafo (3 idiomas) por um link -->
         <p class="repo-soon" lang="pt-BR">Repositório: será publicado em breve, em versão sem dados pessoais.</p>
@@ -411,17 +423,41 @@
     <div class="body">
       <dl class="skills">
         <dt><span lang="pt-BR">Linguagens de programação</span><span lang="en">Programming languages</span><span lang="fr">Langages de programmation</span></dt>
-        <dd><span lang="pt-BR">Python, SQL (MySQL), Bash, MATLAB, Fortran; C++ e Java (básico).</span><span lang="en">Python, SQL (MySQL), Bash, MATLAB, Fortran; C++ and Java (basic).</span><span lang="fr">Python, SQL (MySQL), Bash, MATLAB, Fortran&nbsp;; C++ et Java (notions).</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Python</li><li>SQL (MySQL)</li><li>Bash</li><li>MATLAB</li><li>Fortran</li><li>C++ (básico)</li><li>Java (básico)</li></ul>
+          <ul class="chips" lang="en"><li>Python</li><li>SQL (MySQL)</li><li>Bash</li><li>MATLAB</li><li>Fortran</li><li>C++ (basic)</li><li>Java (basic)</li></ul>
+          <ul class="chips" lang="fr"><li>Python</li><li>SQL (MySQL)</li><li>Bash</li><li>MATLAB</li><li>Fortran</li><li>C++ (notions)</li><li>Java (notions)</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Análise de dados</span><span lang="en">Data analysis</span><span lang="fr">Analyse de données</span></dt>
-        <dd><span lang="pt-BR">Consultas SQL com junções e agregações, modelagem de dados, definição de indicadores (KPIs), dashboards e relatórios, análises em tempo real.</span><span lang="en">SQL queries with joins and aggregations, data modeling, KPI definition, dashboards and reporting, real-time analytics.</span><span lang="fr">Requêtes SQL avec jointures et agrégations, modélisation de données, définition d’indicateurs (KPI), tableaux de bord et reporting, analyses en temps réel.</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Consultas SQL com junções</li><li>Agregações</li><li>Modelagem de dados</li><li>Definição de indicadores (KPIs)</li><li>Dashboards</li><li>Relatórios</li><li>Análises em tempo real</li></ul>
+          <ul class="chips" lang="en"><li>SQL queries with joins</li><li>Aggregations</li><li>Data modeling</li><li>KPI definition</li><li>Dashboards</li><li>Reporting</li><li>Real-time analytics</li></ul>
+          <ul class="chips" lang="fr"><li>Requêtes SQL avec jointures</li><li>Agrégations</li><li>Modélisation de données</li><li>Définition d’indicateurs (KPI)</li><li>Tableaux de bord</li><li>Reporting</li><li>Analyses en temps réel</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Machine learning e estatística</span><span lang="en">Machine learning and statistics</span><span lang="fr">Machine learning et statistiques</span></dt>
-        <dd><span lang="pt-BR">Redes neurais, aprendizado por reforço (Q-learning), algoritmos genéticos, simulação de Monte Carlo, análise de incerteza.</span><span lang="en">Neural networks, reinforcement learning (Q-learning), genetic algorithms, Monte Carlo simulation, uncertainty analysis.</span><span lang="fr">Réseaux de neurones, apprentissage par renforcement (Q-learning), algorithmes génétiques, simulation de Monte-Carlo, analyse d’incertitude.</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Redes neurais</li><li>Aprendizado por reforço (Q-learning)</li><li>Algoritmos genéticos</li><li>Simulação de Monte Carlo</li><li>Análise de incerteza</li></ul>
+          <ul class="chips" lang="en"><li>Neural networks</li><li>Reinforcement learning (Q-learning)</li><li>Genetic algorithms</li><li>Monte Carlo simulation</li><li>Uncertainty analysis</li></ul>
+          <ul class="chips" lang="fr"><li>Réseaux de neurones</li><li>Apprentissage par renforcement (Q-learning)</li><li>Algorithmes génétiques</li><li>Simulation de Monte-Carlo</li><li>Analyse d’incertitude</li></ul>
+        </dd>
         <dt><span lang="pt-BR">IA aplicada e automação</span><span lang="en">Applied AI and automation</span><span lang="fr">IA appliquée et automatisation</span></dt>
-        <dd><span lang="pt-BR">Integração de LLMs por API (API do Claude), bots do Telegram, pipelines híbridos com regras determinísticas e IA, agendamento com cron.</span><span lang="en">LLM integration via API (Claude API), Telegram bots, hybrid rule-based and AI pipelines, cron scheduling.</span><span lang="fr">Intégration de LLM par API (API Claude), bots Telegram, pipelines hybrides règles déterministes et IA, planification avec cron.</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Integração de LLMs por API (API do Claude)</li><li>Bots do Telegram</li><li>Pipelines híbridos com regras determinísticas e IA</li><li>Agendamento com cron</li></ul>
+          <ul class="chips" lang="en"><li>LLM integration via API (Claude API)</li><li>Telegram bots</li><li>Hybrid rule-based and AI pipelines</li><li>cron scheduling</li></ul>
+          <ul class="chips" lang="fr"><li>Intégration de LLM par API (API Claude)</li><li>Bots Telegram</li><li>Pipelines hybrides règles déterministes et IA</li><li>Planification avec cron</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Nuvem e infraestrutura</span><span lang="en">Cloud and infrastructure</span><span lang="fr">Cloud et infrastructure</span></dt>
-        <dd><span lang="pt-BR">Google Cloud, Oracle Cloud (VPS, em migração), Linux, SSH, Git e GitHub, HPC.</span><span lang="en">Google Cloud, Oracle Cloud (VPS, migration in progress), Linux, SSH, Git and GitHub, HPC.</span><span lang="fr">Google Cloud, Oracle Cloud (VPS, migration en cours), Linux, SSH, Git et GitHub, HPC.</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Google Cloud</li><li>Oracle Cloud (VPS, em migração)</li><li>Linux</li><li>SSH</li><li>Git</li><li>GitHub</li><li>HPC</li></ul>
+          <ul class="chips" lang="en"><li>Google Cloud</li><li>Oracle Cloud (VPS, migration in progress)</li><li>Linux</li><li>SSH</li><li>Git</li><li>GitHub</li><li>HPC</li></ul>
+          <ul class="chips" lang="fr"><li>Google Cloud</li><li>Oracle Cloud (VPS, migration en cours)</li><li>Linux</li><li>SSH</li><li>Git</li><li>GitHub</li><li>HPC</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Idiomas</span><span lang="en">Spoken languages</span><span lang="fr">Langues</span></dt>
-        <dd><span lang="pt-BR">Português (nativo), inglês (avançado), francês (avançado), alemão (básico).</span><span lang="en">Portuguese (native), English (advanced), French (advanced), German (basic).</span><span lang="fr">Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions).</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Português (nativo)</li><li>Inglês (avançado)</li><li>Francês (avançado)</li><li>Alemão (básico)</li></ul>
+          <ul class="chips" lang="en"><li>Portuguese (native)</li><li>English (advanced)</li><li>French (advanced)</li><li>German (basic)</li></ul>
+          <ul class="chips" lang="fr"><li>Portugais (langue maternelle)</li><li>Anglais (avancé)</li><li>Français (avancé)</li><li>Allemand (notions)</li></ul>
+        </dd>
       </dl>
     </div>
   </section>
@@ -441,7 +477,19 @@
 </main>
 
 <footer class="site-footer">
-  <p>© 2026 Igor Augusto de Melo</p>
+  <div class="foot">
+    <div class="foot-id">
+      <p class="foot-name">Igor Augusto de Melo</p>
+      <p class="foot-links"><a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a><a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">GitHub</a></p>
+    </div>
+    <nav class="foot-areas" aria-label="Áreas / Areas / Domaines">
+      <a href="../index.html" data-face><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></a>
+      <a href="../aero/index.html" data-face><span lang="pt-BR">Engenharia Aeronáutica</span><span lang="en">Aeronautical Engineering</span><span lang="fr">Ingénierie aéronautique</span></a>
+      <a href="../ti/index.html" data-face><span lang="pt-BR">TI e Dados</span><span lang="en">IT and Data</span><span lang="fr">Informatique et données</span></a>
+      <a href="../cyber/index.html" data-face><span lang="pt-BR">Cibersegurança</span><span lang="en">Cybersecurity</span><span lang="fr">Cybersécurité</span></a>
+    </nav>
+    <p class="foot-meta">© 2026 Igor Augusto de Melo. <span lang="pt-BR">Atualizado em outubro de 2026.</span><span lang="en">Updated October 2026.</span><span lang="fr">Mis à jour en octobre 2026.</span></p>
+  </div>
 </footer>
 <script src="../assets/site.js"></script>
 <script src="../assets/sims.js"></script>

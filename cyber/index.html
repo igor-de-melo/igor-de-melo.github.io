@@ -2,6 +2,8 @@
 <html lang="pt-BR" data-desc-pt-br="Igor Augusto de Melo busca estágio em cibersegurança: Linux, Bash, SSH, OAuth2, Python e automação em servidores na nuvem." data-desc-en="Igor Augusto de Melo, seeking cybersecurity internships: Linux, Bash scripting, SSH, OAuth2, Python and cloud server automation." data-desc-fr="Igor Augusto de Melo recherche un stage en cybersécurité : Linux, Bash, SSH, OAuth2, Python et automatisation de serveurs cloud." data-title-pt-br="Igor Augusto de Melo | Cibersegurança" data-title-en="Igor Augusto de Melo | Cybersecurity" data-title-fr="Igor Augusto de Melo | Cybersécurité">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Igor Augusto de Melo | Cibersegurança</title>
 <meta name="description" content="Igor Augusto de Melo busca estágio em cibersegurança: Linux, Bash, SSH, OAuth2, Python e automação em servidores na nuvem.">
@@ -69,7 +71,8 @@
 <header class="site-header" id="topo">
   <div class="bar">
     <a class="mark" href="../index.html" data-face>Igor de Melo</a>
-    <nav class="nav" aria-label="Seções / Sections / Sections">
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="secoes"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="sr"><span lang="pt-BR">Seções da página</span><span lang="en">Page sections</span><span lang="fr">Sections de la page</span></span></button>
+    <nav class="nav" id="secoes" aria-label="Seções / Sections / Sections">
       <a href="#sobre"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></a>
       <a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a>
       <a href="#estudos"><span lang="pt-BR">Estudos</span><span lang="en">Studies</span><span lang="fr">Études</span></a>
@@ -89,6 +92,7 @@
       <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
       <button type="button" data-lang="fr" aria-pressed="false" title="Français">FR</button>
     </div>
+    <button type="button" class="theme-toggle" aria-pressed="false"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2.5a7.5 7.5 0 0 1 0 15z" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Modo escuro</span><span lang="en">Dark mode</span><span lang="fr">Mode sombre</span></span></button>
   </div>
 </header>
 
@@ -262,7 +266,11 @@
           <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Dar a um bot automatizado acesso seguro a duas caixas de e-mail e mantê-lo rodando num servidor remoto.</span><span lang="en">Give an automated bot secure access to two mailboxes and keep it running on a remote server.</span><span lang="fr">Donner à un bot automatisé un accès sécurisé à deux boîtes e-mail et le faire tourner sur un serveur distant.</span></dd></div>
           <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Acesso às caixas por IMAP com autenticação OAuth2 e implantação num servidor Linux remoto acessado por SSH, com atualização via Git e execução agendada por cron.</span><span lang="en">Mailbox access over IMAP with OAuth2 authentication, and deployment on a remote Linux server accessed over SSH, updated through Git and scheduled with cron.</span><span lang="fr">Accès aux boîtes par IMAP avec authentification OAuth2, et déploiement sur un serveur Linux distant accessible par SSH, mis à jour via Git et planifié avec cron.</span></dd></div>
           <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Resumos diários pelo Telegram; migração para um VPS na Oracle Cloud em andamento. A descrição completa está na página de <a href="../ti/index.html#projetos" data-face>TI e Dados</a>.</span><span lang="en">Daily summaries over Telegram; migration to an Oracle Cloud VPS in progress. The full description is on the <a href="../ti/index.html#projetos" data-face>IT and Data</a> page.</span><span lang="fr">Synthèses quotidiennes via Telegram&nbsp;; migration vers un VPS Oracle Cloud en cours. La description complète est sur la page <a href="../ti/index.html#projetos" data-face>Informatique et données</a>.</span></dd></div>
-          <div><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd><span lang="pt-BR">Python, IMAP, OAuth2, SSH, Linux, cron, Git, Oracle Cloud.</span><span lang="en">Python, IMAP, OAuth2, SSH, Linux, cron, Git, Oracle Cloud.</span><span lang="fr">Python, IMAP, OAuth2, SSH, Linux, cron, Git, Oracle Cloud.</span></dd></div>
+          <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
+            <ul class="chips" lang="pt-BR"><li>Python</li><li>IMAP</li><li>OAuth2</li><li>SSH</li><li>Linux</li><li>cron</li><li>Git</li><li>Oracle Cloud</li></ul>
+            <ul class="chips" lang="en"><li>Python</li><li>IMAP</li><li>OAuth2</li><li>SSH</li><li>Linux</li><li>cron</li><li>Git</li><li>Oracle Cloud</li></ul>
+            <ul class="chips" lang="fr"><li>Python</li><li>IMAP</li><li>OAuth2</li><li>SSH</li><li>Linux</li><li>cron</li><li>Git</li><li>Oracle Cloud</li></ul>
+          </dd></div>
         </dl>
       </article>
       <div class="slot">
@@ -315,15 +323,35 @@
     <div class="body">
       <dl class="skills">
         <dt><span lang="pt-BR">Sistemas operacionais</span><span lang="en">Operating systems</span><span lang="fr">Systèmes d’exploitation</span></dt>
-        <dd><span lang="pt-BR">Linux: linha de comando, scripts em Bash, acesso remoto por SSH.</span><span lang="en">Linux: command line, Bash scripting, remote access over SSH.</span><span lang="fr">Linux&nbsp;: ligne de commande, scripts Bash, accès distant par SSH.</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Linux (linha de comando)</li><li>Scripts em Bash</li><li>Acesso remoto por SSH</li></ul>
+          <ul class="chips" lang="en"><li>Linux (command line)</li><li>Bash scripting</li><li>Remote access over SSH</li></ul>
+          <ul class="chips" lang="fr"><li>Linux (ligne de commande)</li><li>Scripts Bash</li><li>Accès distant par SSH</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Autenticação e acesso</span><span lang="en">Authentication and access</span><span lang="fr">Authentification et accès</span></dt>
-        <dd><span lang="pt-BR">OAuth2 para acesso a e-mail por IMAP.</span><span lang="en">OAuth2 for IMAP email access.</span><span lang="fr">OAuth2 pour l’accès aux e-mails par IMAP.</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>OAuth2 para acesso a e-mail por IMAP</li></ul>
+          <ul class="chips" lang="en"><li>OAuth2 for IMAP email access</li></ul>
+          <ul class="chips" lang="fr"><li>OAuth2 pour l’accès aux e-mails par IMAP</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Programação e automação</span><span lang="en">Programming and automation</span><span lang="fr">Programmation et automatisation</span></dt>
-        <dd><span lang="pt-BR">Python, SQL (MySQL), Bash, agendamento com cron.</span><span lang="en">Python, SQL (MySQL), Bash, cron scheduling.</span><span lang="fr">Python, SQL (MySQL), Bash, planification avec cron.</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Python</li><li>SQL (MySQL)</li><li>Bash</li><li>Agendamento com cron</li></ul>
+          <ul class="chips" lang="en"><li>Python</li><li>SQL (MySQL)</li><li>Bash</li><li>cron scheduling</li></ul>
+          <ul class="chips" lang="fr"><li>Python</li><li>SQL (MySQL)</li><li>Bash</li><li>Planification avec cron</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Nuvem e versionamento</span><span lang="en">Cloud and version control</span><span lang="fr">Cloud et gestion de versions</span></dt>
-        <dd><span lang="pt-BR">Google Cloud, Oracle Cloud (VPS, em migração), Git e GitHub.</span><span lang="en">Google Cloud, Oracle Cloud (VPS, migration in progress), Git and GitHub.</span><span lang="fr">Google Cloud, Oracle Cloud (VPS, migration en cours), Git et GitHub.</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Google Cloud</li><li>Oracle Cloud (VPS, em migração)</li><li>Git</li><li>GitHub</li></ul>
+          <ul class="chips" lang="en"><li>Google Cloud</li><li>Oracle Cloud (VPS, migration in progress)</li><li>Git</li><li>GitHub</li></ul>
+          <ul class="chips" lang="fr"><li>Google Cloud</li><li>Oracle Cloud (VPS, migration en cours)</li><li>Git</li><li>GitHub</li></ul>
+        </dd>
         <dt><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></dt>
-        <dd><span lang="pt-BR">Português (nativo), inglês (avançado), francês (avançado), alemão (básico).</span><span lang="en">Portuguese (native), English (advanced), French (advanced), German (basic).</span><span lang="fr">Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions).</span></dd>
+        <dd>
+          <ul class="chips" lang="pt-BR"><li>Português (nativo)</li><li>Inglês (avançado)</li><li>Francês (avançado)</li><li>Alemão (básico)</li></ul>
+          <ul class="chips" lang="en"><li>Portuguese (native)</li><li>English (advanced)</li><li>French (advanced)</li><li>German (basic)</li></ul>
+          <ul class="chips" lang="fr"><li>Portugais (langue maternelle)</li><li>Anglais (avancé)</li><li>Français (avancé)</li><li>Allemand (notions)</li></ul>
+        </dd>
       </dl>
     </div>
   </section>
@@ -343,7 +371,19 @@
 </main>
 
 <footer class="site-footer">
-  <p>© 2026 Igor Augusto de Melo</p>
+  <div class="foot">
+    <div class="foot-id">
+      <p class="foot-name">Igor Augusto de Melo</p>
+      <p class="foot-links"><a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a><a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">GitHub</a></p>
+    </div>
+    <nav class="foot-areas" aria-label="Áreas / Areas / Domaines">
+      <a href="../index.html" data-face><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></a>
+      <a href="../aero/index.html" data-face><span lang="pt-BR">Engenharia Aeronáutica</span><span lang="en">Aeronautical Engineering</span><span lang="fr">Ingénierie aéronautique</span></a>
+      <a href="../ti/index.html" data-face><span lang="pt-BR">TI e Dados</span><span lang="en">IT and Data</span><span lang="fr">Informatique et données</span></a>
+      <a href="../cyber/index.html" data-face><span lang="pt-BR">Cibersegurança</span><span lang="en">Cybersecurity</span><span lang="fr">Cybersécurité</span></a>
+    </nav>
+    <p class="foot-meta">© 2026 Igor Augusto de Melo. <span lang="pt-BR">Atualizado em outubro de 2026.</span><span lang="en">Updated October 2026.</span><span lang="fr">Mis à jour en octobre 2026.</span></p>
+  </div>
 </footer>
 <script src="../assets/site.js"></script>
 <script src="../assets/sims.js"></script>
