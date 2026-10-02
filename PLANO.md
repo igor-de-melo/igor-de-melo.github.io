@@ -311,7 +311,7 @@ Pacotes:
 - P1 Estrutura `[concluído]`: esqueleto comum, botão Início, três cartões na Home, inglês americano
   (`tools/to-american.py`), `body[data-area]` com token `--accent` por área, cabeçalho em duas linhas,
   seletor de simulações (`assets/sims.js`, painéis `.sim-panel` dentro de `[data-sims]`).
-- P2 Texto e palavras-chave `[próximo]`: cargo-alvo na abertura de cada página, resumo com termos
+- P2 Texto e palavras-chave `[concluído]`: cargo-alvo na abertura de cada página, resumo com termos
   padrão de vaga, Competências agrupadas por termos de mercado, JSON-LD `Person` com `knowsAbout`,
   meta descriptions por idioma.
 - P3 Simulação de Cibersegurança: propagação de malware numa rede (modelo SIR) com defensor isolando nós.

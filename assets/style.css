@@ -259,3 +259,6 @@ html{scroll-padding-top:112px}
 .art-node-s{fill:var(--free)}
 .art-node-i{fill:var(--stagnation)}
 .art-node-r{fill:var(--surface);stroke:var(--suction);stroke-width:2.5}
+
+/* Cargo-alvo na abertura (P2) */
+.role{grid-column:1/-1;margin:14px 0 0;font-family:var(--display);font-weight:700;font-size:clamp(1.05rem,1.8vw,1.375rem);color:var(--accent)}
