@@ -27,6 +27,8 @@
     langButtons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === l)); });
     var title = root.getAttribute("data-title-" + l.toLowerCase());
     if (title) document.title = title;
+    var desc = root.getAttribute("data-desc-" + l.toLowerCase()), meta = document.querySelector('meta[name="description"]');
+    if (desc && meta) meta.setAttribute("content", desc);
     faceLinks.forEach(function (f) { f.el.setAttribute("href", f.base + "?lang=" + l); });
     if (persist) store(l);
     document.dispatchEvent(new CustomEvent("sitelangchange", { detail: { lang: l } }));
