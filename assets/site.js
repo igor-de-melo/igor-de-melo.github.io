@@ -35,13 +35,6 @@
   }
   langButtons.forEach(function (b) { b.addEventListener("click", function () { setLang(b.dataset.lang, true); }); });
 
-  /* ---------- Cabeçalho ---------- */
-  var header = document.querySelector(".site-header");
-  function onScroll() { if (header) header.classList.toggle("scrolled", window.scrollY > 8); }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-
   /* ---------- Tema claro/escuro ---------- */
   // Padrão: segue o sistema. O botão grava a escolha (localStorage "theme"); um script no <head> a aplica antes da pintura.
   // Quem desenha em canvas escuta o evento "sitethemechange" e relê as cores.
@@ -75,17 +68,6 @@
     });
     nav.addEventListener("click", function (e) { if (e.target.closest("a")) closeNav(); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && nav.classList.contains("open")) { closeNav(); navToggle.focus(); } });
-  }
-
-  /* ---------- Seções surgem ao rolar (só com movimento permitido) ---------- */
-  var motionOK = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (motionOK && "IntersectionObserver" in window) {
-    var secs = document.querySelectorAll("main .section");
-    root.classList.add("reveal-on");
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
-    }, { rootMargin: "0px 0px -8% 0px" });
-    secs.forEach(function (s) { io.observe(s); });
   }
 
   /* ---------- Idioma inicial: ?lang=, depois localStorage, depois PT ---------- */
