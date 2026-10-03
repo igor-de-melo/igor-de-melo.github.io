@@ -25,3 +25,6 @@ tmp/
 .env.*
 *.key
 *.pem
+
+# Pasta com fotos e arquivos de pdf e certificados
+photos_pdf_certificate/
