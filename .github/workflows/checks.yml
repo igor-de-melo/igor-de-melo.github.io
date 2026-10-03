@@ -6,6 +6,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Permissão mínima do token: o workflow só lê o repositório.
+permissions:
+  contents: read
+
 jobs:
   checks:
     runs-on: ubuntu-latest
