@@ -28,8 +28,8 @@
 /* Tokens por área (body[data-area]). Ajustar aqui na fase de design. */
 body[data-area="home"]{}
 body[data-area="aero"]{--accent:var(--suction)}
-body[data-area="ti"]{--accent:#0F766E}
-body[data-area="cyber"]{--accent:#5B3FA0}
+body[data-area="data"]{--accent:#0F766E}
+body[data-area="it-security"]{--accent:#5B3FA0}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -155,7 +155,7 @@ main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 40px}
   .section>h2{position:static}
 }
 
-/* ---------- Fase 3: porta de entrada, face TI e Dados, face Cyber ---------- */
+/* ---------- Fase 3: porta de entrada, face Ciência de Dados, face TI e Cibersegurança ---------- */
 
 /* Cabeçalho em duas linhas: (1) nome, páginas, idioma; (2) seções da página.
    Assim o seletor com Início e três áreas cabe em qualquer idioma. */
@@ -202,7 +202,7 @@ html{scroll-padding-top:112px}
 .art-route{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
 .art-agent{fill:var(--ink);stroke:var(--surface);stroke-width:2}
 
-/* Abertura da face TI: agente de aprendizado por reforço */
+/* Abertura da face Ciência de Dados: agente de aprendizado por reforço */
 .tunnel-frame--maze{height:clamp(240px,46vh,470px)}
 .controls .rl-state{font-weight:600}
 .controls .rl-state[hidden]{display:none}
@@ -221,7 +221,7 @@ html{scroll-padding-top:112px}
 .status{display:inline-block;margin:0 0 12px;font-family:var(--display);font-size:.875rem;font-weight:600;color:var(--ink);border:1px solid var(--rule);border-radius:var(--radius);padding:3px 8px}
 .link-list a{font-family:var(--display);font-weight:600}
 
-/* Espaços reservados (página Cyber): borda tracejada = ainda vazio */
+/* Espaços reservados (página TI e Cibersegurança): borda tracejada = ainda vazio */
 .slot{border:1px dashed var(--ink-2);border-radius:var(--radius);padding:18px 20px;margin:0 0 16px;max-width:38rem}
 .slot h3{font-size:1.0625rem;font-stretch:108%;margin-bottom:6px}
 .slot p{margin:0;color:var(--ink-2);font-size:1rem}
@@ -256,7 +256,7 @@ html{scroll-padding-top:112px}
 .sim-tab{font:600 .8125rem/1 var(--display);padding:8px 12px;border:1px solid var(--rule);border-radius:var(--radius);background:transparent;color:var(--ink-2);cursor:pointer}
 .sim-tab[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
 .sim-panel[hidden]{display:none}
-/* Ilustração do cartão de Cibersegurança */
+/* Ilustração do cartão de TI e Cibersegurança */
 .art-edge{stroke:var(--rule);stroke-width:1.5}
 .art-edge-hot{stroke:var(--stagnation);stroke-opacity:.6}
 .art-edge-cut{stroke-dasharray:3 4}
@@ -268,7 +268,7 @@ html{scroll-padding-top:112px}
 /* Nome da área na abertura */
 .area-title{grid-column:1/-1;margin:14px 0 0;font-family:var(--display);font-weight:700;font-size:clamp(1.05rem,1.8vw,1.375rem);color:var(--accent)}
 
-/* Simulação de Cibersegurança (assets/malware.js) */
+/* Simulação de TI e Cibersegurança (assets/malware.js) */
 .tunnel-frame--net{height:clamp(300px,52vh,500px);cursor:pointer}
 .tunnel-frame--net+.tunnel-meta{grid-template-columns:1fr}
 @media (max-width:560px){.tunnel-frame--net{height:420px}}
@@ -297,14 +297,14 @@ html{scroll-padding-top:112px}
 
 /* ---------- P5a: tema escuro (botão grava data-theme; sem escolha, segue o sistema) ---------- */
 :root[data-theme="dark"]{--tunnel:#0E1621;--surface:#152030;--ink:#E6ECF2;--ink-2:#A3B0C0;--rule:#2E3B4E;--suction:#8EA0FF;--stagnation:#E5484D;--free:#6B788A;--on-ink:#0E1621;--header-bg:#0E1621;--accent:#8EA0FF}
-:root[data-theme="dark"] body[data-area="aero"]{--accent:#8EA0FF}:root[data-theme="dark"] body[data-area="ti"]{--accent:#2DD4BF}:root[data-theme="dark"] body[data-area="cyber"]{--accent:#B39DFF}:root[data-theme="dark"] .gate-card--aero{--accent:#8EA0FF}:root[data-theme="dark"] .gate-card--ti{--accent:#2DD4BF}:root[data-theme="dark"] .gate-card--cyber{--accent:#B39DFF}
+:root[data-theme="dark"] body[data-area="aero"]{--accent:#8EA0FF}:root[data-theme="dark"] body[data-area="data"]{--accent:#2DD4BF}:root[data-theme="dark"] body[data-area="it-security"]{--accent:#B39DFF}:root[data-theme="dark"] .gate-card--aero{--accent:#8EA0FF}:root[data-theme="dark"] .gate-card--data{--accent:#2DD4BF}:root[data-theme="dark"] .gate-card--it-security{--accent:#B39DFF}
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){--tunnel:#0E1621;--surface:#152030;--ink:#E6ECF2;--ink-2:#A3B0C0;--rule:#2E3B4E;--suction:#8EA0FF;--stagnation:#E5484D;--free:#6B788A;--on-ink:#0E1621;--header-bg:#0E1621;--accent:#8EA0FF}
-  :root:not([data-theme="light"]) body[data-area="aero"]{--accent:#8EA0FF}:root:not([data-theme="light"]) body[data-area="ti"]{--accent:#2DD4BF}:root:not([data-theme="light"]) body[data-area="cyber"]{--accent:#B39DFF}:root:not([data-theme="light"]) .gate-card--aero{--accent:#8EA0FF}:root:not([data-theme="light"]) .gate-card--ti{--accent:#2DD4BF}:root:not([data-theme="light"]) .gate-card--cyber{--accent:#B39DFF}
+  :root:not([data-theme="light"]) body[data-area="aero"]{--accent:#8EA0FF}:root:not([data-theme="light"]) body[data-area="data"]{--accent:#2DD4BF}:root:not([data-theme="light"]) body[data-area="it-security"]{--accent:#B39DFF}:root:not([data-theme="light"]) .gate-card--aero{--accent:#8EA0FF}:root:not([data-theme="light"]) .gate-card--data{--accent:#2DD4BF}:root:not([data-theme="light"]) .gate-card--it-security{--accent:#B39DFF}
 }
-.gate-card--aero{--accent:#2F45B5}.gate-card--ti{--accent:#0F766E}.gate-card--cyber{--accent:#5B3FA0}
-:root[data-theme="dark"] .gate-card--aero{--accent:#8EA0FF}:root[data-theme="dark"] .gate-card--ti{--accent:#2DD4BF}:root[data-theme="dark"] .gate-card--cyber{--accent:#B39DFF}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gate-card--aero{--accent:#8EA0FF}:root:not([data-theme="light"]) .gate-card--ti{--accent:#2DD4BF}:root:not([data-theme="light"]) .gate-card--cyber{--accent:#B39DFF}}
+.gate-card--aero{--accent:#2F45B5}.gate-card--data{--accent:#0F766E}.gate-card--it-security{--accent:#5B3FA0}
+:root[data-theme="dark"] .gate-card--aero{--accent:#8EA0FF}:root[data-theme="dark"] .gate-card--data{--accent:#2DD4BF}:root[data-theme="dark"] .gate-card--it-security{--accent:#B39DFF}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gate-card--aero{--accent:#8EA0FF}:root:not([data-theme="light"]) .gate-card--data{--accent:#2DD4BF}:root:not([data-theme="light"]) .gate-card--it-security{--accent:#B39DFF}}
 
 /* Destaque da área nos elementos interativos */
 a{color:var(--accent)}

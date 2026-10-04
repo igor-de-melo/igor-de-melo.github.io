@@ -65,7 +65,7 @@ Duas páginas, uma base de código, três idiomas em cada:
 ```
 /                 index.html          porta de entrada: as duas áreas em destaque
 /aero/            aero/index.html     face Aeronáutica
-/ti/              ti/index.html       face TI e Dados
+/data/            data/index.html     face Ciência de Dados (antes /ti/)
 /assets/style.css                     CSS compartilhado
 /assets/site.js                       simulações, seletor de idioma, seletor de perfil
 /assets/fonts/                        fontes locais
@@ -335,3 +335,19 @@ Pacotes:
 - G. Pontes entre áreas ("a modelagem do CFD reaparece na análise de dados").
 - H. og:image por área (Fase 7).
 Recusadas: A (linha de disponibilidade), D (faixa de números), F (folha de impressão).
+
+## 8. Renomeação das áreas (R0, out. 2026)
+
+Definida em `docs/redesign-spec.md`, seção 0.1. Vale sobre os nomes e caminhos citados nas seções anteriores,
+que ficam como registro histórico.
+
+| Antes | Depois (PT) | EN | FR | Pasta |
+|---|---|---|---|---|
+| Engenharia Aeronáutica | Engenharia Aeronáutica | Aeronautical Engineering | Ingénierie aéronautique | `/aero/` |
+| TI e Dados | Ciência de Dados | Data Science | Science des données | `/ti/` → `/data/` |
+| Cibersegurança | TI e Cibersegurança | IT & Cybersecurity | Informatique et cybersécurité | `/cyber/` → `/it-security/` |
+
+- Sem redirecionamentos: `ti/` e `cyber/` foram removidas (o site ainda não tinha sido divulgado, não há links antigos a preservar).
+- `/it-security/` continua `noindex` e fora do sitemap até ter conteúdo próprio.
+- Rótulos curtos (seletor do cabeçalho e celular): PT `Aeronáutica | Dados | TI e Ciber`; EN `Aeronautics | Data | IT & Cyber`;
+  FR `Aéronautique | Données | Info et cyber`. Nomes EN/FR ainda a confirmar pelo Igor.

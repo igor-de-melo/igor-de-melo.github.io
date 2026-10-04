@@ -1,4 +1,4 @@
-// Valida o Q-learning da abertura da face TI. Uso: node tests/check-maze.mjs
+// Valida o Q-learning da abertura da face Ciência de Dados. Uso: node tests/check-maze.mjs
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
