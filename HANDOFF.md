@@ -16,8 +16,8 @@ para continuar o trabalho no Claude Code.
 |---|---|
 | `/` (`index.html`) | Home: nome, contato e três cartões. Gerada de `index.template.html` + `node tools/gen-card-art.mjs` |
 | `/aero/` | Engenharia Aeronáutica. Simulação: escoamento em aerofólio de Joukowski (`assets/flow.js`) |
-| `/ti/` | Análise e Engenharia de Dados. Simulação: Q-learning num labirinto (`assets/maze.js`) |
-| `/cyber/` | Cibersegurança (em formação), `noindex`, fora do sitemap. Simulação: malware SIR (`assets/malware.js`) |
+| `/data/` | Ciência de Dados. Simulação: Q-learning num labirinto (`assets/maze.js`) |
+| `/it-security/` | TI e Cibersegurança, `noindex`, fora do sitemap. Simulação: malware SIR (`assets/malware.js`) |
 | `assets/site.js` | Idioma (PT/EN/FR), tema claro/escuro, menu de seções no celular, seções surgindo ao rolar |
 | `assets/sims.js` | Abas para várias simulações por página (uma visível por vez) |
 | `assets/style.css` | Estilos; bloco "P5" no fim concentra cores por área, modo escuro e componentes |
@@ -45,10 +45,10 @@ Esqueleto de cada página: Abertura → Sobre → Experiência → Projetos → 
 1. **Fase 4 — Publicar evidência no GitHub** (a mais importante: o perfil ainda está vazio)
    - Repositório do bot de triagem de e-mails (sem credenciais; `.env.example`, README em inglês).
    - Repositório do motor de busca e classificação de vagas, em versão sem dados pessoais.
-   - Depois: trocar os parágrafos `repo-soon` (marcados com `<!-- REPO: ... -->` em `ti/index.html`) pelos links.
+   - Depois: trocar os parágrafos `repo-soon` (marcados com `<!-- REPO: ... -->` em `data/index.html`) pelos links.
 2. **Fase 5 — CV de TI, Dados e Cibersegurança** (separado do CV de engenharia); destrava o botão de CV por área (melhoria E).
-3. **Fase 6 — Certificados**: preencher os espaços tracejados (`.slot`) de `/cyber/` e a lista de certificados;
-   quando houver conteúdo, tirar o `noindex` e incluir `/cyber/` no `sitemap.xml`.
+3. **Fase 6 — Certificados**: preencher os espaços tracejados (`.slot`) de `/it-security/` e a lista de certificados;
+   quando houver conteúdo, tirar o `noindex` e incluir `/it-security/` no `sitemap.xml`.
 4. **Fase 7 — Imagens e prévia de link**: `og:image` por página (melhoria H).
 
 ## Pontos em aberto para o Igor

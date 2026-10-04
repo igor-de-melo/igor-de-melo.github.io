@@ -1,7 +1,7 @@
-// Gera as duas ilustrações SVG dos cartões da porta de entrada, a partir dos mesmos modelos das faces:
+// Gera as três ilustrações SVG dos cartões da porta de entrada, a partir dos mesmos modelos das faces:
 //   aero: linhas de corrente do aerofólio de Joukowski (mesmo cálculo de assets/flow.js), α = 5°
-//   ti:   labirinto e rota aprendida por Q-learning (assets/maze.js)
-// Uso: node tools/gen-card-art.mjs   (imprime { aero, ti } em JSON; o HTML da raiz embute o resultado)
+//   data: labirinto e rota aprendida por Q-learning (assets/maze.js)
+// Uso: node tools/gen-card-art.mjs   (imprime { aero, data, "it-security" } em JSON; o HTML da raiz embute o resultado)
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -110,4 +110,4 @@ function netSvg() {
   return `<svg viewBox="0 0 ${VB_W} ${VB_H}" role="presentation" focusable="false" preserveAspectRatio="xMidYMid slice">${e}${n}</svg>`;
 }
 
-process.stdout.write(JSON.stringify({ aero: aeroSvg(), ti: mazeSvg(), cyber: netSvg() }));
+process.stdout.write(JSON.stringify({ aero: aeroSvg(), data: mazeSvg(), "it-security": netSvg() }));

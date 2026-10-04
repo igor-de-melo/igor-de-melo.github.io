@@ -1,4 +1,4 @@
-/* Abertura da face TI e Dados: Q-learning tabular rodando no navegador.
+/* Abertura da face Ciência de Dados: Q-learning tabular rodando no navegador.
    O núcleo (RL) não toca no DOM e é testado em Node: tests/check-maze.mjs. */
 var RL = (function () {
   "use strict";
