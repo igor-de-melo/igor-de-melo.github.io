@@ -16,18 +16,18 @@ Regra: um pacote por vez, Igor aprova antes do próximo. Rodar os testes antes d
 ## 0.1 Renomeação das áreas (pacote R0, antes de tudo)
 | Antes | Depois (PT) | EN (proposta) | FR (proposta) | Pasta |
 |---|---|---|---|---|
-| Engenharia Aeronáutica | Engenharia Aeronáutica | Aerospace Engineering | Ingénierie aéronautique | `/aero/` (sem mudança) |
+| Engenharia Aeronáutica | Engenharia Aeronáutica | Aeronautical Engineering | Ingénierie aéronautique | `/aero/` (sem mudança) |
 | TI e Dados | **Ciência de Dados** | Data Science | Science des données | `/ti/` → **`/data/`** |
 | Cibersegurança | **TI e Cibersegurança** | IT & Cybersecurity | Informatique et cybersécurité | `/cyber/` → **`/it-security/`** |
 
 - Barra de áreas no desktop: `Engenharia Aeronáutica | Ciência de Dados | TI e Cibersegurança`.
-- Barra de áreas no celular (rótulos curtos, cabem em 375 px): PT `Aeronáutica | Dados | TI e Ciber`; EN `Aerospace | Data | IT & Cyber`; FR `Aéronautique | Données | Info et cyber` (propostas EN/FR a confirmar).
+- Barra de áreas no celular (rótulos curtos, cabem em 375 px): PT `Aeronáutica | Dados | TI e Ciber`; EN `Aeronautics | Data | IT & Cyber`; FR `Aéronautique | Données | Info et cyber` (propostas EN/FR a confirmar).
 - Títulos das páginas: `Ciência de Dados` (antes "Análise e Engenharia de Dados") e `TI e Cibersegurança`.
 - Detalhes do terminal: `cd it-security`, painel `[ it-security ]`, barra tmux `it-security` (celular `it-sec`); célula da Home `entrar("ciencia_de_dados")`.
 - Mover pastas com `git mv` (preserva o histórico): `ti/` → `data/`, `cyber/` → `it-security/`. Atualizar **todas** as referências: links da barra e dos cartões, `hreflang`, `canonical`, `og:url`, JSON-LD, `sitemap.xml`, `robots.txt`, testes (`check-links`, `check-parity`), `tools/gen-card-art.mjs`, `index.template.html`, classes/variáveis CSS com o nome da área (ex.: `area-ti` → `area-data`), `CLAUDE.md`, `PLANO.md`, README.
-- Redirecionar os endereços antigos (o GitHub Pages não tem redirecionamento no servidor): manter `ti/index.html` e `cyber/index.html` como páginas mínimas com `<meta http-equiv="refresh" content="0; url=/data/">`, `<link rel="canonical">` para o novo endereço, `location.replace()` e um link visível; com `noindex`.
+- **Sem redirecionamentos**: o site ainda não foi divulgado (ninguém tem links para `/ti/` ou `/cyber/`), então as pastas antigas são simplesmente removidas. Se algum endereço antigo aparecer no Google, ele sai do índice sozinho com o 404.
 - `/it-security/` continua `noindex` e fora do sitemap até ter conteúdo próprio (seção 9 do handoff).
-- Commit sugerido: `refactor(site)!: rename data and it-security areas and move their routes` com rodapé `BREAKING CHANGE: /ti/ and /cyber/ now redirect to /data/ and /it-security/` e `Refs: R0`.
+- Commit sugerido: `refactor(site)!: rename data and it-security areas and move their routes` com rodapé `BREAKING CHANGE: /ti/ and /cyber/ were moved to /data/ and /it-security/ without redirects` e `Refs: R0`.
 
 ## 1. Arquitetura comum (todas as áreas)
 - **Barra superior** (52 px, borda inferior `--line`): `Início` à esquerda; ao centro as três áreas separadas por traço vertical; área atual marcada com `aria-current="page"` (estilo próprio de cada área).
@@ -135,7 +135,7 @@ Image.fromarray((rgba.clip(0,1)*255).astype('uint8'), 'RGBA').save('cyber-portra
 ## 5. Pacotes de implementação (um por vez)
 | # | Pacote | Entregas | Commit sugerido |
 |---|---|---|---|
-| R0 | Renomeação | Seção 0.1: pastas, referências, redirecionamentos, testes | `refactor(site)!: rename data and it-security areas and move their routes` |
+| R0 | Renomeação | Seção 0.1: pastas, referências, testes | `refactor(site)!: rename data and it-security areas and move their routes` |
 | R1 | Base global | Tokens por área, `data-theme`, barra superior, trilho fixo, régua (scroll-spy) com as 3 variantes, barra de áreas e menu do celular, animação de entrada | `feat(layout): add shared shell with sticky rail and section ruler` |
 | R2 | Aero "Céu" | Fundo de céu dia/noite, vidro, cartões de projeto com galeria, régua com avião | `feat(aero): apply sky theme with glass cards and plane ruler` |
 | R3 | Dados "Caderno" | Células `In [n]:`, realce de código, fundo colormap, abas de simulação | `feat(data): apply notebook theme to all sections` |
