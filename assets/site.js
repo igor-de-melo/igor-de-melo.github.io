@@ -43,7 +43,7 @@
   // O tema ativo fica sempre em <html data-theme>: um script no <head> aplica a escolha gravada (localStorage "theme")
   // ou, sem escolha, o tema do sistema. TI e Cibersegurança é só escuro e não tem botão.
   // Quem desenha em canvas escuta o evento "sitethemechange" e relê as cores.
-  var themeBtn = document.querySelector(".theme-toggle");
+  var themeBtns = Array.prototype.slice.call(document.querySelectorAll(".theme-toggle"));
   var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
   function isDark() { return root.dataset.theme === "dark"; }
   function storedTheme() {
@@ -51,22 +51,24 @@
     catch (e) { return null; }
   }
   function syncTheme() {
-    if (themeBtn) themeBtn.setAttribute("aria-pressed", String(isDark()));
+    themeBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(isDark())); });
     document.dispatchEvent(new CustomEvent("sitethemechange", { detail: { dark: isDark() } }));
   }
-  if (themeBtn) {
-    themeBtn.addEventListener("click", function () {
-      var next = isDark() ? "light" : "dark";
-      root.dataset.theme = next;
-      try { window.localStorage.setItem("theme", next); } catch (e) { /* sem persistência */ }
-      syncTheme();
+  if (themeBtns.length) {
+    themeBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var next = isDark() ? "light" : "dark";
+        root.dataset.theme = next;
+        try { window.localStorage.setItem("theme", next); } catch (e) { /* sem persistência */ }
+        syncTheme();
+      });
+      b.setAttribute("aria-pressed", String(isDark()));
     });
     if (darkQuery.addEventListener) darkQuery.addEventListener("change", function () {
       if (storedTheme()) return;
       root.dataset.theme = darkQuery.matches ? "dark" : "light";
       syncTheme();
     });
-    themeBtn.setAttribute("aria-pressed", String(isDark()));
   }
 
   /* ---------- Régua de seções (scroll-spy) ---------- */

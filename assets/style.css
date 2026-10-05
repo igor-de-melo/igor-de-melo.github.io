@@ -32,7 +32,7 @@
 
 /* Home "Cadeia de telemetria" (também é a base quando não há data-area) */
 body{
-  --pa:#2F6FD0;--pb:#1F8A85;--pc:#1B5E6B;--base:#EDF2F5;--hx:#1C8A50;--ink0:#10233B;--nb:#EEF3F1;
+  --pa:#2F6FD0;--pb:#1F8A85;--pc:#1B5E6B;--base:#EDF2F5;--hx:#1C8A50;--ink0:#10233B;--nb:#E3ECE8;
   --gl:rgba(255,255,255,.55);--glb:rgba(255,255,255,.8);--gs:0 10px 34px rgba(20,70,150,.14);
   --bg:var(--base);--surface:#F7F9FB;--raise:#DFE6EB;--line:#C5CDD6;--ink:var(--ink0);--ink2:#4A5668;
   --accent:var(--suction);--on-ink:#fff;
@@ -60,21 +60,21 @@ body[data-area="aero"]{
 
 /* Ciência de Dados "Caderno de análise" */
 body[data-area="data"]{
-  --bg:#EEF3F1;--ink:#1B2A2E;--ink2:#5D6F72;--line:rgba(27,42,46,.13);--chip:rgba(27,42,46,.07);
-  --inp:#E3EBE9;--ac:#0F6B63;--str:#2E6A42;--kw:#8E5517;--tag:rgba(15,107,99,.08);
-  --w1:rgba(15,107,99,.10);--w2:rgba(176,112,44,.08);--cmo:.085;
+  --bg:#E3ECE8;--ink:#14211F;--ink2:#3F5154;--line:rgba(20,33,31,.22);--chip:rgba(20,33,31,.07);
+  --inp:#FBFCFB;--out:#FBFCFB;--ac:#0A5A53;--str:#235A36;--kw:#7A4610;--tag:rgba(10,90,83,.04);
+  --w1:rgba(10,90,83,.06);--w2:rgba(68,1,84,.04);--cmo:.07;--fxo:.7;
   --surface:var(--inp);--raise:var(--chip);--accent:var(--ac);--on-ink:#fff;
   --mono:var(--jet);
 }
 :root[data-theme="dark"] body[data-area="data"]{
   --bg:#0E1719;--ink:#E3EEEC;--ink2:#869A9B;--line:rgba(255,255,255,.12);--chip:rgba(255,255,255,.08);
-  --inp:#152225;--ac:#5FCFC0;--str:#8FD3A0;--kw:#E3B170;--tag:rgba(95,207,192,.1);
-  --w1:rgba(95,207,192,.10);--w2:rgba(227,177,112,.06);--cmo:.08;--on-ink:#0E1719;
+  --inp:#152225;--out:rgba(227,238,236,.03);--ac:#5FCFC0;--str:#8FD3A0;--kw:#E3B170;--tag:rgba(95,207,192,.1);
+  --w1:rgba(95,207,192,.10);--w2:rgba(227,177,112,.06);--cmo:.08;--fxo:1;--on-ink:#0E1719;
 }
 
 /* TI e Cibersegurança "Terminal refinado": só tema escuro, fonte única */
 body[data-area="it-security"]{
-  --bg:#0B0E0D;--ink:#CFE8D5;--ink2:#7E9A87;--line:rgba(92,240,138,.24);--line2:rgba(92,240,138,.58);
+  --bg:#0B0E0D;--ink:#CFE8D5;--ink2:#8FAE98;--cmd:#D2F59E;--lb:#3FD39A;--lk:#B4F7CF;--line:rgba(92,240,138,.24);--line2:rgba(92,240,138,.58);
   --chip:rgba(92,240,138,.13);--ac:#5CF08A;--am:#F0B45C;--pn:rgba(92,240,138,.035);--on:#0B0E0D;
   --scan:.18;--glow1:rgba(92,240,138,.09);--glow2:rgba(240,180,92,.05);--hx-o:.075;
   --surface:var(--pn);--raise:var(--chip);--accent:var(--ac);--on-ink:var(--on);
@@ -384,7 +384,6 @@ body[data-area="it-security"] .ar,body[data-area="it-security"] .hm{font-size:.8
 .rail-foot{margin-top:auto;display:flex;flex-direction:column;gap:14px;width:232px;max-width:100%}
 .rail-cv{display:flex;align-items:center;justify-content:center;min-height:44px;padding:4px 10px;border:1px solid var(--ink);border-radius:var(--radius);color:var(--ink);text-align:center;text-decoration:none;font-weight:600;font-size:.875rem;line-height:1.2}
 .rail-cv:hover{background:var(--ink);color:var(--on-ink)}
-.rail-tools{display:flex;align-items:center;justify-content:space-between}
 .content{flex:1;min-width:0;max-width:1128px;padding:40px 72px 64px 32px}
 .content .hero,.content .tunnel,.content .sim-tabs,.content main,.content .site-footer{max-width:none;margin-left:0;margin-right:0;padding-left:0;padding-right:0}
 .content .hero{padding-top:0}
@@ -688,22 +687,15 @@ body[data-area="aero"] .card>:last-child{margin-bottom:0}
    ===================================================================== */
 body[data-area="data"]{background:radial-gradient(900px 520px at 100% 0,var(--w1),transparent 70%) fixed,radial-gradient(800px 520px at 0 100%,var(--w2),transparent 70%) fixed,var(--bg)}
 
-/* ---------- Fundo: dois mapas de contorno (SVG inline, usam --kw; as cores de preenchimento são a própria ilustração) ---------- */
-.fx{position:fixed;z-index:-1;pointer-events:none;width:600px;height:426px}
+/* ---------- Fundo: dois mapas de contorno (SVG inline, só curvas de nível; as cores de preenchimento são a própria ilustração) ---------- */
+.fx{position:fixed;z-index:-1;pointer-events:none;width:600px;height:426px;opacity:var(--fxo,1)}
 .fx svg{display:block;width:100%;height:100%;overflow:visible}
 .fx-a{right:-60px;top:56px;animation:fx-dr1 90s ease-in-out infinite alternate;-webkit-mask-image:radial-gradient(closest-side,#000 58%,transparent 100%);mask-image:radial-gradient(closest-side,#000 58%,transparent 100%)}
 .fx-b{left:-100px;bottom:-40px;animation:fx-dr2 100s ease-in-out infinite alternate;-webkit-mask-image:radial-gradient(closest-side,#000 58%,transparent 100%);mask-image:radial-gradient(closest-side,#000 58%,transparent 100%)}
 .fx .cm path{stroke:none;fill-rule:evenodd;fill-opacity:var(--cmo)}
 .fx .fill path{fill:none;stroke:var(--accent);stroke-width:.9}
-.fx .gd{fill:none;stroke-width:1.6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;animation:fx-draw 22s ease-in-out infinite}
-.fx .gdd circle{fill:var(--kw);animation:fx-fadein 22s ease-in-out infinite}
-.fx .min{fill:var(--kw);opacity:.8}
-.fx .halo{fill:none;stroke:var(--kw);stroke-width:1;opacity:.35;transform-box:fill-box;transform-origin:center;animation:fx-ping 3.6s ease-out infinite}
 @keyframes fx-dr1{from{transform:translate3d(0,0,0) rotate(0)}to{transform:translate3d(-40px,24px,0) rotate(2deg)}}
 @keyframes fx-dr2{from{transform:translate3d(0,0,0)}to{transform:translate3d(30px,-20px,0)}}
-@keyframes fx-draw{0%{stroke-dashoffset:1;opacity:1}58%{stroke-dashoffset:0;opacity:1}90%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
-@keyframes fx-fadein{0%,8%{opacity:0}60%,90%{opacity:1}100%{opacity:0}}
-@keyframes fx-ping{0%{transform:scale(.5);opacity:.5}100%{transform:scale(1.6);opacity:0}}
 
 /* ---------- Tipografia do caderno: títulos serifados, contador em monoespaçada ---------- */
 body[data-area="data"] .content{counter-reset:cell}
@@ -821,7 +813,6 @@ body[data-area="data"] .site-footer{font-family:var(--mono)}
 }
 @media (prefers-reduced-motion:reduce){
   .fx,.fx *{animation:none!important}
-  .fx .halo{opacity:.3}
 }
 @media print{
   .fx{display:none}
@@ -866,13 +857,13 @@ body[data-area="it-security"] .sec-n{font-size:.78125rem}
 .blk{margin-top:20px}
 .pm{margin:0;font-size:.84375rem;color:var(--ink2);white-space:nowrap;overflow:hidden}
 .pm-u{color:var(--accent)}
-.ty{display:inline-block;overflow:hidden;vertical-align:bottom;white-space:nowrap;width:calc(var(--n)*1ch);color:var(--ink)}
+.ty{display:inline-block;overflow:hidden;vertical-align:bottom;white-space:nowrap;width:calc(var(--n)*1ch);color:var(--cmd)}
 /* A digitação começa quando o bloco entra na tela (classe .rise posta por assets/site.js) */
 .rise .ty{animation:ty 1.1s steps(var(--n)) .3s both}
 @keyframes ty{from{width:0}}
 .pn{position:relative;margin-top:12px;padding:22px 20px 14px;border:1px solid var(--line);background:var(--pn)}
 .pn--f{border-color:var(--line2)}
-.pn-t{position:absolute;top:-10px;left:14px;max-width:calc(100% - 28px);margin:0;padding:0 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:var(--bg);color:var(--accent);font-weight:500;font-size:.78125rem;line-height:20px}
+.pn-t{position:absolute;top:-10px;left:14px;max-width:calc(100% - 28px);margin:0;padding:0 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:var(--bg);color:var(--lb);font-weight:500;font-size:.78125rem;line-height:20px}
 .pn p{margin:0 0 12px;max-width:700px}
 .pn>:last-child,.pn p:last-child{margin-bottom:0}
 .pn h3{font-size:inherit;font-weight:600;line-height:inherit;margin:0 0 4px}
@@ -884,17 +875,17 @@ body[data-area="it-security"] .sec-n{font-size:.78125rem}
 .pn-label{margin:12px 0 6px!important;font-size:.75rem;color:var(--ink2);text-transform:lowercase}
 .kv{margin:0 0 12px;font-size:.875rem}
 .kv>div{display:flex;gap:12px}
-.kv dt{flex:none;min-width:84px;color:var(--accent)}
+.kv dt{flex:none;min-width:84px;color:var(--lb)}
 .kv dd{margin:0;min-width:0}
 .kv h3{margin:0;font-weight:400}
 body[data-area="it-security"] .par{margin:0 0 4px;gap:0}
 body[data-area="it-security"] .par>div{grid-template-columns:minmax(0,1fr);gap:2px;margin-top:10px}
-body[data-area="it-security"] .par dt{padding:0;font-weight:600;font-size:.8125rem;color:var(--accent)}
+body[data-area="it-security"] .par dt{padding:0;font-weight:600;font-size:.8125rem;color:var(--lb)}
 body[data-area="it-security"] .chips li{padding:1px 8px;border:1px solid var(--line);border-radius:0;background:transparent;color:var(--ink2);font-size:.75rem;font-weight:400}
 body[data-area="it-security"] .chips li::before{content:"[";margin-right:3px;color:var(--accent)}
 body[data-area="it-security"] .chips li::after{content:"]";margin-left:3px;color:var(--accent)}
 .yml{margin:0}
-.yml dt{color:var(--accent)}
+.yml dt{color:var(--lb)}
 .yml dt::after{content:":"}
 .yml dd{margin:4px 0 12px;padding-left:16px}
 .yml dd:last-child{margin-bottom:0}
@@ -1008,8 +999,6 @@ body[data-area="home"]{--hero:"Newsreader",Georgia,serif;display:flex;flex-direc
 .node{position:relative;display:block;width:68px;height:68px}
 .stage-rail{display:flex;flex-direction:column;align-items:center;min-height:0}
 .vsig{display:none}
-.sig-wave-v{fill:none;stroke:var(--pa);stroke-width:2;stroke-linecap:round}
-.vsig .sig-hex{animation:sig-pulse 3s ease-in-out infinite}
 .node-aero{fill:var(--pa);stroke:var(--glb);stroke-width:2}
 .node-plane{fill:var(--on-ink)}
 .node-data{fill:var(--nb);stroke:var(--pb);stroke-opacity:.5;stroke-width:2}
@@ -1018,15 +1007,8 @@ body[data-area="home"]{--hero:"Newsreader",Georgia,serif;display:flex;flex-direc
 /* Faixa decorativa: vai do centro do primeiro nó ao centro do último */
 .chain-sig{position:absolute;top:0;left:calc((100% - 2*var(--gap))/6);right:calc((100% - 2*var(--gap))/6);width:auto;height:68px;pointer-events:none}
 .chain-sig{width:calc(100% - (100% - 2*var(--gap))/3)}
-.sig-wave{fill:none;stroke:var(--pa);stroke-width:2.2;stroke-linecap:round;animation:sig-flow 3.2s linear infinite}
 .sig-samples line{stroke:var(--pb);stroke-width:1}
 .sig-samples circle{fill:var(--pb)}
-.sig-bars rect{opacity:.75}
-.sig-hex{font:400 11px var(--jet);fill:var(--hx);animation:sig-pulse 3s ease-in-out infinite}
-.sig-pk{animation:sig-pk 10s linear infinite}
-@keyframes sig-flow{from{transform:translateX(-138px)}to{transform:none}}
-@keyframes sig-pulse{50%{opacity:.45}}
-@keyframes sig-pk{0%{transform:translateX(0);fill:#2F7BE0;opacity:0}6%{opacity:1}40%{fill:#21908C}70%{fill:#1FB866}94%{opacity:1}100%{transform:translateX(900px);fill:#1FB866;opacity:0}}
 
 .hcard{position:relative;display:flex;flex-direction:column;justify-content:center;width:100%;min-height:208px;transition:transform .3s var(--ease)}
 @media (hover:hover){.hcard:hover{transform:translateY(-2px)}}
@@ -1043,7 +1025,7 @@ body[data-area="home"]{--hero:"Newsreader",Georgia,serif;display:flex;flex-direc
 /* Aero: vidro */
 .hcard--aero{padding:18px 18px 16px;border:1px solid var(--glb);border-radius:14px;background:var(--gl);box-shadow:var(--gs);-webkit-backdrop-filter:blur(16px) saturate(1.25);backdrop-filter:blur(16px) saturate(1.25)}
 /* Ciência de Dados: célula de notebook (tokens da área) */
-.hcard--data{--ink:#1B2A2E;--ink2:#5D6F72;--accent:#0F6B63;--inp:#E3EBE9;--str:#2E6A42;--line:rgba(27,42,46,.13);padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--nb);color:var(--ink)}
+.hcard--data{--ink:#14211F;--ink2:#3F5154;--accent:#0A5A53;--inp:#FBFCFB;--str:#235A36;--line:rgba(20,33,31,.22);padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--nb);color:var(--ink)}
 :root[data-theme="dark"] .hcard--data{--ink:#E3EEEC;--ink2:#869A9B;--accent:#5FCFC0;--inp:#152225;--str:#8FD3A0;--line:rgba(255,255,255,.12)}
 .hc-lb{margin:0 0 4px!important;font:400 .75rem/1.4 var(--jet)!important}
 .hc-in{margin:0;padding:9px 14px;border-left:2px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:4px;background:var(--inp);color:var(--ink);font:400 .8125rem/1.6 var(--jet);white-space:pre-wrap;overflow-wrap:anywhere}
@@ -1052,7 +1034,7 @@ body[data-area="home"]{--hero:"Newsreader",Georgia,serif;display:flex;flex-direc
 .hc-in .s{color:var(--str)}
 .hc-ou{margin-top:6px;padding:10px 14px;border-radius:4px;background:color-mix(in srgb,var(--ink) 3%,transparent)}
 /* TI e Cibersegurança: terminal sólido, igual nos dois temas */
-.hcard--it-security{--ink:#CFE8D5;--ink2:#7E9A87;--accent:var(--term-ac);--line:rgba(92,240,138,.3);padding:14px 16px 16px;border:1px solid var(--line);border-radius:10px;background:var(--term);color:var(--ink);font-family:var(--jet)}
+.hcard--it-security{--ink:#CFE8D5;--ink2:#8FAE98;--accent:var(--term-ac);--line:rgba(92,240,138,.3);padding:14px 16px 16px;border:1px solid var(--line);border-radius:10px;background:var(--term);color:var(--ink);font-family:var(--jet)}
 .hcard--it-security h2{font-family:var(--jet);font-stretch:normal;font-size:1.0625rem}
 .hcard--it-security p{font-family:var(--jet);font-size:.78125rem;line-height:1.55}
 .hc-pm{margin:0 0 14px!important}
@@ -1063,7 +1045,6 @@ body[data-area="home"]{--hero:"Newsreader",Georgia,serif;display:flex;flex-direc
 /* ---------- Rodapé ---------- */
 .home-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;width:100%;max-width:1280px;margin:0 auto;padding:48px 56px 32px;font-family:var(--display)}
 .home-foot .rail-cv{width:232px}
-.home-tools{display:flex;align-items:center;gap:8px}
 .home-foot .foot-meta{margin:0 0 0 auto;font-family:var(--plex);font-size:.75rem;color:var(--ink2)}
 
 @media (max-width:1100px){
@@ -1091,13 +1072,107 @@ body[data-area="home"]{--hero:"Newsreader",Georgia,serif;display:flex;flex-direc
   .home,.home-foot{padding-left:16px;padding-right:16px}
   .home-foot{flex-direction:column;align-items:stretch;padding-top:36px}
   .home-foot .rail-cv{width:auto;min-height:48px}
-  .home-tools{justify-content:space-between}
-  .home-tools .lang button,.home-tools .theme-toggle{width:48px;height:44px}
   .home-foot .foot-meta{margin:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sig-wave,.sig-hex,.vsig .sig-hex,.sig-pk,.hcard .t-cur{animation:none}
-  .sig-pk{opacity:0}
   .hcard,.hcard:hover{transition:none;transform:none}
 }
 @media print{.chain-sig,.node{display:none}}
+
+/* =====================================================================
+   R5.1 — Ajustes pós-R5 (docs/redesign-spec.md, seção 10)
+   ===================================================================== */
+/* ---------- Idioma e tema no canto superior direito; no celular, na linha do título da seção ---------- */
+.now-tools{display:flex;align-items:center;flex:none;margin-left:auto}
+.now-tools .lang{gap:0}
+.now-tools .lang button,.now-tools .theme-toggle{width:44px;height:36px}
+@media (max-width:1100px){.top-tools{gap:2px}.top-tools .lang{gap:0}}
+@media (max-width:760px){
+  body:not([data-area="home"]) .top-tools{display:none}
+  .top-tools{flex-basis:100%;justify-content:flex-end;padding:2px 0 4px;border-top:1px solid var(--line)}
+  .top-tools .lang button,.top-tools .theme-toggle{width:44px;height:40px}
+  .now-row{gap:4px;padding-right:2px}
+}
+
+/* ---------- Contato com ícones (Home, Aero e Ciência de Dados) ---------- */
+.contact-icons{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 10px -11px}
+.home .contact-icons{margin-bottom:0}
+body[data-area="aero"] .contact-icons{margin-top:4px}
+
+/* ---------- Home: cartão de Aero em vidro sobre um degradê de céu no próprio cartão ---------- */
+.hcard--aero{--glass:rgba(255,255,255,.62);--glass-b:rgba(255,255,255,.8);--shadow:0 10px 34px rgba(20,70,150,.14);--ink:#0B1F3A;--ink2:#3A4A62;--accent:#0B5CD6;padding:12px;border:0;border-radius:14px;background:linear-gradient(180deg,#A9CAF1,#EAF2FB);box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;color:var(--ink)}
+:root[data-theme="dark"] .hcard--aero{--glass:rgba(255,255,255,.07);--glass-b:rgba(255,255,255,.15);--shadow:0 12px 40px rgba(0,0,0,.35);--ink:#EAF0FF;--ink2:#A9B6D6;--accent:#8FB6FF;background:linear-gradient(180deg,#141F4A,#0F1838)}
+.hc-glass{display:flex;flex-direction:column;justify-content:center;flex:1;padding:16px 16px 14px;border:1px solid var(--glass-b);border-radius:10px;background:var(--glass);box-shadow:var(--shadow);-webkit-backdrop-filter:blur(16px) saturate(1.25);backdrop-filter:blur(16px) saturate(1.25)}
+
+/* ---------- TI e Cibersegurança: links em --lk, sempre sublinhados ---------- */
+body[data-area="it-security"] .content a{color:var(--lk);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+body[data-area="it-security"] .contact-mail{color:var(--lk)}
+.hcard--it-security .hc-pm{color:#D2F59E}
+.hcard--it-security .hc-pm span:first-child{color:var(--accent)}
+.hcard--it-security .hc-pt{color:#3FD39A!important}
+
+/* =====================================================================
+   R5.1, parte 2 (docs/redesign-spec.md, seção 11)
+   ===================================================================== */
+/* ---------- Celular: idioma dentro do menu (trilho); tema na linha do título ---------- */
+.rail-lang{display:none}
+@media (max-width:760px){
+  .rail-lang{display:flex}
+  .now-title{flex:1}
+}
+
+/* ---------- Aero, abertura: ícones de e-mail e LinkedIn ---------- */
+.hero-icons{display:inline-flex;gap:4px;margin-left:-11px}
+
+/* ---------- Ciência de Dados: células claras com borda; comandos 2 px maiores que o corpo ---------- */
+.cell-in{border:1px solid var(--line);border-left:2px solid color-mix(in srgb,var(--accent) 45%,transparent);font-size:1.125rem;line-height:1.6}
+.cell-in.sn{font-size:1.125rem;line-height:1.6}
+.cell-out{border:1px solid var(--line);background:var(--out)}
+.cell::before{font-size:.875rem;padding-top:17px}
+body[data-area="data"] .sim-tabs{border:1px solid var(--line);border-left:2px solid color-mix(in srgb,var(--accent) 45%,transparent)}
+body[data-area="data"] .sim-tab{font-size:1.125rem}
+body[data-area="data"] .content .cell--sim .tunnel{border:1px solid var(--line);background:var(--out)}
+.hc-in{border:1px solid var(--line);border-left:2px solid color-mix(in srgb,var(--accent) 45%,transparent)}
+.hc-ou{border:1px solid var(--line);background:var(--inp)}
+:root[data-theme="dark"] .hc-ou{background:color-mix(in srgb,var(--ink) 3%,transparent)}
+@media (max-width:760px){
+  .cell-in,.cell-in.sn{font-size:1.125rem}
+  .cell::before{padding:0 0 6px;font-size:.875rem}
+}
+
+/* ---------- TI e Cibersegurança: prompts 2 px maiores que o corpo ---------- */
+.pm{font-size:1.03125rem}
+@media (max-width:760px){
+  /* O comando pode quebrar de linha em telas estreitas; sem a animação de digitação, que depende de uma linha só */
+  .pm{font-size:.9375rem;white-space:normal;overflow:visible}
+  .ty,.rise .ty{display:inline;width:auto;white-space:normal;overflow-wrap:anywhere;animation:none}
+}
+
+/* ---------- Home: animação da cadeia (só transform e opacity; laços sem salto) ---------- */
+.sig-wave{fill:none;stroke:var(--pa);stroke-width:2.2;stroke-linecap:round}
+.sig-hex{font:400 11px var(--jet);fill:var(--hx)}
+.sig-bars rect{opacity:.8}
+.sig-wave-v{fill:none;stroke:var(--pa);stroke-width:2;stroke-linecap:round}
+/* A onda e as amostras medidas sobre ela andam juntas: mesmo período (138) e mesma duração */
+.sig-wave,.sig-with-wave{animation:sig-flow 3.2s linear infinite}
+/* Barras de colormap e bytes hex rolam da esquerda para a direita na mesma velocidade (período 209) */
+.sig-roll{animation:sig-roll 4.85s linear infinite}
+.sig-pk{animation:sig-pk 10s linear infinite}
+.sig-pk-b{animation:sig-pk-b 10s linear infinite}
+.sig-pk-c{animation:sig-pk-c 10s linear infinite}
+@keyframes sig-flow{from{transform:translateX(0)}to{transform:translateX(138px)}}
+@keyframes sig-roll{from{transform:translateX(0)}to{transform:translateX(209px)}}
+@keyframes sig-pk{0%{transform:translateX(0);opacity:0}6%{opacity:1}94%{opacity:1}100%{transform:translateX(900px);opacity:0}}
+@keyframes sig-pk-b{0%,25%{opacity:0}40%,100%{opacity:1}}
+@keyframes sig-pk-c{0%,55%{opacity:0}70%,100%{opacity:1}}
+/* Cadeia vertical: a onda e as amostras descem juntas (período 50); barras (84) e bytes (52) descem na mesma velocidade */
+.sig-wave-v,.sig-fall-w{animation:sig-fall-w 3.2s linear infinite}
+.sig-fall-b{animation:sig-fall-b 5.376s linear infinite}
+.sig-fall-h{animation:sig-fall-h 3.328s linear infinite}
+@keyframes sig-fall-w{from{transform:translateY(0)}to{transform:translateY(50px)}}
+@keyframes sig-fall-b{from{transform:translateY(0)}to{transform:translateY(84px)}}
+@keyframes sig-fall-h{from{transform:translateY(0)}to{transform:translateY(52px)}}
+@media (prefers-reduced-motion:reduce){
+  .sig-wave,.sig-with-wave,.sig-roll,.sig-pk,.sig-pk-b,.sig-pk-c,.sig-wave-v,.sig-fall-w,.sig-fall-b,.sig-fall-h,.hcard .t-cur{animation:none}
+  .sig-pk{opacity:0}
+}
