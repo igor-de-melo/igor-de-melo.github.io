@@ -60,12 +60,14 @@ body[data-area="aero"]{
 body[data-area="data"]{
   --bg:#EEF3F1;--ink:#1B2A2E;--ink2:#5D6F72;--line:rgba(27,42,46,.13);--chip:rgba(27,42,46,.07);
   --inp:#E3EBE9;--ac:#0F6B63;--str:#2E6A42;--kw:#8E5517;--tag:rgba(15,107,99,.08);
+  --w1:rgba(15,107,99,.10);--w2:rgba(176,112,44,.08);--cmo:.085;
   --surface:var(--inp);--raise:var(--chip);--accent:var(--ac);--on-ink:#fff;
   --mono:var(--jet);
 }
 :root[data-theme="dark"] body[data-area="data"]{
   --bg:#0E1719;--ink:#E3EEEC;--ink2:#869A9B;--line:rgba(255,255,255,.12);--chip:rgba(255,255,255,.08);
-  --inp:#152225;--ac:#5FCFC0;--str:#8FD3A0;--kw:#E3B170;--tag:rgba(95,207,192,.1);--on-ink:#0E1719;
+  --inp:#152225;--ac:#5FCFC0;--str:#8FD3A0;--kw:#E3B170;--tag:rgba(95,207,192,.1);
+  --w1:rgba(95,207,192,.10);--w2:rgba(227,177,112,.06);--cmo:.08;--on-ink:#0E1719;
 }
 
 /* TI e Cibersegurança "Terminal refinado": só tema escuro, fonte única */
@@ -737,4 +739,151 @@ body[data-area="aero"] .card>:last-child{margin-bottom:0}
 @media print{
   .sky,.lightbox{display:none}
   .glass{background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+
+/* =====================================================================
+   R3 — Ciência de Dados "Caderno de análise" (docs/redesign-spec.md, seções 2 e 3; pranchas N1–N8)
+   Fundo com mapas de contorno, células de notebook (In [n]: + código + saída), títulos serifados.
+   Barra, trilho e régua "célula em execução" continuam os do R1.
+   ===================================================================== */
+body[data-area="data"]{background:radial-gradient(900px 520px at 100% 0,var(--w1),transparent 70%) fixed,radial-gradient(800px 520px at 0 100%,var(--w2),transparent 70%) fixed,var(--bg)}
+
+/* ---------- Fundo: dois mapas de contorno (SVG inline, usam --kw; as cores de preenchimento são a própria ilustração) ---------- */
+.fx{position:fixed;z-index:-1;pointer-events:none;width:600px;height:426px}
+.fx svg{display:block;width:100%;height:100%;overflow:visible}
+.fx-a{right:-60px;top:56px;animation:fx-dr1 90s ease-in-out infinite alternate;-webkit-mask-image:radial-gradient(closest-side,#000 58%,transparent 100%);mask-image:radial-gradient(closest-side,#000 58%,transparent 100%)}
+.fx-b{left:-100px;bottom:-40px;animation:fx-dr2 100s ease-in-out infinite alternate;-webkit-mask-image:radial-gradient(closest-side,#000 58%,transparent 100%);mask-image:radial-gradient(closest-side,#000 58%,transparent 100%)}
+.fx .cm path{stroke:none;fill-rule:evenodd;fill-opacity:var(--cmo)}
+.fx .fill path{fill:none;stroke:var(--accent);stroke-width:.9}
+.fx .gd{fill:none;stroke-width:1.6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;animation:fx-draw 22s ease-in-out infinite}
+.fx .gdd circle{fill:var(--kw);animation:fx-fadein 22s ease-in-out infinite}
+.fx .min{fill:var(--kw);opacity:.8}
+.fx .halo{fill:none;stroke:var(--kw);stroke-width:1;opacity:.35;transform-box:fill-box;transform-origin:center;animation:fx-ping 3.6s ease-out infinite}
+@keyframes fx-dr1{from{transform:translate3d(0,0,0) rotate(0)}to{transform:translate3d(-40px,24px,0) rotate(2deg)}}
+@keyframes fx-dr2{from{transform:translate3d(0,0,0)}to{transform:translate3d(30px,-20px,0)}}
+@keyframes fx-draw{0%{stroke-dashoffset:1;opacity:1}58%{stroke-dashoffset:0;opacity:1}90%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes fx-fadein{0%,8%{opacity:0}60%,90%{opacity:1}100%{opacity:0}}
+@keyframes fx-ping{0%{transform:scale(.5);opacity:.5}100%{transform:scale(1.6);opacity:0}}
+
+/* ---------- Tipografia do caderno: títulos serifados, contador em monoespaçada ---------- */
+body[data-area="data"] .content{counter-reset:cell}
+body[data-area="data"] .content .section{gap:0;padding-top:56px}
+body[data-area="data"] .section:not(#sobre){counter-reset:cell}
+body[data-area="data"] .content .body{max-width:none}
+body[data-area="data"] .hero .area-title{font-family:var(--text);font-stretch:normal;font-weight:700;font-size:clamp(2rem,4.2vw,2.875rem);line-height:1.08}
+body[data-area="data"] .sec-h{position:relative;margin-bottom:22px;padding-bottom:12px}
+body[data-area="data"] .sec-h::after{content:"";position:absolute;left:0;bottom:-1px;width:56px;height:2px;background:var(--accent)}
+body[data-area="data"] .sec-h h2{font-family:var(--text);font-stretch:normal;font-size:1.875rem;line-height:1.2}
+body[data-area="data"] .sec-n{font-family:var(--mono);font-size:.8125rem}
+
+/* ---------- Abertura (N1) ---------- */
+body[data-area="data"] .content .hero{grid-template-columns:minmax(0,1fr) 190px;gap:24px 40px;align-items:start;padding-bottom:26px}
+body[data-area="data"] .hero-text{gap:12px}
+body[data-area="data"] .hero-text .facts{order:0;font-family:var(--mono);font-size:.8125rem;line-height:1.6;color:var(--ink2)}
+body[data-area="data"] .hero-text .intro{max-width:660px;margin-top:2px}
+body[data-area="data"] .hero-text .intro p{font-size:1.0625rem;line-height:1.6;margin-bottom:14px}
+body[data-area="data"] .hero-text .intro .muted{color:var(--ink);font-weight:700}
+body[data-area="data"] .portrait{padding:0}
+body[data-area="data"] .portrait img{aspect-ratio:190/242;border-radius:6px;filter:grayscale(1)}
+.hero-cell{margin-bottom:8px}
+.cell-links{display:flex;flex-wrap:wrap;gap:6px 22px;margin:0;font-family:var(--display);font-size:.9375rem;font-weight:600}
+
+/* ---------- Célula: rótulo In [n]: na calha, entrada (código) e saída (texto serifado) ---------- */
+.cell{display:grid;grid-template-columns:72px 16px minmax(0,1fr);column-gap:12px;margin-bottom:6px;counter-increment:cell}
+.cell::before{content:"In [" counter(cell) "]:";grid-column:1;grid-row:1;padding-top:15px;text-align:right;font:400 .78125rem/1 var(--mono);color:var(--ink2);white-space:nowrap}
+.cell-body{grid-column:3;grid-row:1;min-width:0}
+.cell-in{margin:0;padding:10px 16px;border-left:2px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:4px;background:var(--inp);color:var(--ink);font:400 .84375rem/1.65 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;tab-size:4}
+.cell-in code{font:inherit}
+.cell-in .fn{color:var(--accent);font-weight:500}
+.cell-in .k{color:var(--ink2)}
+.cell-in .cm{color:var(--ink2);font-style:italic}
+.cell-in .s{color:var(--str)}
+.cell-in .kw,.cell-in .nu{color:var(--kw)}
+.cell-in a{color:inherit}
+.cell-in.sn{margin-top:12px;font-size:.78125rem;line-height:1.6}
+.cell-out{margin-top:6px;padding:12px 16px 20px;border-radius:4px;background:color-mix(in srgb,var(--ink) 2.4%,transparent);font-size:1rem;line-height:1.55}
+.cell-out>:last-child{margin-bottom:0}
+.cell-out p{margin:0 0 10px;max-width:660px}
+.cell-out ul:not(.chips){margin:0 0 10px;padding-left:1.1em}
+.cell-out ul:not(.chips) li{margin-bottom:4px}
+.cell-out ul:not(.chips) li::marker{color:var(--accent)}
+.cell-out .sub{font-size:.90625rem;color:var(--ink2);margin-bottom:8px}
+.cell-label{margin:12px 0 6px!important;font-family:var(--display);font-weight:600;font-size:.84375rem;color:var(--accent)}
+.cell-group{margin:26px 0 10px 112px}
+.cell-group h3{font:600 1.1875rem/1.3 var(--text);font-stretch:normal;color:var(--ink2)}
+.md{padding-left:112px;margin-bottom:26px}
+.md p{max-width:660px;margin:0 0 14px;font-size:1.0625rem;line-height:1.6}
+body[data-area="data"] .md .lead{font-size:1.0625rem}
+/* Linha do tempo entre a calha e a célula: ponto cheio = atual */
+.cell--tl{margin-bottom:0}
+.cell--tl>.cell-body{padding-bottom:14px}
+.cell-tm{position:relative;grid-column:2;grid-row:1}
+.cell-tm::before{content:"";position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--line)}
+.is-first>.cell-tm::before{top:19px}
+.is-last>.cell-tm::before{bottom:auto;height:19px}
+.is-first.is-last>.cell-tm::before{display:none}
+.cell-tm::after{content:"";position:absolute;left:2px;top:14px;width:11px;height:11px;border:2px solid var(--ink2);border-radius:50%;background:var(--bg)}
+.is-current>.cell-tm::after{border-color:var(--accent);background:var(--accent)}
+.cell--proj,.cell--skill{margin-bottom:14px}
+
+/* Saídas: Problema / Abordagem / Resultado, etiquetas, contato */
+body[data-area="data"] .par{margin:0;gap:0}
+body[data-area="data"] .par>div{grid-template-columns:minmax(0,1fr);gap:2px;margin-bottom:10px}
+body[data-area="data"] .par dt{padding:0;font-weight:600;font-size:.84375rem;color:var(--accent)}
+body[data-area="data"] .chips li{padding:2px 9px;border:1px solid var(--line);border-radius:4px;background:var(--tag);color:var(--ink2);font:400 .75rem/1.6 var(--mono)}
+body[data-area="data"] .repo-soon{margin:12px 0 0;font-size:.90625rem}
+body[data-area="data"] .cell-out .status{display:none}
+body[data-area="data"] .contact-mail{margin:0 0 6px;font-family:var(--text);font-stretch:normal;font-weight:600;font-size:1.0625rem;color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+body[data-area="data"] #contato .cell-out p{line-height:1.9}
+
+/* ---------- Painel de simulações como célula: as abas são a "entrada" ---------- */
+body[data-area="data"] .cell--sim{margin-top:8px}
+body[data-area="data"] .sim-tabs{align-items:center;gap:6px 18px;margin:0;padding:4px 6px 4px 16px;border-left:2px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:4px;background:var(--inp)}
+body[data-area="data"] .sim-tablist{gap:0 18px}
+body[data-area="data"] .sim-tab{min-height:40px;padding:0;border:0;border-radius:0;background:transparent;color:var(--ink2);font:400 .84375rem/1 var(--mono)}
+body[data-area="data"] .sim-tab[aria-selected="true"]{background:transparent;color:var(--accent);font-weight:500;box-shadow:inset 0 -1px 0 var(--accent)}
+body[data-area="data"] .sim-count{font-family:var(--mono);font-size:.78125rem}
+body[data-area="data"] .content .cell--sim .tunnel{margin-top:6px;padding:12px 16px 20px;border-radius:4px;background:color-mix(in srgb,var(--ink) 2.4%,transparent)}
+body[data-area="data"] .tunnel-frame--maze{height:clamp(220px,38vh,360px);background:transparent;border-color:var(--line)}
+body[data-area="data"] .rl-btn{min-height:36px;padding:0 14px;border:1px solid var(--line);font:500 .8125rem/1 var(--mono)}
+body[data-area="data"] .controls{font-family:var(--mono);font-size:.78125rem}
+body[data-area="data"] .how{background:transparent;border-color:var(--line)}
+body[data-area="data"] .cell--sim .cell-in.sn{grid-column:1/-1;margin-top:4px}
+body[data-area="data"] .site-footer{font-family:var(--mono)}
+
+@media (max-width:1100px){
+  body[data-area="data"] .content .hero{grid-template-columns:minmax(0,1fr) 160px;gap:20px 28px}
+  .cell{grid-template-columns:60px 16px minmax(0,1fr);column-gap:10px}
+  .cell-group,.md{margin-left:0;padding-left:96px}
+  .cell-group{margin-left:0}
+}
+@media (max-width:760px){
+  .fx{width:360px;height:256px}
+  .fx-a{right:-90px;top:70px}
+  .fx-b{left:-110px;bottom:-30px}
+  body[data-area="data"] .content .hero{grid-template-columns:minmax(0,1fr)}
+  body[data-area="data"] .portrait{width:160px}
+  body[data-area="data"] .content .section{padding-top:44px}
+  body[data-area="data"] .sec-h h2{font-size:1.5rem}
+  /* Células em coluna: o rótulo In [n]: sobe para cima do bloco e a linha do tempo some */
+  .cell{grid-template-columns:minmax(0,1fr);margin-bottom:14px}
+  .cell::before{grid-column:1;padding:0 0 6px;text-align:left;font-size:.75rem}
+  .cell-body{grid-column:1;grid-row:2}
+  .cell-tm{display:none}
+  .cell--tl>.cell-body{padding-bottom:0}
+  .cell-in{padding:10px 12px;font-size:.78125rem}
+  .cell-in.sn{font-size:.75rem}
+  .cell-out{padding:10px 12px 12px}
+  .cell-group,.md{padding-left:0}
+  .cell-group{margin:22px 0 10px}
+  body[data-area="data"] .sim-tabs{padding:4px 4px 4px 12px}
+  body[data-area="data"] .content .cell--sim .tunnel{padding:10px 12px 12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .fx,.fx *{animation:none!important}
+  .fx .halo{opacity:.3}
+}
+@media print{
+  .fx{display:none}
+  .cell-in,.cell-out{background:none}
 }

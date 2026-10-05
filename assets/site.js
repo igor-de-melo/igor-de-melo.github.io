@@ -210,7 +210,7 @@
   // Cada bloco sobe 28 px com fade quando entra na janela; blocos que entram juntos saem escalonados.
   // Sem IntersectionObserver ou com "reduzir movimento", nada é escondido.
   if ("IntersectionObserver" in window && !still.matches) {
-    var blocks = document.querySelectorAll(".hero > *, .sims, main > .section, .gate-hero, .gate-pick, .gate-card");
+    var blocks = document.querySelectorAll(".hero > *, .hero-cell, .sims, main > .section, .gate-hero, .gate-pick, .gate-card");
     var riser = new IntersectionObserver(function (entries) {
       var n = 0;
       entries.forEach(function (e) {
