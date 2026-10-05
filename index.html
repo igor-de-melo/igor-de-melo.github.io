@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="color-scheme" content="light dark">
-<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="dark"&&t!=="light")t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t})()</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Igor Augusto de Melo</title>
 <meta name="description" content="Portfólio de Igor Augusto de Melo: Engenharia Aeronáutica, Ciência de Dados, TI e Cibersegurança.">
@@ -22,14 +22,23 @@
 <body data-area="home">
 <a class="skip" href="#conteudo"><span lang="pt-BR">Pular para o conteúdo</span><span lang="en">Skip to content</span><span lang="fr">Aller au contenu</span></a>
 
-<header class="site-header" id="topo">
-  <div class="bar bar--end">
-    <div class="lang" role="group" aria-label="Idioma / Language / Langue">
-      <button type="button" data-lang="pt-BR" aria-pressed="true" title="Português">PT</button>
-      <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
-      <button type="button" data-lang="fr" aria-pressed="false" title="Français">FR</button>
-    </div>
-    <button type="button" class="theme-toggle" aria-pressed="false"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2.5a7.5 7.5 0 0 1 0 15z" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Modo escuro</span><span lang="en">Dark mode</span><span lang="fr">Mode sombre</span></span></button>
+<header class="topbar" id="topo">
+  <a class="hm" href="index.html" data-face aria-current="page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/></svg><span class="hm-t"><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></span></a>
+  <nav class="areas" aria-label="Áreas / Areas / Domaines">
+    <span class="ar-sep ar-sep--home" aria-hidden="true"></span>
+    <a class="ar" href="aero/index.html" data-face><span class="ar-l"><span lang="pt-BR">Engenharia Aeronáutica</span><span lang="en">Aeronautical Engineering</span><span lang="fr">Ingénierie aéronautique</span></span><span class="ar-s"><span lang="pt-BR">Aeronáutica</span><span lang="en">Aeronautics</span><span lang="fr">Aéronautique</span></span></a>
+    <span class="ar-sep" aria-hidden="true"></span>
+    <a class="ar" href="data/index.html" data-face><span class="ar-l"><span lang="pt-BR">Ciência de Dados</span><span lang="en">Data Science</span><span lang="fr">Science des données</span></span><span class="ar-s"><span lang="pt-BR">Dados</span><span lang="en">Data</span><span lang="fr">Données</span></span></a>
+    <span class="ar-sep" aria-hidden="true"></span>
+    <a class="ar" href="it-security/index.html" data-face><span class="ar-l"><span lang="pt-BR">TI e Cibersegurança</span><span lang="en">IT &amp; Cybersecurity</span><span lang="fr">Informatique et cybersécurité</span></span><span class="ar-s"><span lang="pt-BR">TI e Ciber</span><span lang="en">IT &amp; Cyber</span><span lang="fr">Info et cyber</span></span></a>
+  </nav>
+  <div class="top-tools">
+      <div class="lang" role="group" aria-label="Idioma / Language / Langue">
+        <button type="button" data-lang="pt-BR" aria-pressed="true" title="Português">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
+        <button type="button" data-lang="fr" aria-pressed="false" title="Français">FR</button>
+      </div>
+      <button type="button" class="theme-toggle" aria-pressed="false" title="Modo escuro" data-title-pt-br="Modo escuro" data-title-en="Dark mode" data-title-fr="Mode sombre"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2.5a7.5 7.5 0 0 1 0 15z" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Modo escuro</span><span lang="en">Dark mode</span><span lang="fr">Mode sombre</span></span></button>
   </div>
 </header>
 

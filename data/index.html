@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="color-scheme" content="light dark">
-<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="dark"&&t!=="light")t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t})()</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Igor Augusto de Melo | Ciência de Dados</title>
 <meta name="description" content="Igor Augusto de Melo busca estágio em análise e engenharia de dados: SQL (MySQL), Python, modelagem de dados, dashboards, Google Cloud, automação com IA e machine learning.">
@@ -73,36 +73,62 @@
 <body data-area="data">
 <a class="skip" href="#conteudo"><span lang="pt-BR">Pular para o conteúdo</span><span lang="en">Skip to content</span><span lang="fr">Aller au contenu</span></a>
 
-<header class="site-header" id="topo">
-  <div class="bar">
-    <a class="mark" href="../index.html" data-face>Igor de Melo</a>
-    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="secoes"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="sr"><span lang="pt-BR">Seções da página</span><span lang="en">Page sections</span><span lang="fr">Sections de la page</span></span></button>
-    <nav class="nav" id="secoes" aria-label="Seções / Sections / Sections">
-      <a href="#sobre"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></a>
-      <a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a>
-      <a href="#projetos"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></a>
-      <a href="#formacao"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></a>
-      <a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></a>
-      <a href="#contato"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></a>
-    </nav>
-    <div class="face" role="group" aria-label="Páginas / Pages / Pages">
-      <a class="face-home" href="../index.html" data-face><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></a>
-      <a href="../aero/index.html" data-face><span lang="pt-BR">Aeronáutica</span><span lang="en">Aeronautics</span><span lang="fr">Aéronautique</span></a>
-      <a href="../data/index.html" data-face aria-current="page"><span lang="pt-BR">Dados</span><span lang="en">Data</span><span lang="fr">Données</span></a>
-      <a href="../it-security/index.html" data-face><span lang="pt-BR">TI e Ciber</span><span lang="en">IT &amp; Cyber</span><span lang="fr">Info et cyber</span></a>
-    </div>
-    <div class="lang" role="group" aria-label="Idioma / Language / Langue">
-      <button type="button" data-lang="pt-BR" aria-pressed="true" title="Português">PT</button>
-      <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
-      <button type="button" data-lang="fr" aria-pressed="false" title="Français">FR</button>
-    </div>
-    <button type="button" class="theme-toggle" aria-pressed="false"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2.5a7.5 7.5 0 0 1 0 15z" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Modo escuro</span><span lang="en">Dark mode</span><span lang="fr">Mode sombre</span></span></button>
-  </div>
+<header class="topbar" id="topo">
+  <a class="hm" href="../index.html" data-face><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/></svg><span class="hm-t"><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></span></a>
+  <nav class="areas" aria-label="Áreas / Areas / Domaines">
+    <span class="ar-sep ar-sep--home" aria-hidden="true"></span>
+    <a class="ar" href="../aero/index.html" data-face><span class="ar-l"><span lang="pt-BR">Engenharia Aeronáutica</span><span lang="en">Aeronautical Engineering</span><span lang="fr">Ingénierie aéronautique</span></span><span class="ar-s"><span lang="pt-BR">Aeronáutica</span><span lang="en">Aeronautics</span><span lang="fr">Aéronautique</span></span></a>
+    <span class="ar-sep" aria-hidden="true"></span>
+    <a class="ar" href="../data/index.html" data-face aria-current="page"><span class="ar-l"><span lang="pt-BR">Ciência de Dados</span><span lang="en">Data Science</span><span lang="fr">Science des données</span></span><span class="ar-s"><span lang="pt-BR">Dados</span><span lang="en">Data</span><span lang="fr">Données</span></span></a>
+    <span class="ar-sep" aria-hidden="true"></span>
+    <a class="ar" href="../it-security/index.html" data-face><span class="ar-l"><span lang="pt-BR">TI e Cibersegurança</span><span lang="en">IT &amp; Cybersecurity</span><span lang="fr">Informatique et cybersécurité</span></span><span class="ar-s"><span lang="pt-BR">TI e Ciber</span><span lang="en">IT &amp; Cyber</span><span lang="fr">Info et cyber</span></span></a>
+  </nav>
 </header>
 
+<div class="now">
+  <div class="now-row">
+    <p class="now-title"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></p>
+    <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="trilho" title="Menu"><svg class="ic-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="ic-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="sr"><span lang="pt-BR">Menu</span><span lang="en">Menu</span><span lang="fr">Menu</span></span></button>
+  </div>
+  <div class="now-progress" aria-hidden="true"><span class="now-fill"></span></div>
+</div>
+
+<div class="shell">
+  <aside class="rail" id="trilho">
+    <a class="rail-name" href="#topo">Igor Augusto<br>de Melo</a>
+    <nav class="ruler" aria-label="Seções da página / Page sections / Sections de la page">
+      <p class="ruler-h"><span lang="pt-BR">Nesta página</span><span lang="en">On this page</span><span lang="fr">Sur cette page</span></p>
+      <div class="ruler-track">
+        <span class="ruler-trail" aria-hidden="true"></span>
+        <span class="ruler-mark" aria-hidden="true"></span>
+        <ol>
+          <li><a href="#sobre" aria-current="location"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></a></li>
+          <li><a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a></li>
+          <li><a href="#projetos"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></a></li>
+          <li><a href="#formacao"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></a></li>
+          <li><a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></a></li>
+          <li><a href="#contato"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></a></li>
+        </ol>
+      </div>
+    </nav>
+    <div class="rail-foot">
+      <a class="rail-cv" href="../cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf"><span lang="pt-BR">Baixar currículo (PDF)</span><span lang="en">Download CV (PDF)</span><span lang="fr">Télécharger le CV (PDF)</span></a>
+      <div class="rail-tools">
+      <div class="lang" role="group" aria-label="Idioma / Language / Langue">
+        <button type="button" data-lang="pt-BR" aria-pressed="true" title="Português">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
+        <button type="button" data-lang="fr" aria-pressed="false" title="Français">FR</button>
+      </div>
+      <button type="button" class="theme-toggle" aria-pressed="false" title="Modo escuro" data-title-pt-br="Modo escuro" data-title-en="Dark mode" data-title-fr="Mode sombre"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2.5a7.5 7.5 0 0 1 0 15z" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Modo escuro</span><span lang="en">Dark mode</span><span lang="fr">Mode sombre</span></span></button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="content">
+
 <section class="hero" aria-labelledby="nome">
-  <h1 class="name" id="nome">Igor Augusto<br>de Melo</h1>
-  <p class="area-title"><span lang="pt-BR">Ciência de Dados</span><span lang="en">Data Science</span><span lang="fr">Science des données</span></p>
+  <p class="hero-who">Igor Augusto de Melo</p>
+  <h1 class="area-title" id="nome"><span lang="pt-BR">Ciência de Dados</span><span lang="en">Data Science</span><span lang="fr">Science des données</span></h1>
   <p class="facts">
     <span lang="pt-BR">Engenharia Aeronáutica, EESC-USP<br>São Carlos, SP</span>
     <span lang="en">Aeronautical Engineering, EESC-USP<br>São Carlos, Brazil</span>
@@ -491,6 +517,9 @@
     <p class="foot-meta">© 2026 Igor Augusto de Melo. <span lang="pt-BR">Atualizado em outubro de 2026.</span><span lang="en">Updated October 2026.</span><span lang="fr">Mis à jour en octobre 2026.</span></p>
   </div>
 </footer>
+
+  </div>
+</div>
 <script src="../assets/site.js"></script>
 <script src="../assets/sims.js"></script>
 <script src="../assets/maze.js"></script>
