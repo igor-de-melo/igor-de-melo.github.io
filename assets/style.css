@@ -48,12 +48,12 @@ body{
 body[data-area="aero"]{
   --bg:#EAF2FB;--surface:rgba(255,255,255,.55);--raise:rgba(255,255,255,.7);--line:rgba(11,31,58,.14);
   --ink:#0B1F3A;--ink2:#3A4A62;--accent:#0B5CD6;--glass:rgba(255,255,255,.62);--glass-b:rgba(255,255,255,.8);
-  --shadow:0 10px 34px rgba(20,70,150,.14);--on-ink:#fff;--hm:#2C3E57;
+  --shadow:0 10px 34px rgba(20,70,150,.14);--on-ink:#fff;--hm:#2C3E57;--scrim:rgba(11,31,58,.6);
 }
 :root[data-theme="dark"] body[data-area="aero"]{
   --bg:#0F1838;--surface:rgba(255,255,255,.05);--raise:rgba(255,255,255,.12);--line:rgba(255,255,255,.16);
   --ink:#EAF0FF;--ink2:#A9B6D6;--accent:#8FB6FF;--glass:rgba(255,255,255,.07);--glass-b:rgba(255,255,255,.15);
-  --shadow:0 12px 40px rgba(0,0,0,.35);--on-ink:#0F1838;--hm:var(--ink2);
+  --shadow:0 12px 40px rgba(0,0,0,.35);--on-ink:#0F1838;--hm:var(--ink2);--scrim:rgba(3,7,20,.72);
 }
 
 /* Ciência de Dados "Caderno de análise" */
@@ -556,4 +556,185 @@ body[data-area="it-security"] .ruler-mark::after{content:"";width:9px;height:17p
   .rise-wait{opacity:1}
   .shell{display:block}
   .content{padding:0}
+}
+
+/* =====================================================================
+   R2 — Engenharia Aeronáutica "Céu" (docs/redesign-spec.md, seções 2 e 3; pranchas C1–C10)
+   Fundo de céu dia/noite, cartões em vidro, galeria dos projetos, pesquisa em cartões, contadores de seção.
+   Barra, trilho e régua continuam os do R1.
+   ===================================================================== */
+
+/* ---------- Céu: fixo atrás do conteúdo. As cores são a própria ilustração (valores das pranchas C1 e C2). ---------- */
+.sky{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:linear-gradient(180deg,#86B3EA 0%,#A9CAF1 26%,#C9DFF5 54%,#E3EEF9 78%,#F3F8FC 100%)}
+.sky i{position:absolute;display:block;filter:blur(16px)}
+.sky .b1{width:1800px;height:300px;left:50%;margin-left:-900px;top:30px;background:radial-gradient(ellipse 250px 62px at 16% 42%,rgba(255,255,255,.55),transparent 72%),radial-gradient(ellipse 340px 80px at 49% 66%,rgba(255,255,255,.42),transparent 72%),radial-gradient(ellipse 210px 54px at 81% 28%,rgba(255,255,255,.5),transparent 72%),radial-gradient(ellipse 160px 44px at 67% 80%,rgba(255,255,255,.36),transparent 72%);animation:dh1 46s ease-in-out infinite alternate}
+.sky .b2{width:1800px;height:320px;left:50%;margin-left:-900px;top:300px;background:radial-gradient(ellipse 300px 70px at 30% 36%,rgba(255,255,255,.4),transparent 72%),radial-gradient(ellipse 230px 56px at 62% 58%,rgba(255,255,255,.46),transparent 72%),radial-gradient(ellipse 170px 46px at 90% 40%,rgba(255,255,255,.34),transparent 72%),radial-gradient(ellipse 190px 48px at 6% 74%,rgba(255,255,255,.32),transparent 72%);animation:dh2 58s ease-in-out infinite alternate}
+.sky .b3{width:1800px;height:380px;left:50%;margin-left:-900px;bottom:-130px;background:radial-gradient(ellipse 45% 60% at 24% 72%,rgba(255,240,214,.55),transparent 70%),radial-gradient(ellipse 38% 50% at 78% 86%,rgba(255,255,255,.65),transparent 70%);animation:dh1 66s ease-in-out infinite alternate-reverse}
+@keyframes dh1{from{transform:translate3d(-80px,0,0)}to{transform:translate3d(80px,10px,0)}}
+@keyframes dh2{from{transform:translate3d(70px,0,0)}to{transform:translate3d(-70px,-10px,0)}}
+.sky .grain{position:absolute;inset:0;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.06;mix-blend-mode:multiply}
+:root[data-theme="dark"] .sky{background:linear-gradient(180deg,#09112B 0%,#141F4A 55%,#1C2A5C 100%)}
+:root[data-theme="dark"] .sky i{filter:none;border-radius:50%;left:auto;margin-left:0}
+:root[data-theme="dark"] .sky .b1{width:1000px;height:760px;right:-260px;top:-320px;bottom:auto;background:radial-gradient(closest-side,rgba(84,108,235,.55),transparent);animation:dr1 38s ease-in-out infinite alternate}
+:root[data-theme="dark"] .sky .b2{width:760px;height:560px;right:-80px;top:240px;bottom:auto;background:radial-gradient(closest-side,rgba(60,160,220,.26),transparent);animation:dr2 46s ease-in-out infinite alternate}
+:root[data-theme="dark"] .sky .b3{width:640px;height:460px;left:-160px;bottom:-200px;top:auto;background:radial-gradient(closest-side,rgba(150,90,220,.24),transparent);animation:dr1 52s ease-in-out infinite alternate-reverse}
+@keyframes dr1{from{transform:translate3d(0,0,0)}to{transform:translate3d(-60px,40px,0)}}
+@keyframes dr2{from{transform:translate3d(0,0,0)}to{transform:translate3d(50px,-40px,0)}}
+:root[data-theme="dark"] .sky .grain{mix-blend-mode:screen;opacity:.05}
+
+/* ---------- Vidro ---------- */
+.glass{background:var(--glass);border:1px solid var(--glass-b);border-radius:14px;-webkit-backdrop-filter:blur(16px) saturate(1.25);backdrop-filter:blur(16px) saturate(1.25);box-shadow:var(--shadow)}
+@media (hover:hover){
+  .glass{transition:transform .3s var(--ease)}
+  .glass:hover{transform:translateY(-2px)}
+}
+.card{padding:22px 28px}
+body[data-area="aero"] .content .body{max-width:none}
+/* A barra fixa e a barra do celular passam sobre o céu: vidro com a mesma linha de base */
+body[data-area="aero"] .topbar,body[data-area="aero"] .now{background:var(--glass);-webkit-backdrop-filter:blur(16px) saturate(1.25);backdrop-filter:blur(16px) saturate(1.25)}
+
+/* ---------- Títulos de seção com contador ---------- */
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.sec-h h2{font-size:1.875rem;font-stretch:112%}
+.sec-n{margin:0;font-family:var(--display);font-size:.875rem;color:var(--ink2);white-space:nowrap}
+body[data-area="aero"] .content .section{gap:0;padding-top:56px}
+
+/* ---------- Abertura (C1): texto à esquerda, retrato em vidro à direita ---------- */
+body[data-area="aero"] .content .hero{grid-template-columns:minmax(0,1fr) 232px;gap:28px 48px;align-items:end;padding-bottom:44px}
+.hero-text{display:flex;flex-direction:column;gap:22px;min-width:0}
+.hero-text .facts{order:3;padding:0}
+.hero-text .intro{max-width:34em}
+.hero-text .intro p{font-size:1.125rem;line-height:1.6}
+.hero-text .actions{margin-top:22px}
+.portrait{margin:0;padding:8px}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:214/272;object-fit:cover;border-radius:8px}
+
+/* ---------- Painel de simulações em abas ---------- */
+.sim-tablist{display:flex;flex-wrap:wrap;gap:6px}
+.sim-nav{display:flex;align-items:center;gap:4px;margin-left:auto}
+.sim-count{margin-right:8px;font-family:var(--display);font-size:.8125rem;color:var(--ink2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sim-step{display:inline-flex;align-items:center;justify-content:center;width:44px;height:40px;padding:0;border:0;border-radius:var(--radius);background:transparent;color:var(--ink);cursor:pointer}
+.sim-step:hover{background:var(--raise)}
+body[data-area="aero"] .sims{overflow:hidden}
+body[data-area="aero"] .sim-tabs{align-items:stretch;gap:8px 24px;min-height:48px;margin:0;padding:0 8px 0 16px;border-bottom:1px solid var(--line)}
+body[data-area="aero"] .sim-tablist{gap:0 24px}
+body[data-area="aero"] .sim-tab{min-height:48px;padding:0;border:0;border-radius:0;background:transparent;color:var(--ink2);font-weight:500;font-size:.875rem}
+body[data-area="aero"] .sim-tab[aria-selected="true"]{background:transparent;color:var(--ink);font-weight:600;box-shadow:inset 0 -2px 0 var(--accent)}
+body[data-area="aero"] .tunnel-frame{height:clamp(240px,40vh,380px);border:0;border-radius:0}
+body[data-area="aero"] .content .tunnel-meta{padding:12px 16px 16px;border-top:1px solid var(--line)}
+.sim-soon{display:grid;place-items:center;min-height:240px}
+.sim-soon p{margin:0;padding:24px 16px;font-family:var(--display);font-size:.9375rem;color:var(--ink2);text-align:center}
+
+/* ---------- Etiquetas em pílula (Stack, Competências, Pesquisa) ---------- */
+body[data-area="aero"] .chips li{padding:3px 10px;border:0;border-radius:999px;background:var(--raise);color:var(--ink2);font-size:.78125rem;line-height:1.5}
+
+/* ---------- Linha do tempo dentro do cartão (C5, C6): ponto cheio = atual, vazado = passado ---------- */
+body[data-area="aero"] .card>.timeline{margin:-22px 0}
+body[data-area="aero"] .timeline>li{grid-template-columns:152px minmax(0,1fr);gap:0 24px}
+body[data-area="aero"] .timeline .when{margin:0;padding:22px 0 0;font-family:var(--display);font-size:.875rem;line-height:1.5;letter-spacing:0;text-align:right;font-variant-numeric:tabular-nums}
+body[data-area="aero"] .timeline>li .entry{padding:22px 0 14px 40px;border-left:0}
+body[data-area="aero"] .timeline>li .entry::after{content:"";position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--line)}
+body[data-area="aero"] .timeline>li:first-child .entry::after{top:28px}
+body[data-area="aero"] .timeline>li:last-child .entry::after{bottom:auto;height:28px}
+body[data-area="aero"] .timeline>li:only-child .entry::after{display:none}
+body[data-area="aero"] .timeline>li .entry::before{z-index:1;left:2px;top:27px;width:11px;height:11px;border:2px solid var(--ink2);background:var(--bg)}
+body[data-area="aero"] .timeline>li.is-current .entry::before{border-color:var(--accent);background:var(--accent)}
+body[data-area="aero"] .timeline .entry h3{font-size:1.25rem;font-stretch:106%}
+body[data-area="aero"] .timeline .entry ul:not(.chips){font-size:1rem;line-height:1.55}
+body[data-area="aero"] .card>.sublist{margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
+
+/* ---------- Projetos (C3): Problema / Abordagem / Resultado / Stack + galeria ---------- */
+body[data-area="aero"] .project{display:grid;grid-template-columns:minmax(0,1fr);gap:24px 40px;margin-bottom:28px;padding:22px}
+body[data-area="aero"] .project:last-child{margin-bottom:0}
+body[data-area="aero"] .project.has-gallery{grid-template-columns:minmax(0,1fr) 280px}
+body[data-area="aero"] .project h3{font-size:1.5rem;font-stretch:108%;line-height:1.15}
+body[data-area="aero"] .project .org{margin:4px 0 0}
+body[data-area="aero"] .par{margin-top:16px}
+body[data-area="aero"] .par>div{grid-template-columns:92px minmax(0,1fr);gap:4px 20px}
+body[data-area="aero"] .par dd{font-size:1rem;line-height:1.6}
+body[data-area="aero"] .project .results{margin:20px 0 0}
+.gallery{display:flex;flex-direction:column;gap:8px;align-self:start;margin:0;min-width:0}
+.gallery-main{display:block;width:100%;aspect-ratio:28/15;padding:0;border:0;border-radius:var(--radius);overflow:hidden;background:var(--raise);cursor:zoom-in}
+.gallery-main img,.gallery-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.gallery-thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.gallery-thumb{height:48px;padding:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--raise);cursor:pointer}
+.gallery-thumb[aria-pressed="true"]{border:2px solid var(--accent)}
+.gallery figcaption{font-family:var(--display);font-size:.8125rem;color:var(--ink2)}
+
+/* Imagem ampliada (<dialog> nativo: foco preso, Esc fecha, foco volta ao botão) */
+.lightbox{max-width:min(1100px,calc(100vw - 32px));max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);padding:0;border:1px solid var(--glass-b);border-radius:14px;overflow:hidden;background:var(--bg);color:var(--ink);box-shadow:var(--shadow)}
+.lightbox::backdrop{background:var(--scrim)}
+.lightbox-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:4px 4px 4px 16px;font-family:var(--display);font-size:.875rem}
+.lightbox-cap{margin:0}
+.lightbox-close{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;border:0;border-radius:var(--radius);background:transparent;color:var(--ink);cursor:pointer}
+.lightbox-close:hover{background:var(--raise)}
+.lightbox>img{display:block;width:auto;height:auto;max-width:100%;max-height:calc(100vh - 100px);max-height:calc(100dvh - 100px);margin:0 auto}
+
+/* ---------- Pesquisa (layout dos cartões da C4): data e instituição à esquerda; título, texto e etiquetas à direita ---------- */
+.research-list{display:grid;gap:14px}
+.research{display:grid;grid-template-columns:136px minmax(0,1fr);gap:16px 28px;padding:18px 22px}
+.research.has-paper{grid-template-columns:136px minmax(0,1fr) 272px}
+.research-meta p{margin:0;padding:0;font-family:var(--display);font-size:.875rem;line-height:1.5;color:var(--ink2);font-variant-numeric:tabular-nums}
+.research-main h3{margin-bottom:10px;font-size:1.3125rem;font-stretch:106%}
+.research-main>p{margin:0 0 10px;font-size:1rem;line-height:1.6}
+.paper{display:grid;grid-template-columns:84px minmax(0,1fr);gap:14px;align-self:start;padding:12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--ink);text-decoration:none}
+.paper:hover{border-color:var(--accent)}
+.paper img{display:block;width:84px;height:112px;object-fit:cover;object-position:top}
+/* Documento em slides: miniatura deitada acima do texto */
+.paper--slides{grid-template-columns:minmax(0,1fr)}
+.paper--slides img{width:100%;height:auto;aspect-ratio:16/9}
+.paper-body{display:flex;flex-direction:column;gap:6px;font-family:var(--display)}
+.paper-title{font-weight:600;font-size:.875rem;line-height:1.3}
+.paper-meta{font-size:.8125rem;color:var(--ink2)}
+.paper-open{margin-top:auto;font-size:.8125rem;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Competências (C7) e Contato (C8) ---------- */
+body[data-area="aero"] .card>.skills{grid-template-columns:164px minmax(0,1fr);gap:0;margin:-16px 0}
+body[data-area="aero"] .skills dt,body[data-area="aero"] .skills dd{padding:18px 0;border-bottom:1px solid var(--line)}
+body[data-area="aero"] .skills dt{font-weight:600;font-size:.9375rem}
+body[data-area="aero"] .skills dt:last-of-type,body[data-area="aero"] .skills dd:last-of-type{border-bottom:0}
+body[data-area="aero"] #contato .card{padding:30px 32px}
+body[data-area="aero"] .contact-mail{font-size:clamp(1.375rem,3vw,1.625rem);font-stretch:106%}
+body[data-area="aero"] .card>:last-child{margin-bottom:0}
+
+@media (max-width:1100px){
+  body[data-area="aero"] .content .hero{grid-template-columns:minmax(0,1fr) 200px;gap:24px 32px}
+  body[data-area="aero"] .project.has-gallery{grid-template-columns:minmax(0,1fr)}
+  .gallery{max-width:420px}
+  .research.has-paper{grid-template-columns:136px minmax(0,1fr)}
+  .research .paper{grid-column:2}
+}
+@media (max-width:760px){
+  body[data-area="aero"] .content .hero{grid-template-columns:minmax(0,1fr);padding-bottom:32px}
+  .portrait{width:200px}
+  .card{padding:18px 16px}
+  body[data-area="aero"] .content .section{padding-top:44px}
+  .sec-h h2{font-size:1.5rem}
+  body[data-area="aero"] .sim-tabs{padding:0 4px 0 12px}
+  body[data-area="aero"] .sim-tablist{gap:0 16px}
+  body[data-area="aero"] .timeline>li{grid-template-columns:minmax(0,1fr)}
+  body[data-area="aero"] .timeline .when{padding:18px 0 0 40px;text-align:left}
+  body[data-area="aero"] .timeline>li .entry{padding-top:4px}
+  body[data-area="aero"] .timeline>li .entry::after,body[data-area="aero"] .timeline>li:first-child .entry::after{top:-44px}
+  body[data-area="aero"] .timeline>li:first-child .entry::after{top:10px}
+  body[data-area="aero"] .timeline>li:last-child .entry::after{height:54px}
+  body[data-area="aero"] .timeline>li .entry::before{top:9px}
+  body[data-area="aero"] .project{padding:18px 16px}
+  body[data-area="aero"] .par>div{grid-template-columns:minmax(0,1fr)}
+  .gallery{max-width:none}
+  .gallery-thumb{height:56px}
+  .research,.research.has-paper{grid-template-columns:minmax(0,1fr);padding:18px 16px}
+  .research .paper{grid-column:auto}
+  body[data-area="aero"] .card>.skills{grid-template-columns:minmax(0,1fr)}
+  body[data-area="aero"] .skills dt{padding-bottom:0;border-bottom:0}
+  body[data-area="aero"] .skills dd{padding-top:8px;margin:0}
+  body[data-area="aero"] #contato .card{padding:22px 16px}
+}
+@media (prefers-reduced-motion:reduce){
+  .sky i{animation:none!important}
+  .glass,.glass:hover{transition:none;transform:none}
+}
+@media print{
+  .sky,.lightbox{display:none}
+  .glass{background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
 }

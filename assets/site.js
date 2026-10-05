@@ -32,6 +32,7 @@
     faceLinks.forEach(function (f) { f.el.setAttribute("href", f.base + "?lang=" + l); });
     // Dicas (title) dos botões só de ícone: atributos data-title-* no próprio botão.
     document.querySelectorAll("button[data-title-" + l.toLowerCase() + "]").forEach(function (b) { b.title = b.getAttribute("data-title-" + l.toLowerCase()); });
+    document.querySelectorAll("img[data-alt-" + l.toLowerCase() + "]").forEach(function (i) { i.alt = i.getAttribute("data-alt-" + l.toLowerCase()); });
     if (persist) store(l);
     document.dispatchEvent(new CustomEvent("sitelangchange", { detail: { lang: l } }));
   }
@@ -161,6 +162,20 @@
     document.addEventListener("sitelangchange", placeMark);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeMark);
   }
+
+  /* ---------- Contadores ao lado dos títulos de seção ---------- */
+  // <p class="sec-n" data-count="seletor" data-pt-br="singular|plural" data-en="..." data-fr="...">: o número vem
+  // da contagem de itens da própria seção, então não precisa ser atualizado à mão quando um item entra ou sai.
+  Array.prototype.forEach.call(document.querySelectorAll(".sec-n[data-count]"), function (el) {
+    var sec = el.closest("section");
+    var n = sec ? sec.querySelectorAll(el.getAttribute("data-count")).length : 0;
+    if (!n) return;
+    VALID.forEach(function (l) {
+      var words = (el.getAttribute("data-" + l.toLowerCase()) || "").split("|");
+      var span = el.querySelector('[lang="' + l + '"]');
+      if (span && words.length === 2) span.textContent = n + " " + words[n === 1 ? 0 : 1];
+    });
+  });
 
   /* ---------- Menu do celular (o trilho vira um painel) ---------- */
   var menuBtn = document.querySelector(".menu-toggle"), rail = document.getElementById("trilho");
