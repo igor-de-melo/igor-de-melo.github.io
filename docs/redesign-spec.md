@@ -38,10 +38,10 @@ Regra: um pacote por vez, Igor aprova antes do próximo. Rodar os testes antes d
 - **Foco visível** em todos os links e botões (`outline: 2px solid var(--accent); outline-offset: 3px`).
 
 ### 1.1 Régua de seções (scroll-spy)
-- Linha vertical de 1 px; o progresso acompanha a seção atual (IntersectionObserver).
+- Linha vertical de 1 px; o progresso acompanha a seção atual (IntersectionObserver). Ao clicar numa seção, o marcador viaja até ela. Com `prefers-reduced-motion`, só o destaque muda, sem animação. Referência visual e de tempo: prancha R1 (as animações em ciclo dela mostram o comportamento exato).
 - **Aero**: o avião (22 px, nariz para baixo, sem círculo) desce pela linha e deixa um **rastro tracejado** (`repeating-linear-gradient(180deg, accent 0 4px, transparent 4px 8px)`), igual à prancha R1. Sem marcas horizontais.
-- **Ciência de Dados**: opção B da R1 (barra de destaque no item atual).
-- **TI e Cibersegurança**: opção A da R1 (barra verde de 2 px no item atual, item em negrito).
+- **Ciência de Dados**: opção B da R1, "célula em execução". A barra de destaque desliza até a seção atual e, ao chegar, o rótulo da seção mostra `[*]` (executando) e, cerca de 0,6 s depois, o número da célula `[n]` (ordem da seção: `[1]` Sobre, `[2]` Experiência…), como num notebook Jupyter. Seções já visitadas mantêm o número.
+- **TI e Cibersegurança**: opção A da R1, "cursor de bloco". Um cursor de bloco verde piscante (`steps(1)`, 1 s) **salta** de seção em seção, sem deslizar (movimento seco, em passos, como num terminal), e a seção atual ganha o prompt `>` antes do rótulo.
 
 ### 1.2 Celular (≤ 760 px), validado em 375 e 390 px
 - **Barra de áreas única em todas as páginas** (pranchas C9, N7, CY7, H2): ícone de casa 40 × 44 com `aria-label="Início"` + `Aeronáutica | Dados | TI e Ciber`, fonte 13 px (12 px mono em TI e Ciber), padding lateral 6 px, `white-space: nowrap`. Cabe em 375 px sem rolagem.
