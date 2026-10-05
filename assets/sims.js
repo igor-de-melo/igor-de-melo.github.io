@@ -36,6 +36,16 @@
         s.textContent = panel.dataset[l[1]] || panel.dataset.sim;
         b.appendChild(s);
       });
+      // Rótulo descritivo opcional (data-hint-pt-br/en/fr): vira aria-label e title da aba, no idioma atual.
+      if (panel.hasAttribute("data-hint-pt-br")) {
+        var hint = function (lang) {
+          var t = panel.getAttribute("data-hint-" + String(lang).toLowerCase()) || panel.getAttribute("data-hint-pt-br");
+          b.title = t;
+          b.setAttribute("aria-label", t);
+        };
+        hint(document.documentElement.lang);
+        document.addEventListener("sitelangchange", function (e) { hint(e.detail.lang); });
+      }
       b.addEventListener("click", function () { show(i, false); });
       b.addEventListener("keydown", function (e) {
         var k = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
