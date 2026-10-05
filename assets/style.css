@@ -61,14 +61,14 @@ body[data-area="aero"]{
 /* Ciência de Dados "Caderno de análise" */
 body[data-area="data"]{
   --bg:#E3ECE8;--ink:#14211F;--ink2:#3F5154;--line:rgba(20,33,31,.22);--chip:rgba(20,33,31,.07);
-  --inp:#FBFCFB;--out:#FBFCFB;--ac:#0A5A53;--str:#235A36;--kw:#7A4610;--tag:rgba(10,90,83,.04);
+  --inp:#F2F6F4;--out:#FBFCFB;--ac:#0A5A53;--str:#235A36;--kw:#7A4610;--tag:rgba(10,90,83,.04);
   --w1:rgba(10,90,83,.06);--w2:rgba(68,1,84,.04);--cmo:.07;--fxo:.7;
   --surface:var(--inp);--raise:var(--chip);--accent:var(--ac);--on-ink:#fff;
   --mono:var(--jet);
 }
 :root[data-theme="dark"] body[data-area="data"]{
   --bg:#0E1719;--ink:#E3EEEC;--ink2:#869A9B;--line:rgba(255,255,255,.12);--chip:rgba(255,255,255,.08);
-  --inp:#152225;--out:rgba(227,238,236,.03);--ac:#5FCFC0;--str:#8FD3A0;--kw:#E3B170;--tag:rgba(95,207,192,.1);
+  --inp:#152225;--out:#101B1D;--ac:#5FCFC0;--str:#8FD3A0;--kw:#E3B170;--tag:rgba(95,207,192,.1);
   --w1:rgba(95,207,192,.10);--w2:rgba(227,177,112,.06);--cmo:.08;--fxo:1;--on-ink:#0E1719;
 }
 
@@ -1166,13 +1166,58 @@ body[data-area="data"] .content .cell--sim .tunnel{border:1px solid var(--line);
 @keyframes sig-pk-b{0%,25%{opacity:0}40%,100%{opacity:1}}
 @keyframes sig-pk-c{0%,55%{opacity:0}70%,100%{opacity:1}}
 /* Cadeia vertical: a onda e as amostras descem juntas (período 50); barras (84) e bytes (52) descem na mesma velocidade */
-.sig-wave-v,.sig-fall-w{animation:sig-fall-w 3.2s linear infinite}
-.sig-fall-b{animation:sig-fall-b 5.376s linear infinite}
-.sig-fall-h{animation:sig-fall-h 3.328s linear infinite}
 @keyframes sig-fall-w{from{transform:translateY(0)}to{transform:translateY(50px)}}
-@keyframes sig-fall-b{from{transform:translateY(0)}to{transform:translateY(84px)}}
-@keyframes sig-fall-h{from{transform:translateY(0)}to{transform:translateY(52px)}}
 @media (prefers-reduced-motion:reduce){
-  .sig-wave,.sig-with-wave,.sig-roll,.sig-pk,.sig-pk-b,.sig-pk-c,.sig-wave-v,.sig-fall-w,.sig-fall-b,.sig-fall-h,.hcard .t-cur{animation:none}
+  .sig-wave,.sig-with-wave,.sig-roll,.sig-pk,.sig-pk-b,.sig-pk-c,.sig-fall-w,.sig-rise-b,.sig-rise-h,.hcard .t-cur{animation:none}
   .sig-pk{opacity:0}
+}
+
+/* =====================================================================
+   R5.2 (docs/redesign-spec.md, seção 12)
+   ===================================================================== */
+/* ---------- Texto justificado nos parágrafos de corpo (o idioma vem do atributo lang de cada trecho) ---------- */
+.intro p[lang],.body p[lang],.par dd,.hcard p[lang]{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+
+/* ---------- Home: cartão de Aero como um único cartão em vidro, com o céu dentro ---------- */
+.hcard--aero{padding:18px 18px 16px;border:1px solid var(--glass-b);background:linear-gradient(var(--glass),var(--glass)),linear-gradient(180deg,#A9CAF1,#EAF2FB);box-shadow:var(--shadow)}
+:root[data-theme="dark"] .hcard--aero{background:linear-gradient(var(--glass),var(--glass)),linear-gradient(180deg,#141F4A,#0F1838)}
+.hc-glass{padding:0;border:0;border-radius:0;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+
+/* ---------- Home no celular: hero centralizado e cadeia vertical refeita ---------- */
+.sig-fall-w{animation:sig-fall-w 3.2s linear infinite}
+/* Barras (período 84) e bytes (período 56) sobem na mesma velocidade */
+.sig-rise-b{animation:sig-rise-b 5.376s linear infinite}
+.sig-rise-h{animation:sig-rise-h 3.584s linear infinite}
+@keyframes sig-rise-b{from{transform:translateY(0)}to{transform:translateY(-84px)}}
+@keyframes sig-rise-h{from{transform:translateY(0)}to{transform:translateY(-56px)}}
+.vsig .sig-samples line{stroke-width:1.2}
+@media (max-width:900px){
+  .home .gate-hero{text-align:center}
+  .home .gate-lead{margin:0 auto}
+  .home .gate-contact{justify-content:center;margin-left:0}
+  .home .gate-pick{text-align:center}
+  .chain::before{left:23.25px}
+  /* Cada trecho é recortado pela própria caixa, com degradê nas pontas */
+  .vsig{flex:1 1 0;width:48px;height:0;min-height:0;margin:8px 0 0;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent,#000 14px,#000 calc(100% - 14px),transparent);mask-image:linear-gradient(180deg,transparent,#000 14px,#000 calc(100% - 14px),transparent)}
+  .vsig--wave{margin-bottom:-14px}
+  .vsig--hex{flex:none;height:56px;margin:2px 0 -14px}
+  .vsig .sig-hex{font-size:11.5px}
+}
+
+/* ---------- Ciência de Dados: In e Out colados, separados por uma linha; código +1 px; subtítulos +2 px ---------- */
+.cell-in,.cell-in.sn{font-size:1.0625rem}
+.cell-in+.cell-out{margin-top:-1px;border-top-left-radius:0;border-top-right-radius:0}
+.cell-in:has(+.cell-out){border-bottom-left-radius:0;border-bottom-right-radius:0}
+body[data-area="data"] .sim-tab{font-size:1.0625rem}
+body[data-area="data"] .sim-tabs:has(+.sim-panel){border-bottom-left-radius:0;border-bottom-right-radius:0}
+body[data-area="data"] .content .cell--sim .tunnel{margin-top:-1px;border-top-left-radius:0;border-top-right-radius:0}
+.cell-group h3{font-size:1.3125rem}
+@media (max-width:760px){.cell-in,.cell-in.sn{font-size:1.0625rem}}
+
+/* ---------- TI e Cibersegurança: títulos de painel com +1 px sobre o corpo ---------- */
+.pn .pn-t{top:-11px;max-width:calc(100% - 28px);font-size:.96875rem;line-height:22px}
+@media (max-width:760px){
+  .pn .pn-t{font-size:.875rem}
+  /* Títulos longos da linha do tempo (nome · período) não cabem sobre a borda: ficam dentro do painel e podem quebrar */
+  .tl .pn .pn-t{position:static;max-width:none;margin:-8px 0 8px;padding:0;background:none;white-space:normal}
 }
