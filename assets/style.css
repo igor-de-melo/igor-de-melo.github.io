@@ -97,7 +97,7 @@ a{color:var(--suction);text-underline-offset:3px;text-decoration-thickness:1px}
 .hero{max-width:var(--max);margin:0 auto;padding:clamp(28px,5vw,64px) var(--gutter) clamp(24px,3vw,36px);display:grid;grid-template-columns:1fr 1.5fr;gap:28px clamp(24px,5vw,72px);align-items:end}
 .name{grid-column:1/-1;font-stretch:125%;font-weight:800;font-size:clamp(2.1rem,7.4vw,6rem);line-height:.9;letter-spacing:-.018em}
 .facts{margin:0;font-family:var(--display);font-size:.9375rem;line-height:1.5;color:var(--ink-2);align-self:start;padding-top:6px}
-.intro{max-width:36rem}
+.intro{min-width:0}
 .intro p{font-size:1.125rem;margin-bottom:.6em}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;font-family:var(--display);font-size:.9375rem;font-weight:600;margin-top:18px}
 .btn{display:inline-block;background:var(--ink);color:var(--on-ink);text-decoration:none;padding:12px 18px;border-radius:var(--radius)}
@@ -105,7 +105,7 @@ a{color:var(--suction);text-underline-offset:3px;text-decoration-thickness:1px}
 
 /* Túnel (figura interativa) */
 .tunnel{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
-.tunnel-frame{position:relative;height:clamp(300px,50vh,520px);background:var(--surface);border-radius:4px;overflow:hidden}
+.tunnel-frame{position:relative;height:clamp(225px,37.5vh,390px);background:var(--surface);border-radius:4px;overflow:hidden}
 .tunnel-frame canvas{display:block;width:100%;height:100%}
 .tunnel-meta{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 40px;align-items:start;padding-top:14px;font-family:var(--display);font-size:.875rem;line-height:1.5;color:var(--ink-2)}
 .tunnel-meta p{margin:0;max-width:44rem}
@@ -178,7 +178,7 @@ main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 40px}
   .timeline>li{grid-template-columns:1fr}
   .skills{grid-template-columns:1fr;gap:4px}
   .skills dd{margin-bottom:14px}
-  .tunnel-frame{height:300px}
+  .tunnel-frame{height:225px}
 }
 @media print{
   .topbar,.now,.rail,.tunnel,.skip{display:none}
@@ -196,7 +196,7 @@ main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 40px}
 .gate-pick p{margin:0}
 
 /* Abertura da face Ciência de Dados: agente de aprendizado por reforço */
-.tunnel-frame--maze{height:clamp(240px,46vh,470px)}
+.tunnel-frame--maze{height:clamp(180px,34.5vh,352px)}
 .controls .rl-state{font-weight:600}
 .controls .rl-state[hidden]{display:none}
 .rl-btn{font:600 .8125rem/1 var(--display);padding:8px 12px;background:transparent;border:1px solid var(--rule);border-radius:var(--radius);color:var(--ink);cursor:pointer}
@@ -223,7 +223,7 @@ main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 40px}
 .page-note{font-family:var(--display);font-size:.875rem;color:var(--ink-2);margin:0 0 14px}
 
 @media (max-width:560px){
-  .tunnel-frame--maze{height:230px}
+  .tunnel-frame--maze{height:172px}
   .controls .rl-btn{padding:8px 10px}
 }
 
@@ -240,9 +240,9 @@ main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 40px}
 .area-title{grid-column:1/-1;margin:14px 0 0;font-family:var(--display);font-weight:700;font-size:clamp(1.05rem,1.8vw,1.375rem);color:var(--accent)}
 
 /* Simulação de TI e Cibersegurança (assets/malware.js) */
-.tunnel-frame--net{height:clamp(300px,52vh,500px);cursor:pointer}
+.tunnel-frame--net{height:clamp(225px,39vh,375px);cursor:pointer}
 .tunnel-frame--net+.tunnel-meta{grid-template-columns:1fr}
-@media (max-width:560px){.tunnel-frame--net{height:420px}}
+@media (max-width:560px){.tunnel-frame--net{height:315px}}
 
 /* P4: formato Problema / Abordagem / Resultado / Stack */
 .par{margin:14px 0 0;display:grid;gap:10px}
@@ -325,7 +325,7 @@ a{color:var(--accent)}
 
 /* ---------- P5c: celular ---------- */
 @media (max-width:560px){
-  .tunnel-frame--net{height:620px}
+  .tunnel-frame--net{height:465px}
 }
 
 /* ---------- P5c: rodapé ---------- */
@@ -544,7 +544,7 @@ body[data-area="aero"] .content .section{gap:0;padding-top:56px}
 body[data-area="aero"] .content .hero{grid-template-columns:minmax(0,1fr) 232px;gap:28px 48px;align-items:end;padding-bottom:44px}
 .hero-text{display:flex;flex-direction:column;gap:22px;min-width:0}
 .hero-text .facts{order:3;padding:0}
-.hero-text .intro{max-width:34em}
+.hero-text .intro{max-width:none}
 .hero-text .intro p{font-size:1.125rem;line-height:1.6}
 .hero-text .actions{margin-top:22px}
 .portrait{margin:0;padding:8px}
@@ -561,7 +561,7 @@ body[data-area="aero"] .sim-tabs{align-items:stretch;gap:8px 24px;min-height:48p
 body[data-area="aero"] .sim-tablist{gap:0 24px}
 body[data-area="aero"] .sim-tab{min-height:48px;padding:0;border:0;border-radius:0;background:transparent;color:var(--ink2);font-weight:500;font-size:.875rem}
 body[data-area="aero"] .sim-tab[aria-selected="true"]{background:transparent;color:var(--ink);font-weight:600;box-shadow:inset 0 -2px 0 var(--accent)}
-body[data-area="aero"] .tunnel-frame{height:clamp(240px,40vh,380px);border:0;border-radius:0}
+body[data-area="aero"] .tunnel-frame{height:clamp(180px,30vh,285px);border:0;border-radius:0}
 body[data-area="aero"] .content .tunnel-meta{padding:12px 16px 16px;border-top:1px solid var(--line)}
 .sim-soon{display:grid;place-items:center;min-height:240px}
 .sim-soon p{margin:0;padding:24px 16px;font-family:var(--display);font-size:.9375rem;color:var(--ink2);text-align:center}
@@ -712,7 +712,7 @@ body[data-area="data"] .sec-n{font-family:var(--mono);font-size:.8125rem}
 body[data-area="data"] .content .hero{grid-template-columns:minmax(0,1fr) 190px;gap:24px 40px;align-items:start;padding-bottom:26px}
 body[data-area="data"] .hero-text{gap:12px}
 body[data-area="data"] .hero-text .facts{order:0;font-family:var(--mono);font-size:.8125rem;line-height:1.6;color:var(--ink2)}
-body[data-area="data"] .hero-text .intro{max-width:660px;margin-top:2px}
+body[data-area="data"] .hero-text .intro{margin-top:2px}
 body[data-area="data"] .hero-text .intro p{font-size:1.0625rem;line-height:1.6;margin-bottom:14px}
 body[data-area="data"] .hero-text .intro .muted{color:var(--ink);font-weight:700}
 body[data-area="data"] .portrait{padding:0}
@@ -735,7 +735,7 @@ body[data-area="data"] .portrait img{aspect-ratio:190/242;border-radius:6px;filt
 .cell-in.sn{margin-top:12px;font-size:.78125rem;line-height:1.6}
 .cell-out{margin-top:6px;padding:12px 16px 20px;border-radius:4px;background:color-mix(in srgb,var(--ink) 2.4%,transparent);font-size:1rem;line-height:1.55}
 .cell-out>:last-child{margin-bottom:0}
-.cell-out p{margin:0 0 10px;max-width:660px}
+.cell-out p{margin:0 0 10px}
 .cell-out ul:not(.chips){margin:0 0 10px;padding-left:1.1em}
 .cell-out ul:not(.chips) li{margin-bottom:4px}
 .cell-out ul:not(.chips) li::marker{color:var(--accent)}
@@ -744,7 +744,7 @@ body[data-area="data"] .portrait img{aspect-ratio:190/242;border-radius:6px;filt
 .cell-group{margin:26px 0 10px 112px}
 .cell-group h3{font:600 1.1875rem/1.3 var(--text);font-stretch:normal;color:var(--ink2)}
 .md{padding-left:112px;margin-bottom:26px}
-.md p{max-width:660px;margin:0 0 14px;font-size:1.0625rem;line-height:1.6}
+.md p{margin:0 0 14px;font-size:1.0625rem;line-height:1.6}
 body[data-area="data"] .md .lead{font-size:1.0625rem}
 /* Linha do tempo entre a calha e a célula: ponto cheio = atual */
 .cell--tl{margin-bottom:0}
@@ -776,7 +776,7 @@ body[data-area="data"] .sim-tab{min-height:40px;padding:0;border:0;border-radius
 body[data-area="data"] .sim-tab[aria-selected="true"]{background:transparent;color:var(--accent);font-weight:500;box-shadow:inset 0 -1px 0 var(--accent)}
 body[data-area="data"] .sim-count{font-family:var(--mono);font-size:.78125rem}
 body[data-area="data"] .content .cell--sim .tunnel{margin-top:6px;padding:12px 16px 20px;border-radius:4px;background:color-mix(in srgb,var(--ink) 2.4%,transparent)}
-body[data-area="data"] .tunnel-frame--maze{height:clamp(220px,38vh,360px);background:transparent;border-color:var(--line)}
+body[data-area="data"] .tunnel-frame--maze{height:clamp(165px,28.5vh,270px);background:transparent;border-color:var(--line)}
 body[data-area="data"] .rl-btn{min-height:36px;padding:0 14px;border:1px solid var(--line);font:500 .8125rem/1 var(--mono)}
 body[data-area="data"] .controls{font-family:var(--mono);font-size:.78125rem}
 body[data-area="data"] .how{background:transparent;border-color:var(--line)}
@@ -864,7 +864,7 @@ body[data-area="it-security"] .sec-n{font-size:.78125rem}
 .pn{position:relative;margin-top:12px;padding:22px 20px 14px;border:1px solid var(--line);background:var(--pn)}
 .pn--f{border-color:var(--line2)}
 .pn-t{position:absolute;top:-10px;left:14px;max-width:calc(100% - 28px);margin:0;padding:0 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:var(--bg);color:var(--lb);font-weight:500;font-size:.78125rem;line-height:20px}
-.pn p{margin:0 0 12px;max-width:700px}
+.pn p{margin:0 0 12px}
 .pn>:last-child,.pn p:last-child{margin-bottom:0}
 .pn h3{font-size:inherit;font-weight:600;line-height:inherit;margin:0 0 4px}
 .pn .lead{font-size:inherit;line-height:inherit}
@@ -889,7 +889,7 @@ body[data-area="it-security"] .chips li::after{content:"]";margin-left:3px;color
 .yml dt::after{content:":"}
 .yml dd{margin:4px 0 12px;padding-left:16px}
 .yml dd:last-child{margin-bottom:0}
-body[data-area="it-security"] .bridge{margin:14px 0 0;max-width:700px;padding-left:10px;border-left:2px solid var(--line2);font-size:.84375rem;color:var(--ink2)}
+body[data-area="it-security"] .bridge{margin:14px 0 0;padding-left:10px;border-left:2px solid var(--line2);font-size:.84375rem;color:var(--ink2)}
 body[data-area="it-security"] .contact-mail{margin:0 0 6px;font-stretch:normal;font-weight:500;font-size:1rem;color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
 body[data-area="it-security"] .site-footer{margin-top:40px;padding-top:16px;font-size:.78125rem}
 
@@ -1176,7 +1176,6 @@ body[data-area="data"] .content .cell--sim .tunnel{border:1px solid var(--line);
    R5.2 (docs/redesign-spec.md, seção 12)
    ===================================================================== */
 /* ---------- Texto justificado nos parágrafos de corpo (o idioma vem do atributo lang de cada trecho) ---------- */
-.intro p[lang],.body p[lang],.par dd,.hcard p[lang]{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
 
 /* ---------- Home: cartão de Aero como um único cartão em vidro, com o céu dentro ---------- */
 .hcard--aero{padding:18px 18px 16px;border:1px solid var(--glass-b);background:linear-gradient(var(--glass),var(--glass)),linear-gradient(180deg,#A9CAF1,#EAF2FB);box-shadow:var(--shadow)}
@@ -1185,11 +1184,11 @@ body[data-area="data"] .content .cell--sim .tunnel{border:1px solid var(--line);
 
 /* ---------- Home no celular: hero centralizado e cadeia vertical refeita ---------- */
 .sig-fall-w{animation:sig-fall-w 3.2s linear infinite}
-/* Barras (período 84) e bytes (período 56) sobem na mesma velocidade */
+/* Barras (período 84) e bytes (período 56) descem na mesma velocidade */
 .sig-rise-b{animation:sig-rise-b 5.376s linear infinite}
 .sig-rise-h{animation:sig-rise-h 3.584s linear infinite}
-@keyframes sig-rise-b{from{transform:translateY(0)}to{transform:translateY(-84px)}}
-@keyframes sig-rise-h{from{transform:translateY(0)}to{transform:translateY(-56px)}}
+@keyframes sig-rise-b{from{transform:translateY(-84px)}to{transform:translateY(0)}}
+@keyframes sig-rise-h{from{transform:translateY(-56px)}to{transform:translateY(0)}}
 .vsig .sig-samples line{stroke-width:1.2}
 @media (max-width:900px){
   .home .gate-hero{text-align:center}
@@ -1220,4 +1219,65 @@ body[data-area="data"] .content .cell--sim .tunnel{margin-top:-1px;border-top-le
   .pn .pn-t{font-size:.875rem}
   /* Títulos longos da linha do tempo (nome · período) não cabem sobre a borda: ficam dentro do painel e podem quebrar */
   .tl .pn .pn-t{position:static;max-width:none;margin:-8px 0 8px;padding:0;background:none;white-space:normal}
+}
+
+/* =====================================================================
+   R5.3 (docs/redesign-spec.md, seção 13)
+   ===================================================================== */
+/* ---------- Texto justificado: vai até a margem do bloco; colunas estreitas (< ~38 caracteres) ficam à esquerda ---------- */
+.intro p[lang],.body p[lang],.par dd{text-align:justify;text-justify:inter-word;-webkit-hyphens:auto;hyphens:auto;-webkit-hyphenate-limit-chars:6 3 3;hyphenate-limit-chars:6 3 3;text-wrap:pretty}
+.intro,.card,.project-main,.research-main,.cell-out,.md,.blk>.pn,.tl>.pn{container-type:inline-size}
+@container (max-width:36ch){
+  .intro p[lang],.body p[lang],.par dd{text-align:left}
+}
+@container (max-width:44ch){
+  body[data-area="it-security"] .body p[lang],body[data-area="it-security"] .intro p[lang],body[data-area="it-security"] .par dd{text-align:left}
+}
+
+/* ---------- Aero, abertura: rótulo acima do título e linha "Contato:" com os ícones ---------- */
+body[data-area="aero"] .hero-text .hero-who{order:-2}
+body[data-area="aero"] .hero-text .facts{order:-1;margin-bottom:-10px}
+.contact-line{display:inline-flex;align-items:center;flex-wrap:wrap;gap:4px}
+.contact-l{margin-right:6px;font-family:var(--display);font-weight:600;font-size:.9375rem;color:var(--ink)}
+body[data-area="aero"] .hero-text .actions{margin-top:10px}
+/* A legenda da simulação fica acima dos controles: lado a lado ela virava uma coluna estreita */
+body[data-area="aero"] .content .tunnel-meta{grid-template-columns:minmax(0,1fr)}
+body[data-area="aero"] .tunnel-meta p{max-width:none}
+
+/* ---------- Foto de perfil: mesma moldura (≈ 200 × 250) nas três páginas, base alinhada ao fim do bloco de texto ---------- */
+body[data-area] .content .hero{grid-template-columns:minmax(0,1fr) auto;align-items:end}
+body[data-area] .content .portrait{width:200px}
+body[data-area] .content .portrait img{aspect-ratio:4/5}
+body[data-area="data"] .hero-text .intro p:last-child{margin-bottom:0}
+body[data-area="data"] .content .hero{padding-bottom:22px}
+.ph{margin:0}
+.ph .pn{margin-top:0;padding:20px 20px 12px}
+.stg-box{width:200px;height:257px}
+.stg{transform:scale(.813)}
+@media (max-width:900px){
+  body[data-area="it-security"] .content .hero{display:flex;align-items:stretch}
+  .ph{margin:22px 0 4px}
+}
+
+/* ---------- Celular: foto pequena (≈ 96 × 120) à direita de rótulo + título; texto de perfil abaixo, em largura total ---------- */
+@media (max-width:760px){
+  body[data-area] .content .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto auto;column-gap:14px;row-gap:0;align-items:start}
+  body[data-area] .content .hero-text{display:contents}
+  body[data-area] .content .hero-who{grid-column:1/-1;grid-row:1;margin-bottom:10px}
+  body[data-area] .content .hero-text .facts{grid-column:1;grid-row:2;margin:0 0 8px}
+  body[data-area] .content .hero .area-title{grid-column:1;grid-row:3;margin:0}
+  body[data-area] .content .hero>.portrait,body[data-area] .content .hero>.ph{grid-column:2;grid-row:2/span 2;align-self:start;margin:0}
+  body[data-area] .content .hero>.portrait{width:96px}
+  body[data-area] .content .hero>.ph{width:auto}
+  body[data-area] .content .hero .intro,body[data-area] .content .hero .blk{grid-column:1/-1;width:auto}
+  body[data-area] .content .hero .intro{margin-top:16px}
+  body[data-area="aero"] .content .portrait{padding:4px}
+  body[data-area="aero"] .hero .area-title{font-size:1.75rem}
+  body[data-area="it-security"] .hero .area-title{font-size:1.4375rem}
+  .ph .pn{padding:4px}
+  .ph .pn-t{display:none}
+  .stg-box{width:96px;height:123px}
+  .stg{transform:scale(.39)}
+  /* Home: sem a linha vertical entre os cartões; fica só o fluxo de dados */
+  .chain::before{display:none}
 }
