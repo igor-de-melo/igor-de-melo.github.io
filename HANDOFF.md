@@ -14,7 +14,7 @@ para continuar o trabalho no Claude Code.
 ## Estrutura
 | Caminho | Conteúdo |
 |---|---|
-| `/` (`index.html`) | Home: nome, contato e três cartões. Gerada de `index.template.html` + `node tools/gen-card-art.mjs` |
+| `/` (`index.html`) | Home: hero, cadeia de sinal e três cartões. `index.template.html` é uma cópia idêntica, editada junto |
 | `/aero/` | Engenharia Aeronáutica. Simulação: escoamento em aerofólio de Joukowski (`assets/flow.js`) |
 | `/data/` | Ciência de Dados. Simulação: Q-learning num labirinto (`assets/maze.js`) |
 | `/it-security/` | TI e Cibersegurança, `noindex`, fora do sitemap. Simulação: malware SIR (`assets/malware.js`) |
@@ -22,7 +22,7 @@ para continuar o trabalho no Claude Code.
 | `assets/sims.js` | Abas para várias simulações por página (uma visível por vez) |
 | `assets/style.css` | Estilos; bloco "P5" no fim concentra cores por área, modo escuro e componentes |
 | `tests/` | `check-parity`, `check-links`, `check-maze`, `check-malware` (rodam no GitHub Actions) |
-| `tools/` | `gen-card-art.mjs` (artes da Home), `to-american.py` (inglês britânico → americano) |
+| `tools/` | `to-american.py` (inglês britânico → americano) |
 
 Esqueleto de cada página: Abertura → Sobre → Experiência → Projetos → Formação → Competências → Contato
 (+ Pesquisa em Aero; + Estudos e laboratórios em Cibersegurança).

@@ -16,7 +16,7 @@ Site estático (GitHub Pages, repositório de usuário). Sem build, sem framewor
 - Aero (R2, "Céu"): `div.sky` fixo atrás do conteúdo, cartões `.glass`, títulos de seção em `header.sec-h` com contador `p.sec-n[data-count]` (número calculado em `assets/site.js`), galeria `figure.gallery[data-gallery]` + `dialog.lightbox` (`assets/gallery.js`), pesquisa em `article.research`. Imagens em `assets/img/`, PDFs em `assets/docs/`.
 - Dados (R3, "Caderno"): mapas de contorno `div.fx` (SVG inline) fixos atrás do conteúdo; cada item é uma `div.cell` (rótulo `In [n]:` por contador CSS, `pre.cell-in` com realce `.fn/.k/.s/.cm/.kw/.nu`, `div.cell-out`). Em código, os valores de texto são trilíngues e os nomes de função e campo ficam iguais nas três línguas. Variantes: `.cell--tl` (linha do tempo), `.cell--proj`, `.cell--skill`, `.cell--sim`.
 - TI e Ciber (R4, "Terminal"): `pre.hx` (dump hexadecimal) fixos atrás do conteúdo, scanlines em `body::after`, barra tmux `div.sb` (seção atual marcada por `assets/site.js`), blocos `div.blk` = prompt `p.pm` (decorativo, `aria-hidden`, igual nas três línguas) + painel `div.pn` com título `p.pn-t`; `div.tl` para os `git log`; retrato `figure.ph` (ASCII `pre.asc` + `img.crt` de `assets/img/cyber-portrait.*`).
-- A Home é gerada de `index.template.html` + `node tools/gen-card-art.mjs` (substituir `<!--ART_AERO|DATA|IT_SECURITY-->`).
+- Home (R5, "Telemetria"): `index.html` e `index.template.html` são iguais e editados juntos. Hero em Newsreader, cadeia `div.chain` com três `div.stage` (nó SVG + `article.hcard--aero|data|it-security`) e a faixa decorativa `svg.chain-sig`; rodapé `footer.home-foot` com currículo, idiomas e tema.
 
 ## Commits
 Conventional Commits em inglês, imperativo, assunto ≤ 72 caracteres:
