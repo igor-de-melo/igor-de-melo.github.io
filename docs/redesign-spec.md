@@ -216,5 +216,30 @@ baixa) e nas peças de colormap da Home (grade do nó de Dados e barras), para m
 
 **Home, animação da cadeia** (só `transform`/`opacity`; tudo para com `prefers-reduced-motion`):
 - As amostras com barras de erro entre a onda e o nó de Dados **andam junto com a onda** que chega de Aero: mesma fase e mesma velocidade, como se fossem pontos medidos sobre ela.
-- Na saída de Dados, as **barras de colormap e os bytes hex** rolam em laço contínuo **da esquerda para a direita**, os dois com a **mesma velocidade**.
-- No celular (cadeia vertical), o equivalente: amostras descem com a onda; barras e bytes rolam de cima para baixo.
+- Na saída de Dados, as **barras de colormap e os bytes hex** rolam em laço contínuo **da direita para a esquerda**, os dois com a **mesma velocidade**.
+- No celular (cadeia vertical), o equivalente: amostras descem com a onda; barras e bytes rolam de baixo para cima.
+
+## 12. Ajustes pós-R5, parte 3 (R5.2)
+- **Texto justificado** em todos os parágrafos de corpo das quatro páginas (inclui as descrições dos cartões da Home), com `hyphens: auto` e o `lang` certo em cada idioma para não abrir buracos no celular. Não se aplica a títulos, listas, código, legendas nem ao hero.
+- **Home no celular**: hero centralizado (rótulo, nome e descrição).
+- **Home no celular, cadeia vertical** (refazer):
+  - Trecho Aero → Dados: a onda tem amplitude pequena (±10 px em torno da linha) e as **amostras com barra de erro ficam sobre a própria onda, antes do nó de Dados**, descendo junto com ela.
+  - Trecho Dados → TI e Ciber: primeiro as barras de colormap (horizontais, larguras variadas, viridis), depois 3–4 bytes hex legíveis (≥ 11 px), rolando de baixo para cima na mesma velocidade, recortados com degradê nas pontas do trecho.
+  - Nada da decoração passa por cima da linha vertical de forma desalinhada; a linha fica centrada nos nós.
+- **Home, cartão de Aero**: o degradê de céu fica **dentro** do próprio cartão (um único cartão em vidro), sem moldura azul por fora.
+- **Ciência de Dados**:
+  - Blocos `In` e `Out` com fundos levemente diferentes (claro: `In #F2F6F4`, `Out #FBFCFB`; escuro: `In #152225`, `Out #101B1D`), **sem espaço entre eles**, separados só por uma linha `--line`.
+  - Código com +1 px em relação ao corpo (17 px), não +2 px.
+  - Subtítulos dentro das seções (ex.: "Dados e TI", "Computação científica na engenharia", "Cursos") +2 px.
+- **TI e Cibersegurança**: prompts/comandos ficam +2 px em relação ao corpo; os títulos de painel `[ … ]` (ex.: `[ pilea-labs · Dec 2024 – Mar 2025 ]`) ganham +1 px.
+
+## 13. Ajustes pós-R5, parte 4 (R5.3)
+- **Justificado melhor** (todas as páginas): `text-align: justify; text-justify: inter-word; hyphens: auto; hyphenate-limit-chars: 6 3 3; text-wrap: pretty`, com `lang` correto em cada trecho de idioma. Nenhum parágrafo justificado pode ter `max-width` menor que a largura do seu bloco (o texto vai até a margem direita do bloco). Em colunas com menos de ~38 caracteres por linha, alinhar à esquerda.
+- **TI e Ciber, Sobre**: remover o `max-width` herdado (700 px) dos parágrafos dos painéis; o texto ocupa a largura inteira do painel.
+- **Simulações** (as três páginas): quadro ~25 % mais baixo, mantendo proporção dos elementos internos e controles.
+- **Aero, abertura**: rótulo acima do título igual ao das outras páginas ("Engenharia Aeronáutica, EESC-USP / São Carlos, SP"); abaixo da descrição de perfil, a linha **"Contato:"** seguida dos ícones de e-mail, LinkedIn e GitHub na mesma linha, como em Dados e TI e Ciber.
+- **Foto de perfil alinhada pela base** (desktop): mesma moldura nas três páginas (≈ 200 × 250 px, proporção 4:5), na coluna da direita, com a base alinhada a:
+  - Aero: base da linha "Contato:" com os ícones;
+  - Ciência de Dados: base da linha "Busco estágio ou vaga…" (a célula de contato vem depois, em largura total);
+  - TI e Ciber: base do painel `[ contact ]`.
+- **Foto no celular**: moldura pequena (≈ 96 × 120 px) à direita do bloco rótulo + título, alinhada pelo topo do rótulo; o texto de perfil segue abaixo em largura total. Em TI e Ciber o retrato mantém o efeito "decodificar" nesse tamanho.
