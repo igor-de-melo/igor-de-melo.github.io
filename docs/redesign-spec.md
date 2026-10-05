@@ -170,3 +170,51 @@ Cada commit termina com `Refs: R<n>`. Antes de cada push:
 - Confirmar os nomes EN/FR das áreas e os rótulos curtos do celular (seção 0.1).
 - Entrada da Keep Flying em `aero/index.html` nos três idiomas (já aparece na prancha C5).
 - Imagens reais dos projetos (VANT, LASC, CFD) já otimizadas em WebP.
+
+## 10. Ajustes pós-R5 (pacote R5.1)
+- **Idioma e tema no canto superior direito** de todas as páginas (coluna direita da barra superior; TI e Ciber só idioma). Saem do trilho e do rodapé da Home; o botão de currículo continua no trilho. No celular, ficam compactos na linha do título da seção, à esquerda do ☰.
+- **Contato com ícones** (e-mail, LinkedIn, GitHub) no fim das páginas de Aero e Ciência de Dados, como na Home: alvo ≥ 44 px, `aria-label` e `title` com o destino.
+- **Cartão de Aero na Home** em vidro com os tokens da página de Aero (`--glass`, `--glass-b`, `--shadow`, `--ink`, `--accent` de dia/noite) sobre um degradê suave de céu no próprio cartão (dia `#A9CAF1 → #EAF2FB`; noite `#141F4A → #0F1838`), para a translucidez aparecer no fundo liso.
+- **Ciência de Dados, tema claro, contraste maior**: `--ink #14211F`, `--ink2 #3F5154`, `--ac #0A5A53`, `--kw #7A4610`, `--str #235A36`, `--line` com alfa .22; fundo de contorno mais discreto. Metas: texto ≥ 7:1, secundário e código ≥ 5:1.
+- **Ciência de Dados, fundo**: remover a trajetória âmbar (cauda, pontos, mínimo e halo); ficam só as curvas de nível.
+- **TI e Cibersegurança, verdes diferenciados** (todos ≥ 8:1 sobre `#0B0E0D`): `--ac #5CF08A` prompt e cursor; `--cmd #D2F59E` comando digitado; `--lb #3FD39A` títulos de painel e rótulos (`cargo:`, `onde:`); `--lk #B4F7CF` links, sublinhados; `--ink2 #8FAE98` comentários e texto secundário.
+
+## 11. Ajustes pós-R5, parte 2 (também no R5.1)
+**Comandos em inglês nas três línguas** (substitui a regra anterior de nomes em português). Só os *nomes* (funções,
+campos, comandos, arquivos, pastas, barra tmux) ficam em inglês; os *valores de texto* e os rótulos da régua seguem o idioma.
+
+| Antes | Depois |
+|---|---|
+| `experiencia(cargo=, onde=)` | `experience(role=, where=)` |
+| `projeto(nome=, tipo=, status=)` | `project(name=, type=, status=)` |
+| `formacao(curso=, onde=)` / `curso(nome=, onde=)` | `education(course=, where=)` / `course(name=, where=)` |
+| `competencias["…"]` | `skills["…"]` |
+| `contato()` / `contato.escrever(para=)` | `contact()` / `contact.write(to=)` |
+| `simulacao_2()` / `simulacao_3()` | `simulation_2()` / `simulation_3()` |
+| `entrar("ciencia_de_dados")` (Home) | `enter("data_science")` |
+| `./entrar` / `./enter` / `./entrer` | `./enter` (igual nas três) |
+| `cargo:` `onde:` `curso:` `nome:` `tipo:` | `role:` `where:` `course:` `name:` `type:` |
+| `contato --resumo` / `contato --escrever` | `contact --summary` / `contact --write` |
+| `cat sobre.md` / `[ sobre.md ]` | `cat about.md` / `[ about.md ]` |
+| `[ saída ]` / `[ contato ]` | `[ output ]` / `[ contact ]` |
+| `ls -l estudos/` / `laboratorios/` / `certificados/` / `projetos/proximos/` | `studies/` / `labs/` / `certificates/` / `projects/next/` |
+| `git log --oneline experiencia/` / `formacao/` | `experience/` / `education/` |
+| `cat projetos/triagem-emails.md` / `cat competencias.yml` | `cat projects/email-triage.md` / `cat skills.yml` |
+| tmux `0:sobre 1:experiencia 2:estudos 3:projetos 4:formacao 5:competencias 6:contato` | `0:about 1:experience 2:studies 3:projects 4:education 5:skills 6:contact` |
+
+**Tamanho dos comandos**: em Ciência de Dados e TI e Cibersegurança, prompts e blocos de código ficam ~1 px maiores que o
+texto de corpo da página (Dados: corpo 16 px → código 17 px; TI e Ciber: corpo 14,5 px → comandos 15,5 px), com a mesma altura de linha relativa.
+
+**Ciência de Dados, fundo e colormap (tema claro)**: página com fundo levemente tingido `#E3ECE8`; células e saídas
+claras `#FBFCFB` com borda `--line`. Contraste dos textos sobre as células ≥ 7,5:1 e sobre o fundo ≥ 6,4:1. Colormap
+padrão **viridis** (`#440154 → #3B528B → #21918C → #5EC962 → #FDE725`) no fundo de contorno da página (em opacidade
+baixa) e nas peças de colormap da Home (grade do nó de Dados e barras), para manter a mesma linguagem.
+
+**Aero, abertura**: os links de texto viram ícones de **e-mail e LinkedIn** (com `aria-label`/`title`); o fim da página mantém os três ícones.
+
+**Celular**: o seletor de idioma fica **dentro do menu** (☰); o botão de tema fica na linha do título da seção.
+
+**Home, animação da cadeia** (só `transform`/`opacity`; tudo para com `prefers-reduced-motion`):
+- As amostras com barras de erro entre a onda e o nó de Dados **andam junto com a onda** que chega de Aero: mesma fase e mesma velocidade, como se fossem pontos medidos sobre ela.
+- Na saída de Dados, as **barras de colormap e os bytes hex** rolam em laço contínuo **da esquerda para a direita**, os dois com a **mesma velocidade**.
+- No celular (cadeia vertical), o equivalente: amostras descem com a onda; barras e bytes rolam de cima para baixo.
