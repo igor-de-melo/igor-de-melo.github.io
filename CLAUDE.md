@@ -11,7 +11,8 @@ Site estático (GitHub Pages, repositório de usuário). Sem build, sem framewor
 - Testes: node tests/check-parity.mjs (PT/EN/FR), node tests/check-maze.mjs (Q-learning), node tests/check-malware.mjs (SIR), node tests/check-links.mjs [--external] (links). Rodam no GitHub Actions a cada push (.github/workflows/checks.yml).
 - Esqueleto das páginas: Abertura → Sobre → Experiência → Projetos → Formação → Competências → Contato (+ Pesquisa em Aero, + Estudos e laboratórios em TI e Cibersegurança).
 - Simulações: cada uma é um `<figure class="tunnel sim-panel" data-sim="id" data-label-pt-br/en/fr>` dentro de `<div class="sims" data-sims>`; `assets/sims.js` cria as abas quando há mais de uma.
-- Cor por área: `body[data-area]` e token `--accent` em `assets/style.css` (bloco P5). Modo escuro: `:root[data-theme="dark"]` e `prefers-color-scheme`; todo novo componente usa só variáveis (nunca cor fixa). Canvas leem cores com getComputedStyle(canvas) e escutam `sitethemechange`.
+- Tokens por área: `body[data-area]` em `assets/style.css` (bloco "R1 — Tokens por área": `--bg`, `--surface`, `--raise`, `--line`, `--ink`, `--ink2`, `--accent`, fontes `--display`/`--text`/`--mono`). Tema ativo sempre em `<html data-theme="light|dark">` (script no `<head>`; `/it-security/` é só escuro, sem botão); todo novo componente usa só variáveis (nunca cor fixa).
+- Estrutura das páginas de área (R1): `header.topbar` (Início + três áreas), `div.now` (celular: título da seção, ☰, progresso), `div.shell` > `aside.rail#trilho` (nome, `nav.ruler`, currículo, idiomas, tema) + `div.content`. Scroll-spy, menu e animação de entrada ficam em `assets/site.js`. Canvas leem cores com getComputedStyle(canvas) e escutam `sitethemechange`.
 - A Home é gerada de `index.template.html` + `node tools/gen-card-art.mjs` (substituir `<!--ART_AERO|DATA|IT_SECURITY-->`).
 
 ## Commits
