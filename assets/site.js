@@ -32,6 +32,7 @@
     faceLinks.forEach(function (f) { f.el.setAttribute("href", f.base + "?lang=" + l); });
     // Dicas (title) dos botões só de ícone: atributos data-title-* no próprio botão.
     document.querySelectorAll("button[data-title-" + l.toLowerCase() + "]").forEach(function (b) { b.title = b.getAttribute("data-title-" + l.toLowerCase()); });
+    document.querySelectorAll("[data-aria-" + l.toLowerCase() + "]").forEach(function (e) { e.setAttribute("aria-label", e.getAttribute("data-aria-" + l.toLowerCase())); });
     document.querySelectorAll("img[data-alt-" + l.toLowerCase() + "]").forEach(function (i) { i.alt = i.getAttribute("data-alt-" + l.toLowerCase()); });
     if (persist) store(l);
     document.dispatchEvent(new CustomEvent("sitelangchange", { detail: { lang: l } }));
@@ -108,6 +109,8 @@
     });
     placeMark();
     runCell(i);
+    // Barra de status (TI e Cibersegurança): marca a mesma seção que a régua.
+    Array.prototype.forEach.call(document.querySelectorAll(".sb-i"), function (e, k) { e.classList.toggle("cur", k === i); });
     var h = sections[i] && sections[i].querySelector("h2");
     if (nowTitle && h) nowTitle.innerHTML = h.innerHTML;
     if (progress) {

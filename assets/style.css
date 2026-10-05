@@ -74,6 +74,7 @@ body[data-area="data"]{
 body[data-area="it-security"]{
   --bg:#0B0E0D;--ink:#CFE8D5;--ink2:#7E9A87;--line:rgba(92,240,138,.24);--line2:rgba(92,240,138,.58);
   --chip:rgba(92,240,138,.13);--ac:#5CF08A;--am:#F0B45C;--pn:rgba(92,240,138,.035);--on:#0B0E0D;
+  --scan:.18;--glow1:rgba(92,240,138,.09);--glow2:rgba(240,180,92,.05);--hx-o:.075;
   --surface:var(--pn);--raise:var(--chip);--accent:var(--ac);--on-ink:var(--on);
   --display:var(--jet);--text:var(--jet);--mono:var(--jet);
   font-size:.9375rem;line-height:1.7;
@@ -886,4 +887,158 @@ body[data-area="data"] .site-footer{font-family:var(--mono)}
 @media print{
   .fx{display:none}
   .cell-in,.cell-out{background:none}
+}
+
+/* =====================================================================
+   R4 — TI e Cibersegurança "Terminal refinado" (docs/redesign-spec.md, seções 2, 3 e 3.1; pranchas CY1–CY9)
+   Scanlines, dump hexadecimal no fundo, painéis [ nome ], prompts com digitação, retrato "decodificar", barra tmux.
+   Só tema escuro. Barra, trilho e régua "cursor de bloco" continuam os do R1.
+   ===================================================================== */
+body[data-area="it-security"]{--sb-h:28px;padding-bottom:var(--sb-h);font-size:.90625rem;line-height:1.6;background:radial-gradient(760px 460px at 100% 0,var(--glow1),transparent 70%) fixed,radial-gradient(640px 420px at 0 100%,var(--glow2),transparent 70%) fixed,var(--bg)}
+/* Linhas de varredura sobre a página inteira (não recebem cliques) */
+body[data-area="it-security"]::after{content:"";position:fixed;inset:0;z-index:30;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,var(--scan)) 0 1px,transparent 1px 3px)}
+/* Dump hexadecimal mascarado no fundo */
+.hx{position:fixed;z-index:-1;margin:0;width:460px;height:340px;overflow:hidden;pointer-events:none;font:400 11px/1.55 var(--mono);color:var(--accent);opacity:var(--hx-o);white-space:pre;-webkit-mask-image:radial-gradient(closest-side,#000 40%,transparent);mask-image:radial-gradient(closest-side,#000 40%,transparent);animation:hx-drift 80s ease-in-out infinite alternate}
+.hx-a{right:-40px;top:78px}
+.hx-b{left:-50px;bottom:60px}
+@keyframes hx-drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-14px,18px,0)}}
+
+/* ---------- Barra de status estilo tmux (decorativa; a seção atual vem da régua) ---------- */
+.sb{position:fixed;left:0;right:0;bottom:0;z-index:25;display:flex;justify-content:space-between;gap:16px;height:var(--sb-h);padding:0 16px;overflow:hidden;background:var(--accent);color:var(--on-ink);font:500 .78125rem/28px var(--mono);white-space:nowrap}
+.sb-l{overflow:hidden;text-overflow:ellipsis}
+.sb-i.cur::after{content:"*"}
+.sb b{font-weight:700}
+.sb-n{display:none}
+body[data-area="it-security"] .rail{height:calc(100vh - var(--top-h) - var(--sb-h));height:calc(100dvh - var(--top-h) - var(--sb-h))}
+
+/* ---------- Títulos ---------- */
+body[data-area="it-security"] .content .section{gap:0;padding-top:30px}
+body[data-area="it-security"] .content .body{max-width:none}
+body[data-area="it-security"] .hero .area-title{margin:6px 0 4px;font-weight:700;font-size:clamp(1.75rem,3.6vw,2.625rem);line-height:1.1;letter-spacing:-.02em}
+.t-cur{display:inline-block;width:.5em;height:.9em;margin-left:6px;background:var(--accent);vertical-align:-.1em;animation:blk 1s steps(1) infinite}
+body[data-area="it-security"] .sec-h{position:relative;margin-bottom:0;padding-bottom:12px}
+body[data-area="it-security"] .sec-h::after{content:"";position:absolute;left:0;bottom:-1px;width:56px;height:2px;background:var(--accent)}
+body[data-area="it-security"] .sec-h h2{font-size:1.625rem;line-height:1.2}
+body[data-area="it-security"] .sec-h h2::before{content:"#";content:"#" / "";margin-right:10px;color:var(--accent)}
+body[data-area="it-security"] .sec-n{font-size:.78125rem}
+.t-cm{color:var(--ink2)}
+
+/* ---------- Prompt com digitação e painel com título cortando a borda ---------- */
+.blk{margin-top:20px}
+.pm{margin:0;font-size:.84375rem;color:var(--ink2);white-space:nowrap;overflow:hidden}
+.pm-u{color:var(--accent)}
+.ty{display:inline-block;overflow:hidden;vertical-align:bottom;white-space:nowrap;width:calc(var(--n)*1ch);color:var(--ink)}
+/* A digitação começa quando o bloco entra na tela (classe .rise posta por assets/site.js) */
+.rise .ty{animation:ty 1.1s steps(var(--n)) .3s both}
+@keyframes ty{from{width:0}}
+.pn{position:relative;margin-top:12px;padding:22px 20px 14px;border:1px solid var(--line);background:var(--pn)}
+.pn--f{border-color:var(--line2)}
+.pn-t{position:absolute;top:-10px;left:14px;max-width:calc(100% - 28px);margin:0;padding:0 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:var(--bg);color:var(--accent);font-weight:500;font-size:.78125rem;line-height:20px}
+.pn p{margin:0 0 12px;max-width:700px}
+.pn>:last-child,.pn p:last-child{margin-bottom:0}
+.pn h3{font-size:inherit;font-weight:600;line-height:inherit;margin:0 0 4px}
+.pn .lead{font-size:inherit;line-height:inherit}
+.pn ul:not(.chips){margin:0 0 10px;padding:0;list-style:none}
+.pn ul:not(.chips) li{position:relative;margin-bottom:4px;padding-left:22px}
+.pn ul:not(.chips) li::before{content:"-";position:absolute;left:4px;color:var(--accent)}
+.pn-links{display:flex;flex-wrap:wrap;gap:6px 22px}
+.pn-label{margin:12px 0 6px!important;font-size:.75rem;color:var(--ink2);text-transform:lowercase}
+.kv{margin:0 0 12px;font-size:.875rem}
+.kv>div{display:flex;gap:12px}
+.kv dt{flex:none;min-width:84px;color:var(--accent)}
+.kv dd{margin:0;min-width:0}
+.kv h3{margin:0;font-weight:400}
+body[data-area="it-security"] .par{margin:0 0 4px;gap:0}
+body[data-area="it-security"] .par>div{grid-template-columns:minmax(0,1fr);gap:2px;margin-top:10px}
+body[data-area="it-security"] .par dt{padding:0;font-weight:600;font-size:.8125rem;color:var(--accent)}
+body[data-area="it-security"] .chips li{padding:1px 8px;border:1px solid var(--line);border-radius:0;background:transparent;color:var(--ink2);font-size:.75rem;font-weight:400}
+body[data-area="it-security"] .chips li::before{content:"[";margin-right:3px;color:var(--accent)}
+body[data-area="it-security"] .chips li::after{content:"]";margin-left:3px;color:var(--accent)}
+.yml{margin:0}
+.yml dt{color:var(--accent)}
+.yml dt::after{content:":"}
+.yml dd{margin:4px 0 12px;padding-left:16px}
+.yml dd:last-child{margin-bottom:0}
+body[data-area="it-security"] .bridge{margin:14px 0 0;max-width:700px;padding-left:10px;border-left:2px solid var(--line2);font-size:.84375rem;color:var(--ink2)}
+body[data-area="it-security"] .contact-mail{margin:0 0 6px;font-stretch:normal;font-weight:500;font-size:1rem;color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+body[data-area="it-security"] .site-footer{margin-top:40px;padding-top:16px;font-size:.78125rem}
+
+/* Linha do tempo dos "git log": ponto cheio = atual */
+.tl{position:relative;padding-left:32px}
+.tl::before{content:"";position:absolute;left:7px;top:0;bottom:-12px;width:1px;background:var(--line)}
+.tl.is-first::before{top:18px}
+.tl.is-last::before{bottom:auto;height:18px}
+.tl.is-first.is-last::before{display:none}
+.tl::after{content:"";position:absolute;left:2px;top:14px;width:11px;height:11px;border:2px solid var(--ink2);border-radius:50%;background:var(--bg)}
+.tl.is-current::after{border-color:var(--accent);background:var(--accent)}
+
+/* ---------- Abertura (CY1): texto e prompts à esquerda, retrato em coluna de 288 px ---------- */
+body[data-area="it-security"] .content .hero{grid-template-columns:minmax(0,1fr) 288px;gap:0 36px;align-items:start;padding-bottom:0}
+body[data-area="it-security"] .hero-text{gap:0}
+body[data-area="it-security"] .hero-text .facts{order:0;font-size:.84375rem;line-height:1.6;color:var(--ink2)}
+/* Retrato "decodificar": o ASCII é revelado de cima para baixo até virar a foto; o hover volta ao ASCII */
+.ph{margin:6px 0 0}
+.ph .pn{padding:22px 20px 12px;background:var(--bg)}
+.stg-box{width:246px;height:316px}
+.stg{position:relative;width:246px;height:316px;overflow:hidden;transform-origin:0 0}
+.stg>*{position:absolute;inset:0;margin:0}
+.stg::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(transparent 76%,var(--bg))}
+.asc{font:400 4.6px/5px var(--mono);letter-spacing:0;color:var(--accent);white-space:pre;text-shadow:0 0 3px var(--line2);opacity:0}
+.crt{display:block;width:246px;height:316px}
+.scl{background:repeating-linear-gradient(0deg,rgba(11,14,13,.55) 0 1px,transparent 1px 3px);pointer-events:none}
+@media (prefers-reduced-motion:no-preference){
+  .asc{animation:dec-out 2.6s ease .3s both}
+  .crt,.scl{animation:dec-in 2.6s ease .3s both}
+  @media (hover:hover){
+    .stg:hover .asc{animation:none;opacity:1;transition:opacity .4s}
+    .stg:hover .crt,.stg:hover .scl{animation:none;opacity:0;transition:opacity .4s}
+  }
+}
+@keyframes dec-out{0%,55%{opacity:1;clip-path:inset(0 0 0 0)}100%{opacity:0;clip-path:inset(100% 0 0 0)}}
+@keyframes dec-in{0%,45%{opacity:0;clip-path:inset(0 0 100% 0)}100%{opacity:1;clip-path:inset(0 0 0 0)}}
+
+/* ---------- Simulação dentro do painel ---------- */
+body[data-area="it-security"] .tunnel-frame--net{background:transparent;border-color:var(--line);border-radius:0}
+body[data-area="it-security"] .content .tunnel-meta{font-size:.8125rem}
+body[data-area="it-security"] .how{background:transparent;border-color:var(--line);border-radius:0;font-size:.8125rem}
+body[data-area="it-security"] .rl-btn{min-height:34px;border-color:var(--line2);border-radius:2px;color:var(--accent)}
+
+@media (max-width:1100px){
+  body[data-area="it-security"] .content .hero{grid-template-columns:minmax(0,1fr) 288px;gap:0 24px}
+}
+@media (max-width:900px){
+  /* O retrato sai da coluna lateral e fica entre o título e o whoami */
+  body[data-area="it-security"] .content .hero{display:flex;flex-direction:column;gap:0}
+  body[data-area="it-security"] .hero-text{display:contents}
+  .hero-who{order:0}
+  body[data-area="it-security"] .hero-text .facts{order:1}
+  body[data-area="it-security"] .hero .area-title{order:2}
+  .ph{order:3;align-self:flex-start;margin-top:16px}
+  body[data-area="it-security"] .hero .blk{order:4;width:100%}
+}
+@media (max-width:760px){
+  body[data-area="it-security"]{font-size:.8125rem}
+  .hx{width:300px;height:220px}
+  .hx-a{right:-70px;top:90px}
+  .hx-b{left:-70px;bottom:50px}
+  .sb{padding:0 12px}
+  .sb-i:not(.cur),.sb-w{display:none}
+  .sb-n{display:inline}
+  body[data-area="it-security"] .rail{height:auto;bottom:var(--sb-h)}
+  .pm{font-size:.78125rem}
+  .pn{padding:20px 14px 12px}
+  .kv{font-size:.78125rem}
+  .kv dt{min-width:64px}
+  .ph .pn{padding:20px 14px 10px}
+  .stg-box{width:200px;height:257px}
+  .stg{transform:scale(.813)}
+  body[data-area="it-security"] .sec-h h2{font-size:1.25rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .hx,.t-cur{animation:none}
+  .asc{opacity:0}
+}
+@media print{
+  .hx,.sb,.asc,.scl{display:none}
+  body[data-area="it-security"]::after{display:none}
 }
