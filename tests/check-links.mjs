@@ -6,7 +6,7 @@ import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const SKIP_DIRS = new Set([".git", "node_modules", "tools", "tests", ".github"]);
+const SKIP_DIRS = new Set([".git", "node_modules", "tools", "tests", ".github", "mockups", "screenshots"]);
 const SKIP_FILES = new Set(["index.template.html"]);
 const pages = [];
 (function walk(dir) {

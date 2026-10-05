@@ -71,6 +71,7 @@
 </head>
 <body data-area="aero">
 <a class="skip" href="#conteudo"><span lang="pt-BR">Pular para o conteúdo</span><span lang="en">Skip to content</span><span lang="fr">Aller au contenu</span></a>
+<div class="sky" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><div class="grain"></div></div>
 
 <header class="topbar" id="topo">
   <a class="hm" href="../index.html" data-face><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/></svg><span class="hm-t"><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></span></a>
@@ -112,7 +113,7 @@
       </div>
     </nav>
     <div class="rail-foot">
-      <a class="rail-cv" href="../cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf"><span lang="pt-BR">Baixar currículo (PDF)</span><span lang="en">Download CV (PDF)</span><span lang="fr">Télécharger le CV (PDF)</span></a>
+      <a class="rail-cv" href="../assets/docs/cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf"><span lang="pt-BR">Baixar currículo (PDF)</span><span lang="en">Download CV (PDF)</span><span lang="fr">Télécharger le CV (PDF)</span></a>
       <div class="rail-tools">
       <div class="lang" role="group" aria-label="Idioma / Language / Langue">
         <button type="button" data-lang="pt-BR" aria-pressed="true" title="Português">PT</button>
@@ -127,6 +128,7 @@
   <div class="content">
 
 <section class="hero" aria-labelledby="nome">
+  <div class="hero-text">
   <p class="hero-who">Igor Augusto de Melo</p>
   <h1 class="area-title" id="nome"><span lang="pt-BR">Engenharia Aeronáutica</span><span lang="en">Aeronautical Engineering</span><span lang="fr">Ingénierie aéronautique</span></h1>
   <p class="facts">
@@ -142,15 +144,17 @@
     <p lang="en" class="muted">I am looking for internships and junior roles in aerospace.</p>
     <p lang="fr" class="muted">Je recherche un stage ou un poste junior dans le secteur aérospatial.</p>
     <div class="actions">
-      <a class="btn" href="../cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf"><span lang="pt-BR">Baixar currículo (PDF, em inglês)</span><span lang="en">Download CV (PDF)</span><span lang="fr">Télécharger le CV (PDF, en anglais)</span></a>
+      <a class="btn" href="../assets/docs/cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf"><span lang="pt-BR">Baixar currículo (PDF, em inglês)</span><span lang="en">Download CV (PDF)</span><span lang="fr">Télécharger le CV (PDF, en anglais)</span></a>
       <a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a>
       <a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
+  </div>
+  <figure class="portrait glass"><img src="../assets/img/me-portrait.jpg" width="560" height="700" alt="Retrato de Igor Augusto de Melo" data-alt-pt-br="Retrato de Igor Augusto de Melo" data-alt-en="Portrait of Igor Augusto de Melo" data-alt-fr="Portrait d’Igor Augusto de Melo"></figure>
 </section>
 
-<div class="sims" data-sims>
-<figure class="tunnel sim-panel" data-sim="flow" data-label-pt-br="Escoamento em aerofólio" data-label-en="Airfoil flow" data-label-fr="Écoulement autour d’un profil" aria-describedby="legenda-tunel">
+<div class="sims glass" data-sims>
+<figure class="tunnel sim-panel" data-sim="flow" data-label-pt-br="Aerofólio de Joukowski" data-label-en="Joukowski airfoil" data-label-fr="Profil de Joukowski" aria-describedby="legenda-tunel">
   <div class="tunnel-frame">
     <canvas id="flow" role="img" aria-label="Simulação: linhas de corrente em torno de um aerofólio"></canvas>
   </div>
@@ -193,13 +197,21 @@
     </details>
   </figcaption>
 </figure>
+<figure class="tunnel sim-panel sim-soon" data-sim="sim2" data-label-pt-br="Simulação 2" data-label-en="Simulation 2" data-label-fr="Simulation 2">
+  <p><span lang="pt-BR">Simulação em preparação.</span><span lang="en">Simulation in preparation.</span><span lang="fr">Simulation en préparation.</span></p>
+</figure>
+<figure class="tunnel sim-panel sim-soon" data-sim="sim3" data-label-pt-br="Simulação 3" data-label-en="Simulation 3" data-label-fr="Simulation 3">
+  <p><span lang="pt-BR">Simulação em preparação.</span><span lang="en">Simulation in preparation.</span><span lang="fr">Simulation en préparation.</span></p>
+</figure>
 </div>
 
 <main id="conteudo">
 
   <section class="section" id="sobre" aria-labelledby="h-sobre">
-    <h2 id="h-sobre"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></h2>
-    <div class="body">
+    <header class="sec-h">
+      <h2 id="h-sobre"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></h2>
+    </header>
+    <div class="body glass card">
       <p class="lead" lang="pt-BR">Minha formação combina a graduação em Engenharia Aeronáutica na EESC-USP, um ano na École Centrale de Marseille e estudos especiais em CFD no ICMC-USP. Em equipes de competição, atuei em propulsão, mecânica de voo, aeroestruturas e engenharia de sistemas. Hoje coordeno o desenvolvimento de um VANT autônomo de asa fixa no grupo SEMEAR.</p>
       <p class="lead" lang="en">My education combines an Aeronautical Engineering degree at EESC-USP, a year at École Centrale de Marseille and special studies in CFD at ICMC-USP. On competition teams, I have worked on propulsion, flight mechanics, aerostructures and systems engineering. I currently lead the development of an autonomous fixed-wing UAV in the SEMEAR group.</p>
       <p class="lead" lang="fr">Ma formation associe un cursus d’ingénierie aéronautique à l’EESC-USP, une année à l’École Centrale de Marseille et des études spécialisées en CFD à l’ICMC-USP. Au sein d’équipes de compétition, j’ai travaillé en propulsion, mécanique du vol, aérostructures et ingénierie système. Je coordonne aujourd’hui le développement d’un drone autonome à voilure fixe dans le groupe SEMEAR.</p>
@@ -219,10 +231,13 @@
   </section>
 
   <section class="section" id="experiencia" aria-labelledby="h-exp">
-    <h2 id="h-exp"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></h2>
-    <div class="body">
+    <header class="sec-h">
+      <h2 id="h-exp"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></h2>
+      <p class="sec-n" data-count=".timeline > li" data-pt-br="posição|posições" data-en="position|positions" data-fr="poste|postes"><span lang="pt-BR">4 posições</span><span lang="en">4 positions</span><span lang="fr">4 postes</span></p>
+    </header>
+    <div class="body glass card">
       <ol class="timeline" reversed>
-        <li>
+        <li class="is-current">
           <p class="when"><span lang="pt-BR">abr. 2025 – atual</span><span lang="en">Apr 2025 – present</span><span lang="fr">avr. 2025 – aujourd’hui</span></p>
           <div class="entry">
             <h3><span lang="pt-BR">Gerente de projeto, VANT autônomo de asa fixa</span><span lang="en">Project Manager, autonomous fixed-wing UAV</span><span lang="fr">Chef de projet, drone autonome à voilure fixe</span></h3>
@@ -318,133 +333,196 @@
   </section>
 
   <section class="section" id="projetos" aria-labelledby="h-proj">
-    <h2 id="h-proj"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></h2>
+    <header class="sec-h">
+      <h2 id="h-proj"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></h2>
+      <p class="sec-n" data-count=".project" data-pt-br="projeto|projetos" data-en="project|projects" data-fr="projet|projets"><span lang="pt-BR">4 projetos</span><span lang="en">4 projects</span><span lang="fr">4 projets</span></p>
+    </header>
     <div class="body">
 
-      <article class="project feature">
-        <h3><span lang="pt-BR">VANT autônomo de asa fixa</span><span lang="en">Autonomous fixed-wing UAV</span><span lang="fr">Drone autonome à voilure fixe</span></h3>
-        <p class="org"><span lang="pt-BR">SEMEAR, 2025 – atual</span><span lang="en">SEMEAR, 2025 – present</span><span lang="fr">SEMEAR, 2025 – aujourd’hui</span></p>
-        <dl class="par">
-          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Desenvolver do zero um veículo aéreo não tripulado autônomo de asa fixa, maximizando o desempenho aerodinâmico e a autonomia de voo.</span><span lang="en">Develop an autonomous fixed-wing unmanned aircraft from scratch, maximizing aerodynamic performance and flight endurance.</span><span lang="fr">Développer à partir de zéro un drone autonome à voilure fixe, en maximisant les performances aérodynamiques et l’autonomie de vol.</span></dd></div>
-          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Como gerente de projeto, respondo pela arquitetura, pelos requisitos, pela integração entre subsistemas e pelo planejamento de verificação e de riscos, com a metodologia de engenharia de sistemas da NASA. A autonomia vem da otimização do sistema de propulsão elétrica.</span><span lang="en">As project manager, I am responsible for the architecture, requirements, subsystem integration, and verification and risk planning, following NASA systems engineering methodology. Endurance comes from optimizing the electric propulsion system.</span><span lang="fr">En tant que chef de projet, je suis responsable de l’architecture, des exigences, de l’intégration des sous-systèmes et de la planification de la vérification et des risques, selon la méthodologie d’ingénierie système de la NASA. L’autonomie repose sur l’optimisation de la propulsion électrique.</span></dd></div>
-          <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Em andamento desde 2025.</span><span lang="en">In progress since 2025.</span><span lang="fr">En cours depuis 2025.</span></dd></div>
-          <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
-            <ul class="chips" lang="pt-BR"><li>Engenharia de sistemas (NASA)</li><li>Engenharia de requisitos</li><li>Modelagem de dinâmica de voo</li><li>Simulações voltadas ao controle</li></ul>
-            <ul class="chips" lang="en"><li>Systems engineering (NASA)</li><li>Requirements engineering</li><li>Flight dynamics modeling</li><li>Control-oriented simulation</li></ul>
-            <ul class="chips" lang="fr"><li>Ingénierie système (NASA)</li><li>Ingénierie des exigences</li><li>Modélisation de la dynamique du vol</li><li>Simulations orientées commande</li></ul>
-          </dd></div>
-        </dl>
+      <article class="project glass has-gallery">
+        <div class="project-main">
+          <h3><span lang="pt-BR">VANT autônomo de asa fixa</span><span lang="en">Autonomous fixed-wing UAV</span><span lang="fr">Drone autonome à voilure fixe</span></h3>
+          <p class="org"><span lang="pt-BR">SEMEAR, 2025 – atual</span><span lang="en">SEMEAR, 2025 – present</span><span lang="fr">SEMEAR, 2025 – aujourd’hui</span></p>
+          <dl class="par">
+            <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Desenvolver do zero um veículo aéreo não tripulado autônomo de asa fixa, maximizando o desempenho aerodinâmico e a autonomia de voo.</span><span lang="en">Develop an autonomous fixed-wing unmanned aircraft from scratch, maximizing aerodynamic performance and flight endurance.</span><span lang="fr">Développer à partir de zéro un drone autonome à voilure fixe, en maximisant les performances aérodynamiques et l’autonomie de vol.</span></dd></div>
+            <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Como gerente de projeto, respondo pela arquitetura, pelos requisitos, pela integração entre subsistemas e pelo planejamento de verificação e de riscos, com a metodologia de engenharia de sistemas da NASA. A autonomia vem da otimização do sistema de propulsão elétrica.</span><span lang="en">As project manager, I am responsible for the architecture, requirements, subsystem integration, and verification and risk planning, following NASA systems engineering methodology. Endurance comes from optimizing the electric propulsion system.</span><span lang="fr">En tant que chef de projet, je suis responsable de l’architecture, des exigences, de l’intégration des sous-systèmes et de la planification de la vérification et des risques, selon la méthodologie d’ingénierie système de la NASA. L’autonomie repose sur l’optimisation de la propulsion électrique.</span></dd></div>
+            <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Em andamento desde 2025.</span><span lang="en">In progress since 2025.</span><span lang="fr">En cours depuis 2025.</span></dd></div>
+            <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
+              <ul class="chips" lang="pt-BR"><li>Engenharia de sistemas (NASA)</li><li>Engenharia de requisitos</li><li>Modelagem de dinâmica de voo</li><li>Simulações voltadas ao controle</li></ul>
+              <ul class="chips" lang="en"><li>Systems engineering (NASA)</li><li>Requirements engineering</li><li>Flight dynamics modeling</li><li>Control-oriented simulation</li></ul>
+              <ul class="chips" lang="fr"><li>Ingénierie système (NASA)</li><li>Ingénierie des exigences</li><li>Modélisation de la dynamique du vol</li><li>Simulations orientées commande</li></ul>
+            </dd></div>
+          </dl>
+        </div>
+        <figure class="gallery" data-gallery>
+          <button type="button" class="gallery-main" aria-haspopup="dialog"><img src="../assets/img/vant-cad-1.jpg" width="1400" height="736" alt="" loading="lazy"><span class="sr"><span lang="pt-BR">Ampliar imagem</span><span lang="en">Enlarge image</span><span lang="fr">Agrandir l’image</span></span></button>
+          <div class="gallery-thumbs">
+            <button type="button" class="gallery-thumb" aria-pressed="true" data-src="../assets/img/vant-cad-1.jpg" data-w="1400" data-h="736"><img src="../assets/img/vant-cad-1.jpg" width="1400" height="736" alt="" loading="lazy"><span class="sr"><span lang="pt-BR">Ver vista 1</span><span lang="en">Show view 1</span><span lang="fr">Voir la vue 1</span></span></button>
+            <button type="button" class="gallery-thumb" aria-pressed="false" data-src="../assets/img/vant-cad-2.jpg" data-w="1400" data-h="638"><img src="../assets/img/vant-cad-2.jpg" width="1400" height="638" alt="" loading="lazy"><span class="sr"><span lang="pt-BR">Ver vista 2</span><span lang="en">Show view 2</span><span lang="fr">Voir la vue 2</span></span></button>
+            <button type="button" class="gallery-thumb" aria-pressed="false" data-src="../assets/img/vant-cad-3.jpg" data-w="1400" data-h="713"><img src="../assets/img/vant-cad-3.jpg" width="1400" height="713" alt="" loading="lazy"><span class="sr"><span lang="pt-BR">Ver vista 3</span><span lang="en">Show view 3</span><span lang="fr">Voir la vue 3</span></span></button>
+          </div>
+          <figcaption><span lang="pt-BR">Modelo CAD da fuselagem Talon 1400 (Flightory), plataforma base do VANT, vista <span class="gallery-i">1</span> de 3</span><span lang="en">CAD model of the Flightory Talon 1400 airframe, the UAV’s base platform, view <span class="gallery-i">1</span> of 3</span><span lang="fr">Modèle CAO de la cellule Talon 1400 (Flightory), plateforme de base du drone, vue <span class="gallery-i">1</span> sur 3</span></figcaption>
+        </figure>
       </article>
 
-      <article class="project">
-        <h3><span lang="pt-BR">Foguetes de competição na LASC</span><span lang="en">Competition rockets at LASC</span><span lang="fr">Fusées de compétition à la LASC</span></h3>
-        <p class="org">TOPUS, Latin American Space Challenge, 2020 – 2022</p>
-        <dl class="par">
-          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Projetar foguetes de competição que atinjam o apogeu da categoria e voem com segurança.</span><span lang="en">Design competition rockets that reach their category apogee and fly safely.</span><span lang="fr">Concevoir des fusées de compétition qui atteignent l’apogée de leur catégorie et volent en sécurité.</span></dd></div>
-          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Atuei nos subsistemas de propulsão e mecânica de voo. A simulação de trajetória com 6 graus de liberdade verificava o desempenho e as condições de voo, e rodadas de Monte Carlo mapeavam as regiões de queda balística e não balística para a análise de segurança.</span><span lang="en">I worked in the propulsion and flight mechanics subsystems. A 6-DOF trajectory simulation verified performance and flight conditions, and Monte Carlo runs mapped ballistic and non-ballistic impact regions for the safety analysis.</span><span lang="fr">J’ai travaillé dans les sous-systèmes propulsion et mécanique du vol. Une simulation de trajectoire à 6 degrés de liberté vérifiait les performances et les conditions de vol, et des tirages de Monte-Carlo cartographiaient les zones de retombée balistique et non balistique pour l’analyse de sécurité.</span></dd></div>
-          <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Três títulos em três edições (tabela abaixo).</span><span lang="en">Three titles in three editions (table below).</span><span lang="fr">Trois titres en trois éditions (tableau ci-dessous).</span></dd></div>
-          <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
-            <ul class="chips" lang="pt-BR"><li>MATLAB</li><li>Simulação com 6 graus de liberdade</li><li>Método de Monte Carlo</li><li>CFD</li></ul>
-            <ul class="chips" lang="en"><li>MATLAB</li><li>6-DOF simulation</li><li>Monte Carlo method</li><li>CFD</li></ul>
-            <ul class="chips" lang="fr"><li>MATLAB</li><li>Simulation à 6 degrés de liberté</li><li>Méthode de Monte-Carlo</li><li>CFD</li></ul>
-          </dd></div>
-        </dl>
-        <table class="results">
-          <caption><span lang="pt-BR">Três títulos em três edições</span><span lang="en">Three titles in three editions</span><span lang="fr">Trois titres en trois éditions</span></caption>
-          <thead>
-            <tr>
-              <th scope="col"><span lang="pt-BR">Ano</span><span lang="en">Year</span><span lang="fr">Année</span></th>
-              <th scope="col"><span lang="pt-BR">Projeto</span><span lang="en">Project</span><span lang="fr">Projet</span></th>
-              <th scope="col"><span lang="pt-BR">Categoria</span><span lang="en">Category</span><span lang="fr">Catégorie</span></th>
-              <th scope="col"><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>2020</td><td>Curupira</td><td>500 m</td><td><span lang="pt-BR">Campeão</span><span lang="en">Winner</span><span lang="fr">Vainqueur</span></td></tr>
-            <tr><td>2021</td><td>Rigel</td><td>1 km</td><td><span lang="pt-BR">Campeão</span><span lang="en">Winner</span><span lang="fr">Vainqueur</span></td></tr>
-            <tr><td>2022</td><td>Rigel</td><td>1 km</td><td><span lang="pt-BR">Campeão</span><span lang="en">Winner</span><span lang="fr">Vainqueur</span></td></tr>
-          </tbody>
-        </table>
+      <article class="project glass has-gallery">
+        <div class="project-main">
+          <h3><span lang="pt-BR">Foguetes de competição na LASC</span><span lang="en">Competition rockets at LASC</span><span lang="fr">Fusées de compétition à la LASC</span></h3>
+          <p class="org">TOPUS, Latin American Space Challenge, 2020 – 2022</p>
+          <dl class="par">
+            <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Projetar foguetes de competição que atinjam o apogeu da categoria e voem com segurança.</span><span lang="en">Design competition rockets that reach their category apogee and fly safely.</span><span lang="fr">Concevoir des fusées de compétition qui atteignent l’apogée de leur catégorie et volent en sécurité.</span></dd></div>
+            <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Atuei nos subsistemas de propulsão e mecânica de voo. A simulação de trajetória com 6 graus de liberdade verificava o desempenho e as condições de voo, e rodadas de Monte Carlo mapeavam as regiões de queda balística e não balística para a análise de segurança.</span><span lang="en">I worked in the propulsion and flight mechanics subsystems. A 6-DOF trajectory simulation verified performance and flight conditions, and Monte Carlo runs mapped ballistic and non-ballistic impact regions for the safety analysis.</span><span lang="fr">J’ai travaillé dans les sous-systèmes propulsion et mécanique du vol. Une simulation de trajectoire à 6 degrés de liberté vérifiait les performances et les conditions de vol, et des tirages de Monte-Carlo cartographiaient les zones de retombée balistique et non balistique pour l’analyse de sécurité.</span></dd></div>
+            <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Três títulos em três edições (tabela abaixo).</span><span lang="en">Three titles in three editions (table below).</span><span lang="fr">Trois titres en trois éditions (tableau ci-dessous).</span></dd></div>
+            <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
+              <ul class="chips" lang="pt-BR"><li>MATLAB</li><li>Simulação com 6 graus de liberdade</li><li>Método de Monte Carlo</li><li>CFD</li></ul>
+              <ul class="chips" lang="en"><li>MATLAB</li><li>6-DOF simulation</li><li>Monte Carlo method</li><li>CFD</li></ul>
+              <ul class="chips" lang="fr"><li>MATLAB</li><li>Simulation à 6 degrés de liberté</li><li>Méthode de Monte-Carlo</li><li>CFD</li></ul>
+            </dd></div>
+          </dl>
+          <table class="results">
+            <caption><span lang="pt-BR">Três títulos em três edições</span><span lang="en">Three titles in three editions</span><span lang="fr">Trois titres en trois éditions</span></caption>
+            <thead>
+              <tr>
+                <th scope="col"><span lang="pt-BR">Ano</span><span lang="en">Year</span><span lang="fr">Année</span></th>
+                <th scope="col"><span lang="pt-BR">Projeto</span><span lang="en">Project</span><span lang="fr">Projet</span></th>
+                <th scope="col"><span lang="pt-BR">Categoria</span><span lang="en">Category</span><span lang="fr">Catégorie</span></th>
+                <th scope="col"><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>2020</td><td>Curupira</td><td>500 m</td><td><span lang="pt-BR">Campeão</span><span lang="en">Winner</span><span lang="fr">Vainqueur</span></td></tr>
+              <tr><td>2021</td><td>Rigel</td><td>1 km</td><td><span lang="pt-BR">Campeão</span><span lang="en">Winner</span><span lang="fr">Vainqueur</span></td></tr>
+              <tr><td>2022</td><td>Rigel</td><td>1 km</td><td><span lang="pt-BR">Campeão</span><span lang="en">Winner</span><span lang="fr">Vainqueur</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure class="gallery" data-gallery>
+          <button type="button" class="gallery-main" aria-haspopup="dialog"><img src="../assets/img/lasc-team.jpg" width="1400" height="933" alt="" loading="lazy"><span class="sr"><span lang="pt-BR">Ampliar imagem</span><span lang="en">Enlarge image</span><span lang="fr">Agrandir l’image</span></span></button>
+          <div class="gallery-thumbs">
+            <button type="button" class="gallery-thumb" aria-pressed="true" data-src="../assets/img/lasc-team.jpg" data-w="1400" data-h="933"><img src="../assets/img/lasc-team.jpg" width="1400" height="933" alt="" loading="lazy"><span class="sr"><span lang="pt-BR">Ver foto 1</span><span lang="en">Show photo 1</span><span lang="fr">Voir la photo 1</span></span></button>
+            <button type="button" class="gallery-thumb" aria-pressed="false" data-src="../assets/img/lasc-launch.jpg" data-w="933" data-h="1400"><img src="../assets/img/lasc-launch.jpg" width="933" height="1400" alt="" loading="lazy"><span class="sr"><span lang="pt-BR">Ver foto 2</span><span lang="en">Show photo 2</span><span lang="fr">Voir la photo 2</span></span></button>
+            <button type="button" class="gallery-thumb" aria-pressed="false" data-src="../assets/img/lasc-rigel.jpg" data-w="933" data-h="1400"><img src="../assets/img/lasc-rigel.jpg" width="933" height="1400" alt="" loading="lazy"><span class="sr"><span lang="pt-BR">Ver foto 3</span><span lang="en">Show photo 3</span><span lang="fr">Voir la photo 3</span></span></button>
+          </div>
+          <figcaption><span lang="pt-BR">Equipe TOPUS na LASC 2022, foto <span class="gallery-i">1</span> de 3</span><span lang="en">TOPUS team at LASC 2022, photo <span class="gallery-i">1</span> of 3</span><span lang="fr">Équipe TOPUS à la LASC 2022, photo <span class="gallery-i">1</span> sur 3</span></figcaption>
+        </figure>
       </article>
 
-      <article class="project">
-        <h3><span lang="pt-BR">Foguete com apogeu de 5 km</span><span lang="en">Rocket with a 5 km apogee</span><span lang="fr">Fusée à apogée de 5 km</span></h3>
-        <p class="org">LASC Cooperation Program, 2020 – 2022</p>
-        <dl class="par">
-          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Projetar, construir e lançar um foguete com apogeu de 5 km num programa de cooperação internacional, no qual a TOPUS era responsável pela aeroestrutura.</span><span lang="en">Design, build and launch a rocket with a 5 km apogee in an international cooperation program, in which TOPUS was responsible for the aerostructure.</span><span lang="fr">Concevoir, construire et lancer une fusée à apogée de 5 km dans un programme de coopération internationale, où l’équipe TOPUS était responsable de l’aérostructure.</span></dd></div>
-          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Elaborei os desenhos técnicos e os planos de fabricação da coifa, apoiei estudos de fabricação em compósitos e realizei simulações de CFD 2D e 3D para buscar o melhor desempenho aerodinâmico do veículo.</span><span lang="en">I produced the technical drawings and manufacturing plans for the nose cone, supported composite manufacturing studies and ran 2D and 3D CFD simulations to improve the vehicle’s aerodynamic performance.</span><span lang="fr">J’ai réalisé les plans techniques et les dossiers de fabrication de la coiffe, participé aux études de fabrication en composites et mené des simulations CFD 2D et 3D pour améliorer les performances aérodynamiques du véhicule.</span></dd></div>
-          <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
-            <ul class="chips" lang="pt-BR"><li>ANSYS Fluent (CFD 2D e 3D)</li><li>Desenho técnico</li><li>Compósitos</li></ul>
-            <ul class="chips" lang="en"><li>ANSYS Fluent (2D and 3D CFD)</li><li>Technical drawing</li><li>Composites</li></ul>
-            <ul class="chips" lang="fr"><li>ANSYS Fluent (CFD 2D et 3D)</li><li>Dessin technique</li><li>Composites</li></ul>
-          </dd></div>
-        </dl>
+      <article class="project glass">
+        <div class="project-main">
+          <h3><span lang="pt-BR">Foguete com apogeu de 5 km</span><span lang="en">Rocket with a 5 km apogee</span><span lang="fr">Fusée à apogée de 5 km</span></h3>
+          <p class="org">LASC Cooperation Program, 2020 – 2022</p>
+          <dl class="par">
+            <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Projetar, construir e lançar um foguete com apogeu de 5 km num programa de cooperação internacional, no qual a TOPUS era responsável pela aeroestrutura.</span><span lang="en">Design, build and launch a rocket with a 5 km apogee in an international cooperation program, in which TOPUS was responsible for the aerostructure.</span><span lang="fr">Concevoir, construire et lancer une fusée à apogée de 5 km dans un programme de coopération internationale, où l’équipe TOPUS était responsable de l’aérostructure.</span></dd></div>
+            <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Elaborei os desenhos técnicos e os planos de fabricação da coifa, apoiei estudos de fabricação em compósitos e realizei simulações de CFD 2D e 3D para buscar o melhor desempenho aerodinâmico do veículo.</span><span lang="en">I produced the technical drawings and manufacturing plans for the nose cone, supported composite manufacturing studies and ran 2D and 3D CFD simulations to improve the vehicle’s aerodynamic performance.</span><span lang="fr">J’ai réalisé les plans techniques et les dossiers de fabrication de la coiffe, participé aux études de fabrication en composites et mené des simulations CFD 2D et 3D pour améliorer les performances aérodynamiques du véhicule.</span></dd></div>
+            <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
+              <ul class="chips" lang="pt-BR"><li>ANSYS Fluent (CFD 2D e 3D)</li><li>Desenho técnico</li><li>Compósitos</li></ul>
+              <ul class="chips" lang="en"><li>ANSYS Fluent (2D and 3D CFD)</li><li>Technical drawing</li><li>Composites</li></ul>
+              <ul class="chips" lang="fr"><li>ANSYS Fluent (CFD 2D et 3D)</li><li>Dessin technique</li><li>Composites</li></ul>
+            </dd></div>
+          </dl>
+        </div>
       </article>
 
-      <article class="project">
-        <h3><span lang="pt-BR">Motor híbrido Boitatá</span><span lang="en">Boitatá hybrid rocket motor</span><span lang="fr">Moteur hybride Boitatá</span></h3>
-        <p class="org">TOPUS, 2020 – 2023</p>
-        <dl class="par">
-          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Levar o oxidante com segurança até a câmara de combustão de um motor-foguete híbrido.</span><span lang="en">Deliver the oxidizer safely to the combustion chamber of a hybrid rocket motor.</span><span lang="fr">Acheminer l’oxydant en toute sécurité jusqu’à la chambre de combustion d’un moteur-fusée hybride.</span></dd></div>
-          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas, e trabalhei no injetor de vórtice.</span><span lang="en">On the oxidizer injection team, I designed and tested the tank, piping and valves, and worked on the swirl injector.</span><span lang="fr">Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes, et j’ai travaillé sur l’injecteur tourbillonnaire.</span></dd></div>
-          <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">O projeto recebeu, em 2020, uma bolsa de Bancada de Testes da Agência Espacial Brasileira (AEB).</span><span lang="en">The project received a test stand grant from the Brazilian Space Agency (AEB) in 2020.</span><span lang="fr">Le projet a obtenu en 2020 une bourse de banc d’essai de l’Agence spatiale brésilienne (AEB).</span></dd></div>
-          <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
-            <ul class="chips" lang="pt-BR"><li>Termodinâmica</li><li>Modelagem numérica</li><li>Ensaios experimentais</li></ul>
-            <ul class="chips" lang="en"><li>Thermodynamics</li><li>Numerical modeling</li><li>Experimental testing</li></ul>
-            <ul class="chips" lang="fr"><li>Thermodynamique</li><li>Modélisation numérique</li><li>Essais expérimentaux</li></ul>
-          </dd></div>
-        </dl>
+      <article class="project glass">
+        <div class="project-main">
+          <h3><span lang="pt-BR">Motor híbrido Boitatá</span><span lang="en">Boitatá hybrid rocket motor</span><span lang="fr">Moteur hybride Boitatá</span></h3>
+          <p class="org">TOPUS, 2020 – 2023</p>
+          <dl class="par">
+            <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Levar o oxidante com segurança até a câmara de combustão de um motor-foguete híbrido.</span><span lang="en">Deliver the oxidizer safely to the combustion chamber of a hybrid rocket motor.</span><span lang="fr">Acheminer l’oxydant en toute sécurité jusqu’à la chambre de combustion d’un moteur-fusée hybride.</span></dd></div>
+            <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas, e trabalhei no injetor de vórtice.</span><span lang="en">On the oxidizer injection team, I designed and tested the tank, piping and valves, and worked on the swirl injector.</span><span lang="fr">Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes, et j’ai travaillé sur l’injecteur tourbillonnaire.</span></dd></div>
+            <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">O projeto recebeu, em 2020, uma bolsa de Bancada de Testes da Agência Espacial Brasileira (AEB).</span><span lang="en">The project received a test stand grant from the Brazilian Space Agency (AEB) in 2020.</span><span lang="fr">Le projet a obtenu en 2020 une bourse de banc d’essai de l’Agence spatiale brésilienne (AEB).</span></dd></div>
+            <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
+              <ul class="chips" lang="pt-BR"><li>Termodinâmica</li><li>Modelagem numérica</li><li>Ensaios experimentais</li></ul>
+              <ul class="chips" lang="en"><li>Thermodynamics</li><li>Numerical modeling</li><li>Experimental testing</li></ul>
+              <ul class="chips" lang="fr"><li>Thermodynamique</li><li>Modélisation numérique</li><li>Essais expérimentaux</li></ul>
+            </dd></div>
+          </dl>
+        </div>
       </article>
 
     </div>
   </section>
 
   <section class="section" id="pesquisa" aria-labelledby="h-pesq">
-    <h2 id="h-pesq"><span lang="pt-BR">Pesquisa</span><span lang="en">Research</span><span lang="fr">Recherche</span></h2>
+    <header class="sec-h">
+      <h2 id="h-pesq"><span lang="pt-BR">Pesquisa</span><span lang="en">Research</span><span lang="fr">Recherche</span></h2>
+      <p class="sec-n" data-count=".research" data-pt-br="linha de pesquisa|linhas de pesquisa" data-en="research line|research lines" data-fr="axe de recherche|axes de recherche"><span lang="pt-BR">3 linhas de pesquisa</span><span lang="en">3 research lines</span><span lang="fr">3 axes de recherche</span></p>
+    </header>
     <div class="body">
-      <ol class="timeline" reversed>
-        <li>
+      <div class="research-list">
+      <article class="research glass has-paper">
+        <div class="research-meta">
           <p class="when"><span lang="pt-BR">2023 – dez. 2024</span><span lang="en">2023 – Dec 2024</span><span lang="fr">2023 – déc. 2024</span></p>
-          <div class="entry">
-            <h3><span lang="pt-BR">Simulação de escoamentos turbulentos</span><span lang="en">Turbulent flow simulation</span><span lang="fr">Simulation d’écoulements turbulents</span></h3>
-            <p class="org"><span lang="pt-BR">ICMC-USP, bolsa FAPESP</span><span lang="en">ICMC-USP, FAPESP grant</span><span lang="fr">ICMC-USP, bourse FAPESP</span></p>
-            <p lang="pt-BR">Estudo de métodos numéricos para escoamentos turbulentos, com simulação de grandes escalas (LES) aplicada à análise de estruturas coerentes na turbulência atmosférica. Desenvolvimento e execução de rotinas numéricas em ambiente de HPC.</p>
-            <p lang="en">Study of numerical methods for turbulent flows, with large-eddy simulation (LES) applied to the analysis of coherent structures in atmospheric turbulence. Development and execution of numerical routines in HPC environments.</p>
-            <p lang="fr">Étude de méthodes numériques pour les écoulements turbulents, avec la simulation des grandes échelles (LES) appliquée à l’analyse des structures cohérentes de la turbulence atmosphérique. Développement et exécution de routines numériques en environnement HPC.</p>
-            <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">LES, modelos de submalha, Fortran, HPC, Linux.</span><span lang="en">LES, subgrid-scale models, Fortran, HPC, Linux.</span><span lang="fr">LES, modèles de sous-maille, Fortran, HPC, Linux.</span></p>
-          </div>
-        </li>
-        <li>
+          <p class="org"><span lang="pt-BR">ICMC-USP, bolsa FAPESP</span><span lang="en">ICMC-USP, FAPESP grant</span><span lang="fr">ICMC-USP, bourse FAPESP</span></p>
+        </div>
+        <div class="research-main">
+          <h3><span lang="pt-BR">Simulação de escoamentos turbulentos</span><span lang="en">Turbulent flow simulation</span><span lang="fr">Simulation d’écoulements turbulents</span></h3>
+          <p lang="pt-BR">Estudo de métodos numéricos para escoamentos turbulentos, com simulação de grandes escalas (LES) aplicada à análise de estruturas coerentes na turbulência atmosférica. Desenvolvimento e execução de rotinas numéricas em ambiente de HPC.</p>
+          <p lang="en">Study of numerical methods for turbulent flows, with large-eddy simulation (LES) applied to the analysis of coherent structures in atmospheric turbulence. Development and execution of numerical routines in HPC environments.</p>
+          <p lang="fr">Étude de méthodes numériques pour les écoulements turbulents, avec la simulation des grandes échelles (LES) appliquée à l’analyse des structures cohérentes de la turbulence atmosphérique. Développement et exécution de routines numériques en environnement HPC.</p>
+          <ul class="chips" lang="pt-BR"><li>LES</li><li>Modelos de submalha</li><li>Fortran</li><li>HPC</li><li>Linux</li></ul>
+          <ul class="chips" lang="en"><li>LES</li><li>Subgrid-scale models</li><li>Fortran</li><li>HPC</li><li>Linux</li></ul>
+          <ul class="chips" lang="fr"><li>LES</li><li>Modèles de sous-maille</li><li>Fortran</li><li>HPC</li><li>Linux</li></ul>
+        </div>
+        <a class="paper" href="../assets/docs/EPTT2024_paper.pdf" target="_blank" rel="noopener">
+          <img src="../assets/img/paper-1.jpg" width="579" height="819" alt="" loading="lazy">
+          <span class="paper-body">
+            <span class="paper-title" lang="en-US">Turbulent Channel flow with Coriolis force using Large-Eddy Simulation</span>
+            <span class="paper-meta"><span lang="pt-BR">Artigo, EPTT 2024, em inglês</span><span lang="en">Paper, EPTT 2024, in English</span><span lang="fr">Article, EPTT 2024, en anglais</span></span>
+            <span class="paper-open"><span lang="pt-BR">Abrir PDF, 1,7 MB</span><span lang="en">Open PDF, 1.7 MB</span><span lang="fr">Ouvrir le PDF, 1,7 Mo</span></span>
+          </span>
+        </a>
+      </article>
+      <article class="research glass">
+        <div class="research-meta">
           <p class="when"><span lang="pt-BR">jul. 2023 – dez. 2024</span><span lang="en">Jul 2023 – Dec 2024</span><span lang="fr">juil. 2023 – déc. 2024</span></p>
-          <div class="entry">
-            <h3><span lang="pt-BR">Cargas aerodinâmicas não estacionárias</span><span lang="en">Unsteady aerodynamic loads</span><span lang="fr">Charges aérodynamiques instationnaires</span></h3>
-            <p class="org"><span lang="pt-BR">Iniciação científica</span><span lang="en">Undergraduate research</span><span lang="fr">Initiation à la recherche</span></p>
-            <p lang="pt-BR">Desenvolvimento de modelos semiempíricos para cargas aerodinâmicas não estacionárias em superfícies sustentadoras, com identificação e calibração de parâmetros a partir de dados experimentais e de CFD.</p>
-            <p lang="en">Development of semi-empirical models for unsteady aerodynamic loads on lifting surfaces, with parameter identification and calibration against experimental and CFD data.</p>
-            <p lang="fr">Développement de modèles semi-empiriques de charges aérodynamiques instationnaires sur des surfaces portantes, avec identification et calibration des paramètres à partir de données expérimentales et CFD.</p>
-            <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">algoritmos genéticos, redes neurais, otimização.</span><span lang="en">genetic algorithms, neural networks, optimization.</span><span lang="fr">algorithmes génétiques, réseaux de neurones, optimisation.</span></p>
-          </div>
-        </li>
-        <li>
+          <p class="org"><span lang="pt-BR">Iniciação científica</span><span lang="en">Undergraduate research</span><span lang="fr">Initiation à la recherche</span></p>
+        </div>
+        <div class="research-main">
+          <h3><span lang="pt-BR">Cargas aerodinâmicas não estacionárias</span><span lang="en">Unsteady aerodynamic loads</span><span lang="fr">Charges aérodynamiques instationnaires</span></h3>
+          <p lang="pt-BR">Desenvolvimento de modelos semiempíricos para cargas aerodinâmicas não estacionárias em superfícies sustentadoras, com identificação e calibração de parâmetros a partir de dados experimentais e de CFD.</p>
+          <p lang="en">Development of semi-empirical models for unsteady aerodynamic loads on lifting surfaces, with parameter identification and calibration against experimental and CFD data.</p>
+          <p lang="fr">Développement de modèles semi-empiriques de charges aérodynamiques instationnaires sur des surfaces portantes, avec identification et calibration des paramètres à partir de données expérimentales et CFD.</p>
+          <ul class="chips" lang="pt-BR"><li>Algoritmos genéticos</li><li>Redes neurais</li><li>Otimização</li></ul>
+          <ul class="chips" lang="en"><li>Genetic algorithms</li><li>Neural networks</li><li>Optimization</li></ul>
+          <ul class="chips" lang="fr"><li>Algorithmes génétiques</li><li>Réseaux de neurones</li><li>Optimisation</li></ul>
+        </div>
+      </article>
+      <article class="research glass has-paper">
+        <div class="research-meta">
           <p class="when"><span lang="pt-BR">fev. – jul. 2023</span><span lang="en">Feb – Jul 2023</span><span lang="fr">févr. – juil. 2023</span></p>
-          <div class="entry">
-            <h3><span lang="pt-BR">Energia eólica e modelagem atmosférica</span><span lang="en">Wind energy and atmospheric modeling</span><span lang="fr">Énergie éolienne et modélisation atmosphérique</span></h3>
-            <p class="org">IRPHE, École Centrale de Marseille</p>
-            <p lang="pt-BR">Simulações com o modelo meteorológico WRF, análise de incerteza na previsão de vento e avaliação do desempenho de turbinas eólicas sob diferentes condições atmosféricas.</p>
-            <p lang="en">Simulations with the WRF weather model, uncertainty analysis in wind forecasting and assessment of wind turbine performance under varying atmospheric conditions.</p>
-            <p lang="fr">Simulations avec le modèle météorologique WRF, analyse d’incertitude de la prévision du vent et évaluation des performances d’éoliennes dans différentes conditions atmosphériques.</p>
-            <p class="method"><b lang="pt-BR">Métodos e ferramentas:</b><b lang="en">Methods and tools:</b><b lang="fr">Méthodes et outils&nbsp;:</b> <span lang="pt-BR">WRF, análise de incerteza, Python, scripts em Bash, Linux.</span><span lang="en">WRF, uncertainty analysis, Python, Bash scripting, Linux.</span><span lang="fr">WRF, analyse d’incertitude, Python, scripts Bash, Linux.</span></p>
-          </div>
-        </li>
-      </ol>
+          <p class="org">IRPHE, École Centrale de Marseille</p>
+        </div>
+        <div class="research-main">
+          <h3><span lang="pt-BR">Energia eólica e modelagem atmosférica</span><span lang="en">Wind energy and atmospheric modeling</span><span lang="fr">Énergie éolienne et modélisation atmosphérique</span></h3>
+          <p lang="pt-BR">Simulações com o modelo meteorológico WRF, análise de incerteza na previsão de vento e avaliação do desempenho de turbinas eólicas sob diferentes condições atmosféricas.</p>
+          <p lang="en">Simulations with the WRF weather model, uncertainty analysis in wind forecasting and assessment of wind turbine performance under varying atmospheric conditions.</p>
+          <p lang="fr">Simulations avec le modèle météorologique WRF, analyse d’incertitude de la prévision du vent et évaluation des performances d’éoliennes dans différentes conditions atmosphériques.</p>
+          <ul class="chips" lang="pt-BR"><li>WRF</li><li>Análise de incerteza</li><li>Python</li><li>Scripts em Bash</li><li>Linux</li></ul>
+          <ul class="chips" lang="en"><li>WRF</li><li>Uncertainty analysis</li><li>Python</li><li>Bash scripting</li><li>Linux</li></ul>
+          <ul class="chips" lang="fr"><li>WRF</li><li>Analyse d’incertitude</li><li>Python</li><li>Scripts Bash</li><li>Linux</li></ul>
+        </div>
+        <a class="paper paper--slides" href="../assets/docs/irphe-2023-soutenance.pdf" target="_blank" rel="noopener">
+          <img src="../assets/img/slides-01.jpg" width="1200" height="675" alt="" loading="lazy">
+          <span class="paper-body">
+            <span class="paper-title" lang="fr-FR">Analyse d’incertitude liée au vent de la production d’une éolienne</span>
+            <span class="paper-meta"><span lang="pt-BR">Apresentação de defesa, IRPHE, jun. 2023, em francês</span><span lang="en">Thesis defense slides, IRPHE, June 2023, in French</span><span lang="fr">Présentation de soutenance, IRPHE, juin 2023, en français</span></span>
+            <span class="paper-open"><span lang="pt-BR">Abrir PDF, 4,8 MB</span><span lang="en">Open PDF, 4.8 MB</span><span lang="fr">Ouvrir le PDF, 4,8 Mo</span></span>
+          </span>
+        </a>
+      </article>
+      </div>
     </div>
   </section>
 
   <section class="section" id="formacao" aria-labelledby="h-form">
-    <h2 id="h-form"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></h2>
-    <div class="body">
+    <header class="sec-h">
+      <h2 id="h-form"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></h2>
+      <p class="sec-n" data-count=".body > .timeline > li" data-pt-br="etapa|etapas" data-en="stage|stages" data-fr="étape|étapes"><span lang="pt-BR">3 etapas</span><span lang="en">3 stages</span><span lang="fr">3 étapes</span></p>
+    </header>
+    <div class="body glass card">
       <ol class="timeline" reversed>
-        <li>
+        <li class="is-current">
           <p class="when"><span lang="pt-BR">2023 – atual</span><span lang="en">2023 – present</span><span lang="fr">2023 – aujourd’hui</span></p>
           <div class="entry">
             <h3><span lang="pt-BR">Certificado de Estudos Especiais em Mecânica dos Fluidos Computacional</span><span lang="en">Special Studies Certificate in Computational Fluid Dynamics</span><span lang="fr">Certificat d’études spéciales en mécanique des fluides numérique</span></h3>
@@ -476,6 +554,7 @@
           <li>Minicurso on-line de XFOIL</li>
           <li>Treinamento básico no software GOM Inspect Suite</li>
           <li>Latin American Space Challenge: certificados de participação de 2020, 2021 e 2022</li>
+          <li>MOOC Gestão de Projetos (Gestion de Projet), Centrale Lille: módulos Diagnóstico de Funcionamento de um Sistema e Planejamento Avançado (2022)</li>
         </ul>
         <ul class="plain" lang="en">
           <li><a href="https://github.com/icmc-data/Curso-de-Machine-Learning-2025" target="_blank" rel="noopener">Machine Learning course</a>, Data ICMC-USP (2025)</li>
@@ -484,6 +563,7 @@
           <li>XFOIL online short course</li>
           <li>GOM Inspect Suite basic training</li>
           <li>Latin American Space Challenge: participation certificates for 2020, 2021 and 2022</li>
+          <li>Project Management MOOC (Gestion de Projet), Centrale Lille: System Operation Diagnosis and Advanced Planning modules (2022)</li>
         </ul>
         <ul class="plain" lang="fr">
           <li><a href="https://github.com/icmc-data/Curso-de-Machine-Learning-2025" target="_blank" rel="noopener">Cours de Machine Learning</a>, Data ICMC-USP (2025)</li>
@@ -492,14 +572,18 @@
           <li>Mini-cours en ligne sur XFOIL</li>
           <li>Formation de base au logiciel GOM Inspect Suite</li>
           <li>Latin American Space Challenge&nbsp;: attestations de participation 2020, 2021 et 2022</li>
+          <li>MOOC Gestion de Projet, Centrale Lille&nbsp;: modules Diagnostic de fonctionnement d’un système et Planification avancée (2022)</li>
         </ul>
       </div>
     </div>
   </section>
 
   <section class="section" id="competencias" aria-labelledby="h-comp">
-    <h2 id="h-comp"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></h2>
-    <div class="body">
+    <header class="sec-h">
+      <h2 id="h-comp"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></h2>
+      <p class="sec-n" data-count=".skills > dt" data-pt-br="grupo|grupos" data-en="group|groups" data-fr="groupe|groupes"><span lang="pt-BR">6 grupos</span><span lang="en">6 groups</span><span lang="fr">6 groupes</span></p>
+    </header>
+    <div class="body glass card">
       <dl class="skills">
         <dt><span lang="pt-BR">Engenharia aeroespacial</span><span lang="en">Aerospace engineering</span><span lang="fr">Ingénierie aérospatiale</span></dt>
         <dd>
@@ -542,8 +626,10 @@
   </section>
 
   <section class="section" id="contato" aria-labelledby="h-cont">
-    <h2 id="h-cont"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></h2>
-    <div class="body">
+    <header class="sec-h">
+      <h2 id="h-cont"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></h2>
+    </header>
+    <div class="body glass card">
       <p lang="pt-BR">Para vagas de estágio ou júnior e projetos de pesquisa, escreva para:</p>
       <p lang="en">For internships, junior roles or research projects, write to:</p>
       <p lang="fr">Pour un stage, un poste junior ou un projet de recherche, écrivez-moi à&nbsp;:</p>
@@ -573,8 +659,16 @@
 
   </div>
 </div>
+<dialog class="lightbox" id="ampliada" aria-labelledby="ampliada-legenda">
+  <div class="lightbox-bar">
+    <p class="lightbox-cap" id="ampliada-legenda"></p>
+    <button type="button" class="lightbox-close" title="Fechar" data-title-pt-br="Fechar" data-title-en="Close" data-title-fr="Fermer"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="sr"><span lang="pt-BR">Fechar</span><span lang="en">Close</span><span lang="fr">Fermer</span></span></button>
+  </div>
+  <img src="../assets/img/vant-cad-1.jpg" alt="">
+</dialog>
 <script src="../assets/site.js"></script>
 <script src="../assets/sims.js"></script>
 <script src="../assets/flow.js"></script>
+<script src="../assets/gallery.js"></script>
 </body>
 </html>

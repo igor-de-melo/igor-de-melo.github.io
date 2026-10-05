@@ -13,6 +13,7 @@ Site estático (GitHub Pages, repositório de usuário). Sem build, sem framewor
 - Simulações: cada uma é um `<figure class="tunnel sim-panel" data-sim="id" data-label-pt-br/en/fr>` dentro de `<div class="sims" data-sims>`; `assets/sims.js` cria as abas quando há mais de uma.
 - Tokens por área: `body[data-area]` em `assets/style.css` (bloco "R1 — Tokens por área": `--bg`, `--surface`, `--raise`, `--line`, `--ink`, `--ink2`, `--accent`, fontes `--display`/`--text`/`--mono`). Tema ativo sempre em `<html data-theme="light|dark">` (script no `<head>`; `/it-security/` é só escuro, sem botão); todo novo componente usa só variáveis (nunca cor fixa).
 - Estrutura das páginas de área (R1): `header.topbar` (Início + três áreas), `div.now` (celular: título da seção, ☰, progresso), `div.shell` > `aside.rail#trilho` (nome, `nav.ruler`, currículo, idiomas, tema) + `div.content`. Scroll-spy, menu e animação de entrada ficam em `assets/site.js`. Canvas leem cores com getComputedStyle(canvas) e escutam `sitethemechange`.
+- Aero (R2, "Céu"): `div.sky` fixo atrás do conteúdo, cartões `.glass`, títulos de seção em `header.sec-h` com contador `p.sec-n[data-count]` (número calculado em `assets/site.js`), galeria `figure.gallery[data-gallery]` + `dialog.lightbox` (`assets/gallery.js`), pesquisa em `article.research`. Imagens em `assets/img/`, PDFs em `assets/docs/`.
 - A Home é gerada de `index.template.html` + `node tools/gen-card-art.mjs` (substituir `<!--ART_AERO|DATA|IT_SECURITY-->`).
 
 ## Commits
