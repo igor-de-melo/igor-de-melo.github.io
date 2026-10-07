@@ -80,6 +80,8 @@ for (const f of files) {
   const home = !/[\\/]/.test(f);
   if (!home) { for (const l of VIEW_LABELS) if (!src.includes(l)) fail(f, 1, "seletor de visão: falta " + l); continue; }
   for (const l of VIEW_LABELS) if (src.includes(l)) fail(f, 1, "a Home não deve ter seletor de visão: " + l);
+  // Disponibilidade na abertura da Home, nas três línguas.
+  if (!src.includes('<p class="gate-avail"><span class="avail-dot" aria-hidden="true"></span><span lang="pt-BR">Disponível para vagas júnior em engenharia aeronáutica, ciência de dados e TI, com início imediato.</span><span lang="en">Available for junior roles in aeronautical engineering, data science and IT, with immediate start.</span><span lang="fr">Disponible pour des postes junior en ingénierie aéronautique, science des données et informatique, avec démarrage immédiat.</span></p>')) fail(f, 1, "falta a frase de disponibilidade (.gate-avail) nas três línguas");
   if (src.split(SIMPLE_BTN).length - 1 !== 3) fail(f, 1, 'esperava 3 botões "Ver versão simplificada" com os rótulos nas três línguas');
   for (const [area, pt, en, fr] of SIMPLE_ARIA) {
     const want = `href="${area}/index.html?view=simple" data-face data-face-view="simple" aria-label="Ver versão simplificada: ${pt}" data-aria-pt-br="Ver versão simplificada: ${pt}" data-aria-en="View simple version: ${en}" data-aria-fr="Voir la version simplifiée&nbsp;: ${fr}"`;
