@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="color-scheme" content="dark">
 <script>(function(){var v,m=/[?&]view=(simple|themed)(?:&|$)/.exec(location.search);if(m)v=m[1];else{try{v=localStorage.getItem("view")}catch(e){}}document.documentElement.dataset.view=v==="simple"?"simple":"themed"})()</script>
+<script>(function(){var d=document.documentElement,t="dark";if(d.dataset.view==="simple"){t=null;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="dark"&&t!=="light")t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}d.dataset.theme=t})()</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Igor Augusto de Melo | TI e Cibersegurança</title>
 <meta name="description" content="Igor Augusto de Melo, disponível para vagas júnior em cibersegurança: Linux, Bash, SSH, OAuth2, Python e automação em servidores na nuvem.">
@@ -127,6 +128,7 @@
       <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
       <button type="button" data-lang="fr" aria-pressed="false" title="Français">FR</button>
     </div>
+    <button type="button" class="theme-toggle" aria-pressed="false" title="Modo escuro" data-title-pt-br="Modo escuro" data-title-en="Dark mode" data-title-fr="Mode sombre"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2.5a7.5 7.5 0 0 1 0 15z" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Modo escuro</span><span lang="en">Dark mode</span><span lang="fr">Mode sombre</span></span></button>
   </div>
 </header>
 
@@ -135,6 +137,7 @@
     <p class="now-title"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></p>
     <div class="now-tools">
       <button type="button" class="view-toggle" data-view-toggle title="Visualização"><svg class="ic-simple" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 7h14M5 12h14M5 17h9"/></svg><svg class="ic-themed" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.2 0 1.8-.9 1.8-1.8 0-1.3-.9-1.6-.9-2.7 0-1 .8-1.8 1.9-1.8h1.9a3.8 3.8 0 0 0 3.8-3.8c0-3.9-3.8-6.9-8.5-6.9z"/><circle cx="8" cy="11" r="1" fill="currentColor"/><circle cx="11" cy="7.5" r="1" fill="currentColor"/><circle cx="15.5" cy="8.5" r="1" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Trocar a visualização</span><span lang="en">Switch view</span><span lang="fr">Changer d’affichage</span></span></button>
+      <button type="button" class="theme-toggle" aria-pressed="false" title="Modo escuro" data-title-pt-br="Modo escuro" data-title-en="Dark mode" data-title-fr="Mode sombre"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2.5a7.5 7.5 0 0 1 0 15z" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Modo escuro</span><span lang="en">Dark mode</span><span lang="fr">Mode sombre</span></span></button>
     </div>
     <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="trilho" title="Menu"><svg class="ic-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="ic-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="sr"><span lang="pt-BR">Menu</span><span lang="en">Menu</span><span lang="fr">Menu</span></span></button>
   </div>

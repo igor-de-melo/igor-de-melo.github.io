@@ -47,7 +47,8 @@
 
   /* ---------- Tema claro/escuro ---------- */
   // O tema ativo fica sempre em <html data-theme>: um script no <head> aplica a escolha gravada (localStorage "theme")
-  // ou, sem escolha, o tema do sistema. TI e Cibersegurança é só escuro e não tem botão.
+  // ou, sem escolha, o tema do sistema. TI e Cibersegurança é só escuro no Temático; no Simplificado tem os dois
+  // temas como as outras páginas (o botão dela só aparece nessa visão).
   // Quem desenha em canvas escuta o evento "sitethemechange" e relê as cores.
   var themeBtns = Array.prototype.slice.call(document.querySelectorAll(".theme-toggle"));
   var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -56,6 +57,9 @@
     try { var t = window.localStorage.getItem("theme"); return t === "dark" || t === "light" ? t : null; }
     catch (e) { return null; }
   }
+  var darkOnly = document.body.dataset.area === "it-security";
+  function themeLocked() { return darkOnly && root.dataset.view !== "simple"; }
+  function preferredTheme() { return storedTheme() || (darkQuery.matches ? "dark" : "light"); }
   function syncTheme() {
     themeBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(isDark())); });
     document.dispatchEvent(new CustomEvent("sitethemechange", { detail: { dark: isDark() } }));
@@ -71,7 +75,7 @@
       b.setAttribute("aria-pressed", String(isDark()));
     });
     if (darkQuery.addEventListener) darkQuery.addEventListener("change", function () {
-      if (storedTheme()) return;
+      if (storedTheme() || themeLocked()) return;
       root.dataset.theme = darkQuery.matches ? "dark" : "light";
       syncTheme();
     });
@@ -162,6 +166,8 @@
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeTicks);
       placeTicks();
       onScroll();
+      // A troca de visão muda a altura da página: os traços e o progresso são refeitos.
+      document.addEventListener("siteviewchange", function () { placeTicks(); onScroll(); });
     }
     if (document.body.dataset.area === "data") cells = rulerLinks.map(function (a) {
       var n = document.createElement("span");
@@ -202,6 +208,7 @@
     }
     window.addEventListener("resize", placeMark);
     document.addEventListener("sitelangchange", placeMark);
+    document.addEventListener("siteviewchange", placeMark);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeMark);
   }
 
@@ -281,16 +288,36 @@
     viewToggles.forEach(function (b) { b.setAttribute("aria-pressed", String(v === "simple")); b.title = VIEW_WORD[l] + ": " + VIEW_NAMES[v][l]; });
     if (announce && viewStatus) viewStatus.textContent = VIEW_WORD[l] + ": " + VIEW_NAMES[v][l];
   }
-  function setView(v) {
+  // Ordem do CV: no Simplificado, cada [data-simple-before="id"] vai para antes do elemento com esse id
+  // (em Aero, Competências antes de Experiência); no Temático volta ao lugar, marcado por um comentário.
+  var movers = Array.prototype.map.call(document.querySelectorAll("[data-simple-before]"), function (el) {
+    var home = document.createComment("lugar no Temático");
+    el.parentNode.insertBefore(home, el);
+    return { el: el, home: home };
+  });
+  function orderForView() {
+    var simple = currentView() === "simple";
+    movers.forEach(function (m) {
+      var to = simple ? document.getElementById(m.el.getAttribute("data-simple-before")) : m.home.nextSibling;
+      var parent = simple ? to && to.parentNode : m.home.parentNode;
+      if (parent && to !== m.el) parent.insertBefore(m.el, to);
+    });
+  }
+  orderForView();
+  // target (opcional): elemento que deve ficar visível depois da troca; sem ele, fica a seção atual.
+  function setView(v, target) {
     if (v !== "simple" && v !== "themed") return;
     // Guarda a seção em que o leitor está, para mantê-la visível depois que o layout mudar.
-    var keep = window.scrollY > 0 && sections && sections[current] ? sections[current] : null;
+    var keep = target || (window.scrollY > 0 && sections && sections[current] ? sections[current] : null);
     root.dataset.view = v;
+    orderForView();
+    if (darkOnly) root.dataset.theme = v === "simple" ? preferredTheme() : "dark";
+    syncTheme(); // as cores mudam com a visão: quem desenha em canvas relê os tokens
     try { window.localStorage.setItem("view", v); } catch (e) { /* sem persistência */ }
     try {
       var p = new URLSearchParams(window.location.search);
       p.set("view", v);
-      window.history.replaceState(null, "", window.location.pathname + "?" + p.toString() + window.location.hash);
+      window.history.replaceState(null, "", window.location.pathname + "?" + p.toString() + (target && target.id ? "#" + target.id : window.location.hash));
     } catch (e) { /* file:// em alguns navegadores */ }
     if (v === "simple") Array.prototype.forEach.call(document.querySelectorAll(".rise-wait"), function (el) { el.classList.remove("rise-wait"); });
     updateFaceLinks(root.lang);
@@ -301,6 +328,15 @@
   }
   viewButtons.forEach(function (b) { b.addEventListener("click", function () { setView(b.getAttribute("data-view-set")); }); });
   viewToggles.forEach(function (b) { b.addEventListener("click", function () { setView(currentView() === "simple" ? "themed" : "simple"); }); });
+  // Links "Ver simulação no modo Temático": trocam a visão sem recarregar e levam até a âncora do próprio link.
+  Array.prototype.forEach.call(document.querySelectorAll("a[data-view-go]"), function (a) {
+    a.addEventListener("click", function (e) {
+      var to = document.getElementById((a.getAttribute("href").split("#")[1] || ""));
+      if (!to) return;
+      e.preventDefault();
+      setView(a.getAttribute("data-view-go"), to);
+    });
+  });
   document.addEventListener("sitelangchange", function () { syncView(false); });
   // Chegou com ?view= na URL: guarda a escolha para as próximas páginas.
   try { var qv = new URLSearchParams(window.location.search).get("view"); if (qv === "simple" || qv === "themed") window.localStorage.setItem("view", qv); } catch (e) { /* sem persistência */ }

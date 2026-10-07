@@ -6,6 +6,7 @@
      <figcaption> ... <span class="gallery-i">1</span> ... </figcaption>   (uma vez por idioma)
    </figure>
    Clicar numa miniatura troca a imagem principal; clicar na principal abre o <dialog class="lightbox">.
+   Quando a principal está escondida (grade de miniaturas do Simplificado), a miniatura já abre a imagem ampliada.
    O <dialog> nativo prende o foco, fecha com Esc e devolve o foco ao botão que o abriu. */
 (function () {
   "use strict";
@@ -22,13 +23,18 @@
         img.src = t.getAttribute("data-src");
         img.width = t.getAttribute("data-w");
         img.height = t.getAttribute("data-h");
+        var from = t.querySelector("img");
+        if (from) Array.prototype.forEach.call(from.attributes, function (at) { if (at.name === "alt" || at.name.indexOf("data-alt-") === 0) img.setAttribute(at.name, at.value); });
         thumbs.forEach(function (o) { o.setAttribute("aria-pressed", String(o === t)); });
         Array.prototype.forEach.call(fig.querySelectorAll(".gallery-i"), function (n) { n.textContent = i + 1; });
+        if (open && !main.offsetParent) open();
       });
     });
+    var open = null;
     if (!box || typeof box.showModal !== "function") return;
-    main.addEventListener("click", function () {
+    main.addEventListener("click", open = function () {
       boxImg.src = img.getAttribute("src");
+      boxImg.alt = img.alt;
       boxImg.width = img.width;
       boxImg.height = img.height;
       if (boxCap && cap) {

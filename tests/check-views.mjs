@@ -77,6 +77,28 @@ async function browser() {
         if (s.run > 0 || s.moving > 0) fail(`${f} (${lang}, ${width}px, simple): ${s.run} animação(ões) rodando e ${s.moving} elemento(s) com animação ou transição`);
         if (s.sw > s.iw) fail(`${f} (${lang}, ${width}px, simple): scroll horizontal (${s.sw} > ${s.iw})`);
       }
+      // Simplificado de Home e Aero (S2): imagens visíveis com alt, nada do Temático à mostra e ordem do CV
+      if (f === "index.html" || f === "aero/index.html") for (const lang of ["pt-BR", "en", "fr"]) {
+        await open(f, `?lang=${lang}&view=simple`, 1280);
+        const c = await evalJs(`(function(){var vis=function(e){return e.getClientRects().length>0};
+          var noAlt=[].filter.call(document.querySelectorAll('main img, .hero img'),function(i){return vis(i)&&!i.alt.trim()}).length;
+          var themedOnly=[].filter.call(document.querySelectorAll('.t-only, .sims, .sec-n, .chain-sig, .actions, .contact-icons'),vis).length;
+          var a=document.getElementById('competencias'),b=document.getElementById('experiencia');
+          return {noAlt:noAlt,themedOnly:themedOnly,order:!a||!b||!!(a.compareDocumentPosition(b)&4),h1:document.querySelectorAll('h1').length}})()`); browserChecks++;
+        if (c.noAlt) fail(`${f} (${lang}, simple): ${c.noAlt} imagem(ns) visível(is) sem alt`);
+        if (c.themedOnly) fail(`${f} (${lang}, simple): ${c.themedOnly} elemento(s) só do Temático à mostra`);
+        if (!c.order) fail(`${f} (${lang}, simple): Competências deveria vir antes de Experiência`);
+        if (c.h1 !== 1) fail(`${f} (${lang}, simple): ${c.h1} elementos h1`);
+      }
+      // Temático: nada do Simplificado à mostra e Competências no lugar de origem
+      { await open(f, "?view=themed", 1280);
+        const c = await evalJs(`(function(){var n=[].filter.call(document.querySelectorAll('.s-only'),function(e){return e.getClientRects().length>0}).length;
+          var a=document.getElementById('competencias'),b=document.getElementById('experiencia');
+          return {sOnly:n,order:!a||!b||!!(b.compareDocumentPosition(a)&4),theme:document.documentElement.dataset.theme}})()`); browserChecks++;
+        if (c.sOnly) fail(`${f} (themed): ${c.sOnly} elemento(s) .s-only à mostra`);
+        if (!c.order) fail(`${f} (themed): a ordem das seções mudou`);
+        if (f === "it-security/index.html" && c.theme !== "dark") fail(`${f} (themed): tema "${c.theme}", esperado "dark"`);
+      }
       // Temático: continua sem scroll horizontal
       for (const width of [375, 1280]) {
         await open(f, "?view=themed", width);
