@@ -1865,3 +1865,17 @@ html[lang="fr"][data-view="simple"] body[data-area="aero"] .content .research .c
   [data-view="simple"] body[data-area="aero"] .content [data-print-url]::after{content:" (" attr(data-print-url) ")"!important;display:inline;width:auto;height:auto;margin:0;background:none;-webkit-mask:none;mask:none;font-size:var(--fs-small);overflow-wrap:anywhere}
   [data-view="simple"] body[data-area="aero"] .content .gallery-n{display:none}
 }
+
+/* ---------- Home no celular: cada nó no centro do cartão (e não do conjunto cartão + botão) ---------- */
+/* O trilho herda as duas linhas do estágio (cartão e botão) por subgrid, então o nó se centraliza na linha do cartão
+   só com CSS. Os trechos de sinal vão do nó até o nó seguinte, pela coluna do trilho (o botão fica na outra coluna);
+   como isso depende da altura do próximo cartão, o site.js mede e grava --sig-top e --sig-bottom em cada estágio
+   (sem a medida, o sinal fica oculto). */
+@media (max-width:760px){
+  .stage-rail{display:grid;grid-template-rows:subgrid;grid-template-columns:48px;grid-row:1/span 2;position:relative;justify-items:center}
+  .node{grid-row:1;grid-column:1;align-self:center;z-index:1;margin:0}
+  .vsig{display:none}
+  .chain.is-measured .vsig{display:block;position:absolute;left:0;top:var(--sig-top);height:calc(100% - var(--sig-top) - var(--sig-bottom));margin:0}
+  .chain.is-measured .vsig--bars{height:calc(100% - var(--sig-top) - var(--sig-bottom) - 58px)}
+  .chain.is-measured .vsig--hex{top:auto;bottom:var(--sig-bottom);height:56px}
+}

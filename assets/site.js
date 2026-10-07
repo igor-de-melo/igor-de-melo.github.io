@@ -248,6 +248,29 @@
     new IntersectionObserver(function (entries) { sEnd = entries[0].isIntersecting; sMark(); }).observe(sFoot);
   }
 
+  /* ---------- Home no celular: extensão dos sinais entre um nó e o seguinte ---------- */
+  // O nó fica no centro do cartão (CSS). O sinal vai de 8 px abaixo dele até 8 px acima do nó seguinte, e isso depende
+  // da altura dos dois cartões: cada estágio recebe --sig-top e --sig-bottom (este negativo, porque passa do estágio).
+  var chain = document.querySelector(".chain");
+  if (chain) {
+    var stages = Array.prototype.slice.call(chain.querySelectorAll(".stage"));
+    var NODE = 24, GAP = 8; // meio nó (48 px) e folga entre o nó e o sinal
+    var center = function (st) { var c = st.querySelector(".hcard"); return c ? c.offsetTop + c.offsetHeight / 2 : 0; };
+    var measureChain = function () {
+      stages.forEach(function (st, k) {
+        var next = stages[k + 1];
+        st.style.setProperty("--sig-top", (center(st) + NODE + GAP) + "px");
+        if (next) st.style.setProperty("--sig-bottom", -(next.offsetTop - st.offsetTop - st.offsetHeight + center(next) - NODE - GAP) + "px");
+      });
+      chain.classList.add("is-measured");
+    };
+    measureChain();
+    window.addEventListener("resize", measureChain);
+    window.addEventListener("load", measureChain);
+    document.addEventListener("sitelangchange", measureChain);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureChain);
+  }
+
   /* ---------- Contadores ao lado dos títulos de seção ---------- */
   // <p class="sec-n" data-count="seletor" data-pt-br="singular|plural" data-en="..." data-fr="...">: o número vem
   // da contagem de itens da própria seção, então não precisa ser atualizado à mão quando um item entra ou sai.

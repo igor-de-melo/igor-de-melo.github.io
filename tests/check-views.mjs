@@ -97,6 +97,20 @@ async function browser() {
         const dest = (v) => ["aero", "data", "it-security"].map((a) => `${a}/index.html?lang=fr&view=${v}`).join(" ");
         if (h.simple !== dest("simple")) fail(`${f}: botões do Simplificado apontam para "${h.simple}"`);
         if (h.cards !== dest("themed")) fail(`${f}: cartões apontam para "${h.cards}"`);
+        // Celular: cada nó no centro vertical do seu cartão (tolerância de 1 px) e o sinal fora do botão
+        for (const width of [320, 375, 430]) for (const lang of ["pt-BR", "en", "fr"]) {
+          await open(f, "?lang=" + lang, width);
+          const rows = await evalJs(`[].map.call(document.querySelectorAll('.stage'),function(st){
+            var n=st.querySelector('.node').getBoundingClientRect(),c=st.querySelector('.hcard').getBoundingClientRect(),b=st.querySelector('.hcard-simple').getBoundingClientRect();
+            var hit=[].some.call(st.querySelectorAll('.vsig'),function(s){var r=s.getBoundingClientRect();return r.width>0&&r.right>b.left+0.5&&r.left<b.right-0.5&&r.bottom>b.top&&r.top<b.bottom});
+            return {d:Math.abs((n.top+n.height/2)-(c.top+c.height/2)),under:b.top>=c.bottom-0.5,hit:hit,sig:st.querySelectorAll('.vsig').length?getComputedStyle(st.querySelector('.vsig')).display:'-'}})`); browserChecks++;
+          rows.forEach((r, k) => {
+            if (!(r.d <= 1)) fail(`${f} (${lang}, ${width}px): nó ${k + 1} a ${r.d.toFixed(1)} px do centro do cartão (máx. 1 px)`);
+            if (!r.under) fail(`${f} (${lang}, ${width}px): botão ${k + 1} não está abaixo do cartão`);
+            if (r.hit) fail(`${f} (${lang}, ${width}px): o sinal do estágio ${k + 1} cobre o botão`);
+            if (r.sig === "none") fail(`${f} (${lang}, ${width}px): o sinal do estágio ${k + 1} não foi medido`);
+          });
+        }
         for (const width of [375, 1280]) { await open(f, "", width); const s = await evalJs(STATE); browserChecks++; if (s.sw > s.iw) fail(`${f} (${width}px): scroll horizontal (${s.sw} > ${s.iw})`); }
         continue;
       }
