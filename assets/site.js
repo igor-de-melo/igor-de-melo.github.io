@@ -78,7 +78,7 @@
   var sections = rulerLinks.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
   var track = document.querySelector(".ruler-track");
   var nowTitle = document.querySelector(".now-title"), progress = document.querySelector(".now-progress");
-  var current = -1, lineIndex = 0, nowN = null, nowPct = null, nowTimer = 0;
+  var current = -1, lineIndex = 0, nowN = null, nowPct = null, nowTimer = 0, nowTicks = [];
   var still = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   // Ciência de Dados, "célula em execução": o rótulo do item atual mostra [*] e, 0,6 s depois, o número [n].
@@ -115,6 +115,7 @@
     Array.prototype.forEach.call(document.querySelectorAll(".sb-i"), function (e, k) { e.classList.toggle("cur", k === i); });
     var h = sections[i] && sections[i].querySelector("h2");
     if (nowTitle && h) nowTitle.innerHTML = h.innerHTML;
+    nowTicks.forEach(function (t, k) { t.className = k === i ? "cur" : k < i ? "done" : ""; });
     if (nowN) { // Dados: contador da célula, In [*] e depois In [n]
       clearTimeout(nowTimer);
       if (still.matches) nowN.textContent = "In [" + (i + 1) + "]";
@@ -129,7 +130,17 @@
       var bar = mk("now-bar"), mark = mk("now-mark");
       if (area === "data") { nowN = mk("now-n"); progress.appendChild(nowN); }
       if (area === "aero") { var plane = document.querySelector(".ruler-mark svg"); if (plane) mark.appendChild(plane.cloneNode(true)); }
-      bar.appendChild(mk("now-fill")); bar.appendChild(mark); progress.appendChild(bar);
+      bar.appendChild(mk("now-fill"));
+      // Um traço por seção, na fração da rolagem em que a seção começa.
+      nowTicks = sections.map(function () { var t = document.createElement("i"); bar.appendChild(t); return t; });
+      var placeTicks = function () {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        sections.forEach(function (sec, k) {
+          var top = sec.getBoundingClientRect().top + window.scrollY;
+          nowTicks[k].style.left = (max > 0 ? Math.min(1, Math.max(0, top / max)) * 100 : 0).toFixed(2) + "%";
+        });
+      };
+      bar.appendChild(mark); progress.appendChild(bar);
       if (area === "it-security") { nowPct = mk("now-pct"); progress.appendChild(nowPct); }
       var ticking = false, onScroll = function () {
         ticking = false;
@@ -139,7 +150,11 @@
         if (nowPct) nowPct.textContent = Math.round(p * 100) + "%";
       };
       window.addEventListener("scroll", function () { if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); } }, { passive: true });
-      window.addEventListener("resize", onScroll);
+      window.addEventListener("resize", function () { placeTicks(); onScroll(); });
+      window.addEventListener("load", placeTicks);
+      document.addEventListener("load", function (e) { if (e.target && e.target.tagName === "IMG") placeTicks(); }, true); // imagens que carregam depois mudam a altura
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeTicks);
+      placeTicks();
       onScroll();
     }
     if (document.body.dataset.area === "data") cells = rulerLinks.map(function (a) {

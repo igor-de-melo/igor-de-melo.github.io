@@ -26,15 +26,15 @@
   --top-h:52px;
   /* Escala tipográfica única (docs/revisao-r6.md, 1.2). Todo font-size do site usa um destes tokens;
      ficam de fora só o hero da Home e os desenhos (SVG, dump hexadecimal e retrato ASCII). */
-  --fs-display:3.5rem;--fs-h2:1.875rem;--fs-h3:1.3125rem;--fs-lead:1.1875rem;--fs-body:1.0625rem;--fs-code:1.0625rem;--fs-ui:0.9375rem;--fs-small:0.8125rem;--fs-xs:0.75rem;--fs-prompt:var(--fs-code);--fs-panel:var(--fs-ui);
+  --fs-display:3.5rem;--fs-h2:1.875rem;--fs-h3:1.3125rem;--fs-lead:1.1875rem;--fs-body:1.0625rem;--fs-ui:0.9375rem;--fs-small:0.8125rem;--fs-xs:0.75rem;--fs-prompt:var(--fs-body);--fs-panel:var(--fs-ui);
   --lh-display:1.15;--lh-h2:1.2;--lh-h3:1.2;--lh-lead:1.55;--lh-body:1.6;--lh-code:1.55;--lh-small:1.45;
 }
-body[data-area="it-security"]{--fs-display:2.875rem;--fs-h2:1.75rem;--fs-h3:1.0625rem;--fs-lead:1rem;--fs-body:0.9375rem;--fs-code:0.9375rem;--fs-prompt:1.0625rem;--fs-panel:1rem;--fs-ui:0.875rem}
+body[data-area="it-security"]{--fs-display:2.875rem;--fs-h2:1.75rem;--fs-h3:1.0625rem;--fs-lead:1rem;--fs-body:0.9375rem;--fs-prompt:1.0625rem;--fs-panel:1rem;--fs-ui:0.875rem}
 body[data-area="home"]{--fs-h3:1.1875rem;--fs-body:0.9375rem}
 .hcard--it-security{--fs-h3:1.0625rem;--fs-body:0.875rem;--fs-ui:0.875rem}
 @media (max-width:760px){
-  :root{--fs-display:2.125rem;--fs-h2:1.5rem;--fs-h3:1.1875rem;--fs-lead:1.0625rem;--fs-body:1rem;--fs-code:1rem}
-  body[data-area="it-security"]{--fs-display:1.75rem;--fs-h2:1.375rem;--fs-h3:1rem;--fs-lead:0.9375rem;--fs-body:0.875rem;--fs-code:0.875rem;--fs-prompt:1rem;--fs-panel:0.9375rem}
+  :root{--fs-display:2.125rem;--fs-h2:1.5rem;--fs-h3:1.1875rem;--fs-lead:1.0625rem;--fs-body:1rem}
+  body[data-area="it-security"]{--fs-display:1.75rem;--fs-h2:1.375rem;--fs-h3:1rem;--fs-lead:0.9375rem;--fs-body:0.875rem;--fs-prompt:1rem;--fs-panel:0.9375rem}
 }
 :root[data-theme="dark"]{--suction:#8EA0FF;--stagnation:#E5484D;--free:#6B788A}
 
@@ -726,7 +726,7 @@ body[data-area="data"] .portrait img{aspect-ratio:190/242;border-radius:6px;filt
 .cell{display:grid;grid-template-columns:72px 16px minmax(0,1fr);column-gap:12px;margin-bottom:6px;counter-increment:cell}
 .cell::before{content:"In [" counter(cell) "]:";grid-column:1;grid-row:1;padding-top:15px;text-align:right;font:400 var(--fs-small)/1 var(--mono);color:var(--ink2);white-space:nowrap}
 .cell-body{grid-column:3;grid-row:1;min-width:0}
-.cell-in{margin:0;padding:10px 16px;border-left:2px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:4px;background:var(--inp);color:var(--ink);font:400 var(--fs-code)/1.65 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;tab-size:4}
+.cell-in{margin:0;padding:10px 16px;border-left:2px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:4px;background:var(--inp);color:var(--ink);font:400 var(--fs-body)/var(--lh-code) var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;tab-size:4}
 .cell-in code{font:inherit}
 .cell-in .fn{color:var(--accent);font-weight:500}
 .cell-in .k{color:var(--ink2)}
@@ -734,7 +734,7 @@ body[data-area="data"] .portrait img{aspect-ratio:190/242;border-radius:6px;filt
 .cell-in .s{color:var(--str)}
 .cell-in .kw,.cell-in .nu{color:var(--kw)}
 .cell-in a{color:inherit}
-.cell-in.sn{margin-top:12px;font-size:var(--fs-code);line-height:1.6}
+.cell-in.sn{margin-top:12px}
 .cell-out{margin-top:6px;padding:12px 16px 20px;border-radius:4px;background:color-mix(in srgb,var(--ink) 2.4%,transparent);font-size:var(--fs-body);line-height:1.55}
 .cell-out>:last-child{margin-bottom:0}
 .cell-out p{margin:0 0 10px}
@@ -805,8 +805,7 @@ body[data-area="data"] .site-footer{font-family:var(--mono)}
   .cell-body{grid-column:1;grid-row:2}
   .cell-tm{display:none}
   .cell--tl>.cell-body{padding-bottom:0}
-  .cell-in{padding:10px 12px;font-size:var(--fs-code)}
-  .cell-in.sn{font-size:var(--fs-code)}
+  .cell-in{padding:10px 12px}
   .cell-out{padding:10px 12px 12px}
   .cell-group,.md{padding-left:0}
   .cell-group{margin:22px 0 10px}
@@ -1127,8 +1126,7 @@ body[data-area="it-security"] .contact-mail{color:var(--lk)}
 .hero-icons{display:inline-flex;gap:4px;margin-left:-11px}
 
 /* ---------- Ciência de Dados: células claras com borda; comandos 2 px maiores que o corpo ---------- */
-.cell-in{border:1px solid var(--line);border-left:2px solid color-mix(in srgb,var(--accent) 45%,transparent);font-size:var(--fs-code);line-height:1.6}
-.cell-in.sn{font-size:var(--fs-code);line-height:1.6}
+.cell-in{border:1px solid var(--line);border-left:2px solid color-mix(in srgb,var(--accent) 45%,transparent);}
 .cell-out{border:1px solid var(--line);background:var(--out)}
 .cell::before{font-size:var(--fs-small);padding-top:17px}
 body[data-area="data"] .sim-tabs{border:1px solid var(--line);border-left:2px solid color-mix(in srgb,var(--accent) 45%,transparent)}
@@ -1138,7 +1136,6 @@ body[data-area="data"] .content .cell--sim .tunnel{border:1px solid var(--line);
 .hc-ou{border:1px solid var(--line);background:var(--inp)}
 :root[data-theme="dark"] .hc-ou{background:color-mix(in srgb,var(--ink) 3%,transparent)}
 @media (max-width:760px){
-  .cell-in,.cell-in.sn{font-size:var(--fs-code)}
   .cell::before{padding:0 0 6px;font-size:var(--fs-small)}
 }
 
@@ -1206,14 +1203,12 @@ body[data-area="data"] .content .cell--sim .tunnel{border:1px solid var(--line);
 }
 
 /* ---------- Ciência de Dados: In e Out colados, separados por uma linha; código +1 px; subtítulos +2 px ---------- */
-.cell-in,.cell-in.sn{font-size:var(--fs-code)}
 .cell-in+.cell-out{margin-top:-1px;border-top-left-radius:0;border-top-right-radius:0}
 .cell-in:has(+.cell-out){border-bottom-left-radius:0;border-bottom-right-radius:0}
 body[data-area="data"] .sim-tab{font-size:var(--fs-ui)}
 body[data-area="data"] .sim-tabs:has(+.sim-panel){border-bottom-left-radius:0;border-bottom-right-radius:0}
 body[data-area="data"] .content .cell--sim .tunnel{margin-top:-1px;border-top-left-radius:0;border-top-right-radius:0}
 .cell-group h3{font-size:var(--fs-h3)}
-@media (max-width:760px){.cell-in,.cell-in.sn{font-size:var(--fs-code)}}
 
 /* ---------- TI e Cibersegurança: títulos de painel com +1 px sobre o corpo ---------- */
 .pn .pn-t{top:-11px;max-width:calc(100% - 28px);font-size:var(--fs-panel);line-height:22px}
@@ -1371,3 +1366,18 @@ body[data-area="it-security"] .now-bar{margin-right:7px}
 .cell-in--cv,.cell-in--cv .fn,.cell-in--cv .k,.cell-in--cv .s,.cell-in--cv .cm{color:var(--code-faint);font-weight:400;font-style:normal}
 .cell-in--cv .v{color:var(--ink);font-weight:500}
 .cell-in--cv .v1{font-weight:700}
+
+/* =====================================================================
+   R6e
+   ===================================================================== */
+/* ---------- Régua do celular: um traço por seção, na fração da página em que a seção começa (posto por assets/site.js) ---------- */
+.now-bar i{position:absolute;top:50%;width:1px;height:10px;margin:-5px 0 0 -.5px;background:var(--ink2);opacity:.5}
+.now-bar i.done{background:var(--accent);opacity:1}
+.now-bar i.cur{width:2px;height:14px;margin:-7px 0 0 -1px;background:var(--accent);opacity:1}
+.now-mark{z-index:2}
+body[data-area="it-security"] .now-pct{color:var(--lk)}
+
+/* ---------- Ciência de Dados: todo código no tamanho do corpo; exemplos longos rolam dentro do bloco ---------- */
+body[data-area="data"] .sim-tab{font-size:var(--fs-body);line-height:var(--lh-code)}
+.cell-in.sn{white-space:pre;overflow-x:auto;overflow-wrap:normal}
+.cell-in.sn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}

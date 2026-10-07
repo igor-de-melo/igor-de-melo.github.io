@@ -228,7 +228,7 @@
         <span class="lg"><span class="ramp"></span><span lang="pt-BR">valor aprendido</span><span lang="en">learned value</span><span lang="fr">valeur apprise</span></span>
       </span>
     </div>
-    <pre class="cell-in sn"><code>Q[s, a] += alpha * (r + gamma * Q[s_next].<span class="fn">max</span>() - Q[s, a])  <span class="cm"># <span lang="pt-BR">alpha = 0,5; gamma = 0,96</span><span lang="en">alpha = 0.5; gamma = 0.96</span><span lang="fr">alpha = 0,5&nbsp;; gamma = 0,96</span></span></code></pre>
+    <pre class="cell-in sn" tabindex="0"><code>Q[s, a] += alpha * (r + gamma * Q[s_next].<span class="fn">max</span>() - Q[s, a])  <span class="cm"># <span lang="pt-BR">alpha = 0,5; gamma = 0,96</span><span lang="en">alpha = 0.5; gamma = 0.96</span><span lang="fr">alpha = 0,5&nbsp;; gamma = 0,96</span></span></code></pre>
     <details class="how">
       <summary><span lang="pt-BR">Como funciona</span><span lang="en">How it works</span><span lang="fr">Comment ça marche</span></summary>
       <ol lang="pt-BR">
@@ -278,7 +278,8 @@
         <div class="cell-body">
           <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span>(
     <span class="k">role</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Analista de Dados</span><span lang="en">Data Analyst</span><span lang="fr">Analyste de données</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v">Pilea Labs</span>"</span>,  <span class="cm"># <span class="v"><span lang="pt-BR">dez. 2024 – mar. 2025</span><span lang="en">Dec 2024 – Mar 2025</span><span lang="fr">déc. 2024 – mars 2025</span></span></span>
+    <span class="k">where</span>=<span class="s">"<span class="v">Pilea Labs</span>"</span>,
+    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">dez. 2024 – mar. 2025</span><span lang="en">Dec 2024 – Mar 2025</span><span lang="fr">déc. 2024 – mars 2025</span></span>"</span>,
 )</code></pre>
           <div class="cell-out">
             <p class="sub"><span lang="pt-BR">Plataforma de marketing de influência e afiliados para e-commerce</span><span lang="en">Influencer and affiliate marketing platform for e-commerce</span><span lang="fr">Plateforme de marketing d’influence et d’affiliation pour l’e-commerce</span></p>
@@ -306,7 +307,7 @@
             <li>Analyses mises à jour en temps réel à partir de la base, avec une nouvelle livraison presque chaque jour.</li>
             <li>Versionnage des requêtes avec Git et GitHub et intégration de scripts Python au site web de l’entreprise.</li>
             </ul>
-            <pre class="cell-in sn"><code><span class="kw">WITH</span> sales <span class="kw">AS</span> (
+            <pre class="cell-in sn" tabindex="0"><code><span class="kw">WITH</span> sales <span class="kw">AS</span> (
   <span class="kw">SELECT</span> coupon_id, <span class="kw">COUNT</span>(*) <span class="kw">AS</span> orders, <span class="kw">SUM</span>(amount) <span class="kw">AS</span> revenue
   <span class="kw">FROM</span> orders <span class="kw">GROUP BY</span> coupon_id
 )
@@ -324,7 +325,8 @@
         <div class="cell-body">
           <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span>(
     <span class="k">role</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Gerente de projeto, VANT autônomo de asa fixa</span><span lang="en">Project Manager, autonomous fixed-wing UAV</span><span lang="fr">Chef de projet, drone autonome à voilure fixe</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v"><span lang="pt-BR">Grupo SEMEAR, Núcleo de Robótica Aérea, EESC-USP</span><span lang="en">SEMEAR Aerial Robotics Group, EESC-USP</span><span lang="fr">Groupe SEMEAR, pôle de robotique aérienne, EESC-USP</span></span>"</span>,  <span class="cm"># <span class="v"><span lang="pt-BR">abr. 2025 – atual</span><span lang="en">Apr 2025 – present</span><span lang="fr">avr. 2025 – aujourd’hui</span></span></span>
+    <span class="k">where</span>=<span class="s">"<span class="v"><span lang="pt-BR">Grupo SEMEAR, Núcleo de Robótica Aérea, EESC-USP</span><span lang="en">SEMEAR Aerial Robotics Group, EESC-USP</span><span lang="fr">Groupe SEMEAR, pôle de robotique aérienne, EESC-USP</span></span>"</span>,
+    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">abr. 2025 – atual</span><span lang="en">Apr 2025 – present</span><span lang="fr">avr. 2025 – aujourd’hui</span></span>"</span>,
 )</code></pre>
           <div class="cell-out">
             <ul lang="pt-BR">
@@ -350,7 +352,8 @@
         <div class="cell-body">
           <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span>(
     <span class="k">role</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Cargas aerodinâmicas não estacionárias</span><span lang="en">Unsteady aerodynamic loads</span><span lang="fr">Charges aérodynamiques instationnaires</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v"><span lang="pt-BR">Iniciação científica, EESC-USP, orientação do Prof. Flávio Donizeti Marques</span><span lang="en">Undergraduate research, EESC-USP, advised by Prof. Flávio Donizeti Marques</span><span lang="fr">Initiation à la recherche, EESC-USP, sous la direction du Prof. Flávio Donizeti Marques</span></span>"</span>,  <span class="cm"># <span class="v"><span lang="pt-BR">jul. 2023 – dez. 2024</span><span lang="en">Jul 2023 – Dec 2024</span><span lang="fr">juil. 2023 – déc. 2024</span></span></span>
+    <span class="k">where</span>=<span class="s">"<span class="v"><span lang="pt-BR">Iniciação científica, EESC-USP, orientação do Prof. Flávio Donizeti Marques</span><span lang="en">Undergraduate research, EESC-USP, advised by Prof. Flávio Donizeti Marques</span><span lang="fr">Initiation à la recherche, EESC-USP, sous la direction du Prof. Flávio Donizeti Marques</span></span>"</span>,
+    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">jul. 2023 – dez. 2024</span><span lang="en">Jul 2023 – Dec 2024</span><span lang="fr">juil. 2023 – déc. 2024</span></span>"</span>,
 )</code></pre>
           <div class="cell-out">
             <ul lang="pt-BR">
@@ -365,7 +368,7 @@
             <li>Modèles semi-empiriques de charges aérodynamiques instationnaires, avec identification et calibration des paramètres à partir de données expérimentales et CFD.</li>
             <li>Algorithmes génétiques et réseaux de neurones appliqués à l’optimisation des paramètres.</li>
             </ul>
-            <pre class="cell-in sn"><code>population = <span class="fn">initial_population</span>(size=<span class="nu">100</span>)
+            <pre class="cell-in sn" tabindex="0"><code>population = <span class="fn">initial_population</span>(size=<span class="nu">100</span>)
 <span class="kw">for</span> generation <span class="kw">in</span> <span class="fn">range</span>(<span class="nu">200</span>):
     error = [<span class="fn">model_error</span>(p) <span class="kw">for</span> p <span class="kw">in</span> population]  <span class="cm"># <span lang="pt-BR">dados experimentais e de CFD</span><span lang="en">experimental and CFD data</span><span lang="fr">données expérimentales et CFD</span></span>
     parents = <span class="fn">select</span>(population, error, best=<span class="nu">20</span>)
@@ -378,7 +381,8 @@
         <div class="cell-body">
           <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span>(
     <span class="k">role</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Simulação de escoamentos turbulentos</span><span lang="en">Turbulent flow simulation</span><span lang="fr">Simulation d’écoulements turbulents</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v"><span lang="pt-BR">ICMC-USP, bolsa FAPESP</span><span lang="en">ICMC-USP (Institute of Mathematics and Computer Sciences), FAPESP grant</span><span lang="fr">ICMC-USP, bourse FAPESP</span></span>"</span>,  <span class="cm"># <span class="v"><span lang="pt-BR">jul. 2023 – dez. 2024</span><span lang="en">Jul 2023 – Dec 2024</span><span lang="fr">juil. 2023 – déc. 2024</span></span></span>
+    <span class="k">where</span>=<span class="s">"<span class="v"><span lang="pt-BR">ICMC-USP, bolsa FAPESP</span><span lang="en">ICMC-USP (Institute of Mathematics and Computer Sciences), FAPESP grant</span><span lang="fr">ICMC-USP, bourse FAPESP</span></span>"</span>,
+    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">jul. 2023 – dez. 2024</span><span lang="en">Jul 2023 – Dec 2024</span><span lang="fr">juil. 2023 – déc. 2024</span></span>"</span>,
 )</code></pre>
           <div class="cell-out">
             <p lang="pt-BR">Simulação de grandes escalas (LES) de escoamento turbulento em canal com força de Coriolis, com artigo no EPTT 2024. Desenvolvimento e execução de rotinas numéricas em ambiente de HPC.</p>
@@ -392,7 +396,8 @@
         <div class="cell-body">
           <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span>(
     <span class="k">role</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Pesquisa em modelagem atmosférica e energia eólica</span><span lang="en">Atmospheric modeling and wind energy research</span><span lang="fr">Recherche en modélisation atmosphérique et énergie éolienne</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v">IRPHE, École Centrale de Marseille</span>"</span>,  <span class="cm"># <span class="v"><span lang="pt-BR">fev. – jul. 2023</span><span lang="en">Feb – Jul 2023</span><span lang="fr">févr. – juil. 2023</span></span></span>
+    <span class="k">where</span>=<span class="s">"<span class="v">IRPHE, École Centrale de Marseille</span>"</span>,
+    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">fev. – jul. 2023</span><span lang="en">Feb – Jul 2023</span><span lang="fr">févr. – juil. 2023</span></span>"</span>,
 )</code></pre>
           <div class="cell-out">
             <p lang="pt-BR">Simulações atmosféricas com o modelo meteorológico WRF, análise de incerteza na previsão de vento e avaliação do desempenho de turbinas eólicas sob diferentes condições atmosféricas.</p>
@@ -407,7 +412,8 @@
         <div class="cell-body">
           <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span>(
     <span class="k">role</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Membro da equipe, simulação e modelagem</span><span lang="en">Team member, simulation and modeling</span><span lang="fr">Membre de l’équipe, simulation et modélisation</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v">TOPUS Projetos Aeroespaciais</span>"</span>,  <span class="cm"># <span class="v"><span lang="pt-BR">mar. 2020 – dez. 2023</span><span lang="en">Mar 2020 – Dec 2023</span><span lang="fr">mars 2020 – déc. 2023</span></span></span>
+    <span class="k">where</span>=<span class="s">"<span class="v">TOPUS Projetos Aeroespaciais</span>"</span>,
+    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">mar. 2020 – dez. 2023</span><span lang="en">Mar 2020 – Dec 2023</span><span lang="fr">mars 2020 – déc. 2023</span></span>"</span>,
 )</code></pre>
           <div class="cell-out">
             <ul lang="pt-BR">
@@ -422,7 +428,7 @@
             <li>Modèle de dynamique du vol à 6 degrés de liberté sous MATLAB et simulations de Monte-Carlo pour la dispersion des trajectoires et l’analyse de sécurité.</li>
             <li>Modélisation numérique et CFD des systèmes de propulsion et d’alimentation en oxydant.</li>
             </ul>
-            <pre class="cell-in sn"><code>N = <span class="nu">10000</span>;
+            <pre class="cell-in sn" tabindex="0"><code>N = <span class="nu">10000</span>;
 landings = <span class="fn">zeros</span>(N, <span class="nu">2</span>);
 <span class="kw">for</span> k = <span class="nu">1</span>:N
     landings(k, :) = <span class="fn">simulate_flight</span>(<span class="fn">draw_conditions</span>());  <span class="cm">% <span lang="pt-BR">modelo de 6 graus de liberdade</span><span lang="en">6-DOF model</span><span lang="fr">modèle à 6 degrés de liberté</span></span>
@@ -453,7 +459,7 @@ dispersion = <span class="fn">cov</span>(landings);</code></pre>
           <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Pipeline em Python que classifica e organiza os e-mails com a API do Claude (um modelo de linguagem), com acesso por IMAP e OAuth2. A arquitetura é híbrida: a formatação determinística fica no Python e a IA entra só na análise estratégica, o que reduz o consumo de tokens.</span><span lang="en">A Python pipeline classifies and organizes the emails using the Claude API (a large language model), accessing mailboxes via IMAP with OAuth2. The architecture is hybrid: deterministic formatting stays in Python and the AI is used only for strategic analysis, which reduces token consumption.</span><span lang="fr">Un pipeline Python classe et organise les e-mails avec l’API Claude (un modèle de langage), via un accès IMAP et OAuth2. L’architecture est hybride&nbsp;: la mise en forme déterministe reste en Python et l’IA n’intervient que pour l’analyse stratégique, ce qui réduit la consommation de tokens.</span></dd></div>
           <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Resumos diários e semanais com os prazos em ordem cronológica e as ações sugeridas, entregues pelo Telegram, onde um bot também aceita comandos manuais. Em desenvolvimento: está planejada a migração para um servidor virtual (VPS) na Oracle Cloud, com cron, implantação por Git e acesso por SSH, para o sistema rodar sem depender do meu computador.</span><span lang="en">Daily and weekly summaries with deadlines in chronological order and suggested actions, delivered through Telegram, where a bot also accepts manual commands. In development: a migration to a virtual private server (VPS) on Oracle Cloud, with cron, Git deployment and SSH access, is planned so the system can run without depending on my computer.</span><span lang="fr">Des synthèses quotidiennes et hebdomadaires avec les échéances dans l’ordre chronologique et les actions suggérées, envoyées via Telegram, où un bot accepte aussi des commandes manuelles. En développement&nbsp;: une migration vers un serveur privé virtuel (VPS) sur Oracle Cloud, avec cron, déploiement par Git et accès SSH, est prévue pour que le système fonctionne sans dépendre de mon ordinateur.</span></dd></div>
             </dl>
-            <pre class="cell-in sn"><code><span class="kw">with</span> imaplib.<span class="fn">IMAP4_SSL</span>(host) <span class="kw">as</span> imap:
+            <pre class="cell-in sn" tabindex="0"><code><span class="kw">with</span> imaplib.<span class="fn">IMAP4_SSL</span>(host) <span class="kw">as</span> imap:
     imap.<span class="fn">authenticate</span>(<span class="s">"XOAUTH2"</span>, get_token)
     imap.<span class="fn">select</span>(<span class="s">"INBOX"</span>)
     _, ids = imap.<span class="fn">search</span>(<span class="kw">None</span>, <span class="s">"UNSEEN"</span>)</code></pre>
@@ -481,7 +487,7 @@ dispersion = <span class="fn">cov</span>(landings);</code></pre>
           <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Pipeline que percorre fontes cadastradas, remove duplicatas e atribui a cada vaga uma nota de aderência de 0 a 10, com base em critérios definidos: tipo de vaga, localização e requisitos de elegibilidade.</span><span lang="en">A pipeline scans a predefined list of sources, removes duplicates and gives each listing a fit score from 0 to 10 based on defined criteria: type of role, location and eligibility requirements.</span><span lang="fr">Un pipeline parcourt des sources enregistrées, supprime les doublons et attribue à chaque offre une note d’adéquation de 0 à 10 selon des critères définis&nbsp;: type de poste, localisation et conditions d’éligibilité.</span></dd></div>
           <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Uma planilha de controle com o resumo dos requisitos e das atividades de cada vaga. Nenhuma candidatura é enviada sem a minha revisão e confirmação: a automação prepara, a decisão é minha.</span><span lang="en">A tracking spreadsheet with a summary of each listing’s requirements and duties. No application is sent without my review and confirmation: the automation does the prep work; I make the decisions.</span><span lang="fr">Un tableau de suivi avec un résumé des exigences et des missions de chaque offre. Aucune candidature n’est envoyée sans ma relecture et ma confirmation&nbsp;: l’automatisation prépare, la décision m’appartient.</span></dd></div>
             </dl>
-            <pre class="cell-in sn"><code>jobs = <span class="fn">remove_duplicates</span>(<span class="fn">collect</span>(sources))
+            <pre class="cell-in sn" tabindex="0"><code>jobs = <span class="fn">remove_duplicates</span>(<span class="fn">collect</span>(sources))
 <span class="kw">for</span> job <span class="kw">in</span> jobs:
     job.score = <span class="fn">score_job</span>(job)  <span class="cm"># <span lang="pt-BR">0 a 10</span><span lang="en">0 to 10</span><span lang="fr">0 à 10</span></span>
 sheet.<span class="fn">update</span>(jobs)      <span class="cm"># <span lang="pt-BR">nenhuma candidatura sem revisão</span><span lang="en">no application without review</span><span lang="fr">aucune candidature sans relecture</span></span></code></pre>
