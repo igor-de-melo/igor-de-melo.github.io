@@ -70,6 +70,13 @@ for (const f of [...files, "index.template.html"]) {
   if (head !== "<!doctype html>") fail(f, 1, `não começa por "<!doctype html>" (começa por ${JSON.stringify(head)})`);
 }
 
+// Seletor de visão (Simplificado / Temático): presente nas 4 páginas, com os rótulos nas três línguas.
+const VIEW_LABELS = ['<span lang="pt-BR">Simplificado</span><span lang="en">Simple</span><span lang="fr">Simplifié</span>', '<span lang="pt-BR">Temático</span><span lang="en">Themed</span><span lang="fr">Thématique</span>', 'aria-label="Visualização / View / Affichage"'];
+for (const f of files) {
+  const src = readFileSync(join(root, f), "utf8");
+  for (const l of VIEW_LABELS) if (!src.includes(l)) fail(f, 1, "seletor de visão: falta " + l);
+}
+
 for (const f of files) {
   const tree = parse(readFileSync(join(root, f), "utf8"));
   const html = tree.children.find((c) => c.tag === "html");

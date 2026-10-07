@@ -24,6 +24,8 @@ jobs:
         run: node tests/check-maze.mjs
       - name: Malware spread model (SIR)
         run: node tests/check-malware.mjs
+      - name: Views (Simple / Themed)
+        run: node tests/check-views.mjs
       - name: Internal links
         run: node tests/check-links.mjs
       - name: External links (warning only)

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="color-scheme" content="dark">
+<script>(function(){var v,m=/[?&]view=(simple|themed)(?:&|$)/.exec(location.search);if(m)v=m[1];else{try{v=localStorage.getItem("view")}catch(e){}}document.documentElement.dataset.view=v==="simple"?"simple":"themed"})()</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Igor Augusto de Melo | TI e Cibersegurança</title>
 <meta name="description" content="Igor Augusto de Melo, disponível para vagas júnior em cibersegurança: Linux, Bash, SSH, OAuth2, Python e automação em servidores na nuvem.">
@@ -108,7 +109,10 @@
 001ad8  b8 83 d8 8e 02 4d 12 c4  |.....M..|</pre>
 
 <header class="topbar" id="topo">
-  <a class="hm" href="../index.html" data-face><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/></svg><span class="hm-t"><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></span></a>
+  <div class="top-start">
+    <a class="hm" href="../index.html" data-face><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/></svg><span class="hm-t"><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></span></a>
+    <div class="view-switch" role="group" aria-label="Visualização / View / Affichage"><button type="button" data-view-set="simple" aria-pressed="false"><span lang="pt-BR">Simplificado</span><span lang="en">Simple</span><span lang="fr">Simplifié</span></button><button type="button" data-view-set="themed" aria-pressed="true"><span lang="pt-BR">Temático</span><span lang="en">Themed</span><span lang="fr">Thématique</span></button></div>
+  </div>
   <nav class="areas" aria-label="Áreas / Areas / Domaines">
     <span class="ar-sep ar-sep--home" aria-hidden="true"></span>
     <a class="ar" href="../aero/index.html" data-face><span class="ar-l"><span lang="pt-BR">Engenharia Aeronáutica</span><span lang="en">Aeronautical Engineering</span><span lang="fr">Ingénierie aéronautique</span></span><span class="ar-s"><span lang="pt-BR">Aeronáutica</span><span lang="en">Aeronautics</span><span lang="fr">Aéronautique</span></span></a>
@@ -129,6 +133,9 @@
 <div class="now">
   <div class="now-row">
     <p class="now-title"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></p>
+    <div class="now-tools">
+      <button type="button" class="view-toggle" data-view-toggle title="Visualização"><svg class="ic-simple" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 7h14M5 12h14M5 17h9"/></svg><svg class="ic-themed" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.2 0 1.8-.9 1.8-1.8 0-1.3-.9-1.6-.9-2.7 0-1 .8-1.8 1.9-1.8h1.9a3.8 3.8 0 0 0 3.8-3.8c0-3.9-3.8-6.9-8.5-6.9z"/><circle cx="8" cy="11" r="1" fill="currentColor"/><circle cx="11" cy="7.5" r="1" fill="currentColor"/><circle cx="15.5" cy="8.5" r="1" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Trocar a visualização</span><span lang="en">Switch view</span><span lang="fr">Changer d’affichage</span></span></button>
+    </div>
     <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="trilho" title="Menu"><svg class="ic-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="ic-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="sr"><span lang="pt-BR">Menu</span><span lang="en">Menu</span><span lang="fr">Menu</span></span></button>
   </div>
   <div class="now-progress" aria-hidden="true"></div>
@@ -146,6 +153,11 @@
         <li><a href="../it-security/index.html" data-face aria-current="page"><span lang="pt-BR">TI e Cibersegurança</span><span lang="en">IT &amp; Cybersecurity</span><span lang="fr">Informatique et cybersécurité</span></a></li>
       </ul>
     </nav>
+    <div class="rail-view" role="group" aria-label="Visualização / View / Affichage">
+      <p class="ruler-h"><span lang="pt-BR">Visualização</span><span lang="en">View</span><span lang="fr">Affichage</span></p>
+      <button type="button" data-view-set="simple" aria-pressed="false"><span lang="pt-BR">Simplificado</span><span lang="en">Simple</span><span lang="fr">Simplifié</span></button>
+      <button type="button" data-view-set="themed" aria-pressed="true"><span lang="pt-BR">Temático</span><span lang="en">Themed</span><span lang="fr">Thématique</span></button>
+    </div>
     <div class="lang rail-lang" role="group" aria-label="Idioma / Language / Langue">
       <button type="button" data-lang="pt-BR" aria-pressed="true" title="Português">PT</button>
       <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
@@ -602,6 +614,7 @@
   </div>
 </div>
 <div class="sb" aria-hidden="true"><span class="sb-l">[igor] <span class="sb-i cur">0:about</span> <span class="sb-i">1:experience</span> <span class="sb-i">2:studies</span> <span class="sb-i">3:projects</span> <span class="sb-i">4:education</span> <span class="sb-i">5:skills</span> <span class="sb-i">6:contact</span></span><b><span class="sb-w">it-security</span><span class="sb-n">it-sec</span></b></div>
+<p class="sr" id="view-status" aria-live="polite"></p>
 <script src="../assets/site.js"></script>
 <script src="../assets/sims.js"></script>
 <script src="../assets/malware.js"></script>

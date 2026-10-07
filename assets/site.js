@@ -22,6 +22,12 @@
     return { el: a, base: a.getAttribute("href").split("?")[0] };
   });
 
+  // Links entre as páginas levam o idioma e, no Simplificado, também a visão.
+  function updateFaceLinks(l) {
+    var q = "?lang=" + l + (root.dataset.view === "simple" ? "&view=simple" : "");
+    faceLinks.forEach(function (f) { f.el.setAttribute("href", f.base + q); });
+  }
+
   function setLang(l, persist) {
     root.lang = l;
     langButtons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === l)); });
@@ -29,7 +35,7 @@
     if (title) document.title = title;
     var desc = root.getAttribute("data-desc-" + l.toLowerCase()), meta = document.querySelector('meta[name="description"]');
     if (desc && meta) meta.setAttribute("content", desc);
-    faceLinks.forEach(function (f) { f.el.setAttribute("href", f.base + "?lang=" + l); });
+    updateFaceLinks(l);
     // Dicas (title) dos botões só de ícone: atributos data-title-* no próprio botão.
     document.querySelectorAll("button[data-title-" + l.toLowerCase() + "]").forEach(function (b) { b.title = b.getAttribute("data-title-" + l.toLowerCase()); });
     document.querySelectorAll("[data-aria-" + l.toLowerCase() + "]").forEach(function (e) { e.setAttribute("aria-label", e.getAttribute("data-aria-" + l.toLowerCase())); });
@@ -245,7 +251,7 @@
   /* ---------- Animação de entrada ---------- */
   // Cada bloco sobe 28 px com fade quando entra na janela; blocos que entram juntos saem escalonados.
   // Sem IntersectionObserver ou com "reduzir movimento", nada é escondido.
-  if ("IntersectionObserver" in window && !still.matches) {
+  if ("IntersectionObserver" in window && !still.matches && root.dataset.view !== "simple") {
     var blocks = document.querySelectorAll(".hero > *, .hero-cell, .sims, main > .section, .gate-hero, .gate-pick, .stage");
     var riser = new IntersectionObserver(function (entries) {
       var n = 0;
@@ -259,6 +265,45 @@
     });
     Array.prototype.forEach.call(blocks, function (el) { el.classList.add("rise-wait"); riser.observe(el); });
   }
+
+  /* ---------- Visão: Simplificado (CV online) ou Temático ---------- */
+  // O atributo <html data-view> é posto por um script no <head> (?view= > localStorage "view" > "themed").
+  // Aqui: os botões, a URL (history.replaceState, mantendo ?lang= e o #), o armazenamento e o anúncio da troca.
+  var VIEW_NAMES = { simple: { "pt-BR": "Simplificado", en: "Simple", fr: "Simplifié" }, themed: { "pt-BR": "Temático", en: "Themed", fr: "Thématique" } };
+  var VIEW_WORD = { "pt-BR": "Visualização", en: "View", fr: "Affichage" };
+  var viewButtons = Array.prototype.slice.call(document.querySelectorAll("[data-view-set]"));
+  var viewToggles = Array.prototype.slice.call(document.querySelectorAll("[data-view-toggle]"));
+  var viewStatus = document.getElementById("view-status");
+  function currentView() { return root.dataset.view === "simple" ? "simple" : "themed"; }
+  function syncView(announce) {
+    var v = currentView(), l = VALID.indexOf(root.lang) >= 0 ? root.lang : "pt-BR";
+    viewButtons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-view-set") === v)); });
+    viewToggles.forEach(function (b) { b.setAttribute("aria-pressed", String(v === "simple")); b.title = VIEW_WORD[l] + ": " + VIEW_NAMES[v][l]; });
+    if (announce && viewStatus) viewStatus.textContent = VIEW_WORD[l] + ": " + VIEW_NAMES[v][l];
+  }
+  function setView(v) {
+    if (v !== "simple" && v !== "themed") return;
+    // Guarda a seção em que o leitor está, para mantê-la visível depois que o layout mudar.
+    var keep = window.scrollY > 0 && sections && sections[current] ? sections[current] : null;
+    root.dataset.view = v;
+    try { window.localStorage.setItem("view", v); } catch (e) { /* sem persistência */ }
+    try {
+      var p = new URLSearchParams(window.location.search);
+      p.set("view", v);
+      window.history.replaceState(null, "", window.location.pathname + "?" + p.toString() + window.location.hash);
+    } catch (e) { /* file:// em alguns navegadores */ }
+    if (v === "simple") Array.prototype.forEach.call(document.querySelectorAll(".rise-wait"), function (el) { el.classList.remove("rise-wait"); });
+    updateFaceLinks(root.lang);
+    syncView(true);
+    if (typeof setMenu === "function" && root.classList.contains("menu-open")) setMenu(false);
+    if (keep) window.requestAnimationFrame(function () { window.requestAnimationFrame(function () { keep.scrollIntoView({ block: "start", behavior: "instant" }); }); });
+    document.dispatchEvent(new CustomEvent("siteviewchange", { detail: { view: v } }));
+  }
+  viewButtons.forEach(function (b) { b.addEventListener("click", function () { setView(b.getAttribute("data-view-set")); }); });
+  viewToggles.forEach(function (b) { b.addEventListener("click", function () { setView(currentView() === "simple" ? "themed" : "simple"); }); });
+  document.addEventListener("sitelangchange", function () { syncView(false); });
+  // Chegou com ?view= na URL: guarda a escolha para as próximas páginas.
+  try { var qv = new URLSearchParams(window.location.search).get("view"); if (qv === "simple" || qv === "themed") window.localStorage.setItem("view", qv); } catch (e) { /* sem persistência */ }
 
   /* ---------- Idioma inicial: ?lang=, depois localStorage, depois PT ---------- */
   var requested = new URLSearchParams(window.location.search).get("lang");

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="color-scheme" content="light dark">
 <script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="dark"&&t!=="light")t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t})()</script>
+<script>(function(){var v,m=/[?&]view=(simple|themed)(?:&|$)/.exec(location.search);if(m)v=m[1];else{try{v=localStorage.getItem("view")}catch(e){}}document.documentElement.dataset.view=v==="simple"?"simple":"themed"})()</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Igor Augusto de Melo</title>
 <meta name="description" content="Portfólio de Igor Augusto de Melo: Engenharia Aeronáutica, Ciência de Dados, TI e Cibersegurança.">
@@ -23,7 +24,10 @@
 <a class="skip" href="#conteudo"><span lang="pt-BR">Pular para o conteúdo</span><span lang="en">Skip to content</span><span lang="fr">Aller au contenu</span></a>
 
 <header class="topbar" id="topo">
-  <a class="hm" href="index.html" data-face aria-current="page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/></svg><span class="hm-t"><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></span></a>
+  <div class="top-start">
+    <a class="hm" href="index.html" data-face aria-current="page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/></svg><span class="hm-t"><span lang="pt-BR">Início</span><span lang="en">Home</span><span lang="fr">Accueil</span></span></a>
+    <div class="view-switch" role="group" aria-label="Visualização / View / Affichage"><button type="button" data-view-set="simple" aria-pressed="false"><span lang="pt-BR">Simplificado</span><span lang="en">Simple</span><span lang="fr">Simplifié</span></button><button type="button" data-view-set="themed" aria-pressed="true"><span lang="pt-BR">Temático</span><span lang="en">Themed</span><span lang="fr">Thématique</span></button></div>
+  </div>
   <nav class="areas" aria-label="Áreas / Areas / Domaines">
     <span class="ar-sep ar-sep--home" aria-hidden="true"></span>
     <a class="ar" href="aero/index.html" data-face><span class="ar-l"><span lang="pt-BR">Engenharia Aeronáutica</span><span lang="en">Aeronautical Engineering</span><span lang="fr">Ingénierie aéronautique</span></span><span class="ar-s"><span lang="pt-BR">Aeronáutica</span><span lang="en">Aeronautics</span><span lang="fr">Aéronautique</span></span></a>
@@ -33,6 +37,7 @@
     <a class="ar" href="it-security/index.html" data-face><span class="ar-l"><span lang="pt-BR">TI e Cibersegurança</span><span lang="en">IT &amp; Cybersecurity</span><span lang="fr">Informatique et cybersécurité</span></span><span class="ar-s"><span lang="pt-BR">TI e Ciber</span><span lang="en">IT &amp; Cyber</span><span lang="fr">Info et cyber</span></span></a>
   </nav>
   <div class="top-tools">
+    <button type="button" class="view-toggle" data-view-toggle title="Visualização"><svg class="ic-simple" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 7h14M5 12h14M5 17h9"/></svg><svg class="ic-themed" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.2 0 1.8-.9 1.8-1.8 0-1.3-.9-1.6-.9-2.7 0-1 .8-1.8 1.9-1.8h1.9a3.8 3.8 0 0 0 3.8-3.8c0-3.9-3.8-6.9-8.5-6.9z"/><circle cx="8" cy="11" r="1" fill="currentColor"/><circle cx="11" cy="7.5" r="1" fill="currentColor"/><circle cx="15.5" cy="8.5" r="1" fill="currentColor"/></svg><span class="sr"><span lang="pt-BR">Trocar a visualização</span><span lang="en">Switch view</span><span lang="fr">Changer d’affichage</span></span></button>
     <div class="lang" role="group" aria-label="Idioma / Language / Langue">
       <button type="button" data-lang="pt-BR" aria-pressed="true" title="Português">PT</button>
       <button type="button" data-lang="en" aria-pressed="false" title="English">EN</button>
@@ -111,6 +116,7 @@
   <a class="rail-cv" href="assets/docs/cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf"><span lang="pt-BR">Baixar currículo (PDF)</span><span lang="en">Download résumé (PDF)</span><span lang="fr">Télécharger le CV (PDF)</span></a>
   <p class="foot-meta">© 2026 Igor Augusto de Melo. <span lang="pt-BR">Atualizado em outubro de 2026.</span><span lang="en">Updated October 2026.</span><span lang="fr">Mis à jour en octobre 2026.</span></p>
 </footer>
+<p class="sr" id="view-status" aria-live="polite"></p>
 <script src="assets/site.js"></script>
 </body>
 </html>

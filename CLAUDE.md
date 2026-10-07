@@ -8,7 +8,7 @@ Site estático (GitHub Pages, repositório de usuário). Sem build, sem framewor
 - Nunca inventar informação sobre o Igor. Se faltar dado, perguntar.
 - Respeitar prefers-reduced-motion e manter foco visível por teclado.
 - Estrutura alvo: / (porta de entrada), /aero/, /data/, /it-security/ (noindex até ter conteúdo), /assets/, /tests/, /tools/.
-- Testes: node tests/check-parity.mjs (PT/EN/FR e início por `<!doctype html>`), node tests/check-maze.mjs (Q-learning), node tests/check-malware.mjs (SIR), node tests/check-links.mjs [--external] (links). Rodam no GitHub Actions a cada push (.github/workflows/checks.yml).
+- Testes: node tests/check-parity.mjs (PT/EN/FR e início por `<!doctype html>`), node tests/check-maze.mjs (Q-learning), node tests/check-malware.mjs (SIR), node tests/check-links.mjs [--external] (links). node tests/check-views.mjs (visões Simplificado/Temático; usa Chrome quando há). Rodam no GitHub Actions a cada push (.github/workflows/checks.yml).
 - Esqueleto das páginas: Abertura → Sobre → Experiência → Projetos → Formação → Competências → Contato (+ Pesquisa em Aero, + Estudos e laboratórios em TI e Cibersegurança).
 - Simulações: cada uma é um `<figure class="tunnel sim-panel" data-sim="id" data-label-pt-br/en/fr>` dentro de `<div class="sims" data-sims>`; `assets/sims.js` cria as abas quando há mais de uma.
 - Tokens por área: `body[data-area]` em `assets/style.css` (bloco "R1 — Tokens por área": `--bg`, `--surface`, `--raise`, `--line`, `--ink`, `--ink2`, `--accent`, fontes `--display`/`--text`/`--mono`). Tema ativo sempre em `<html data-theme="light|dark">` (script no `<head>`; `/it-security/` é só escuro, sem botão); todo novo componente usa só variáveis (nunca cor fixa).
@@ -17,6 +17,7 @@ Site estático (GitHub Pages, repositório de usuário). Sem build, sem framewor
 - Dados: em código, os valores de texto são trilíngues e os nomes de função, campo e variável ficam em inglês nas três línguas. Nas células de currículo (`pre.cell-in--cv`) o texto real é o destaque e a sintaxe fica em `--code-faint`.
 - TI e Ciber: só tema escuro. Prompts e comandos são decorativos (`aria-hidden`) e ficam em inglês nas três línguas, assim como títulos de painel, rótulos (`role:`, `where:`) e a barra tmux.
 - Home: `index.html` e `index.template.html` são iguais e editados juntos. Animações da cadeia só com transform/opacity; colormap viridis.
+- Visões (docs/simple-view-spec.md): `<html data-view="simple|themed">`, posto por script no `<head>` (?view= > localStorage "view" > themed). O Simplificado é a camada `[data-view="simple"]` no fim de `assets/style.css`: tokens neutros, sem animação nem decoração. Todo componente novo precisa ficar legível nas duas visões.
 - Tipografia: todo font-size usa os tokens `--fs-*` e `--lh-*` (exceções: hero da Home e desenhos em SVG, dump hexadecimal e retrato ASCII).
 
 ## Commits

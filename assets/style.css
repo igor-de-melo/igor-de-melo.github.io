@@ -1382,3 +1382,105 @@ body[data-area="data"] .sim-tab{font-size:var(--fs-body);line-height:var(--lh-co
 .cell-in.sn{white-space:pre;overflow-x:auto;overflow-wrap:normal}
 .cell-in.sn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .cell-in.sn { font-size: calc(var(--fs-body) - 2px); line-height: var(--lh-code); }
+
+/* =====================================================================
+   S1 — Visão "Simplificado" (docs/simple-view-spec.md): infraestrutura
+   <html data-view="simple|themed"> é posto por um script no <head>. O seletor de visão vale nas duas visões.
+   A camada neutra abaixo só troca tokens e desliga decoração e movimento; a reestruturação do conteúdo é S2/S3.
+   ===================================================================== */
+/* ---------- Seletor de visão ---------- */
+.top-start{justify-self:start;display:flex;align-items:center;gap:12px;min-width:0}
+.view-switch{display:flex;gap:2px;padding-left:12px;border-left:1px solid var(--line)}
+.view-switch button,.rail-view button{min-width:44px;height:36px;padding:0 10px;border:0;border-radius:var(--radius);background:transparent;color:var(--ink2);font:500 var(--fs-small)/1 var(--display);cursor:pointer;white-space:nowrap}
+.view-switch button:hover,.rail-view button:hover{color:var(--ink)}
+.view-switch button[aria-pressed="true"],.rail-view button[aria-pressed="true"]{background:var(--raise);color:var(--ink);font-weight:600}
+.view-toggle{display:none;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;border:0;border-radius:var(--radius);background:transparent;color:var(--ink);cursor:pointer}
+/* O botão compacto mostra o ícone da visão para a qual ele troca */
+.view-toggle .ic-themed,[data-view="simple"] .view-toggle .ic-simple{display:none}
+[data-view="simple"] .view-toggle .ic-themed{display:block}
+.rail-view{display:none}
+/* Entre 761 e 1500 px a barra deixa de centralizar as áreas pela grade 1fr auto 1fr, senão o seletor invade o nome da área (rótulos longos em francês) */
+@media (max-width:1500px){.topbar{grid-template-columns:auto minmax(0,1fr) auto;column-gap:12px}.areas{justify-self:center}}
+@media (max-width:1200px){.ar-l{display:none}.ar-s{display:inline}}
+@media (max-width:1300px){body[data-area="it-security"] .ar-l{display:none}body[data-area="it-security"] .ar-s{display:inline}}
+@media (min-width:761px) and (max-width:820px){.topbar{padding:0 12px}}
+@media (max-width:900px){.hm-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+@media (max-width:1100px){.top-start{gap:8px}.view-switch{padding-left:8px}.view-switch button{padding:0 6px}}
+@media (max-width:760px){
+  .top-start{display:contents}
+  .view-switch{display:none}
+  .view-toggle{display:inline-flex}
+  .rail-view{display:block}
+  .rail-view button{display:flex;align-items:center;width:100%;height:auto;min-height:44px;padding:4px 12px;font-size:var(--fs-ui);text-align:left}
+}
+
+/* ---------- Camada neutra: tokens (as quatro páginas ficam com a mesma aparência) ---------- */
+:root[data-view="simple"]{--n-bg:#FFFFFF;--n-ink:#111111;--n-ink2:#4A4A4A;--n-line:#CFCFCF;--n-raise:#EEEEEE;--n-link:#0B4FB3;--n-on:#FFFFFF;scroll-behavior:auto}
+:root[data-view="simple"][data-theme="dark"]{--n-bg:#111111;--n-ink:#E8E8E8;--n-ink2:#B4B4B4;--n-line:#3D3D3D;--n-raise:#242424;--n-link:#8AB4F8;--n-on:#111111}
+:root[data-view="simple"] body[data-area],:root[data-view="simple"][data-theme="dark"] body[data-area],:root[data-view="simple"] .hcard,:root[data-view="simple"][data-theme="dark"] .hcard{
+  --bg:var(--n-bg);--base:var(--n-bg);--surface:var(--n-bg);--raise:var(--n-raise);--chip:var(--n-raise);--tag:var(--n-raise);--line:var(--n-line);--line2:var(--n-line);
+  --ink:var(--n-ink);--ink0:var(--n-ink);--ink2:var(--n-ink2);--accent:var(--n-link);--ac:var(--n-link);--lk:var(--n-link);--lb:var(--n-ink2);--cmd:var(--n-ink);--hm:var(--n-ink2);
+  --on-ink:var(--n-on);--on:var(--n-on);--inp:var(--n-raise);--out:transparent;--pn:transparent;--code-faint:var(--n-ink2);--kw:var(--n-ink);--str:var(--n-ink);
+  --glass:transparent;--glass-b:var(--n-line);--gl:transparent;--glb:var(--n-line);--shadow:none;--gs:none;--scrim:rgba(0,0,0,.6);--nb:var(--n-bg);--term:var(--n-bg);--term-ac:var(--n-link);
+  --display:var(--sans);--text:var(--sans);--hero:var(--sans);--sb-h:0px;
+  --fs-display:3.5rem;--fs-h2:1.875rem;--fs-h3:1.3125rem;--fs-lead:1.1875rem;--fs-body:1.0625rem;--fs-ui:.9375rem;--fs-small:.8125rem;--fs-xs:.75rem;--fs-prompt:1.0625rem;--fs-panel:.9375rem;
+}
+@media (max-width:760px){
+  :root[data-view="simple"] body[data-area],:root[data-view="simple"][data-theme="dark"] body[data-area]{--fs-display:2.125rem;--fs-h2:1.5rem;--fs-h3:1.1875rem;--fs-lead:1.0625rem;--fs-body:1rem;--fs-prompt:1rem}
+}
+
+/* ---------- Camada neutra: sem movimento e sem decoração ---------- */
+[data-view="simple"] *,[data-view="simple"] *::before,[data-view="simple"] *::after{animation:none!important;transition:none!important}
+[data-view="simple"] body{background:var(--bg)!important;color:var(--ink);padding-bottom:0!important}
+[data-view="simple"] body::after{content:none!important}
+[data-view="simple"] :is(.sky,.fx,.hx,.sb,.chain-sig,.stage-rail,.ruler-trail,.ruler-mark,.ruler-n,.now-progress,.sims,.asc,.scl,.t-cur,.pm,.hc-lb,.hc-in,.hc-pm,.hc-pt,.hc-go,.cell-tm){display:none!important}
+[data-view="simple"] .cell::before{content:none!important}
+[data-view="simple"] :is(.rise-wait,.crt){opacity:1!important}
+[data-view="simple"] :is(.glass,.topbar,.now,.hcard,.hc-glass,.hc-pn,.hc-ou,.pn,.cell-out,.portrait,.ph .pn){background:var(--bg)!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+[data-view="simple"] :is(.glass,.hc-glass,.hc-pn,.hc-ou){border-color:var(--line)}
+[data-view="simple"] .stg::after{content:none}
+[data-view="simple"] :is(.sec-h h2,.pn-t)::before,[data-view="simple"] .ruler a::before{content:none!important}
+[data-view="simple"] :is(p,dd,li){text-align:left!important;-webkit-hyphens:manual;hyphens:manual}
+[data-view="simple"] :is(.content,.home) a:not(.rail-cv):not(.ic-link):not(.btn){text-decoration:underline;text-underline-offset:3px}
+[data-view="simple"] :is(h1,h2,h3,.rail-name,.now-title){font-family:var(--sans)!important;font-stretch:normal!important}
+[data-view="simple"] .ruler a[aria-current]{box-shadow:none}
+[data-view="simple"] .hero .area-title,[data-view="simple"] .home .name{font-size:var(--fs-h2);line-height:var(--lh-h2);letter-spacing:0}
+[data-view="simple"] .hcard{color:var(--ink);font-family:var(--sans)}
+[data-view="simple"] .hcard :is(h2,p){font-family:var(--sans)}
+/* Uma coluna de 46rem, alinhada à esquerda */
+[data-view="simple"] :is(.home,.home-foot){max-width:46rem}
+[data-view="simple"] .home .gate-hero,[data-view="simple"] .home .gate-pick{text-align:left}
+[data-view="simple"] .home .gate-lead{margin:0}
+[data-view="simple"] .home .gate-contact{justify-content:flex-start;margin-left:-11px}
+[data-view="simple"] .chain{grid-template-columns:minmax(0,1fr);grid-auto-rows:auto;gap:16px}
+[data-view="simple"] .chain::before{display:none}
+[data-view="simple"] .stage{display:block}
+[data-view="simple"] .hcard{display:block;min-height:0;height:auto;padding:16px;border:1px solid var(--line);border-radius:var(--radius)}
+[data-view="simple"] :is(.hc-glass,.hc-pn,.hc-ou){padding:0;border:0;margin:0}
+@media (min-width:761px){
+  [data-view="simple"] .shell{display:block;max-width:46rem;margin:0 auto;padding:0 24px}
+  [data-view="simple"] body[data-area] .rail{position:static;width:auto;height:auto;padding:28px 0 8px;gap:14px;overflow:visible}
+  [data-view="simple"] .ruler-track::before{display:none}
+  [data-view="simple"] .ruler ol{display:flex;flex-wrap:wrap;gap:0 18px}
+  [data-view="simple"] .ruler a{min-height:36px;padding:0!important;color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-weight:400}
+  [data-view="simple"] .ruler a:hover{color:var(--accent)}
+  [data-view="simple"] .rail-foot{margin-top:0}
+  [data-view="simple"] .content{max-width:none;padding:16px 0 64px}
+}
+/* Trechos que dependiam da fonte monoespaçada ou de posição absoluta */
+[data-view="simple"] .pn{padding:0;border:0;margin-top:8px}
+[data-view="simple"] .pn-t{position:static;max-width:none;margin:0 0 4px;padding:0;white-space:normal;line-height:1.3}
+[data-view="simple"] .tl{padding-left:0;margin-top:16px}
+[data-view="simple"] .tl::before,[data-view="simple"] .tl::after{display:none}
+[data-view="simple"] .ph .pn{padding:0}
+[data-view="simple"] :is(.stg,.stg-box){width:96px;height:123px}
+[data-view="simple"] .stg{width:246px;height:316px;transform:scale(.39)}
+[data-view="simple"] .stg-box{overflow:hidden}
+[data-view="simple"] .portrait{padding:0;border:0}
+[data-view="simple"] .cell{display:block}
+[data-view="simple"] .cell-group{margin-left:0}
+[data-view="simple"] body[data-area] .hero .area-title{font-size:var(--fs-h2)!important;line-height:var(--lh-h2)!important;letter-spacing:0}
+[data-view="simple"] body[data-area] :is(.facts,.sec-n,.hero-who){font-family:var(--sans)!important;letter-spacing:0}
+[data-view="simple"] .home-foot{flex-direction:column;align-items:flex-start}
+[data-view="simple"] .home-foot .foot-meta{margin:0;font-family:var(--sans)}
+[data-view="simple"] :is(.portrait img,.stg img,.crt){filter:grayscale(1)!important;mix-blend-mode:normal!important}
