@@ -142,9 +142,20 @@ async function browser() {
         const r = await evalJs(`(function(){var c=document.querySelector('.s-nav a[aria-current]');return {cur:c?c.getAttribute('href'):'',done:document.querySelectorAll('.s-nav li.is-done').length,pos:getComputedStyle(document.querySelector('.s-nav')).position}})()`); browserChecks++;
         if (r.cur !== "#projetos" || r.done !== 3) fail(`${f} (simple): régua em "${r.cur}" com ${r.done} seções percorridas, esperado "#projetos" com 3`);
         if (r.pos !== "absolute") fail(`${f} (simple, 1280px): a régua deveria ficar ao lado do conteúdo`);
-        await open(f, "?view=simple", 1000);
-        const w = await evalJs(STATE); browserChecks++;
-        if (w.sw > w.iw) fail(`${f} (1000px, simple): scroll horizontal (${w.sw} > ${w.iw})`);
+        // Computador: texto de até 52rem, régua a >= 32 px do texto e >= 16 px da borda, conjunto centralizado
+        for (const width of [1000, 1100, 1280, 1440, 1920]) for (const lang of ["pt-BR", "fr"]) {
+          await open(f, "?lang=" + lang + "&view=simple", width);
+          const g = await evalJs(`(function(){var n=document.querySelector('.s-nav').getBoundingClientRect(),m=document.querySelector('main').getBoundingClientRect(),d=document.documentElement;
+            return {text:m.width,gap:m.left-n.right,left:n.left,right:innerWidth-m.right,rem:parseFloat(getComputedStyle(d).fontSize),sw:d.scrollWidth,iw:innerWidth}})()`); browserChecks++;
+          const at = `${f} (${lang}, ${width}px, simple)`;
+          if (g.sw > g.iw) fail(`${at}: scroll horizontal (${g.sw} > ${g.iw})`);
+          if (g.text > 52 * g.rem + 0.5) fail(`${at}: texto com ${g.text.toFixed(0)} px, máximo 52rem`);
+          if (width >= 1280 && Math.abs(g.text - 52 * g.rem) > 0.5) fail(`${at}: texto com ${g.text.toFixed(0)} px, esperado 52rem`);
+          if (g.gap < 32) fail(`${at}: ${g.gap.toFixed(0)} px entre a régua e o texto (mín. 32)`);
+          if (g.left < 16) fail(`${at}: régua a ${g.left.toFixed(0)} px da borda (mín. 16)`);
+          if (Math.abs(g.left - g.right) > 1) fail(`${at}: conjunto fora do centro (${g.left.toFixed(0)} px à esquerda, ${g.right.toFixed(0)} px à direita)`);
+          if (process.env.VIEWS_VERBOSE) console.log(at, "texto", g.text.toFixed(0), "espaço", g.gap.toFixed(0), "margens", g.left.toFixed(0), g.right.toFixed(0));
+        }
       }
       { await open(f, "?lang=en&view=simple", 1280);
         const hrefs = await evalJs(`[].map.call(document.querySelectorAll('a.hm, .rail-pages a[data-face], .foot-areas a[data-face]'),function(a){return a.getAttribute('href')}).filter(function(h){return /^\\.\\.\\/index\\.html/.test(h)}).join(' ')`); browserChecks++;

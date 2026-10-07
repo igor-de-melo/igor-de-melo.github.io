@@ -1806,9 +1806,11 @@ html[lang="fr"][data-view="simple"] body[data-area="aero"] .content .research .c
 /* ---------- 9. Régua de seção no computador (>= 1000 px): fixa à esquerda do conteúdo ---------- */
 [data-view="simple"] .s-nav a[aria-current]{font-weight:700;color:var(--ink)}
 @media (min-width:1000px){
-  [data-view="simple"] body[data-area="aero"] .shell{max-width:calc(46rem + 48px + 216px);padding-left:240px}
+  /* Texto de até 52rem; régua (192 px) + 40 px de espaço à esquerda dele; 24 px de margem de cada lado.
+     O conjunto régua + espaço + texto fica centralizado e, em janelas estreitas, é o texto que encolhe. */
+  [data-view="simple"] body[data-area="aero"] .shell{max-width:calc(52rem + 232px + 48px);padding-left:256px}
   [data-view="simple"] body[data-area="aero"] .content{position:relative}
-  [data-view="simple"] body[data-area="aero"] .s-nav{position:absolute;top:0;bottom:0;left:-216px;width:192px;margin:0;padding:0;border:0}
+  [data-view="simple"] body[data-area="aero"] .s-nav{position:absolute;top:0;bottom:0;left:-232px;width:192px;margin:0;padding:0;border:0}
   [data-view="simple"] body[data-area="aero"] .s-nav-h{display:block;position:sticky;top:calc(var(--top-h) + 24px);margin:24px 0 0;padding-bottom:10px;color:var(--ink2);font-weight:400}
   [data-view="simple"] body[data-area="aero"] .s-nav ul{display:block;position:sticky;top:calc(var(--top-h) + 56px)}
   [data-view="simple"] body[data-area="aero"] .s-nav li{display:block;position:relative;margin:0;padding-left:18px;border-left:2px solid var(--line)}
