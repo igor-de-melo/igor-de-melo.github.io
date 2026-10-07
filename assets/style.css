@@ -1415,8 +1415,8 @@ body[data-area="data"] .sim-tab{font-size:var(--fs-body);line-height:var(--lh-co
 }
 
 /* ---------- Camada neutra: tokens (as quatro páginas ficam com a mesma aparência) ---------- */
-:root[data-view="simple"]{--n-bg:#FFFFFF;--n-ink:#111111;--n-ink2:#4A4A4A;--n-line:#CFCFCF;--n-raise:#EEEEEE;--n-link:#0B4FB3;--n-on:#FFFFFF;scroll-behavior:auto}
-:root[data-view="simple"][data-theme="dark"]{--n-bg:#111111;--n-ink:#E8E8E8;--n-ink2:#B4B4B4;--n-line:#3D3D3D;--n-raise:#242424;--n-link:#8AB4F8;--n-on:#111111}
+:root[data-view="simple"]{--n-bg:#FFFFFF;--n-ink:#14202B;--n-ink2:#4A5663;--n-line:#D8DEE6;--n-raise:#F5F7FA;--n-link:#1F5FA8;--n-on:#FFFFFF;--n-ok:#14703A;--n-ok-bg:#E6F4EA;--n-mix:6%;scroll-behavior:auto}
+:root[data-view="simple"][data-theme="dark"]{--n-bg:#111418;--n-ink:#E8EBEF;--n-ink2:#A9B2BD;--n-line:#2B333C;--n-raise:#181D23;--n-link:#8AB4F8;--n-on:#111418;--n-ok:#7EE0A3;--n-ok-bg:#12301F;--n-mix:12%}
 :root[data-view="simple"] body[data-area],:root[data-view="simple"][data-theme="dark"] body[data-area]{
   --bg:var(--n-bg);--base:var(--n-bg);--surface:var(--n-bg);--raise:var(--n-raise);--chip:var(--n-raise);--tag:var(--n-raise);--line:var(--n-line);--line2:var(--n-line);
   --ink:var(--n-ink);--ink0:var(--n-ink);--ink2:var(--n-ink2);--accent:var(--n-link);--ac:var(--n-link);--lk:var(--n-link);--lb:var(--n-ink2);--cmd:var(--n-ink);--hm:var(--n-ink2);
@@ -1433,7 +1433,7 @@ body[data-area="data"] .sim-tab{font-size:var(--fs-body);line-height:var(--lh-co
 [data-view="simple"] *,[data-view="simple"] *::before,[data-view="simple"] *::after{animation:none!important;transition:none!important}
 [data-view="simple"] body{background:var(--bg)!important;color:var(--ink);padding-bottom:0!important}
 [data-view="simple"] body::after{content:none!important}
-[data-view="simple"] :is(.sky,.fx,.hx,.sb,.ruler-trail,.ruler-mark,.ruler-n,.now-progress,.sims,.asc,.scl,.t-cur,.pm,.cell-tm){display:none!important}
+[data-view="simple"] :is(.sky,.fx,.hx,.sb,.ruler-trail,.ruler-mark,.ruler-n,.sims,.asc,.scl,.t-cur,.pm,.cell-tm){display:none!important}
 [data-view="simple"] .cell::before{content:none!important}
 [data-view="simple"] :is(.rise-wait,.crt){opacity:1!important}
 [data-view="simple"] :is(.glass,.topbar,.now,.pn,.cell-out,.portrait,.ph .pn){background:var(--bg)!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
@@ -1490,7 +1490,7 @@ html:not([data-view="simple"]) body[data-area="it-security"] .theme-toggle{displ
   [data-view="simple"] body[data-area="aero"] .content{padding-top:0}
 }
 @media (max-width:760px){
-  [data-view="simple"] body[data-area="aero"] .rail :is(.ruler,.rail-name){display:none}
+  [data-view="simple"] body[data-area="aero"] .rail .rail-name{display:none}
 }
 
 /* ---------- Texto ---------- */
@@ -1716,3 +1716,152 @@ html[lang="fr"][data-view="simple"] body[data-area="aero"] .content .research .c
 @media (max-width:760px){.gate-avail{margin-top:12px}}
 /* Rótulo do botão em duas linhas (francês na fonte monoespaçada, no celular): centralizado */
 .hcard-simple{text-align:center}
+
+/* =====================================================================
+   S2.1 — Simplificado: passe visual (neutros + um acento por página; nada se move, os estados trocam na hora)
+   Tokens novos em body: --tint (acento a 6% no claro e 12% no escuro), --ac30 (acento a 30%), --ok / --ok-bg (disponível).
+   Regras de componente valem para Aero; o S3 estende o prefixo a Dados e TI e Ciber.
+   ===================================================================== */
+:root[data-view="simple"]{--i-mail:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Cpath d='M3.5 7l8.5 6.5L20.5 7'/%3E%3C/svg%3E");--i-in:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3E%3Cpath d='M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z'/%3E%3C/svg%3E");--i-gh:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3E%3Cpath d='M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'/%3E%3C/svg%3E");--i-doc:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3h7l5 5v13H7z'/%3E%3Cpath d='M14 3v5h5'/%3E%3Cpath d='M10 13h6M10 17h6'/%3E%3C/svg%3E");--i-ext:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 5h5v5'/%3E%3Cpath d='M19 5l-8 8'/%3E%3Cpath d='M11 7H6v11h11v-5'/%3E%3C/svg%3E")}
+/* Acento por página */
+:root[data-view="simple"] body[data-area="data"]{--n-link:#0F766E}
+:root[data-view="simple"][data-theme="dark"] body[data-area="data"]{--n-link:#5FD3C8}
+:root[data-view="simple"] body[data-area="it-security"]{--n-link:#15803D}
+:root[data-view="simple"][data-theme="dark"] body[data-area="it-security"]{--n-link:#6EE7A0}
+:root[data-view="simple"] body[data-area]{--tint:color-mix(in srgb,var(--n-link) var(--n-mix),var(--n-bg));--ac30:color-mix(in srgb,var(--n-link) 30%,var(--n-bg));--ok:var(--n-ok);--ok-bg:var(--n-ok-bg)}
+[data-view="simple"] :is(.view-switch,.rail-view,.lang) button[aria-pressed="true"]{background:var(--tint);box-shadow:inset 0 -2px 0 var(--accent)}
+[data-view="simple"] .content a:not(.rail-cv):not(.ic-link):not(.btn){text-decoration-color:var(--accent)}
+
+/* ---------- 1. Cabeçalho em faixa ---------- */
+[data-view="simple"] body[data-area="aero"] .content .hero{margin:24px 0 0;padding:20px;border-bottom:3px solid var(--accent);border-radius:8px 8px 0 0;background:var(--tint)}
+[data-view="simple"] body[data-area="aero"] .content .portrait,[data-view="simple"] body[data-area="aero"] .content .portrait img{border-radius:6px}
+[data-view="simple"] body[data-area="aero"] .content .intro .muted{display:flex;align-items:baseline;gap:8px;width:fit-content;margin:4px 0 14px;padding:4px 12px;border-radius:14px;background:var(--ok-bg);color:var(--ok);font:600 var(--fs-small)/var(--lh-small) var(--sans)}
+[data-view="simple"] body[data-area="aero"] .content .intro .muted::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--ok)}
+[data-view="simple"] body[data-area="aero"] .s-contact{display:grid;grid-template-columns:repeat(2,max-content);gap:2px 32px}
+[data-view="simple"] .s-contact .s-c{display:flex;align-items:center;gap:6px;min-width:0}
+[data-view="simple"] .s-contact .s-c::before{content:"";flex:none;width:16px;height:16px;margin-right:2px;background:var(--ink2);-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat}
+[data-view="simple"] .s-c--mail{--i:var(--i-mail)}
+[data-view="simple"] .s-c--in{--i:var(--i-in)}
+[data-view="simple"] .s-c--gh{--i:var(--i-gh)}
+[data-view="simple"] .s-c--cv{--i:var(--i-doc)}
+@media (max-width:760px){
+  [data-view="simple"] body[data-area="aero"] .content .hero{margin-top:16px;padding:16px}
+  [data-view="simple"] body[data-area="aero"] .s-contact{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ---------- 2. Título de seção: marcador quadrado e filete no acento a 30% ---------- */
+[data-view="simple"] body[data-area="aero"] .sec-h,[data-view="simple"] body[data-area="aero"] .content .sublist{padding-top:0;border-top:0}
+[data-view="simple"] body[data-area="aero"] .sec-h{margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--ac30)}
+[data-view="simple"] body[data-area="aero"] .content .sublist>h3{margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--ac30)}
+[data-view="simple"] body[data-area="aero"] .sec-h h2::before,[data-view="simple"] body[data-area="aero"] .content .sublist>h3::before{content:""!important;display:inline-block;width:10px;height:10px;margin-right:10px;background:var(--accent)}
+
+/* ---------- 3. Linha do tempo (Experiência e Formação); o período vira etiqueta ---------- */
+[data-view="simple"] body[data-area="aero"] .content .timeline{position:relative;padding-left:24px}
+[data-view="simple"] body[data-area="aero"] .content .timeline::before{content:"";position:absolute;left:4px;top:8px;bottom:8px;width:2px;background:var(--ac30)}
+[data-view="simple"] body[data-area="aero"] .content .timeline>li{position:relative;column-gap:10px}
+[data-view="simple"] body[data-area="aero"] .content .timeline>li::before{content:"";position:absolute;left:-24px;top:7px;box-sizing:border-box;width:10px;height:10px;border:2px solid var(--accent);border-radius:50%;background:var(--bg)}
+[data-view="simple"] body[data-area="aero"] .content .timeline>li.is-current::before{background:var(--accent)}
+[data-view="simple"] body[data-area="aero"] .content :is(.timeline,.research) .when,[data-view="simple"] body[data-area="aero"] .content .org-p{order:2;padding:1px 10px;border:1px solid var(--ac30);border-radius:999px;background:var(--tint);color:var(--accent);font:600 var(--fs-small)/var(--lh-small) var(--sans);white-space:nowrap}
+[data-view="simple"] body[data-area="aero"] .content :is(.timeline,.research) :is(.when,.org){margin-top:4px}
+[data-view="simple"] body[data-area="aero"] .content :is(.timeline,.research) .org{order:3}
+[data-view="simple"] body[data-area="aero"] .content :is(.timeline,.research) .org::after{content:none}
+[data-view="simple"] body[data-area="aero"] .content .project .org,[data-view="simple"] body[data-area="aero"] .content .project .org>span[lang]{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}
+[data-view="simple"] body[data-area="aero"] .content .project .org{margin-top:4px}
+[data-view="simple"] body[data-area="aero"] .content .org-p{order:-1}
+[data-view="simple"] body[data-area="aero"] .content .org-sep{display:none}
+
+/* ---------- 4. Projetos e Pesquisa em cartões ---------- */
+[data-view="simple"] body[data-area="aero"] .content article:is(.project,.research){column-gap:10px;margin-bottom:16px;padding:18px 20px;border:1px solid var(--line);border-radius:8px;background:var(--raise)!important}
+@media (max-width:760px){[data-view="simple"] body[data-area="aero"] .content article:is(.project,.research){padding:16px}}
+
+/* ---------- 5. Problema, Abordagem, Resultado: rótulos em coluna; o Resultado com barra no acento ---------- */
+[data-view="simple"] body[data-area="aero"] .content .par{margin-top:12px}
+[data-view="simple"] body[data-area="aero"] .content .par>div{display:grid;grid-template-columns:6.5rem minmax(0,1fr);gap:0 12px;margin-bottom:8px}
+[data-view="simple"] body[data-area="aero"] .content .par dt{display:block;font-weight:600;color:var(--accent)}
+[data-view="simple"] body[data-area="aero"] .content .par dt::after{content:none!important}
+[data-view="simple"] body[data-area="aero"] .content .par dd{display:block}
+[data-view="simple"] body[data-area="aero"] .content .par-result dd{padding-left:12px;border-left:3px solid var(--accent)}
+@media (max-width:760px){[data-view="simple"] body[data-area="aero"] .content .par>div{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- 6. Etiquetas (Stack e Competências) e tabela de resultados ---------- */
+[data-view="simple"] body[data-area="aero"] .content .chips,[data-view="simple"] body[data-area="aero"] .content .research .chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+[data-view="simple"] body[data-area="aero"] .content .chips li{display:block;padding:2px 10px;border:1px solid var(--line);border-radius:999px;background:var(--tint);color:var(--ink);font:400 var(--fs-small)/var(--lh-small) var(--sans)}
+[data-view="simple"] body[data-area="aero"] .content .chips li::after{content:none}
+[data-view="simple"] body[data-area="aero"] .content .par .chips{padding-top:3px}
+[data-view="simple"] body[data-area="aero"] .content .research .chips{margin-top:10px}
+[data-view="simple"] body[data-area="aero"] .content .research .chips::before{content:"Stack"!important;margin-right:6px;font:600 var(--fs-body)/var(--lh-body) var(--sans);color:var(--accent)}
+[data-view="simple"] body[data-area="aero"] .content .skills{gap:12px 16px}
+[data-view="simple"] body[data-area="aero"] .content .skills dt{font-weight:600}
+[data-view="simple"] body[data-area="aero"] .content .results{margin-top:12px}
+[data-view="simple"] body[data-area="aero"] .content .results :is(th,td){padding:6px 20px 6px 10px}
+[data-view="simple"] body[data-area="aero"] .content .results th{background:var(--tint)!important}
+[data-view="simple"] body[data-area="aero"] .content .results tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--ink) 4%,transparent)!important}
+[data-view="simple"] body[data-area="aero"] .content .results td:last-child>span{display:inline-block;padding:0 9px;border:1px solid var(--ac30);border-radius:999px;background:var(--tint);color:var(--accent);font-weight:600}
+@media (max-width:760px){[data-view="simple"] body[data-area="aero"] .content .skills{gap:0}}
+
+/* ---------- 7. Links de PDF e externos com ícone pequeno (máscara em CSS, na cor do texto) ---------- */
+[data-view="simple"] body[data-area="aero"] .content a[href$=".pdf"]:not(.paper):not(.s-contact a)::after,[data-view="simple"] body[data-area="aero"] .content .paper-link::after,[data-view="simple"] body[data-area="aero"] .content a[target="_blank"]:not(.paper):not([href$=".pdf"]):not(.s-contact a)::after{content:"";display:inline-block;width:.8em;height:.8em;margin-left:4px;vertical-align:-.06em;background:currentColor;-webkit-mask:var(--i-ext) center/contain no-repeat;mask:var(--i-ext) center/contain no-repeat}
+[data-view="simple"] body[data-area="aero"] .content a[href$=".pdf"]:not(.paper):not(.s-contact a)::after,[data-view="simple"] body[data-area="aero"] .content .paper-link::after{-webkit-mask-image:var(--i-doc);mask-image:var(--i-doc)}
+
+/* ---------- 9. Régua de seção no computador (>= 1000 px): fixa à esquerda do conteúdo ---------- */
+[data-view="simple"] .s-nav a[aria-current]{font-weight:700;color:var(--ink)}
+@media (min-width:1000px){
+  [data-view="simple"] body[data-area="aero"] .shell{max-width:calc(46rem + 48px + 216px);padding-left:240px}
+  [data-view="simple"] body[data-area="aero"] .content{position:relative}
+  [data-view="simple"] body[data-area="aero"] .s-nav{position:absolute;top:0;bottom:0;left:-216px;width:192px;margin:0;padding:0;border:0}
+  [data-view="simple"] body[data-area="aero"] .s-nav-h{display:block;position:sticky;top:calc(var(--top-h) + 24px);margin:24px 0 0;padding-bottom:10px;color:var(--ink2);font-weight:400}
+  [data-view="simple"] body[data-area="aero"] .s-nav ul{display:block;position:sticky;top:calc(var(--top-h) + 56px)}
+  [data-view="simple"] body[data-area="aero"] .s-nav li{display:block;position:relative;margin:0;padding-left:18px;border-left:2px solid var(--line)}
+  [data-view="simple"] body[data-area="aero"] .s-nav li.is-done{border-left-color:var(--accent)}
+  [data-view="simple"] body[data-area="aero"] .s-nav li::before{content:"";position:absolute;left:-2px;top:50%;width:8px;height:2px;margin-top:-1px;background:var(--ink2)}
+  [data-view="simple"] body[data-area="aero"] .s-nav li.is-done::before{background:var(--accent)}
+  [data-view="simple"] body[data-area="aero"] .s-nav li.is-cur::before{left:-6px;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:var(--accent)}
+  [data-view="simple"] body[data-area="aero"] .s-nav a{display:block;padding:7px 0;color:var(--ink2);text-decoration:none!important}
+  [data-view="simple"] body[data-area="aero"] .s-nav a:hover{color:var(--ink);text-decoration:underline!important;text-underline-offset:3px}
+  [data-view="simple"] body[data-area="aero"] .s-nav a[aria-current]{color:var(--ink)}
+}
+
+/* ---------- 10. Celular: barra fina com um traço por seção e o progresso no acento ---------- */
+[data-view="simple"] body[data-area] .now-progress{height:14px;margin:0 16px;gap:0}
+[data-view="simple"] body[data-area] .now-bar{margin:0}
+[data-view="simple"] body[data-area] .now-bar::before{height:2px;margin-top:-1px;background:var(--line)}
+[data-view="simple"] body[data-area] .now-fill{top:50%;bottom:auto;height:2px;margin-top:-1px;border-radius:0;background:var(--accent)}
+[data-view="simple"] body[data-area] :is(.now-mark,.now-n,.now-pct){display:none}
+[data-view="simple"] body[data-area] .now-bar i{width:2px;height:8px;margin:-4px 0 0 -1px;background:var(--ink2);opacity:1}
+
+/* ---------- Impressão: sem fundos tingidos, linhas do tempo nem pílulas; filetes finos em cinza ---------- */
+@media print{
+  :root[data-view="simple"] body[data-area]{--tint:#FFFFFF;--ac30:#999999;--ok:#000000;--ok-bg:#FFFFFF}
+  [data-view="simple"] body[data-area="aero"] .content .hero{margin:0;padding:0 0 8pt;border-bottom:1px solid #999999;border-radius:0;background:none}
+  [data-view="simple"] body[data-area="aero"] .content .intro .muted{display:block;width:auto;margin:0 0 6pt;padding:0;background:none;font:700 var(--fs-body)/var(--lh-body) var(--sans)}
+  [data-view="simple"] body[data-area="aero"] .content .intro .muted::before,[data-view="simple"] .s-contact .s-c::before,[data-view="simple"] body[data-area="aero"] .content .timeline::before,[data-view="simple"] body[data-area="aero"] .content .timeline>li::before,[data-view="simple"] body[data-area="aero"] .sec-h h2::before,[data-view="simple"] body[data-area="aero"] .content .sublist>h3::before{content:none!important}
+  [data-view="simple"] .s-contact .s-c{display:block}
+  [data-view="simple"] body[data-area="aero"] .sec-h,[data-view="simple"] body[data-area="aero"] .content .sublist>h3{border-bottom:1px solid #999999}
+  [data-view="simple"] body[data-area="aero"] .content .timeline{padding-left:0}
+  [data-view="simple"] body[data-area="aero"] .content :is(.timeline,.research) .when,[data-view="simple"] body[data-area="aero"] .content .org-p{order:3;padding:0;border:0;background:none;color:var(--ink2);font-weight:400}
+  [data-view="simple"] body[data-area="aero"] .content :is(.timeline,.research) .org{order:2}
+  [data-view="simple"] body[data-area="aero"] .content :is(.timeline,.research) .org::after{content:" ·"}
+  [data-view="simple"] body[data-area="aero"] .content .project .org,[data-view="simple"] body[data-area="aero"] .content .project .org>span[lang]{display:block}
+  [data-view="simple"] body[data-area="aero"] .content .org-p{order:0}
+  [data-view="simple"] body[data-area="aero"] .content .org-sep.s-only{display:inline}
+  [data-view="simple"] body[data-area="aero"] .content article:is(.project,.research){padding:0;border:0;background:none!important}
+  [data-view="simple"] body[data-area="aero"] .content .par>div{display:block;margin-bottom:4pt}
+  [data-view="simple"] body[data-area="aero"] .content .par dt{display:inline;font-weight:700;color:var(--ink)}
+  [data-view="simple"] body[data-area="aero"] .content .par dt::after{content:": "!important}
+  html[lang="fr"][data-view="simple"] body[data-area="aero"] .content .par dt::after{content:"\00a0: "!important}
+  [data-view="simple"] body[data-area="aero"] .content .par dd{display:inline}
+  [data-view="simple"] body[data-area="aero"] .content .par-result dd{padding-left:0;border-left:0}
+  [data-view="simple"] body[data-area="aero"] .content .chips,[data-view="simple"] body[data-area="aero"] .content .research .chips{display:inline;padding:0}
+  [data-view="simple"] body[data-area="aero"] .content .research .chips{display:block}
+  [data-view="simple"] body[data-area="aero"] .content .chips li{display:inline;padding:0;border:0;background:none;font:400 var(--fs-body)/var(--lh-body) var(--sans)}
+  [data-view="simple"] body[data-area="aero"] .content .chips li::after{content:", "}
+  [data-view="simple"] body[data-area="aero"] .content .chips li:last-child::after{content:none}
+  [data-view="simple"] body[data-area="aero"] .content .research .chips::before{content:"Stack: "!important;margin:0;font-weight:700;color:var(--ink)}
+  html[lang="fr"][data-view="simple"] body[data-area="aero"] .content .research .chips::before{content:"Stack\00a0: "!important}
+  [data-view="simple"] body[data-area="aero"] .content .results th,[data-view="simple"] body[data-area="aero"] .content .results tbody tr:nth-child(even) td{background:none!important}
+  [data-view="simple"] body[data-area="aero"] .content .results td:last-child>span{display:inline;padding:0;border:0;background:none;color:var(--ink);font-weight:400}
+  /* Sem ícones; nos links de PDF, o endereço absoluto depois do texto */
+  [data-view="simple"] body[data-area="aero"] .content a[target="_blank"]:not(.paper):not([href$=".pdf"]):not(.s-contact a)::after{content:" (" attr(href) ")";font-size:var(--fs-small);overflow-wrap:anywhere;display:inline;width:auto;height:auto;margin:0;background:none;-webkit-mask:none;mask:none}
+  [data-view="simple"] body[data-area="aero"] .content [data-print-url]::after{content:" (" attr(data-print-url) ")"!important;display:inline;width:auto;height:auto;margin:0;background:none;-webkit-mask:none;mask:none;font-size:var(--fs-small);overflow-wrap:anywhere}
+  [data-view="simple"] body[data-area="aero"] .content .gallery-n{display:none}
+}

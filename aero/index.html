@@ -137,12 +137,14 @@
         <span class="ruler-trail" aria-hidden="true"></span>
         <span class="ruler-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" focusable="false"><path d="M12 22 L10.6 17 L3 14.6 V12.8 L10.6 14 L10.4 8.2 L8 6.6 V5.2 L12 6.2 L16 5.2 V6.6 L13.6 8.2 L13.4 14 L21 12.8 V14.6 L13.4 17 Z" fill="currentColor"/></svg></span>
         <ol>
-          <li><a href="#sobre" aria-current="location"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></a></li>
-          <li><a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a></li>
+          <li><a href="#sobre" aria-current="location"><span class="t-only"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></span><span class="s-only"><span lang="pt-BR">Resumo</span><span lang="en">Summary</span><span lang="fr">Résumé</span></span></a></li>
+          <li id="r-experiencia"><a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a></li>
           <li><a href="#projetos"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></a></li>
-          <li><a href="#pesquisa"><span lang="pt-BR">Pesquisa</span><span lang="en">Research</span><span lang="fr">Recherche</span></a></li>
+          <li><a href="#pesquisa"><span class="t-only"><span lang="pt-BR">Pesquisa</span><span lang="en">Research</span><span lang="fr">Recherche</span></span><span class="s-only"><span lang="pt-BR">Pesquisa e publicações</span><span lang="en">Research and publications</span><span lang="fr">Recherche et publications</span></span></a></li>
           <li><a href="#formacao"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></a></li>
-          <li><a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></a></li>
+          <li class="s-only"><a href="#cursos"><span lang="pt-BR">Cursos e certificados</span><span lang="en">Courses and certificates</span><span lang="fr">Cours et certificats</span></a></li>
+          <li data-simple-before="r-experiencia"><a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></a></li>
+          <li class="s-only"><a href="#idiomas"><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></a></li>
           <li><a href="#contato"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></a></li>
         </ol>
       </div>
@@ -175,10 +177,10 @@
       <span class="contact-line"><span class="contact-l"><span lang="pt-BR">Contato:</span><span lang="en">Contact:</span><span lang="fr">Contact&nbsp;:</span></span><a class="ic-link" href="mailto:igor_amelo@usp.br" aria-label="E-mail: igor_amelo@usp.br" title="E-mail: igor_amelo@usp.br"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6.5L20.5 7"/></svg></a><a class="ic-link" href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener" aria-label="LinkedIn: linkedin.com/in/igorademelo" title="LinkedIn: linkedin.com/in/igorademelo"><svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg></a><a class="ic-link" href="https://github.com/igor-de-melo" target="_blank" rel="noopener" aria-label="GitHub: github.com/igor-de-melo" title="GitHub: github.com/igor-de-melo"><svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></a></span>
     </div>
     <ul class="s-contact s-only">
-      <li><span lang="pt-BR">E-mail:</span><span lang="en">Email:</span><span lang="fr">E-mail&nbsp;:</span> <a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a></li>
-      <li><span lang="pt-BR">LinkedIn:</span><span lang="en">LinkedIn:</span><span lang="fr">LinkedIn&nbsp;:</span> <a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">linkedin.com/in/igorademelo</a></li>
-      <li><span lang="pt-BR">GitHub:</span><span lang="en">GitHub:</span><span lang="fr">GitHub&nbsp;:</span> <a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">github.com/igor-de-melo</a></li>
-      <li><a href="../assets/docs/cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf"><span lang="pt-BR">Baixar currículo (PDF)</span><span lang="en">Download résumé (PDF)</span><span lang="fr">Télécharger le CV (PDF)</span></a></li>
+      <li class="s-c s-c--mail"><span lang="pt-BR">E-mail:</span><span lang="en">Email:</span><span lang="fr">E-mail&nbsp;:</span> <a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a></li>
+      <li class="s-c s-c--in"><span lang="pt-BR">LinkedIn:</span><span lang="en">LinkedIn:</span><span lang="fr">LinkedIn&nbsp;:</span> <a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">linkedin.com/in/igorademelo</a></li>
+      <li class="s-c s-c--gh"><span lang="pt-BR">GitHub:</span><span lang="en">GitHub:</span><span lang="fr">GitHub&nbsp;:</span> <a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">github.com/igor-de-melo</a></li>
+      <li class="s-c s-c--cv"><a href="../assets/docs/cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf" data-print-url="https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo.pdf"><span lang="pt-BR">Baixar currículo (PDF)</span><span lang="en">Download résumé (PDF)</span><span lang="fr">Télécharger le CV (PDF)</span></a></li>
     </ul>
   </div>
   </div>
@@ -195,6 +197,7 @@
     <li><a href="#pesquisa"><span lang="pt-BR">Pesquisa e publicações</span><span lang="en">Research and publications</span><span lang="fr">Recherche et publications</span></a></li>
     <li><a href="#formacao"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></a></li>
     <li><a href="#cursos"><span lang="pt-BR">Cursos e certificados</span><span lang="en">Courses and certificates</span><span lang="fr">Cours et certificats</span></a></li>
+    <li><a href="#idiomas"><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></a></li>
     <li><a href="#contato"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></a></li>
   </ul>
 </nav>
@@ -388,15 +391,15 @@
             <button type="button" class="gallery-thumb" aria-pressed="false" data-src="../assets/img/vant-cad-2.jpg" data-w="1400" data-h="638"><img src="../assets/img/vant-cad-2.jpg" width="1400" height="638" alt="Modelo CAD do Talon 1400 (Flightory), plataforma base do VANT: vista lateral" data-alt-pt-br="Modelo CAD do Talon 1400 (Flightory), plataforma base do VANT: vista lateral" data-alt-en="CAD model of the Flightory Talon 1400, the UAV’s base platform: side view" data-alt-fr="Modèle CAO du Talon 1400 (Flightory), plateforme de base du drone&nbsp;: vue de côté" loading="lazy"><span class="sr"><span lang="pt-BR">Ver vista 2</span><span lang="en">Show view 2</span><span lang="fr">Voir la vue 2</span></span></button>
             <button type="button" class="gallery-thumb" aria-pressed="false" data-src="../assets/img/vant-cad-3.jpg" data-w="1400" data-h="713"><img src="../assets/img/vant-cad-3.jpg" width="1400" height="713" alt="Modelo CAD do Talon 1400 (Flightory), plataforma base do VANT: vista explodida" data-alt-pt-br="Modelo CAD do Talon 1400 (Flightory), plataforma base do VANT: vista explodida" data-alt-en="CAD model of the Flightory Talon 1400, the UAV’s base platform: exploded view" data-alt-fr="Modèle CAO du Talon 1400 (Flightory), plateforme de base du drone&nbsp;: vue éclatée" loading="lazy"><span class="sr"><span lang="pt-BR">Ver vista 3</span><span lang="en">Show view 3</span><span lang="fr">Voir la vue 3</span></span></button>
           </div>
-          <figcaption><span lang="pt-BR">Modelo CAD da fuselagem Talon 1400 (Flightory), plataforma base do VANT, vista <span class="gallery-i">1</span> de 3</span><span lang="en">CAD model of the Flightory Talon 1400 airframe, the UAV’s base platform, view <span class="gallery-i">1</span> of 3</span><span lang="fr">Modèle CAO de la cellule Talon 1400 (Flightory), plateforme de base du drone, vue <span class="gallery-i">1</span> sur 3</span></figcaption>
+          <figcaption><span lang="pt-BR">Modelo CAD da fuselagem Talon 1400 (Flightory), plataforma base do VANT<span class="gallery-n">, vista <span class="gallery-i">1</span> de 3</span></span><span lang="en">CAD model of the Flightory Talon 1400 airframe, the UAV’s base platform<span class="gallery-n">, view <span class="gallery-i">1</span> of 3</span></span><span lang="fr">Modèle CAO de la cellule Talon 1400 (Flightory), plateforme de base du drone<span class="gallery-n">, vue <span class="gallery-i">1</span> sur 3</span></span></figcaption>
         </figure>
         <div class="project-main">
           <h3><span lang="pt-BR">VANT autônomo de asa fixa</span><span lang="en">Autonomous fixed-wing UAV</span><span lang="fr">Drone autonome à voilure fixe</span></h3>
-          <p class="org"><span lang="pt-BR">SEMEAR, 2025 – atual</span><span lang="en">SEMEAR, 2025 – present</span><span lang="fr">SEMEAR, 2025 – aujourd’hui</span></p>
+          <p class="org"><span lang="pt-BR">SEMEAR<span class="org-sep t-only">, </span><span class="org-sep s-only"> · </span><span class="org-p">2025 – atual</span></span><span lang="en">SEMEAR<span class="org-sep t-only">, </span><span class="org-sep s-only"> · </span><span class="org-p">2025 – present</span></span><span lang="fr">SEMEAR<span class="org-sep t-only">, </span><span class="org-sep s-only"> · </span><span class="org-p">2025 – aujourd’hui</span></span></p>
           <dl class="par">
             <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Desenvolver um VANT autônomo de asa fixa, a partir da plataforma Talon 1400, maximizando o desempenho aerodinâmico e a autonomia de voo.</span><span lang="en">Develop an autonomous fixed-wing UAV based on the Talon 1400 platform, maximizing aerodynamic performance and flight endurance.</span><span lang="fr">Développer un drone autonome à voilure fixe à partir de la plateforme Talon 1400, en maximisant les performances aérodynamiques et l’autonomie de vol.</span></dd></div>
             <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Como gerente de projeto, respondo pela arquitetura, pelos requisitos, pela integração entre subsistemas e pelo planejamento de verificação e de riscos, com a metodologia de engenharia de sistemas da NASA. A autonomia vem da otimização do sistema de propulsão elétrica.</span><span lang="en">As project manager, I am responsible for the architecture, requirements, subsystem integration, and verification and risk planning, following the NASA systems engineering methodology. Endurance is driven by optimizing the electric propulsion system.</span><span lang="fr">En tant que chef de projet, je suis responsable de l’architecture, des exigences, de l’intégration des sous-systèmes et de la planification de la vérification et des risques, selon la méthodologie d’ingénierie système de la NASA. L’autonomie repose sur l’optimisation de la propulsion électrique.</span></dd></div>
-            <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Em andamento.</span><span lang="en">In progress since 2025.</span><span lang="fr">En cours depuis 2025.</span></dd></div>
+            <div class="par-result"><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Em andamento.</span><span lang="en">In progress since 2025.</span><span lang="fr">En cours depuis 2025.</span></dd></div>
             <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
               <ul class="chips" lang="pt-BR"><li>Engenharia de sistemas (NASA)</li><li>Engenharia de requisitos</li><li>Modelagem de dinâmica de voo</li><li>Simulações voltadas ao controle</li></ul>
               <ul class="chips" lang="en"><li>Systems engineering (NASA)</li><li>Requirements engineering</li><li>Flight dynamics modeling</li><li>Control-oriented simulation</li></ul>
@@ -414,15 +417,15 @@
             <button type="button" class="gallery-thumb" aria-pressed="false" data-src="../assets/img/lasc-launch.jpg" data-w="933" data-h="1400"><img src="../assets/img/lasc-launch.jpg" width="933" height="1400" alt="Foguete em voo na LASC, com o rastro de fumaça" data-alt-pt-br="Foguete em voo na LASC, com o rastro de fumaça" data-alt-en="Rocket in flight at LASC, trailing smoke" data-alt-fr="Fusée en vol à la LASC, avec sa traînée de fumée" loading="lazy"><span class="sr"><span lang="pt-BR">Ver foto 2</span><span lang="en">Show photo 2</span><span lang="fr">Voir la photo 2</span></span></button>
             <button type="button" class="gallery-thumb" aria-pressed="false" data-src="../assets/img/lasc-rigel.jpg" data-w="933" data-h="1400"><img src="../assets/img/lasc-rigel.jpg" width="933" height="1400" alt="Foguete Rigel sobre uma bancada, com coifa roxa e adesivos da equipe" data-alt-pt-br="Foguete Rigel sobre uma bancada, com coifa roxa e adesivos da equipe" data-alt-en="Rigel rocket on a workbench, with a purple nose cone and team stickers" data-alt-fr="Fusée Rigel sur une table de travail, avec son ogive violette et les autocollants de l’équipe" loading="lazy"><span class="sr"><span lang="pt-BR">Ver foto 3</span><span lang="en">Show photo 3</span><span lang="fr">Voir la photo 3</span></span></button>
           </div>
-          <figcaption><span lang="pt-BR">Equipe TOPUS na LASC 2022, foto <span class="gallery-i">1</span> de 3</span><span lang="en">TOPUS team at LASC 2022, photo <span class="gallery-i">1</span> of 3</span><span lang="fr">Équipe TOPUS à la LASC 2022, photo <span class="gallery-i">1</span> sur 3</span></figcaption>
+          <figcaption><span lang="pt-BR">Equipe TOPUS na LASC 2022<span class="gallery-n">, foto <span class="gallery-i">1</span> de 3</span></span><span lang="en">TOPUS team at LASC 2022<span class="gallery-n">, photo <span class="gallery-i">1</span> of 3</span></span><span lang="fr">Équipe TOPUS à la LASC 2022<span class="gallery-n">, photo <span class="gallery-i">1</span> sur 3</span></span></figcaption>
         </figure>
         <div class="project-main">
           <h3><span lang="pt-BR">Foguetes de competição na LASC</span><span lang="en">Competition rockets at LASC</span><span lang="fr">Fusées de compétition à la LASC</span></h3>
-          <p class="org">TOPUS, Latin American Space Challenge, 2020 – 2022</p>
+          <p class="org">TOPUS, Latin American Space Challenge<span class="org-sep t-only">, </span><span class="org-sep s-only"> · </span><span class="org-p">2020 – 2022</span></p>
           <dl class="par">
             <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Projetar foguetes de competição que atinjam o apogeu da categoria e voem com segurança.</span><span lang="en">Design competition rockets that reach their category’s target apogee and fly safely.</span><span lang="fr">Concevoir des fusées de compétition qui atteignent l’apogée de leur catégorie et volent en toute sécurité.</span></dd></div>
             <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Atuei nos subsistemas de propulsão e mecânica de voo. A simulação de trajetória com 6 graus de liberdade verificava o desempenho e as condições de voo, e rodadas de Monte Carlo mapeavam as regiões de queda balística e não balística para a análise de segurança.</span><span lang="en">I worked on the propulsion and flight mechanics subsystems. A 6-DOF trajectory simulation verified performance and flight conditions, and Monte Carlo runs mapped ballistic and non-ballistic impact regions for the safety analysis.</span><span lang="fr">J’ai travaillé dans les sous-systèmes propulsion et mécanique du vol. Une simulation de trajectoire à 6 degrés de liberté vérifiait les performances et les conditions de vol, et des tirages de Monte-Carlo cartographiaient les zones de retombée balistique et non balistique pour l’analyse de sécurité.</span></dd></div>
-            <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Três títulos em três edições (tabela abaixo).</span><span lang="en">First place in all three editions (table below).</span><span lang="fr">Trois titres en trois éditions (tableau ci-dessous).</span></dd></div>
+            <div class="par-result"><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Três títulos em três edições (tabela abaixo).</span><span lang="en">First place in all three editions (table below).</span><span lang="fr">Trois titres en trois éditions (tableau ci-dessous).</span></dd></div>
             <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
               <ul class="chips" lang="pt-BR"><li>MATLAB</li><li>Simulação com 6 graus de liberdade</li><li>Método de Monte Carlo</li><li>CFD</li></ul>
               <ul class="chips" lang="en"><li>MATLAB</li><li>6-DOF simulation</li><li>Monte Carlo method</li><li>CFD</li></ul>
@@ -451,7 +454,7 @@
       <article class="project glass">
         <div class="project-main">
           <h3><span lang="pt-BR">Foguete com apogeu de 5 km</span><span lang="en">Rocket with a 5 km apogee</span><span lang="fr">Fusée à apogée de 5 km</span></h3>
-          <p class="org">LASC Cooperation Program, 2020 – 2022</p>
+          <p class="org">LASC Cooperation Program<span class="org-sep t-only">, </span><span class="org-sep s-only"> · </span><span class="org-p">2020 – 2022</span></p>
           <dl class="par">
             <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Projetar, construir e lançar um foguete com apogeu de 5 km num programa de cooperação internacional, no qual a TOPUS era responsável pela aeroestrutura.</span><span lang="en">Design, build and launch a rocket with a 5 km apogee in an international cooperation program, in which TOPUS was responsible for the aerostructure.</span><span lang="fr">Concevoir, construire et lancer une fusée à apogée de 5 km dans un programme de coopération internationale, où l’équipe TOPUS était responsable de l’aérostructure.</span></dd></div>
             <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Elaborei os desenhos técnicos e os planos de fabricação da coifa, apoiei estudos de fabricação em compósitos e realizei simulações de CFD 2D e 3D para otimizar o desempenho aerodinâmico do veículo.</span><span lang="en">I produced the technical drawings and manufacturing plans for the nose cone, supported composite manufacturing studies and ran 2D and 3D CFD simulations to improve the vehicle’s aerodynamic performance.</span><span lang="fr">J’ai réalisé les plans techniques et les dossiers de fabrication de l’ogive, participé aux études de fabrication en composites et mené des simulations CFD 2D et 3D pour améliorer les performances aérodynamiques du véhicule.</span></dd></div>
@@ -467,11 +470,11 @@
       <article class="project glass">
         <div class="project-main">
           <h3><span lang="pt-BR">Motor híbrido Boitatá</span><span lang="en">Boitatá hybrid rocket motor</span><span lang="fr">Moteur hybride Boitatá</span></h3>
-          <p class="org">TOPUS, 2020 – 2023</p>
+          <p class="org">TOPUS<span class="org-sep t-only">, </span><span class="org-sep s-only"> · </span><span class="org-p">2020 – 2023</span></p>
           <dl class="par">
             <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Levar o oxidante com segurança até a câmara de combustão de um motor-foguete híbrido.</span><span lang="en">Deliver the oxidizer safely to the combustion chamber of a hybrid rocket motor.</span><span lang="fr">Acheminer l’oxydant en toute sécurité jusqu’à la chambre de combustion d’un moteur-fusée hybride.</span></dd></div>
             <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas, e trabalhei no injetor de vórtice.</span><span lang="en">On the oxidizer injection team, I designed and tested the tank, piping and valves, and worked on the swirl injector.</span><span lang="fr">Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes, et j’ai travaillé sur l’injecteur tourbillonnaire.</span></dd></div>
-            <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">O projeto recebeu, em 2020, uma bolsa de Bancada de Testes da Agência Espacial Brasileira (AEB).</span><span lang="en">The project received a test stand grant from the Brazilian Space Agency (AEB) in 2020.</span><span lang="fr">Le projet a obtenu en 2020 un financement «&nbsp;Banc d’essai&nbsp;» de l’Agence spatiale brésilienne (AEB).</span></dd></div>
+            <div class="par-result"><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">O projeto recebeu, em 2020, uma bolsa de Bancada de Testes da Agência Espacial Brasileira (AEB).</span><span lang="en">The project received a test stand grant from the Brazilian Space Agency (AEB) in 2020.</span><span lang="fr">Le projet a obtenu en 2020 un financement «&nbsp;Banc d’essai&nbsp;» de l’Agence spatiale brésilienne (AEB).</span></dd></div>
             <div class="par-stack"><dt><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></dt><dd>
               <ul class="chips" lang="pt-BR"><li>Termodinâmica</li><li>Modelagem numérica</li><li>Ensaios experimentais</li></ul>
               <ul class="chips" lang="en"><li>Thermodynamics</li><li>Numerical modeling</li><li>Experimental testing</li></ul>
@@ -502,7 +505,7 @@
             <span class="paper-body">
               <span class="paper-title" lang="en-US">Turbulent Channel flow with Coriolis force using Large-Eddy Simulation</span>
               <span class="paper-meta"><span lang="pt-BR">Artigo, EPTT 2024, em inglês</span><span lang="en">Paper, EPTT 2024, in English</span><span lang="fr">Article, EPTT 2024, en anglais</span></span>
-              <span class="paper-link s-only"><span lang="pt-BR">Artigo no EPTT 2024 (PDF)</span><span lang="en">Paper at EPTT 2024 (PDF)</span><span lang="fr">Article à l’EPTT 2024 (PDF)</span></span>
+              <span class="paper-link s-only" data-print-url="https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf"><span lang="pt-BR">Artigo no EPTT 2024 (PDF)</span><span lang="en">Paper at EPTT 2024 (PDF)</span><span lang="fr">Article à l’EPTT 2024 (PDF)</span></span>
               <span class="paper-open"><span lang="pt-BR">Abrir PDF, 1,7 MB</span><span lang="en">Open PDF, 1.7 MB</span><span lang="fr">Ouvrir le PDF, 1,7&nbsp;Mo</span></span>
             </span>
           </a>
@@ -541,7 +544,7 @@
             <span class="paper-body">
               <span class="paper-title" lang="fr-FR">Analyse d’incertitude liée au vent de la production d’une éolienne</span>
               <span class="paper-meta"><span lang="pt-BR">Apresentação de defesa do estágio de pesquisa, IRPHE, jun. 2023, em francês</span><span lang="en">Research internship defense slides, IRPHE, June 2023, in French</span><span lang="fr">Soutenance de stage de recherche, IRPHE, juin 2023, en français</span></span>
-              <span class="paper-link s-only"><span lang="pt-BR">Slides da defesa no IRPHE (PDF)</span><span lang="en">Defense slides at IRPHE (PDF)</span><span lang="fr">Diaporama de soutenance à l’IRPHE (PDF)</span></span>
+              <span class="paper-link s-only" data-print-url="https://igor-de-melo.github.io/assets/docs/irphe-2023-soutenance.pdf"><span lang="pt-BR">Slides da defesa no IRPHE (PDF)</span><span lang="en">Defense slides at IRPHE (PDF)</span><span lang="fr">Diaporama de soutenance à l’IRPHE (PDF)</span></span>
               <span class="paper-open"><span lang="pt-BR">Abrir PDF, 4,8 MB</span><span lang="en">Open PDF, 4.8 MB</span><span lang="fr">Ouvrir le PDF, 4,8&nbsp;Mo</span></span>
             </span>
           </a>
@@ -658,13 +661,24 @@
           <ul class="chips" lang="en"><li>UAV project management</li><li>Systems engineering (NASA Systems Engineering Handbook)</li><li>Technical documentation</li><li>Traceability</li></ul>
           <ul class="chips" lang="fr"><li>Gestion de projet de drone</li><li>Ingénierie système selon le NASA Systems Engineering Handbook</li><li>Documentation technique</li><li>Traçabilité</li></ul>
         </dd>
-        <dt><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></dt>
-        <dd>
+        <dt class="t-only"><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></dt>
+        <dd class="t-only">
           <ul class="chips" lang="pt-BR"><li>Português (nativo)</li><li>Inglês (avançado)</li><li>Francês (avançado)</li><li>Alemão (básico)</li></ul>
           <ul class="chips" lang="en"><li>Portuguese (native)</li><li>English (advanced)</li><li>French (advanced)</li><li>German (basic)</li></ul>
           <ul class="chips" lang="fr"><li>Portugais (langue maternelle)</li><li>Anglais (avancé)</li><li>Français (avancé)</li><li>Allemand (notions)</li></ul>
         </dd>
       </dl>
+    </div>
+  </section>
+
+  <section class="section s-only" id="idiomas" aria-labelledby="h-idi">
+    <header class="sec-h">
+      <h2 id="h-idi"><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></h2>
+    </header>
+    <div class="body">
+      <p lang="pt-BR">Português (nativo), inglês (avançado), francês (avançado), alemão (básico).</p>
+      <p lang="en">Portuguese (native), English (advanced), French (advanced), German (basic).</p>
+      <p lang="fr">Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions).</p>
     </div>
   </section>
 
@@ -682,10 +696,10 @@
         <a class="ic-link" href="https://github.com/igor-de-melo" target="_blank" rel="noopener" aria-label="GitHub: github.com/igor-de-melo" title="GitHub: github.com/igor-de-melo"><svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></a>
       </p>
       <ul class="s-contact s-only">
-        <li><span lang="pt-BR">E-mail:</span><span lang="en">Email:</span><span lang="fr">E-mail&nbsp;:</span> <a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a></li>
-        <li><span lang="pt-BR">LinkedIn:</span><span lang="en">LinkedIn:</span><span lang="fr">LinkedIn&nbsp;:</span> <a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">linkedin.com/in/igorademelo</a></li>
-        <li><span lang="pt-BR">GitHub:</span><span lang="en">GitHub:</span><span lang="fr">GitHub&nbsp;:</span> <a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">github.com/igor-de-melo</a></li>
-        <li><a href="../assets/docs/cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf"><span lang="pt-BR">Baixar currículo (PDF)</span><span lang="en">Download résumé (PDF)</span><span lang="fr">Télécharger le CV (PDF)</span></a></li>
+        <li class="s-c s-c--mail"><span lang="pt-BR">E-mail:</span><span lang="en">Email:</span><span lang="fr">E-mail&nbsp;:</span> <a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a></li>
+        <li class="s-c s-c--in"><span lang="pt-BR">LinkedIn:</span><span lang="en">LinkedIn:</span><span lang="fr">LinkedIn&nbsp;:</span> <a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">linkedin.com/in/igorademelo</a></li>
+        <li class="s-c s-c--gh"><span lang="pt-BR">GitHub:</span><span lang="en">GitHub:</span><span lang="fr">GitHub&nbsp;:</span> <a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">github.com/igor-de-melo</a></li>
+        <li class="s-c s-c--cv"><a href="../assets/docs/cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf" data-print-url="https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo.pdf"><span lang="pt-BR">Baixar currículo (PDF)</span><span lang="en">Download résumé (PDF)</span><span lang="fr">Télécharger le CV (PDF)</span></a></li>
       </ul>
       <p class="muted"><span lang="pt-BR">São Carlos, SP, Brasil</span><span lang="en">São Carlos, São Paulo, Brazil</span><span lang="fr">São Carlos, État de São Paulo, Brésil</span></p>
     </div>

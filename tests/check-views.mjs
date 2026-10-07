@@ -120,6 +120,18 @@ async function browser() {
         if (!c.order) fail(`${f} (${lang}, simple): Competências deveria vir antes de Experiência`);
         if (c.h1 !== 1) fail(`${f} (${lang}, simple): ${c.h1} elementos h1`);
       }
+      // Régua do Simplificado (S2.1): marca a seção atual e as já percorridas; sem scroll horizontal em 1000 px
+      if (f === "aero/index.html") {
+        await open(f, "?view=simple", 1280);
+        await evalJs("document.getElementById('projetos').scrollIntoView();0");
+        await sleep(400);
+        const r = await evalJs(`(function(){var c=document.querySelector('.s-nav a[aria-current]');return {cur:c?c.getAttribute('href'):'',done:document.querySelectorAll('.s-nav li.is-done').length,pos:getComputedStyle(document.querySelector('.s-nav')).position}})()`); browserChecks++;
+        if (r.cur !== "#projetos" || r.done !== 3) fail(`${f} (simple): régua em "${r.cur}" com ${r.done} seções percorridas, esperado "#projetos" com 3`);
+        if (r.pos !== "absolute") fail(`${f} (simple, 1280px): a régua deveria ficar ao lado do conteúdo`);
+        await open(f, "?view=simple", 1000);
+        const w = await evalJs(STATE); browserChecks++;
+        if (w.sw > w.iw) fail(`${f} (1000px, simple): scroll horizontal (${w.sw} > ${w.iw})`);
+      }
       { await open(f, "?lang=en&view=simple", 1280);
         const hrefs = await evalJs(`[].map.call(document.querySelectorAll('a.hm, .rail-pages a[data-face], .foot-areas a[data-face]'),function(a){return a.getAttribute('href')}).filter(function(h){return /^\\.\\.\\/index\\.html/.test(h)}).join(' ')`); browserChecks++;
         if (!hrefs || /view=/.test(hrefs)) fail(`${f} (simple): o link para a Home deve ir sem visão, achei "${hrefs}"`);

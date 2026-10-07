@@ -89,7 +89,7 @@
   /* ---------- Régua de seções (scroll-spy) ---------- */
   // A seção atual é a que cruza uma linha a 40% da altura da janela. O item atual recebe aria-current e
   // a régua recebe --ry / --rt / --rh (posição do marcador), usados pelas variantes de cada área no CSS.
-  var rulerLinks = Array.prototype.slice.call(document.querySelectorAll(".ruler a[href^='#']"));
+  var rulerLinks = Array.prototype.slice.call(document.querySelectorAll(".ruler li:not(.s-only) > a[href^='#']"));
   var sections = rulerLinks.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
   var track = document.querySelector(".ruler-track");
   var nowTitle = document.querySelector(".now-title"), progress = document.querySelector(".now-progress");
@@ -215,6 +215,37 @@
     document.addEventListener("sitelangchange", placeMark);
     document.addEventListener("siteviewchange", placeMark);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeMark);
+  }
+
+  /* ---------- Régua do Simplificado (.s-nav): seção atual e seções já percorridas ---------- */
+  // Mesma linha a 40% da janela. O link atual recebe aria-current; o item atual, .is-cur; os anteriores, .is-done.
+  // Sem animação: o CSS só troca cor e peso.
+  var sNav = document.querySelector(".s-nav");
+  if (sNav && "IntersectionObserver" in window) {
+    var sLinks = Array.prototype.slice.call(sNav.querySelectorAll("a[href^='#']"));
+    var sTargets = sLinks.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
+    var sOn = sLinks.map(function () { return false; }), sCur = -1, sEnd = false;
+    var sMark = function () {
+      var i = sCur;
+      sOn.forEach(function (v, k) { if (v) i = k; }); // seções aninhadas (Cursos dentro de Formação): vale a última
+      if (sEnd) i = sLinks.length - 1;
+      sCur = i;
+      sLinks.forEach(function (a, k) {
+        if (k === i) a.setAttribute("aria-current", "location"); else a.removeAttribute("aria-current");
+        a.parentNode.classList.toggle("is-cur", k === i);
+        a.parentNode.classList.toggle("is-done", k < i);
+      });
+    };
+    var sSpy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { var k = sTargets.indexOf(e.target); if (k >= 0) sOn[k] = e.isIntersecting; });
+      sMark();
+    }, { rootMargin: "-40% 0px -60% 0px" });
+    sTargets.forEach(function (t) { if (t) sSpy.observe(t); });
+    var sFoot = document.createElement("div");
+    sFoot.setAttribute("aria-hidden", "true");
+    sFoot.style.cssText = "height:1px;margin-top:-1px";
+    document.body.appendChild(sFoot);
+    new IntersectionObserver(function (entries) { sEnd = entries[0].isIntersecting; sMark(); }).observe(sFoot);
   }
 
   /* ---------- Contadores ao lado dos títulos de seção ---------- */
