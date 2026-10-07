@@ -17,6 +17,15 @@ const fail = (msg) => errors.push(msg);
 for (const f of PAGES) {
   const src = readFileSync(join(root, f), "utf8");
   const head = src.slice(0, src.indexOf("</head>"));
+  if (f === "index.html") { // a Home é sempre Temático e não tem seletor
+    if (!head.includes('<script>document.documentElement.dataset.view="themed"</script>')) fail(`${f}: o <head> deve fixar data-view="themed"`);
+    if (/data-view-set|data-view-toggle|class="[^"]*\bs-only\b/.test(src)) fail(`${f}: a Home não deve ter seletor de visão nem marcação .s-only`);
+    for (const a of ["aero", "data", "it-security"]) {
+      if (!src.includes(`href="${a}/index.html?view=simple" data-face data-face-view="simple"`)) fail(`${f}: falta o botão do Simplificado de ${a}`);
+      if (!src.includes(`href="${a}/index.html?view=themed" data-face data-face-view="themed"`)) fail(`${f}: o cartão de ${a} deve abrir ?view=themed`);
+    }
+    continue;
+  }
   if (!/dataset\.view=v==="simple"\?"simple":"themed"/.test(head)) fail(`${f}: falta no <head> o script que aplica data-view (só "simple" ou "themed")`);
   if (!/try\{v=localStorage\.getItem\("view"\)\}catch/.test(head)) fail(`${f}: a leitura do localStorage "view" deve estar em try/catch`);
   for (const v of ["simple", "themed"]) if (!src.includes(`data-view-set="${v}"`)) fail(`${f}: falta o botão data-view-set="${v}"`);
@@ -65,10 +74,31 @@ async function browser() {
       return {view:d.dataset.view,sw:d.scrollWidth,iw:window.innerWidth,run:run,moving:moving}})()`;
     for (const f of PAGES) {
       // data-view conforme a URL
-      for (const [query, want] of [["", "themed"], ["?view=simple", "simple"], ["?view=themed", "themed"], ["?view=qualquer", "themed"], ["?lang=en&view=simple", "simple"]]) {
+      const home = f === "index.html";
+      for (const [query, wantArea] of [["", "themed"], ["?view=simple", "simple"], ["?view=themed", "themed"], ["?view=qualquer", "themed"], ["?lang=en&view=simple", "simple"]]) {
+        const want = home ? "themed" : wantArea;
         await open(f, query, 1280);
         const s = await evalJs(STATE); browserChecks++;
         if (s.view !== want) fail(`${f}${query}: data-view="${s.view}", esperado "${want}"`);
+      }
+      if (home) {
+        // Preferência gravada "simple": a Home continua no Temático e não mexe na preferência.
+        await open(f, "", 1280);
+        await evalJs("try{localStorage.setItem('view','simple')}catch(e){};0");
+        await send("Page.navigate", { url: pathToFileURL(join(root, f)).href + "?lang=fr&view=simple" });
+        await sleep(900);
+        const h = await evalJs(`(function(){var st=null;try{st=localStorage.getItem('view')}catch(e){}
+          var g=function(s){return [].map.call(document.querySelectorAll(s),function(a){return a.getAttribute('href')}).join(' ')};
+          return {view:document.documentElement.dataset.view,stored:st,simple:g('.hcard-simple'),cards:g('.hcard-link'),sw:document.querySelectorAll('[data-view-set],[data-view-toggle]').length}})()`); browserChecks++;
+        await evalJs("try{localStorage.removeItem('view')}catch(e){};0");
+        if (h.view !== "themed") fail(`${f} (localStorage "simple" e ?view=simple): data-view="${h.view}", esperado "themed"`);
+        if (h.stored !== null && h.stored !== "simple") fail(`${f}: a Home mudou a preferência gravada para "${h.stored}"`);
+        if (h.sw) fail(`${f}: a Home não deve ter seletor de visão`);
+        const dest = (v) => ["aero", "data", "it-security"].map((a) => `${a}/index.html?lang=fr&view=${v}`).join(" ");
+        if (h.simple !== dest("simple")) fail(`${f}: botões do Simplificado apontam para "${h.simple}"`);
+        if (h.cards !== dest("themed")) fail(`${f}: cartões apontam para "${h.cards}"`);
+        for (const width of [375, 1280]) { await open(f, "", width); const s = await evalJs(STATE); browserChecks++; if (s.sw > s.iw) fail(`${f} (${width}px): scroll horizontal (${s.sw} > ${s.iw})`); }
+        continue;
       }
       // Simplificado: sem movimento e sem scroll horizontal
       for (const width of [375, 1280]) for (const lang of ["pt-BR", "en", "fr"]) {
@@ -77,8 +107,8 @@ async function browser() {
         if (s.run > 0 || s.moving > 0) fail(`${f} (${lang}, ${width}px, simple): ${s.run} animação(ões) rodando e ${s.moving} elemento(s) com animação ou transição`);
         if (s.sw > s.iw) fail(`${f} (${lang}, ${width}px, simple): scroll horizontal (${s.sw} > ${s.iw})`);
       }
-      // Simplificado de Home e Aero (S2): imagens visíveis com alt, nada do Temático à mostra e ordem do CV
-      if (f === "index.html" || f === "aero/index.html") for (const lang of ["pt-BR", "en", "fr"]) {
+      // Simplificado de Aero (S2): imagens visíveis com alt, nada do Temático à mostra e ordem do CV
+      if (f === "aero/index.html") for (const lang of ["pt-BR", "en", "fr"]) {
         await open(f, `?lang=${lang}&view=simple`, 1280);
         const c = await evalJs(`(function(){var vis=function(e){return e.getClientRects().length>0};
           var noAlt=[].filter.call(document.querySelectorAll('main img, .hero img'),function(i){return vis(i)&&!i.alt.trim()}).length;
@@ -89,6 +119,10 @@ async function browser() {
         if (c.themedOnly) fail(`${f} (${lang}, simple): ${c.themedOnly} elemento(s) só do Temático à mostra`);
         if (!c.order) fail(`${f} (${lang}, simple): Competências deveria vir antes de Experiência`);
         if (c.h1 !== 1) fail(`${f} (${lang}, simple): ${c.h1} elementos h1`);
+      }
+      { await open(f, "?lang=en&view=simple", 1280);
+        const hrefs = await evalJs(`[].map.call(document.querySelectorAll('a.hm, .rail-pages a[data-face], .foot-areas a[data-face]'),function(a){return a.getAttribute('href')}).filter(function(h){return /^\\.\\.\\/index\\.html/.test(h)}).join(' ')`); browserChecks++;
+        if (!hrefs || /view=/.test(hrefs)) fail(`${f} (simple): o link para a Home deve ir sem visão, achei "${hrefs}"`);
       }
       // Temático: nada do Simplificado à mostra e Competências no lugar de origem
       { await open(f, "?view=themed", 1280);

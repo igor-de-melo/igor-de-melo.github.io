@@ -15,6 +15,7 @@ Complementa `docs/redesign-spec.md`. Valem as regras do `CLAUDE.md` (três líng
 | Imagens no Simplificado | foto do Igor, fotos de projeto e slides |
 | Impressão | o Simplificado sai limpo ao imprimir ou salvar em PDF |
 | Tema claro/escuro e idioma | continuam valendo nos dois modos |
+| Home | **sempre Temático**; não tem visão Simplificada. Cada cartão de área ganha, logo abaixo, um botão "Ver versão simplificada" que abre a área já no Simplificado (`?view=simple`); o cartão abre a área no Temático (`?view=themed`) |
 | Rótulos | PT Simplificado / Temático · EN Simple / Themed · FR Simplifié / Thématique |
 
 ## 3. Mecanismo
@@ -45,7 +46,7 @@ Cada área é um **CV direcionado**; a Home é o resumo.
 
 **Cabeçalho (todas):** h1 com o nome; linha de título (ex.: "Estudante de Engenharia Aeronáutica, EESC-USP"); local; linha "Disponível para vagas júnior em …"; contatos escritos por extenso (e-mail, LinkedIn, GitHub, botão do currículo em PDF); foto pequena (≈ 96×120, 4:5) com `alt` descritivo.
 
-**Home:** resumo de 3 linhas, três links para os CVs de área (título + uma linha cada), currículo em PDF. Sem cadeia animada.
+**Home:** não tem versão Simplificada (sempre Temático, mesmo com `?view=simple` ou preferência salva). O seletor de visão não aparece na Home, nem no menu do celular. Abaixo de cada cartão de área há o botão "Ver versão simplificada" (PT) / "View simple version" (EN) / "Voir la version simplifiée" (FR), com `aria-label` que inclui o nome da área.
 
 **Aero, Dados e TI e Ciber (ordem fixa):**
 1. Resumo (3 a 4 linhas)
@@ -119,7 +120,7 @@ Para extrair o conteúdo sem ler a sintaxe de código, cada valor das células d
 | Pacote | Conteúdo |
 |---|---|
 | S1 | infraestrutura: atributo, script de início, URL e armazenamento, seletor (desktop, celular, menu), camada neutra de tokens, esqueleto da barra e do cabeçalho, testes de paridade |
-| S2 | Home e Aero no Simplificado, com foto, figuras e slides; ocultar os elementos temáticos; impressão básica |
+| S2 | Aero no Simplificado, com foto, figuras e slides; ocultar os elementos temáticos; impressão básica; botões "Ver versão simplificada" nos cartões da Home (a Home em si fica no Temático) |
 | S3 | `data-f` em Dados e TI e Ciber, e o Simplificado dessas duas páginas |
 | S4 | redação para humanos e IA (resumos, competências, tópicos, idiomas, disponibilidade), impressão final, `check-views` |
 | S5 | camada para máquinas: `build-cv.mjs`, `cv.*.md`, `llms.txt`, JSON-LD, links alternate, robots, sitemap, sincronia |

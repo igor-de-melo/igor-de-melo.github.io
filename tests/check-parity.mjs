@@ -70,11 +70,21 @@ for (const f of [...files, "index.template.html"]) {
   if (head !== "<!doctype html>") fail(f, 1, `não começa por "<!doctype html>" (começa por ${JSON.stringify(head)})`);
 }
 
-// Seletor de visão (Simplificado / Temático): presente nas 4 páginas, com os rótulos nas três línguas.
+// Seletor de visão (Simplificado / Temático): presente nas páginas de área, com os rótulos nas três línguas.
+// A Home é sempre Temático: não tem seletor e traz, abaixo de cada cartão, o botão "Ver versão simplificada".
 const VIEW_LABELS = ['<span lang="pt-BR">Simplificado</span><span lang="en">Simple</span><span lang="fr">Simplifié</span>', '<span lang="pt-BR">Temático</span><span lang="en">Themed</span><span lang="fr">Thématique</span>', 'aria-label="Visualização / View / Affichage"'];
+const SIMPLE_BTN = '<span lang="pt-BR">Ver versão simplificada</span><span lang="en">View simple version</span><span lang="fr">Voir la version simplifiée</span>';
+const SIMPLE_ARIA = [["aero", "Engenharia Aeronáutica", "Aeronautical Engineering", "Ingénierie aéronautique"], ["data", "Ciência de Dados", "Data Science", "Science des données"], ["it-security", "TI e Cibersegurança", "IT &amp; Cybersecurity", "Informatique et cybersécurité"]];
 for (const f of files) {
   const src = readFileSync(join(root, f), "utf8");
-  for (const l of VIEW_LABELS) if (!src.includes(l)) fail(f, 1, "seletor de visão: falta " + l);
+  const home = !/[\\/]/.test(f);
+  if (!home) { for (const l of VIEW_LABELS) if (!src.includes(l)) fail(f, 1, "seletor de visão: falta " + l); continue; }
+  for (const l of VIEW_LABELS) if (src.includes(l)) fail(f, 1, "a Home não deve ter seletor de visão: " + l);
+  if (src.split(SIMPLE_BTN).length - 1 !== 3) fail(f, 1, 'esperava 3 botões "Ver versão simplificada" com os rótulos nas três línguas');
+  for (const [area, pt, en, fr] of SIMPLE_ARIA) {
+    const want = `href="${area}/index.html?view=simple" data-face data-face-view="simple" aria-label="Ver versão simplificada: ${pt}" data-aria-pt-br="Ver versão simplificada: ${pt}" data-aria-en="View simple version: ${en}" data-aria-fr="Voir la version simplifiée&nbsp;: ${fr}"`;
+    if (!src.includes(want)) fail(f, 1, `botão do Simplificado de ${area}: destino ou aria-label nas três línguas`);
+  }
 }
 
 for (const f of files) {

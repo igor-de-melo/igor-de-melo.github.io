@@ -19,13 +19,18 @@
   var langButtons = document.querySelectorAll("button[data-lang]");
   var faceLinks = document.querySelectorAll("a[data-face]");
   faceLinks = Array.prototype.map.call(faceLinks, function (a) {
-    return { el: a, base: a.getAttribute("href").split("?")[0] };
+    return { el: a, base: a.getAttribute("href").split("?")[0], view: a.getAttribute("data-face-view") };
   });
 
-  // Links entre as páginas levam o idioma e, no Simplificado, também a visão.
+  // Links entre as páginas levam o idioma. Na Home, cada link diz a visão que abre (data-face-view: o cartão abre o
+  // Temático e o botão abaixo dele, o Simplificado). Nas áreas, o Simplificado segue para as outras áreas; o link
+  // para a Home vai sem visão, porque a Home é sempre Temático.
   function updateFaceLinks(l) {
-    var q = "?lang=" + l + (root.dataset.view === "simple" ? "&view=simple" : "");
-    faceLinks.forEach(function (f) { f.el.setAttribute("href", f.base + q); });
+    var simple = root.dataset.view === "simple";
+    faceLinks.forEach(function (f) {
+      var v = f.view || (simple && f.base !== "../index.html" ? "simple" : "");
+      f.el.setAttribute("href", f.base + "?lang=" + l + (v ? "&view=" + v : ""));
+    });
   }
 
   function setLang(l, persist) {
@@ -339,7 +344,10 @@
   });
   document.addEventListener("sitelangchange", function () { syncView(false); });
   // Chegou com ?view= na URL: guarda a escolha para as próximas páginas.
-  try { var qv = new URLSearchParams(window.location.search).get("view"); if (qv === "simple" || qv === "themed") window.localStorage.setItem("view", qv); } catch (e) { /* sem persistência */ }
+  // (A Home não tem seletor e é sempre Temático: lá o parâmetro é ignorado e a escolha gravada não muda.)
+  if (viewButtons.length || viewToggles.length) {
+    try { var qv = new URLSearchParams(window.location.search).get("view"); if (qv === "simple" || qv === "themed") window.localStorage.setItem("view", qv); } catch (e) { /* sem persistência */ }
+  }
 
   /* ---------- Idioma inicial: ?lang=, depois localStorage, depois PT ---------- */
   var requested = new URLSearchParams(window.location.search).get("lang");
