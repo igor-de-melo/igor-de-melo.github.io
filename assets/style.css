@@ -26,14 +26,14 @@
   --top-h:52px;
   /* Escala tipográfica única (docs/revisao-r6.md, 1.2). Todo font-size do site usa um destes tokens;
      ficam de fora só o hero da Home e os desenhos (SVG, dump hexadecimal e retrato ASCII). */
-  --fs-display:3.5rem;--fs-h2:1.875rem;--fs-h3:1.3125rem;--fs-lead:1.1875rem;--fs-body:1.0625rem;--fs-code:1.125rem;--fs-ui:0.9375rem;--fs-small:0.8125rem;--fs-xs:0.75rem;--fs-prompt:var(--fs-code);--fs-panel:var(--fs-ui);
+  --fs-display:3.5rem;--fs-h2:1.875rem;--fs-h3:1.3125rem;--fs-lead:1.1875rem;--fs-body:1.0625rem;--fs-code:1.0625rem;--fs-ui:0.9375rem;--fs-small:0.8125rem;--fs-xs:0.75rem;--fs-prompt:var(--fs-code);--fs-panel:var(--fs-ui);
   --lh-display:1.15;--lh-h2:1.2;--lh-h3:1.2;--lh-lead:1.55;--lh-body:1.6;--lh-code:1.55;--lh-small:1.45;
 }
 body[data-area="it-security"]{--fs-display:2.875rem;--fs-h2:1.75rem;--fs-h3:1.0625rem;--fs-lead:1rem;--fs-body:0.9375rem;--fs-code:0.9375rem;--fs-prompt:1.0625rem;--fs-panel:1rem;--fs-ui:0.875rem}
 body[data-area="home"]{--fs-h3:1.1875rem;--fs-body:0.9375rem}
 .hcard--it-security{--fs-h3:1.0625rem;--fs-body:0.875rem;--fs-ui:0.875rem}
 @media (max-width:760px){
-  :root{--fs-display:2.125rem;--fs-h2:1.5rem;--fs-h3:1.1875rem;--fs-lead:1.0625rem;--fs-body:1rem;--fs-code:1.0625rem}
+  :root{--fs-display:2.125rem;--fs-h2:1.5rem;--fs-h3:1.1875rem;--fs-lead:1.0625rem;--fs-body:1rem;--fs-code:1rem}
   body[data-area="it-security"]{--fs-display:1.75rem;--fs-h2:1.375rem;--fs-h3:1rem;--fs-lead:0.9375rem;--fs-body:0.875rem;--fs-code:0.875rem;--fs-prompt:1rem;--fs-panel:0.9375rem}
 }
 :root[data-theme="dark"]{--suction:#8EA0FF;--stagnation:#E5484D;--free:#6B788A}
@@ -69,14 +69,14 @@ body[data-area="aero"]{
 /* Ciência de Dados "Caderno de análise" */
 body[data-area="data"]{
   --bg:#E3ECE8;--ink:#14211F;--ink2:#3F5154;--line:rgba(20,33,31,.22);--chip:rgba(20,33,31,.07);
-  --inp:#F2F6F4;--out:#FBFCFB;--ac:#0A5A53;--str:#235A36;--kw:#7A4610;--tag:rgba(10,90,83,.04);
+  --inp:#F2F6F4;--out:#FBFCFB;--code-faint:#6F8482;--ac:#0A5A53;--str:#235A36;--kw:#7A4610;--tag:rgba(10,90,83,.04);
   --w1:rgba(10,90,83,.06);--w2:rgba(68,1,84,.04);--cmo:.07;--fxo:.7;
   --surface:var(--inp);--raise:var(--chip);--accent:var(--ac);--on-ink:#fff;
   --mono:var(--jet);
 }
 :root[data-theme="dark"] body[data-area="data"]{
   --bg:#0E1719;--ink:#E3EEEC;--ink2:#869A9B;--line:rgba(255,255,255,.12);--chip:rgba(255,255,255,.08);
-  --inp:#152225;--out:#101B1D;--ac:#5FCFC0;--str:#8FD3A0;--kw:#E3B170;--tag:rgba(95,207,192,.1);
+  --inp:#152225;--out:#101B1D;--code-faint:#667C7E;--ac:#5FCFC0;--str:#8FD3A0;--kw:#E3B170;--tag:rgba(95,207,192,.1);
   --w1:rgba(95,207,192,.10);--w2:rgba(227,177,112,.06);--cmo:.08;--fxo:1;--on-ink:#0E1719;
 }
 
@@ -440,12 +440,6 @@ body[data-area="it-security"] .ruler-mark::after{content:"";width:9px;height:17p
 .menu-toggle{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;border:0;border-radius:var(--radius);background:transparent;color:var(--ink);cursor:pointer}
 .menu-toggle .ic-close,.menu-toggle[aria-expanded="true"] .ic-open{display:none}
 .menu-toggle[aria-expanded="true"] .ic-close{display:block}
-.now-progress{position:relative;height:10px;margin:0 16px}
-.now-progress::before{content:"";position:absolute;left:0;right:0;top:4px;height:1px;background:var(--line)}
-.now-fill{position:absolute;left:0;right:0;top:4px;height:2px;background:var(--accent);transform:scaleX(var(--pf,0));transform-origin:0 50%;transition:transform .4s var(--ease)}
-.now-progress i{position:absolute;top:2px;width:1px;height:5px;background:var(--line)}
-.now-progress i.done{background:var(--accent)}
-.now-progress i.cur{top:-2px;width:2px;height:13px;margin-left:-1px;background:var(--accent)}
 
 /* ---------- Animação de entrada (classes postas por assets/site.js) ---------- */
 @keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
@@ -498,7 +492,7 @@ body[data-area="it-security"] .ruler-mark::after{content:"";width:9px;height:17p
 @media (prefers-reduced-motion:reduce){
   .rise{animation:none}
   .rise-wait{opacity:1}
-  .ruler-trail::before,.ruler-mark,.now-fill,.theme-toggle svg{transition:none!important}
+  .ruler-trail::before,.ruler-mark,.theme-toggle svg{transition:none!important}
   .ruler-mark::after{animation:none!important}
 }
 @media print{
@@ -1234,7 +1228,7 @@ body[data-area="data"] .content .cell--sim .tunnel{margin-top:-1px;border-top-le
    ===================================================================== */
 /* ---------- Texto justificado: vai até a margem do bloco; colunas estreitas (< ~38 caracteres) ficam à esquerda ---------- */
 .intro p[lang],.body p[lang],.par dd{text-align:justify;text-justify:inter-word;-webkit-hyphens:auto;hyphens:auto;-webkit-hyphenate-limit-chars:6 3 3;hyphenate-limit-chars:6 3 3;text-wrap:pretty}
-.intro,.card,.project-main,.research-main,.cell-out,.md,.blk>.pn,.tl>.pn{container-type:inline-size}
+.intro,.card,.cell-out,.md,.blk>.pn,.tl>.pn{container-type:inline-size}
 @container (max-width:36ch){
   .intro p[lang],.body p[lang],.par dd{text-align:left}
 }
@@ -1306,3 +1300,74 @@ body[data-area="it-security"] .pn h3,body[data-area="it-security"] .kv h3{font-w
 .home .gate-pick{font-size:var(--fs-ui)}
 /* No celular o título ocupa a linha inteira e o cursor caía sozinho na linha de baixo: fica só no desktop */
 @media (max-width:760px){.area-title .t-cur{display:none}}
+
+/* =====================================================================
+   R6d
+   ===================================================================== */
+/* ---------- Sobre: todos os parágrafos no tamanho do corpo (a classe .lead só vale na abertura) ---------- */
+#sobre p[lang]{font-size:var(--fs-body);line-height:var(--lh-body)}
+
+/* ---------- .media-item: item com figura (galeria, miniatura de documento)
+   A figura (.media-item__fig) flutua à direita e o texto a contorna: as linhas ao lado dela ficam na largura
+   restante e as que começam abaixo ocupam a largura inteira. Por isso o texto não pode estar numa grade única:
+   cada par rótulo + valor (.par > div) é a sua própria grade. No celular não há float: a figura vem depois do texto. ---------- */
+.media-item{display:flow-root}
+.media-item__fig{float:right;width:clamp(240px,32%,360px);max-width:none;margin:0 0 12px 24px}
+body[data-area="aero"] .project.media-item{display:flow-root}
+.media-item .project-main{display:block}
+.media-item .par{display:block}
+.media-item .par>div{display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:4px 16px;margin-bottom:10px}
+.media-item .results{max-width:none}
+.research-main.media-item .paper{align-self:auto}
+/* Ao lado da figura a coluna de texto fica estreita em telas médias: sem justificar, para não abrir buracos */
+@media (max-width:1100px){.media-item .par dd,.media-item p[lang]{text-align:left}}
+@media (max-width:760px){
+  .media-item,body[data-area="aero"] .project.media-item{display:flex;flex-direction:column}
+  .media-item__fig{order:2;float:none;width:auto;margin:14px 0 0}
+  .media-item .par>div{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ---------- Menu do celular: grupo "Páginas" antes da lista de seções ---------- */
+.rail-pages{display:none}
+@media (max-width:760px){
+  .rail-pages{display:block}
+  .rail-pages ul{list-style:none;margin:0;padding:0;font-size:var(--fs-ui)}
+  .rail-pages a{display:flex;align-items:center;min-height:44px;padding:4px 12px;border-radius:var(--radius);color:var(--ink2);text-decoration:none}
+  .rail-pages a:hover{color:var(--ink)}
+  .rail-pages a[aria-current="page"]{background:var(--raise);color:var(--ink);font-weight:600}
+  .rail{gap:20px}
+  .rail-foot{margin-top:8px}
+}
+
+/* ---------- Régua horizontal do celular: progresso da rolagem (--pf de 0 a 1, posto por assets/site.js) ---------- */
+.now-progress{position:relative;display:flex;align-items:center;gap:10px;height:20px;margin:0 16px}
+.now-bar{position:relative;flex:1;height:100%}
+.now-bar::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
+.now-fill{position:absolute;left:0;top:0;bottom:0;width:100%;clip-path:inset(0 calc(100% - var(--pf,0)*100%) 0 0)}
+.now-mark{position:absolute;top:50%;left:calc(var(--pf,0)*100%)}
+.now-n,.now-pct{flex:none;font:400 var(--fs-small)/1 var(--mono);color:var(--ink2);white-space:nowrap}
+/* Aero: o avião da régua, deitado, com o rastro tracejado atrás */
+body[data-area="aero"] .now-fill{background:repeating-linear-gradient(90deg,var(--accent) 0 4px,transparent 4px 8px) left center/100% 2px no-repeat}
+body[data-area="aero"] .now-mark{width:20px;height:20px;margin:-10px 0 0 -10px;color:var(--accent)}
+body[data-area="aero"] .now-mark svg{display:block;transform:rotate(-90deg)}
+body[data-area="aero"] .now-bar{margin:0 10px}
+/* Ciência de Dados: barra de cores viridis, marcador triangular e contador da célula */
+body[data-area="data"] .now-bar::before{top:7px;height:6px;border-radius:3px;background:var(--chip)}
+body[data-area="data"] .now-fill{top:7px;bottom:auto;height:6px;border-radius:3px;background:linear-gradient(90deg,#440154,#3B528B,#21918C,#5EC962,#FDE725)}
+body[data-area="data"] .now-mark{top:14px;margin-left:-5px;border:5px solid transparent;border-top:0;border-bottom:6px solid var(--ink)}
+body[data-area="data"] .now-n{min-width:3.4em;color:var(--accent)}
+body[data-area="data"] .now-bar{margin-right:5px}
+/* TI e Cibersegurança: trilho de pontos, rastro em blocos, cursor piscante e percentual */
+body[data-area="it-security"] .now-bar::before{top:9px;height:2px;background:radial-gradient(circle,var(--ink2) 1px,transparent 1.2px) left center/8px 2px repeat-x}
+body[data-area="it-security"] .now-fill{top:5px;bottom:5px;background:repeating-linear-gradient(90deg,var(--lk) 0 6px,transparent 6px 8px)}
+body[data-area="it-security"] .now-mark{width:7px;height:14px;margin-top:-7px;background:var(--accent);animation:blk 1s steps(1) infinite}
+body[data-area="it-security"] .now-pct{min-width:2.6em;text-align:right}
+body[data-area="it-security"] .now-bar{margin-right:7px}
+@media (max-width:760px){html{scroll-padding-top:86px}}
+@media (prefers-reduced-motion:reduce){.now-mark{animation:none!important}}
+
+/* ---------- Ciência de Dados: nas células de currículo, o texto real é o destaque e a sintaxe fica fraca
+   (.v1 = valor principal, .v = demais valores; função, argumentos, aspas e pontuação em --code-faint) ---------- */
+.cell-in--cv,.cell-in--cv .fn,.cell-in--cv .k,.cell-in--cv .s,.cell-in--cv .cm{color:var(--code-faint);font-weight:400;font-style:normal}
+.cell-in--cv .v{color:var(--ink);font-weight:500}
+.cell-in--cv .v1{font-weight:700}

@@ -78,7 +78,7 @@
   var sections = rulerLinks.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
   var track = document.querySelector(".ruler-track");
   var nowTitle = document.querySelector(".now-title"), progress = document.querySelector(".now-progress");
-  var ticks = [], current = -1, lineIndex = 0;
+  var current = -1, lineIndex = 0, nowN = null, nowPct = null, nowTimer = 0;
   var still = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   // Ciência de Dados, "célula em execução": o rótulo do item atual mostra [*] e, 0,6 s depois, o número [n].
@@ -115,18 +115,33 @@
     Array.prototype.forEach.call(document.querySelectorAll(".sb-i"), function (e, k) { e.classList.toggle("cur", k === i); });
     var h = sections[i] && sections[i].querySelector("h2");
     if (nowTitle && h) nowTitle.innerHTML = h.innerHTML;
-    if (progress) {
-      progress.style.setProperty("--pf", String(ticks.length > 1 ? i / (ticks.length - 1) : 0));
-      ticks.forEach(function (t, k) { t.className = k === i ? "cur" : k < i ? "done" : ""; });
+    if (nowN) { // Dados: contador da célula, In [*] e depois In [n]
+      clearTimeout(nowTimer);
+      if (still.matches) nowN.textContent = "In [" + (i + 1) + "]";
+      else { nowN.textContent = "In [*]"; nowTimer = setTimeout(function () { nowN.textContent = "In [" + (i + 1) + "]"; }, 600); }
     }
   }
   if (rulerLinks.length && sections.every(Boolean)) {
-    if (progress) rulerLinks.forEach(function (a, k) {
-      var t = document.createElement("i");
-      t.style.left = (rulerLinks.length > 1 ? (100 * k) / (rulerLinks.length - 1) : 0) + "%";
-      progress.appendChild(t);
-      ticks.push(t);
-    });
+    // Régua horizontal do celular: progresso contínuo da rolagem (--pf de 0 a 1); o desenho de cada área está no CSS.
+    if (progress) {
+      var area = document.body.dataset.area, mk = function (cls) { var e = document.createElement("span"); e.className = cls; return e; };
+      progress.textContent = "";
+      var bar = mk("now-bar"), mark = mk("now-mark");
+      if (area === "data") { nowN = mk("now-n"); progress.appendChild(nowN); }
+      if (area === "aero") { var plane = document.querySelector(".ruler-mark svg"); if (plane) mark.appendChild(plane.cloneNode(true)); }
+      bar.appendChild(mk("now-fill")); bar.appendChild(mark); progress.appendChild(bar);
+      if (area === "it-security") { nowPct = mk("now-pct"); progress.appendChild(nowPct); }
+      var ticking = false, onScroll = function () {
+        ticking = false;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+        progress.style.setProperty("--pf", p.toFixed(4));
+        if (nowPct) nowPct.textContent = Math.round(p * 100) + "%";
+      };
+      window.addEventListener("scroll", function () { if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); } }, { passive: true });
+      window.addEventListener("resize", onScroll);
+      onScroll();
+    }
     if (document.body.dataset.area === "data") cells = rulerLinks.map(function (a) {
       var n = document.createElement("span");
       n.className = "ruler-n";
@@ -157,6 +172,7 @@
       // Fim da página: a última seção é curta e nunca chega à linha dos 40%.
       var end = document.createElement("div");
       end.setAttribute("aria-hidden", "true");
+      end.style.cssText = "height:1px;margin-top:-1px"; // com altura zero, o fim da página às vezes não era detectado
       document.body.appendChild(end);
       new IntersectionObserver(function (entries) {
         atEnd = entries[0].isIntersecting;
@@ -197,7 +213,7 @@
     };
     var isOpen = function () { return root.classList.contains("menu-open"); };
     menuBtn.addEventListener("click", function () { setMenu(!isOpen()); });
-    rail.addEventListener("click", function (e) { if (isOpen() && e.target.closest("a[href^='#']")) setMenu(false); });
+    rail.addEventListener("click", function (e) { if (isOpen() && e.target.closest("a[href]:not([download])")) setMenu(false); });
     document.addEventListener("keydown", function (e) {
       if (!isOpen()) return;
       if (e.key === "Escape") { setMenu(false); menuBtn.focus(); return; }

@@ -34,6 +34,7 @@ Legenda: **✔** aplicar · **?** depende de resposta do Igor (seção 4) · os 
 | `--fs-xs` | 12 / 12 | 12 / 12 | só a linha © do rodapé |
 
 - Home: hero mantém 64 / 40 (nome) e 21 / 18,5 (frase); título dos cartões 19 / 19 (TI e Ciber 17 mono); texto dos cartões 15 (TI e Ciber 14 mono); "Escolha por onde começar" 15; link "Pular para o conteúdo" 15.
+- **Atualização (R6d):** em Ciência de Dados, `--fs-code` passou a ser igual a `--fs-body` (17 / 16); a regra "código = corpo + 1 px" deixou de valer.
 - Alturas de linha: corpo 1,6 · lead 1,55 · código 1,55 · títulos 1,15 (h1) / 1,2 (h2, h3) · small 1,45.
 - Pesos: títulos 700 (h1 do Aero 750 como hoje), UI 500/600, corpo 400; no máximo 3 pesos por página.
 - **Uma só mono: JetBrains Mono.** Trocar IBM Plex Mono por JetBrains Mono e remover os dois arquivos `ibm-plex-mono-*.woff2`.

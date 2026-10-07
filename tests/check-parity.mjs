@@ -64,6 +64,12 @@ function walk(el, file, inheritedLang) {
   }
 }
 
+// Todo HTML do site começa exatamente por "<!doctype html>" (um "<" perdido faz o texto aparecer na página).
+for (const f of [...files, "index.template.html"]) {
+  const head = readFileSync(join(root, f), "utf8").slice(0, 15);
+  if (head !== "<!doctype html>") fail(f, 1, `não começa por "<!doctype html>" (começa por ${JSON.stringify(head)})`);
+}
+
 for (const f of files) {
   const tree = parse(readFileSync(join(root, f), "utf8"));
   const html = tree.children.find((c) => c.tag === "html");
