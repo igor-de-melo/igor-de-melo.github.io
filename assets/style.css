@@ -1381,3 +1381,4 @@ body[data-area="it-security"] .now-pct{color:var(--lk)}
 body[data-area="data"] .sim-tab{font-size:var(--fs-body);line-height:var(--lh-code)}
 .cell-in.sn{white-space:pre;overflow-x:auto;overflow-wrap:normal}
 .cell-in.sn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cell-in.sn { font-size: calc(var(--fs-body) - 2px); line-height: var(--lh-code); }
