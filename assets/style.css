@@ -2056,6 +2056,9 @@ html[lang="fr"][data-view="simple"] body[data-area] .content .research .chips::b
   [data-view="simple"] body[data-area] .content .results :is(th,td){padding:1.5pt 16px 1.5pt 0}
   [data-view="simple"] body[data-area] .content :is(.gallery,.paper img){display:none!important}
   [data-view="simple"] body[data-area] .content .paper{margin-top:2pt}
+  /* Contato: na folha, os endereços já estão no cabeçalho; fica a frase e o local numa linha */
+  [data-view="simple"] body[data-area] #contato .s-contact{display:none}
+  [data-view="simple"] body[data-area] #contato p{display:inline;margin-right:6pt}
   [data-view="simple"] [data-item]{break-inside:avoid}
   /* Itens longos (experiência e projeto) podem quebrar entre tópicos; cada tópico continua inteiro e o título não fica sozinho */
   [data-view="simple"] :is([data-item="experience"],[data-item="project"]){break-inside:auto}
