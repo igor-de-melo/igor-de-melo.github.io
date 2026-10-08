@@ -129,7 +129,7 @@
     // Barra de status (TI e Cibersegurança): marca a mesma seção que a régua.
     Array.prototype.forEach.call(document.querySelectorAll(".sb-i"), function (e, k) { e.classList.toggle("cur", k === i); });
     var h = sections[i] && sections[i].querySelector("h2");
-    if (nowTitle && h) nowTitle.innerHTML = h.innerHTML;
+    if (nowTitle && h && !(sNav && root.dataset.view === "simple")) nowTitle.innerHTML = h.innerHTML;
     nowTicks.forEach(function (t, k) { t.className = k === i ? "cur" : k < i ? "done" : ""; });
     if (nowN) { // Dados: contador da célula, In [*] e depois In [n]
       clearTimeout(nowTimer);
@@ -148,12 +148,19 @@
       bar.appendChild(mk("now-fill"));
       // Um traço por seção, na fração da rolagem em que a seção começa.
       nowTicks = sections.map(function () { var t = document.createElement("i"); bar.appendChild(t); return t; });
+      // Simplificado: as seções da régua .s-nav (inclui Cursos e Idiomas, sem as seções vazias) ganham traços próprios.
+      var simpleSecs = Array.prototype.map.call(document.querySelectorAll(".s-nav a[href^='#']"), function (a) { return document.getElementById(a.getAttribute("href").slice(1)); }).filter(Boolean);
+      var simpleTicks = simpleSecs.map(function () { var t = document.createElement("i"); t.className = "s-tick"; bar.appendChild(t); return t; });
       var placeTicks = function () {
         var max = document.documentElement.scrollHeight - window.innerHeight;
-        sections.forEach(function (sec, k) {
-          var top = sec.getBoundingClientRect().top + window.scrollY;
-          nowTicks[k].style.left = (max > 0 ? Math.min(1, Math.max(0, top / max)) * 100 : 0).toFixed(2) + "%";
-        });
+        var put = function (secs, ticks) {
+          secs.forEach(function (sec, k) {
+            var top = sec.getBoundingClientRect().top + window.scrollY;
+            ticks[k].style.left = (max > 0 ? Math.min(1, Math.max(0, top / max)) * 100 : 0).toFixed(2) + "%";
+          });
+        };
+        put(sections, nowTicks);
+        put(simpleSecs, simpleTicks);
       };
       bar.appendChild(mark); progress.appendChild(bar);
       if (area === "it-security") { nowPct = mk("now-pct"); progress.appendChild(nowPct); }
@@ -227,9 +234,16 @@
     var sOn = sLinks.map(function () { return false; }), sCur = -1, sEnd = false;
     var sMark = function () {
       var i = sCur;
-      sOn.forEach(function (v, k) { if (v) i = k; }); // seções aninhadas (Cursos dentro de Formação): vale a última
+      var line = window.innerHeight * 0.4;
+      sOn.forEach(function (v, k) {
+        if (v) { i = k; return; }
+        // Bloco dentro de outra seção (Cursos em Formação): conta do seu início até o fim da seção que o contém.
+        var t = sTargets[k];
+        if (t && i >= 0 && sOn[i] && sTargets[i] !== t && sTargets[i].contains(t) && t.getBoundingClientRect().top <= line) i = k;
+      });
       if (sEnd) i = sLinks.length - 1;
       sCur = i;
+      if (nowTitle && i >= 0 && root.dataset.view === "simple") nowTitle.innerHTML = sLinks[i].innerHTML;
       sLinks.forEach(function (a, k) {
         if (k === i) a.setAttribute("aria-current", "location"); else a.removeAttribute("aria-current");
         a.parentNode.classList.toggle("is-cur", k === i);
@@ -246,6 +260,13 @@
     sFoot.style.cssText = "height:1px;margin-top:-1px";
     document.body.appendChild(sFoot);
     new IntersectionObserver(function (entries) { sEnd = entries[0].isIntersecting; sMark(); }).observe(sFoot);
+    window.addEventListener("scroll", function () { if (root.dataset.view === "simple") sMark(); }, { passive: true });
+    // Ao trocar de visão, o título da barra do celular volta a seguir a régua daquela visão.
+    document.addEventListener("siteviewchange", function () {
+      if (root.dataset.view === "simple") { sMark(); return; }
+      var h2 = sections[current] && sections[current].querySelector("h2");
+      if (nowTitle && h2) nowTitle.innerHTML = h2.innerHTML;
+    });
   }
 
   /* ---------- Home no celular: extensão dos sinais entre um nó e o seguinte ---------- */
@@ -361,6 +382,9 @@
       var parent = simple ? to && to.parentNode : m.home.parentNode;
       if (parent && to !== m.el) parent.insertBefore(m.el, to);
     });
+    // Trechos de código de exemplo (<details class="sample">): abertos no Temático, onde o resumo fica oculto,
+    // e recolhidos no Simplificado.
+    Array.prototype.forEach.call(document.querySelectorAll("details.sample"), function (d) { d.open = !simple; });
   }
   orderForView();
   // target (opcional): elemento que deve ficar visível depois da troca; sem ele, fica a seção atual.

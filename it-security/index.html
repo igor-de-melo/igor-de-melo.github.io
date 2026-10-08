@@ -172,12 +172,13 @@
         <span class="ruler-trail" aria-hidden="true"></span>
         <span class="ruler-mark" aria-hidden="true"></span>
         <ol>
-          <li><a href="#sobre" aria-current="location"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></a></li>
-          <li><a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a></li>
-          <li><a href="#estudos"><span lang="pt-BR">Estudos e laboratórios</span><span lang="en">Studies and labs</span><span lang="fr">Études et labs</span></a></li>
+          <li><a href="#sobre" aria-current="location"><span class="t-only"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></span><span class="s-only"><span lang="pt-BR">Resumo</span><span lang="en">Summary</span><span lang="fr">Résumé</span></span></a></li>
+          <li id="r-experiencia"><a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a></li>
+          <li class="t-only"><a href="#estudos"><span lang="pt-BR">Estudos e laboratórios</span><span lang="en">Studies and labs</span><span lang="fr">Études et labs</span></a></li>
           <li><a href="#projetos"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></a></li>
           <li><a href="#formacao"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></a></li>
-          <li><a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></a></li>
+          <li data-simple-before="r-experiencia"><a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></a></li>
+          <li class="s-only"><a href="#idiomas"><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></a></li>
           <li><a href="#contato"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></a></li>
         </ol>
       </div>
@@ -202,11 +203,11 @@
         <p class="pm" aria-hidden="true"><span class="pm-u">igor@seg</span>:<span class="t-cm">~</span>$ <span class="ty" style="--n:6">whoami</span></p>
         <div class="pn pn--f">
           <p class="pn-t">[ output ]</p>
-          <p lang="pt-BR">Estudante de Engenharia Aeronáutica na USP, construindo uma base em cibersegurança. Tenho prática com Linux, scripts em Bash, acesso remoto por SSH, autenticação OAuth2 e automação em Python executada em servidores na nuvem. Esta página vai reunir estudos, laboratórios e certificados à medida que eu os concluir.</p>
+          <p lang="pt-BR">Estudante de Engenharia Aeronáutica na USP, construindo uma base em cibersegurança. Tenho prática com Linux, scripts em Bash, acesso remoto por SSH, autenticação OAuth2 e automação em Python executada em servidores na nuvem.<span class="t-only"> Esta página vai reunir estudos, laboratórios e certificados à medida que eu os concluir.</span></p>
           <p lang="pt-BR" class="muted">Disponível para vagas júnior em cibersegurança e TI.</p>
-          <p lang="en">Aeronautical Engineering student at the University of São Paulo (USP) building a foundation in cybersecurity. Hands-on experience with Linux, Bash scripting, remote access over SSH, OAuth2 authentication and Python automation on cloud servers. This page gathers studies, labs and certificates as I complete them.</p>
+          <p lang="en">Aeronautical Engineering student at the University of São Paulo (USP) building a foundation in cybersecurity. Hands-on experience with Linux, Bash scripting, remote access over SSH, OAuth2 authentication and Python automation on cloud servers.<span class="t-only"> This page gathers studies, labs and certificates as I complete them.</span></p>
           <p lang="en" class="muted">Available for junior roles in cybersecurity and IT.</p>
-          <p lang="fr">Étudiant en ingénierie aéronautique à l’USP, je consolide mes bases en cybersécurité. Je pratique Linux, les scripts Bash, l’accès distant par SSH, l’authentification OAuth2 et l’automatisation en Python sur des serveurs cloud. Cette page réunit mes études, labs et certificats au fur et à mesure que je les termine.</p>
+          <p lang="fr">Étudiant en ingénierie aéronautique à l’USP, je consolide mes bases en cybersécurité. Je pratique Linux, les scripts Bash, l’accès distant par SSH, l’authentification OAuth2 et l’automatisation en Python sur des serveurs cloud.<span class="t-only"> Cette page réunit mes études, labs et certificats au fur et à mesure que je les termine.</span></p>
           <p lang="fr" class="muted">Disponible pour des postes junior en cybersécurité et en informatique.</p>
         </div>
       </div>
@@ -217,6 +218,12 @@
           <p class="pn-links"><a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a> <a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">LinkedIn</a> <a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">GitHub</a></p>
         </div>
       </div>
+      <ul class="s-contact s-only">
+        <li class="s-c s-c--mail"><span lang="pt-BR">E-mail:</span><span lang="en">Email:</span><span lang="fr">E-mail&nbsp;:</span> <a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a></li>
+        <li class="s-c s-c--in"><span lang="pt-BR">LinkedIn:</span><span lang="en">LinkedIn:</span><span lang="fr">LinkedIn&nbsp;:</span> <a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">linkedin.com/in/igorademelo</a></li>
+        <li class="s-c s-c--gh"><span lang="pt-BR">GitHub:</span><span lang="en">GitHub:</span><span lang="fr">GitHub&nbsp;:</span> <a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">github.com/igor-de-melo</a></li>
+        <li class="s-c s-c--cv"><a href="../assets/docs/cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf" data-print-url="https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo.pdf"><span lang="pt-BR">Baixar currículo (PDF)</span><span lang="en">Download résumé (PDF)</span><span lang="fr">Télécharger le CV (PDF)</span></a></li>
+      </ul>
   </div>
   <figure class="ph">
     <div class="pn">
@@ -286,28 +293,42 @@
 ::......::....:.::..::...............................::::.............::......:...=%</pre><img class="crt" src="../assets/img/cyber-portrait.webp" width="246" height="316" alt=""><span class="scl" aria-hidden="true"></span></div></div>
     </div>
   </figure>
+  <figure class="portrait s-only"><img src="../assets/img/me-portrait.jpg" width="560" height="700" loading="lazy" alt="Retrato de Igor Augusto de Melo" data-alt-pt-br="Retrato de Igor Augusto de Melo" data-alt-en="Portrait of Igor Augusto de Melo" data-alt-fr="Portrait d’Igor Augusto de Melo"></figure>
 </section>
+
+<nav class="s-nav s-only" aria-label="Nesta página / On this page / Sur cette page">
+  <p class="s-nav-h"><span lang="pt-BR">Nesta página</span><span lang="en">On this page</span><span lang="fr">Sur cette page</span></p>
+  <ul>
+    <li><a href="#sobre"><span lang="pt-BR">Resumo</span><span lang="en">Summary</span><span lang="fr">Résumé</span></a></li>
+    <li><a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></a></li>
+    <li><a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a></li>
+    <li><a href="#projetos"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></a></li>
+    <li><a href="#formacao"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></a></li>
+    <li><a href="#idiomas"><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></a></li>
+    <li><a href="#contato"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></a></li>
+  </ul>
+</nav>
 
 <main id="conteudo">
 
-  <section class="section" id="sobre" aria-labelledby="h-sobre">
+  <section class="section" id="sobre" data-section="summary" aria-labelledby="h-sobre">
     <header class="sec-h">
-      <h2 id="h-sobre"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></h2>
+      <h2 id="h-sobre"><span class="t-only"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></span><span class="s-only"><span lang="pt-BR">Resumo</span><span lang="en">Summary</span><span lang="fr">Résumé</span></span></h2>
     </header>
     <div class="body">
       <div class="blk">
         <p class="pm" aria-hidden="true"><span class="pm-u">igor@seg</span>:<span class="t-cm">~</span>$ <span class="ty" style="--n:12">cat about.md</span></p>
         <div class="pn pn--f">
           <p class="pn-t">[ about.md ]</p>
-          <p class="lead" lang="pt-BR">Estou migrando da engenharia aeronáutica para TI, dados e cibersegurança. A cibersegurança é a frente mais nova: ainda não tenho certificados nem projetos nela, e prefiro mostrar aqui só o que eu concluir de fato.</p>
-          <p class="lead" lang="en">I am moving from aeronautical engineering toward IT, data and cybersecurity. Cybersecurity is the newest track: I do not have certificates or projects in it yet, and I prefer to show here only what I have actually completed.</p>
-          <p class="lead" lang="fr">Je fais évoluer ma carrière de l’ingénierie aéronautique vers l’informatique, les données et la cybersécurité. La cybersécurité est l’axe le plus récent&nbsp;: je n’ai pas encore de certificats ni de projets dans ce domaine, et je préfère n’y montrer que ce que j’aurai réellement terminé.</p>
-          <p lang="pt-BR">As seções de estudos, laboratórios, projetos e certificados serão preenchidas aos poucos. Enquanto isso, meus trabalhos com dados, automação e computação científica estão na página de <a href="../data/index.html" data-face>Ciência de Dados</a>.</p>
-          <p lang="en">The studies, projects and certificates sections will be filled in gradually. Meanwhile, my work in data, automation and scientific computing is on the <a href="../data/index.html" data-face>Data Science</a> page.</p>
-          <p lang="fr">Les sections études, projets et certificats seront complétées progressivement. En attendant, mes travaux en données, automatisation et calcul scientifique sont sur la page <a href="../data/index.html" data-face>Science des données</a>.</p>
+          <p class="lead" data-f="desc" lang="pt-BR">Estou migrando da engenharia aeronáutica para TI, dados e cibersegurança. A cibersegurança é a frente mais nova: ainda não tenho certificados nem projetos nela, e prefiro mostrar aqui só o que eu concluir de fato.</p>
+          <p class="lead" data-f="desc" lang="en">I am moving from aeronautical engineering toward IT, data and cybersecurity. Cybersecurity is the newest track: I do not have certificates or projects in it yet, and I prefer to show here only what I have actually completed.</p>
+          <p class="lead" data-f="desc" lang="fr">Je fais évoluer ma carrière de l’ingénierie aéronautique vers l’informatique, les données et la cybersécurité. La cybersécurité est l’axe le plus récent&nbsp;: je n’ai pas encore de certificats ni de projets dans ce domaine, et je préfère n’y montrer que ce que j’aurai réellement terminé.</p>
+          <p data-f="desc" lang="pt-BR"><span class="t-only">As seções de estudos, laboratórios, projetos e certificados serão preenchidas aos poucos. Enquanto isso, meus</span><span class="s-only">Meus</span> trabalhos com dados, automação e computação científica estão na página de <a href="../data/index.html" data-face>Ciência de Dados</a>.</p>
+          <p data-f="desc" lang="en"><span class="t-only">The studies, projects and certificates sections will be filled in gradually. Meanwhile, my</span><span class="s-only">My</span> work in data, automation and scientific computing is on the <a href="../data/index.html" data-face>Data Science</a> page.</p>
+          <p data-f="desc" lang="fr"><span class="t-only">Les sections études, projets et certificats seront complétées progressivement. En attendant, mes</span><span class="s-only">Mes</span> travaux en données, automatisation et calcul scientifique sont sur la page <a href="../data/index.html" data-face>Science des données</a>.</p>
         </div>
       </div>
-      <div class="blk">
+      <div class="blk t-only" id="simulacoes">
         <p class="pm" aria-hidden="true"><span class="pm-u">igor@seg</span>:<span class="t-cm">~</span>$ <span class="ty" style="--n:38">./malware_sir --beta 0.30 --gamma 0.15</span></p>
         <div class="pn">
           <p class="pn-t">[ <span lang="pt-BR">malware numa rede</span><span lang="en">malware on a network</span><span lang="fr">malware dans un réseau</span> ]</p>
@@ -368,13 +389,14 @@
 </div>
         </div>
       </div>
-      <p class="bridge" lang="pt-BR">A simulação acima aplica à segurança um modelo epidemiológico, o mesmo tipo de modelagem dinâmica que uso na <a href="../aero/index.html" data-face>engenharia</a> e em <a href="../data/index.html" data-face>dados</a>.</p>
-      <p class="bridge" lang="en">The simulation above applies an epidemic model to security, the same kind of dynamic modeling I use in <a href="../aero/index.html" data-face>engineering</a> and <a href="../data/index.html" data-face>data</a>.</p>
-      <p class="bridge" lang="fr">La simulation ci-dessus applique à la sécurité un modèle épidémiologique, le même type de modélisation dynamique que j’utilise en <a href="../aero/index.html" data-face>ingénierie</a> et en <a href="../data/index.html" data-face>données</a>.</p>
+      <p class="sim-link s-only"><a href="index.html?view=themed#simulacoes" data-view-go="themed"><span lang="pt-BR">Ver simulação no modo Temático</span><span lang="en">View simulation in Themed mode</span><span lang="fr">Voir la simulation en mode Thématique</span></a></p>
+      <p class="bridge" data-f="desc" lang="pt-BR">A simulação acima aplica à segurança um modelo epidemiológico, o mesmo tipo de modelagem dinâmica que uso na <a href="../aero/index.html" data-face>engenharia</a> e em <a href="../data/index.html" data-face>dados</a>.</p>
+      <p class="bridge" data-f="desc" lang="en">The simulation above applies an epidemic model to security, the same kind of dynamic modeling I use in <a href="../aero/index.html" data-face>engineering</a> and <a href="../data/index.html" data-face>data</a>.</p>
+      <p class="bridge" data-f="desc" lang="fr">La simulation ci-dessus applique à la sécurité un modèle épidémiologique, le même type de modélisation dynamique que j’utilise en <a href="../aero/index.html" data-face>ingénierie</a> et en <a href="../data/index.html" data-face>données</a>.</p>
     </div>
   </section>
 
-  <section class="section" id="experiencia" aria-labelledby="h-exp">
+  <section class="section" id="experiencia" data-section="experience" aria-labelledby="h-exp">
     <header class="sec-h">
       <h2 id="h-exp"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></h2>
       <p class="sec-n" data-count=".tl" data-pt-br="experiência|experiências" data-en="role|roles" data-fr="expérience|expériences"><span lang="pt-BR">2 experiências</span><span lang="en">2 roles</span><span lang="fr">2 expériences</span></p>
@@ -382,39 +404,41 @@
     <div class="body">
       <div class="blk">
         <p class="pm" aria-hidden="true"><span class="pm-u">igor@seg</span>:<span class="t-cm">~</span>$ <span class="ty" style="--n:29">git log --oneline experience/</span></p>
-        <div class="tl is-first">
+        <div class="tl is-first" data-item="experience">
           <div class="pn">
             <p class="pn-t">[ pilea-labs · <span lang="pt-BR">dez. 2024 – mar. 2025</span><span lang="en">Dec 2024 – Mar 2025</span><span lang="fr">déc. 2024 – mars 2025</span> ]</p>
-            <dl class="kv"><div><dt>role:</dt><dd><h3><span lang="pt-BR">Analista de Dados</span><span lang="en">Data Analyst</span><span lang="fr">Analyste de données</span></h3></dd></div><div><dt>where:</dt><dd><span lang="pt-BR">Pilea Labs, plataforma de marketing de influência e afiliados para e-commerce</span><span lang="en">Pilea Labs, influencer and affiliate marketing platform for e-commerce</span><span lang="fr">Pilea Labs, plateforme de marketing d’influence et d’affiliation pour l’e-commerce</span></dd></div></dl>
+            <p class="when s-only" data-f="period"><span lang="pt-BR"><time datetime="2024-12">dez. 2024</time> – <time datetime="2025-03">mar. 2025</time></span><span lang="en"><time datetime="2024-12">Dec 2024</time> – <time datetime="2025-03">Mar 2025</time></span><span lang="fr"><time datetime="2024-12">déc. 2024</time> – <time datetime="2025-03">mars 2025</time></span></p>
+            <dl class="kv"><div><dt>role:</dt><dd><h3 data-f="title"><span lang="pt-BR">Analista de Dados</span><span lang="en">Data Analyst</span><span lang="fr">Analyste de données</span></h3></dd></div><div><dt>where:</dt><dd data-f="org"><span lang="pt-BR">Pilea Labs, plataforma de marketing de influência e afiliados para e-commerce</span><span lang="en">Pilea Labs, influencer and affiliate marketing platform for e-commerce</span><span lang="fr">Pilea Labs, plateforme de marketing d’influence et d’affiliation pour l’e-commerce</span></dd></div></dl>
             <ul lang="pt-BR">
-            <li>Trabalho direto em banco de dados MySQL de produção no Google Cloud, com dados de pedidos e cupons.</li>
-            <li>Versionamento de código e consultas com Git e GitHub.</li>
-            <li>Integração de scripts em Python ao site da empresa.</li>
+            <li data-f="bullet">Trabalho direto em banco de dados MySQL de produção no Google Cloud, com dados de pedidos e cupons.</li>
+            <li data-f="bullet">Versionamento de código e consultas com Git e GitHub.</li>
+            <li data-f="bullet">Integração de scripts em Python ao site da empresa.</li>
             </ul>
             <ul lang="en">
-            <li>Worked directly on a production MySQL database on Google Cloud holding order and coupon data.</li>
-            <li>Version-controlled code and queries with Git and GitHub.</li>
-            <li>Integrated Python scripts into the company website.</li>
+            <li data-f="bullet">Worked directly on a production MySQL database on Google Cloud holding order and coupon data.</li>
+            <li data-f="bullet">Version-controlled code and queries with Git and GitHub.</li>
+            <li data-f="bullet">Integrated Python scripts into the company website.</li>
             </ul>
             <ul lang="fr">
-            <li>Travail direct sur une base de données MySQL de production sur Google Cloud, contenant des données de commandes et de coupons.</li>
-            <li>Versionnage du code et des requêtes avec Git et GitHub.</li>
-            <li>Intégration de scripts Python au site de l’entreprise.</li>
+            <li data-f="bullet">Travail direct sur une base de données MySQL de production sur Google Cloud, contenant des données de commandes et de coupons.</li>
+            <li data-f="bullet">Versionnage du code et des requêtes avec Git et GitHub.</li>
+            <li data-f="bullet">Intégration de scripts Python au site de l’entreprise.</li>
             </ul>
           </div>
         </div>
-        <div class="tl is-last">
+        <div class="tl is-last" data-item="experience">
           <div class="pn">
             <p class="pn-t">[ irphe · <span lang="pt-BR">fev. – jul. 2023</span><span lang="en">Feb – Jul 2023</span><span lang="fr">févr. – juil. 2023</span> ]</p>
-            <dl class="kv"><div><dt>role:</dt><dd><h3><span lang="pt-BR">Pesquisa em modelagem atmosférica e energia eólica</span><span lang="en">Atmospheric modeling and wind energy research</span><span lang="fr">Recherche en modélisation atmosphérique et énergie éolienne</span></h3></dd></div><div><dt>where:</dt><dd>IRPHE, École Centrale de Marseille</dd></div></dl>
+            <p class="when s-only" data-f="period"><span lang="pt-BR"><time datetime="2023-02">fev.</time> – <time datetime="2023-07">jul. 2023</time></span><span lang="en"><time datetime="2023-02">Feb</time> – <time datetime="2023-07">Jul 2023</time></span><span lang="fr"><time datetime="2023-02">févr.</time> – <time datetime="2023-07">juil. 2023</time></span></p>
+            <dl class="kv"><div><dt>role:</dt><dd><h3 data-f="title"><span lang="pt-BR">Pesquisa em modelagem atmosférica e energia eólica</span><span lang="en">Atmospheric modeling and wind energy research</span><span lang="fr">Recherche en modélisation atmosphérique et énergie éolienne</span></h3></dd></div><div><dt>where:</dt><dd data-f="org">IRPHE, École Centrale de Marseille</dd></div></dl>
             <ul lang="pt-BR">
-            <li>Uso diário de Linux e da linha de comando, com scripts em Bash e Python para executar e processar simulações no WRF.</li>
+            <li data-f="bullet">Uso diário de Linux e da linha de comando, com scripts em Bash e Python para executar e processar simulações no WRF.</li>
             </ul>
             <ul lang="en">
-            <li>Used Linux and the command line daily, writing Bash and Python scripts to run and post-process WRF simulations.</li>
+            <li data-f="bullet">Used Linux and the command line daily, writing Bash and Python scripts to run and post-process WRF simulations.</li>
             </ul>
             <ul lang="fr">
-            <li>Utilisation quotidienne de Linux et de la ligne de commande, avec des scripts Bash et Python pour lancer et post-traiter des simulations WRF.</li>
+            <li data-f="bullet">Utilisation quotidienne de Linux et de la ligne de commande, avec des scripts Bash et Python pour lancer et post-traiter des simulations WRF.</li>
             </ul>
           </div>
         </div>
@@ -422,7 +446,7 @@
     </div>
   </section>
 
-  <section class="section" id="estudos" aria-labelledby="h-est">
+  <section class="section t-only" id="estudos" aria-labelledby="h-est">
     <header class="sec-h">
       <h2 id="h-est"><span lang="pt-BR">Estudos e laboratórios</span><span lang="en">Studies and labs</span><span lang="fr">Études et labs</span></h2>
     </header>
@@ -452,7 +476,7 @@
     </div>
   </section>
 
-  <section class="section" id="projetos" aria-labelledby="h-proj">
+  <section class="section" id="projetos" data-section="projects" aria-labelledby="h-proj">
     <header class="sec-h">
       <h2 id="h-proj"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></h2>
       <p class="sec-n" data-count=".kv--proj" data-pt-br="projeto|projetos" data-en="project|projects" data-fr="projet|projets"><span lang="pt-BR">1 projeto</span><span lang="en">1 project</span><span lang="fr">1 projet</span></p>
@@ -460,21 +484,21 @@
     <div class="body">
       <div class="blk">
         <p class="pm" aria-hidden="true"><span class="pm-u">igor@seg</span>:<span class="t-cm">~</span>$ <span class="ty" style="--n:28">cat projects/email-triage.md</span></p>
-        <div class="pn pn--f">
+        <div class="pn pn--f" data-item="project">
           <p class="pn-t">[ email-triage.md ]</p>
-          <dl class="kv kv--proj"><div><dt>name:</dt><dd><h3><span lang="pt-BR">Triagem inteligente de e-mails</span><span lang="en">Intelligent email triage</span><span lang="fr">Tri intelligent d’e-mails</span></h3></dd></div><div><dt>type:</dt><dd><span lang="pt-BR">Projeto pessoal</span><span lang="en">Personal project</span><span lang="fr">Projet personnel</span></dd></div></dl>
+          <dl class="kv kv--proj"><div><dt>name:</dt><dd><h3 data-f="title"><span lang="pt-BR">Triagem inteligente de e-mails</span><span lang="en">Intelligent email triage</span><span lang="fr">Tri intelligent d’e-mails</span></h3></dd></div><div><dt>type:</dt><dd data-f="org"><span lang="pt-BR">Projeto pessoal</span><span lang="en">Personal project</span><span lang="fr">Projet personnel</span></dd></div></dl>
           <dl class="par">
-          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Dar a um bot acesso seguro a duas caixas de e-mail e mantê-lo rodando num servidor remoto.</span><span lang="en">Give an automated bot secure access to two mailboxes and keep it running on a remote server.</span><span lang="fr">Donner à un bot automatisé un accès sécurisé à deux boîtes de messagerie et le faire tourner sur un serveur distant.</span></dd></div>
-          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Acesso às caixas por IMAP com autenticação OAuth2. Está planejada a implantação num servidor Linux remoto acessado por SSH, com atualização via Git e execução agendada por cron.</span><span lang="en">Mailbox access over IMAP with OAuth2 authentication. Deployment on a remote Linux server accessed over SSH, updated through Git and scheduled with cron, is planned.</span><span lang="fr">Accès aux boîtes par IMAP avec authentification OAuth2. Le déploiement sur un serveur Linux distant accessible par SSH, avec mise à jour via Git et exécution planifiée par cron, est prévu.</span></dd></div>
-          <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Resumos diários e semanais pelo Telegram; em desenvolvimento, com migração para um VPS na Oracle Cloud planejada. A descrição completa está na página de <a href="../data/index.html#projetos" data-face>Ciência de Dados</a>.</span><span lang="en">Daily and weekly summaries via Telegram; in development, with a migration to an Oracle Cloud VPS planned. The full description is on the <a href="../data/index.html#projetos" data-face>Data Science</a> page.</span><span lang="fr">Synthèses quotidiennes et hebdomadaires via Telegram&nbsp;; en développement, avec une migration prévue vers un VPS Oracle Cloud. La description complète est sur la page <a href="../data/index.html#projetos" data-face>Science des données</a>.</span></dd></div>
+          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd data-f="desc"><span lang="pt-BR">Dar a um bot acesso seguro a duas caixas de e-mail e mantê-lo rodando num servidor remoto.</span><span lang="en">Give an automated bot secure access to two mailboxes and keep it running on a remote server.</span><span lang="fr">Donner à un bot automatisé un accès sécurisé à deux boîtes de messagerie et le faire tourner sur un serveur distant.</span></dd></div>
+          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd data-f="desc"><span lang="pt-BR">Acesso às caixas por IMAP com autenticação OAuth2. Está planejada a implantação num servidor Linux remoto acessado por SSH, com atualização via Git e execução agendada por cron.</span><span lang="en">Mailbox access over IMAP with OAuth2 authentication. Deployment on a remote Linux server accessed over SSH, updated through Git and scheduled with cron, is planned.</span><span lang="fr">Accès aux boîtes par IMAP avec authentification OAuth2. Le déploiement sur un serveur Linux distant accessible par SSH, avec mise à jour via Git et exécution planifiée par cron, est prévu.</span></dd></div>
+          <div class="par-result"><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd data-f="desc"><span lang="pt-BR">Resumos diários e semanais pelo Telegram; em desenvolvimento, com migração para um VPS na Oracle Cloud planejada. A descrição completa está na página de <a href="../data/index.html#projetos" data-face>Ciência de Dados</a>.</span><span lang="en">Daily and weekly summaries via Telegram; in development, with a migration to an Oracle Cloud VPS planned. The full description is on the <a href="../data/index.html#projetos" data-face>Data Science</a> page.</span><span lang="fr">Synthèses quotidiennes et hebdomadaires via Telegram&nbsp;; en développement, avec une migration prévue vers un VPS Oracle Cloud. La description complète est sur la page <a href="../data/index.html#projetos" data-face>Science des données</a>.</span></dd></div>
           </dl>
           <p class="pn-label"><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></p>
-          <ul class="chips" lang="pt-BR"><li>Python</li><li>IMAP</li><li>OAuth2</li><li>SSH</li><li>Linux</li><li>cron</li><li>Git</li><li>Oracle Cloud (VPS, planejado)</li></ul>
-          <ul class="chips" lang="en"><li>Python</li><li>IMAP</li><li>OAuth2</li><li>SSH</li><li>Linux</li><li>cron</li><li>Git</li><li>Oracle Cloud (VPS, planned)</li></ul>
-          <ul class="chips" lang="fr"><li>Python</li><li>IMAP</li><li>OAuth2</li><li>SSH</li><li>Linux</li><li>cron</li><li>Git</li><li>Oracle Cloud (VPS, prévu)</li></ul>
+          <ul class="chips" data-f="stack" lang="pt-BR"><li>Python</li><li>IMAP</li><li>OAuth2</li><li>SSH</li><li>Linux</li><li>cron</li><li>Git</li><li>Oracle Cloud (VPS, planejado)</li></ul>
+          <ul class="chips" data-f="stack" lang="en"><li>Python</li><li>IMAP</li><li>OAuth2</li><li>SSH</li><li>Linux</li><li>cron</li><li>Git</li><li>Oracle Cloud (VPS, planned)</li></ul>
+          <ul class="chips" data-f="stack" lang="fr"><li>Python</li><li>IMAP</li><li>OAuth2</li><li>SSH</li><li>Linux</li><li>cron</li><li>Git</li><li>Oracle Cloud (VPS, prévu)</li></ul>
         </div>
       </div>
-      <div class="blk">
+      <div class="blk t-only">
         <p class="pm" aria-hidden="true"><span class="pm-u">igor@seg</span>:<span class="t-cm">~</span>$ <span class="ty" style="--n:17">ls projects/next/</span></p>
         <div class="pn">
           <p class="pn-t">[ next/ ]</p>
@@ -488,7 +512,7 @@
     </div>
   </section>
 
-  <section class="section" id="formacao" aria-labelledby="h-form">
+  <section class="section" id="formacao" data-section="education" aria-labelledby="h-form">
     <header class="sec-h">
       <h2 id="h-form"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></h2>
       <p class="sec-n" data-count=".tl" data-pt-br="item|itens" data-en="item|items" data-fr="élément|éléments"><span lang="pt-BR">3 itens</span><span lang="en">3 items</span><span lang="fr">3 éléments</span></p>
@@ -496,26 +520,29 @@
     <div class="body">
       <div class="blk">
         <p class="pm" aria-hidden="true"><span class="pm-u">igor@seg</span>:<span class="t-cm">~</span>$ <span class="ty" style="--n:28">git log --oneline education/</span></p>
-        <div class="tl is-first is-current">
+        <div class="tl is-first is-current" data-item="education">
           <div class="pn pn--f">
             <p class="pn-t">[ icmc-usp · <span lang="pt-BR">2023 – atual</span><span lang="en">2023 – present</span><span lang="fr">2023 – aujourd’hui</span> ]</p>
-            <dl class="kv"><div><dt>course:</dt><dd><h3><span lang="pt-BR">Certificado de Estudos Especiais em Dinâmica dos Fluidos Computacional</span><span lang="en">Special Studies Certificate in Computational Fluid Dynamics</span><span lang="fr">Certificat d’études spéciales en dynamique des fluides numérique</span></h3></dd></div><div><dt>where:</dt><dd>ICMC-USP</dd></div></dl>
+            <p class="when s-only" data-f="period"><span lang="pt-BR"><time datetime="2023">2023</time> – atual</span><span lang="en"><time datetime="2023">2023</time> – present</span><span lang="fr"><time datetime="2023">2023</time> – aujourd’hui</span></p>
+            <dl class="kv"><div><dt>course:</dt><dd><h3 data-f="title"><span lang="pt-BR">Certificado de Estudos Especiais em Dinâmica dos Fluidos Computacional</span><span lang="en">Special Studies Certificate in Computational Fluid Dynamics</span><span lang="fr">Certificat d’études spéciales en dynamique des fluides numérique</span></h3></dd></div><div><dt>where:</dt><dd data-f="org">ICMC-USP</dd></div></dl>
           </div>
         </div>
-        <div class="tl">
+        <div class="tl" data-item="education">
           <div class="pn">
             <p class="pn-t">[ centrale-marseille · 2022 – 2023 ]</p>
-            <dl class="kv"><div><dt>course:</dt><dd><h3><span lang="pt-BR">Intercâmbio acadêmico, engenharia generalista</span><span lang="en">Academic exchange, general engineering program</span><span lang="fr">Échange académique, cursus ingénieur généraliste</span></h3></dd></div><div><dt>where:</dt><dd>École Centrale de Marseille</dd></div></dl>
+            <p class="when s-only" data-f="period"><time datetime="2022">2022</time> – <time datetime="2023">2023</time></p>
+            <dl class="kv"><div><dt>course:</dt><dd><h3 data-f="title"><span lang="pt-BR">Intercâmbio acadêmico, engenharia generalista</span><span lang="en">Academic exchange, general engineering program</span><span lang="fr">Échange académique, cursus ingénieur généraliste</span></h3></dd></div><div><dt>where:</dt><dd data-f="org">École Centrale de Marseille</dd></div></dl>
           </div>
         </div>
-        <div class="tl is-last is-current">
+        <div class="tl is-last is-current" data-item="education">
           <div class="pn pn--f">
             <p class="pn-t">[ eesc-usp · <span lang="pt-BR">2020 – atual</span><span lang="en">2020 – present</span><span lang="fr">2020 – aujourd’hui</span> ]</p>
-            <dl class="kv"><div><dt>course:</dt><dd><h3><span lang="pt-BR">Graduação em Engenharia Aeronáutica (em andamento)</span><span lang="en">Aeronautical Engineering, undergraduate studies (in progress)</span><span lang="fr">Cursus ingénieur en aéronautique (en cours)</span></h3></dd></div><div><dt>where:</dt><dd><span lang="pt-BR">Escola de Engenharia de São Carlos, USP</span><span lang="en">São Carlos School of Engineering, University of São Paulo</span><span lang="fr">École d’ingénieurs de São Carlos (EESC), Université de São Paulo</span></dd></div></dl>
+            <p class="when s-only" data-f="period"><span lang="pt-BR"><time datetime="2020">2020</time> – atual</span><span lang="en"><time datetime="2020">2020</time> – present</span><span lang="fr"><time datetime="2020">2020</time> – aujourd’hui</span></p>
+            <dl class="kv"><div><dt>course:</dt><dd><h3 data-f="title"><span lang="pt-BR">Graduação em Engenharia Aeronáutica (em andamento)</span><span lang="en">Aeronautical Engineering, undergraduate studies (in progress)</span><span lang="fr">Cursus ingénieur en aéronautique (en cours)</span></h3></dd></div><div><dt>where:</dt><dd data-f="org"><span lang="pt-BR">Escola de Engenharia de São Carlos, USP</span><span lang="en">São Carlos School of Engineering, University of São Paulo</span><span lang="fr">École d’ingénieurs de São Carlos (EESC), Université de São Paulo</span></dd></div></dl>
           </div>
         </div>
       </div>
-      <div class="blk">
+      <div class="blk t-only">
         <p class="pm" aria-hidden="true"><span class="pm-u">igor@seg</span>:<span class="t-cm">~</span>$ <span class="ty" style="--n:16">ls certificates/</span></p>
         <div class="pn">
           <p class="pn-t">[ certificates/ ]</p>
@@ -529,7 +556,7 @@
     </div>
   </section>
 
-  <section class="section" id="competencias" aria-labelledby="h-comp">
+  <section class="section" id="competencias" data-section="skills" aria-labelledby="h-comp" data-simple-before="experiencia">
     <header class="sec-h">
       <h2 id="h-comp"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></h2>
       <p class="sec-n" data-count=".yml > dt" data-pt-br="grupo|grupos" data-en="group|groups" data-fr="groupe|groupes"><span lang="pt-BR">5 grupos</span><span lang="en">5 groups</span><span lang="fr">5 groupes</span></p>
@@ -540,35 +567,35 @@
         <div class="pn pn--f">
           <p class="pn-t">[ skills.yml ]</p>
           <dl class="yml">
-            <dt><span lang="pt-BR">Sistemas operacionais</span><span lang="en">Operating systems</span><span lang="fr">Systèmes d’exploitation</span></dt>
+            <dt data-item="skill-group" data-f="title"><span lang="pt-BR">Sistemas operacionais</span><span lang="en">Operating systems</span><span lang="fr">Systèmes d’exploitation</span></dt>
             <dd>
-            <ul class="chips" lang="pt-BR"><li>Linux (linha de comando)</li><li>Scripts em Bash</li><li>Acesso remoto por SSH</li></ul>
-            <ul class="chips" lang="en"><li>Linux (command line)</li><li>Bash scripting</li><li>Remote access over SSH</li></ul>
-            <ul class="chips" lang="fr"><li>Linux (ligne de commande)</li><li>Scripts Bash</li><li>Accès distant par SSH</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Linux (linha de comando)</li><li>Scripts em Bash</li><li>Acesso remoto por SSH</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>Linux (command line)</li><li>Bash scripting</li><li>Remote access over SSH</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Linux (ligne de commande)</li><li>Scripts Bash</li><li>Accès distant par SSH</li></ul>
             </dd>
-            <dt><span lang="pt-BR">Autenticação e acesso</span><span lang="en">Authentication and access</span><span lang="fr">Authentification et accès</span></dt>
+            <dt data-item="skill-group" data-f="title"><span lang="pt-BR">Autenticação e acesso</span><span lang="en">Authentication and access</span><span lang="fr">Authentification et accès</span></dt>
             <dd>
-            <ul class="chips" lang="pt-BR"><li>OAuth2 para acesso a e-mail por IMAP</li></ul>
-            <ul class="chips" lang="en"><li>OAuth2 for IMAP email access</li></ul>
-            <ul class="chips" lang="fr"><li>OAuth2 pour l’accès aux e-mails par IMAP</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>OAuth2 para acesso a e-mail por IMAP</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>OAuth2 for IMAP email access</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>OAuth2 pour l’accès aux e-mails par IMAP</li></ul>
             </dd>
-            <dt><span lang="pt-BR">Programação e automação</span><span lang="en">Programming and automation</span><span lang="fr">Programmation et automatisation</span></dt>
+            <dt data-item="skill-group" data-f="title"><span lang="pt-BR">Programação e automação</span><span lang="en">Programming and automation</span><span lang="fr">Programmation et automatisation</span></dt>
             <dd>
-            <ul class="chips" lang="pt-BR"><li>Python</li><li>SQL (MySQL)</li><li>Agendamento com cron</li></ul>
-            <ul class="chips" lang="en"><li>Python</li><li>SQL (MySQL)</li><li>cron scheduling</li></ul>
-            <ul class="chips" lang="fr"><li>Python</li><li>SQL (MySQL)</li><li>Planification avec cron</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Python</li><li>SQL (MySQL)</li><li>Agendamento com cron</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>Python</li><li>SQL (MySQL)</li><li>cron scheduling</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Python</li><li>SQL (MySQL)</li><li>Planification avec cron</li></ul>
             </dd>
-            <dt><span lang="pt-BR">Nuvem e versionamento</span><span lang="en">Cloud and version control</span><span lang="fr">Cloud et gestion de versions</span></dt>
+            <dt data-item="skill-group" data-f="title"><span lang="pt-BR">Nuvem e versionamento</span><span lang="en">Cloud and version control</span><span lang="fr">Cloud et gestion de versions</span></dt>
             <dd>
-            <ul class="chips" lang="pt-BR"><li>Google Cloud</li><li>Oracle Cloud (VPS, migração planejada)</li><li>Git</li><li>GitHub</li></ul>
-            <ul class="chips" lang="en"><li>Google Cloud</li><li>Oracle Cloud (VPS, migration planned)</li><li>Git</li><li>GitHub</li></ul>
-            <ul class="chips" lang="fr"><li>Google Cloud</li><li>Oracle Cloud (VPS, migration prévue)</li><li>Git</li><li>GitHub</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Google Cloud</li><li>Oracle Cloud (VPS, migração planejada)</li><li>Git</li><li>GitHub</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>Google Cloud</li><li>Oracle Cloud (VPS, migration planned)</li><li>Git</li><li>GitHub</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Google Cloud</li><li>Oracle Cloud (VPS, migration prévue)</li><li>Git</li><li>GitHub</li></ul>
             </dd>
-            <dt><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></dt>
-            <dd>
-            <ul class="chips" lang="pt-BR"><li>Português (nativo)</li><li>Inglês (avançado)</li><li>Francês (avançado)</li><li>Alemão (básico)</li></ul>
-            <ul class="chips" lang="en"><li>Portuguese (native)</li><li>English (advanced)</li><li>French (advanced)</li><li>German (basic)</li></ul>
-            <ul class="chips" lang="fr"><li>Portugais (langue maternelle)</li><li>Anglais (avancé)</li><li>Français (avancé)</li><li>Allemand (notions)</li></ul>
+            <dt class="t-only" data-item="skill-group" data-f="title"><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></dt>
+            <dd class="t-only">
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Português (nativo)</li><li>Inglês (avançado)</li><li>Francês (avançado)</li><li>Alemão (básico)</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>Portuguese (native)</li><li>English (advanced)</li><li>French (advanced)</li><li>German (basic)</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Portugais (langue maternelle)</li><li>Anglais (avancé)</li><li>Français (avancé)</li><li>Allemand (notions)</li></ul>
             </dd>
           </dl>
         </div>
@@ -576,7 +603,18 @@
     </div>
   </section>
 
-  <section class="section" id="contato" aria-labelledby="h-cont">
+  <section class="section s-only" id="idiomas" data-section="languages" aria-labelledby="h-idi">
+    <header class="sec-h">
+      <h2 id="h-idi"><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></h2>
+    </header>
+    <div class="body">
+      <p data-f="desc" lang="pt-BR">Português (nativo), inglês (avançado), francês (avançado), alemão (básico).</p>
+      <p data-f="desc" lang="en">Portuguese (native), English (advanced), French (advanced), German (basic).</p>
+      <p data-f="desc" lang="fr">Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions).</p>
+    </div>
+  </section>
+
+  <section class="section" id="contato" data-section="contact" aria-labelledby="h-cont">
     <header class="sec-h">
       <h2 id="h-cont"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></h2>
     </header>
@@ -585,12 +623,18 @@
         <p class="pm" aria-hidden="true"><span class="pm-u">igor@seg</span>:<span class="t-cm">~</span>$ <span class="ty" style="--n:15">contact --write</span></p>
         <div class="pn pn--f">
           <p class="pn-t">[ contact ]</p>
-          <p lang="pt-BR">Para conversar sobre vagas júnior ou projetos, escreva para:</p>
-          <p lang="en">To discuss junior roles or projects, reach me at:</p>
-          <p lang="fr">Pour échanger sur un poste junior ou un projet, écrivez-moi&nbsp;:</p>
-          <a class="contact-mail" href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a>
-          <p><a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">linkedin.com/in/igorademelo</a><br><a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">github.com/igor-de-melo</a></p>
-          <p class="muted"><span lang="pt-BR">São Carlos, SP, Brasil</span><span lang="en">São Carlos, São Paulo, Brazil</span><span lang="fr">São Carlos, État de São Paulo, Brésil</span></p>
+          <p data-f="desc" lang="pt-BR">Para conversar sobre vagas júnior ou projetos, escreva para:</p>
+          <p data-f="desc" lang="en">To discuss junior roles or projects, reach me at:</p>
+          <p data-f="desc" lang="fr">Pour échanger sur un poste junior ou un projet, écrivez-moi&nbsp;:</p>
+          <a class="contact-mail t-only" href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a>
+          <p class="t-only"><a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">linkedin.com/in/igorademelo</a><br><a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">github.com/igor-de-melo</a></p>
+          <ul class="s-contact s-only">
+            <li class="s-c s-c--mail"><span lang="pt-BR">E-mail:</span><span lang="en">Email:</span><span lang="fr">E-mail&nbsp;:</span> <a href="mailto:igor_amelo@usp.br" data-f="link">igor_amelo@usp.br</a></li>
+            <li class="s-c s-c--in"><span lang="pt-BR">LinkedIn:</span><span lang="en">LinkedIn:</span><span lang="fr">LinkedIn&nbsp;:</span> <a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener" data-f="link">linkedin.com/in/igorademelo</a></li>
+            <li class="s-c s-c--gh"><span lang="pt-BR">GitHub:</span><span lang="en">GitHub:</span><span lang="fr">GitHub&nbsp;:</span> <a href="https://github.com/igor-de-melo" target="_blank" rel="noopener" data-f="link">github.com/igor-de-melo</a></li>
+            <li class="s-c s-c--cv"><a href="../assets/docs/cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf" data-print-url="https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo.pdf" data-f="link"><span lang="pt-BR">Baixar currículo (PDF)</span><span lang="en">Download résumé (PDF)</span><span lang="fr">Télécharger le CV (PDF)</span></a></li>
+          </ul>
+          <p class="muted" data-f="place"><span lang="pt-BR">São Carlos, SP, Brasil</span><span lang="en">São Carlos, São Paulo, Brazil</span><span lang="fr">São Carlos, État de São Paulo, Brésil</span></p>
         </div>
       </div>
     </div>

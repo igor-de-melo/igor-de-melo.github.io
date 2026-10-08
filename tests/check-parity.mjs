@@ -64,6 +64,35 @@ function walk(el, file, inheritedLang) {
   }
 }
 
+// Marcação de campos do CV (data-section, data-item, data-f) nas páginas de área: a contagem de cada valor é igual
+// nas três línguas, e todo item de experiência ou de formação tem data-f="title" em cada língua.
+function fieldCount(el, lang, acc) {
+  if (el.text !== undefined) return acc;
+  if (el.tag !== "html" && LANGS.includes(el.attrs.lang) && el.attrs.lang !== lang) return acc;
+  for (const k of ["data-section", "data-item", "data-f"]) if (el.attrs[k]) acc[k + "=" + el.attrs[k]] = (acc[k + "=" + el.attrs[k]] || 0) + 1;
+  for (const c of el.children) fieldCount(c, lang, acc);
+  return acc;
+}
+function eachItem(el, fn) {
+  if (el.text !== undefined) return;
+  if (el.attrs["data-item"]) fn(el);
+  for (const c of el.children) eachItem(c, fn);
+}
+for (const f of files) {
+  if (!/[\\/]/.test(f)) continue; // a Home não tem campos de CV
+  const tree = parse(readFileSync(join(root, f), "utf8"));
+  const per = LANGS.map((l) => fieldCount(tree, l, {}));
+  if (!Object.keys(per[0]).some((k) => k.startsWith("data-section="))) fail(f, 1, "falta a marcação de campos (data-section, data-item, data-f)");
+  for (const k of new Set(per.flatMap((o) => Object.keys(o)))) {
+    const n = per.map((o) => o[k] || 0);
+    if (n.some((x) => x !== n[0])) fail(f, 1, `${k}: contagem desigual entre línguas (pt-BR=${n[0]}, en=${n[1]}, fr=${n[2]})`);
+  }
+  eachItem(tree, (item) => {
+    if (!["experience", "education"].includes(item.attrs["data-item"])) return;
+    for (const l of LANGS) if (!fieldCount(item, l, {})["data-f=title"]) fail(f, item.line, `item de ${item.attrs["data-item"]} sem data-f="title" (${l})`);
+  });
+}
+
 // Todo HTML do site começa exatamente por "<!doctype html>" (um "<" perdido faz o texto aparecer na página).
 for (const f of [...files, "index.template.html"]) {
   const head = readFileSync(join(root, f), "utf8").slice(0, 15);

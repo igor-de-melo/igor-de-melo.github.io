@@ -121,6 +121,38 @@ async function browser() {
         if (s.run > 0 || s.moving > 0) fail(`${f} (${lang}, ${width}px, simple): ${s.run} animação(ões) rodando e ${s.moving} elemento(s) com animação ou transição`);
         if (s.sw > s.iw) fail(`${f} (${lang}, ${width}px, simple): scroll horizontal (${s.sw} > ${s.iw})`);
       }
+      // Simplificado das páginas de área (S3): nenhum campo de CV oculto, sem sintaxe nem rótulos do Temático à mostra,
+      // h1 único, títulos sem saltos de nível, imagens com alt e sem scroll horizontal em 375, 768 e 1280 px.
+      for (const lang of ["pt-BR", "en", "fr"]) for (const width of [375, 768, 1280]) {
+        await open(f, `?lang=${lang}&view=simple`, width);
+        const c = await evalJs(`(function(){var vis=function(e){return e.getClientRects().length>0};var d=document.documentElement;
+          var lang=d.lang, other=function(e){var p=e.closest('[lang]');return p&&p!==d&&p.lang&&p.lang!==lang&&['pt-BR','en','fr'].indexOf(p.lang)>=0};
+          var fields=[].filter.call(document.querySelectorAll('[data-f]'),function(e){return !other(e)&&!e.closest('.t-only')});
+          var hidden=fields.filter(function(e){return e.textContent.trim()&&!vis(e)}).map(function(e){return e.getAttribute('data-f')+': '+e.textContent.trim().slice(0,40)});
+          var leak=[].filter.call(document.querySelectorAll('.pm,.pn-t,.sx,.sb,.hx,.asc,.scl,.sims,.kv dt,.cell-in--cv .fn,.cell-in--cv .k,.t-only'),vis).length;
+          var hs=[].filter.call(document.querySelectorAll('h1,h2,h3,h4,h5,h6'),vis).map(function(h){return +h.tagName[1]});
+          var jump=0;for(var i=1;i<hs.length;i++)if(hs[i]-hs[i-1]>1)jump++;
+          var noAlt=[].filter.call(document.querySelectorAll('img'),function(i){return vis(i)&&!i.alt.trim()}).length;
+          var secs=[].filter.call(document.querySelectorAll('main > section'),vis).map(function(s){return s.id}).join(' ');
+          var open=[].filter.call(document.querySelectorAll('details.sample'),function(x){return x.open}).length;
+          return {n:fields.length,hidden:hidden,leak:leak,h1:hs.filter(function(n){return n===1}).length,jump:jump,noAlt:noAlt,secs:secs,open:open,sw:d.scrollWidth,iw:innerWidth}})()`); browserChecks++;
+        const at = `${f} (${lang}, ${width}px, simple)`;
+        if (!c.n) fail(`${at}: nenhum campo data-f encontrado`);
+        if (c.hidden.length) fail(`${at}: ${c.hidden.length} campo(s) de CV oculto(s): ${c.hidden.slice(0, 3).join(" | ")}`);
+        if (c.leak) fail(`${at}: ${c.leak} elemento(s) só do Temático à mostra (sintaxe, prompt, rótulo de painel…)`);
+        if (c.h1 !== 1) fail(`${at}: ${c.h1} elementos h1 visíveis`);
+        if (c.jump) fail(`${at}: ${c.jump} salto(s) na hierarquia de títulos`);
+        if (c.noAlt) fail(`${at}: ${c.noAlt} imagem(ns) visível(is) sem alt`);
+        if (c.open) fail(`${at}: ${c.open} trecho(s) de código aberto(s); deveriam começar recolhidos`);
+        if (c.sw > c.iw) fail(`${at}: scroll horizontal (${c.sw} > ${c.iw})`);
+        const want = { "aero/index.html": "sobre competencias experiencia projetos pesquisa formacao idiomas contato", "data/index.html": "sobre competencias experiencia projetos formacao idiomas contato", "it-security/index.html": "sobre competencias experiencia projetos formacao idiomas contato" }[f];
+        if (c.secs !== want) fail(`${at}: seções "${c.secs}", esperado "${want}"`);
+      }
+      // Temático: os trechos de código continuam abertos e sem o resumo
+      { await open(f, "?view=themed", 1280);
+        const t = await evalJs(`(function(){var d=document.querySelectorAll('details.sample');return {n:d.length,open:[].filter.call(d,function(x){return x.open}).length,sum:[].filter.call(document.querySelectorAll('details.sample > summary'),function(e){return e.getClientRects().length>0}).length}})()`); browserChecks++;
+        if (t.open !== t.n || t.sum) fail(`${f} (themed): trechos de código devem ficar abertos e sem resumo (${t.open}/${t.n} abertos, ${t.sum} resumos à mostra)`);
+      }
       // Simplificado de Aero (S2): imagens visíveis com alt, nada do Temático à mostra e ordem do CV
       if (f === "aero/index.html") for (const lang of ["pt-BR", "en", "fr"]) {
         await open(f, `?lang=${lang}&view=simple`, 1280);
@@ -135,7 +167,7 @@ async function browser() {
         if (c.h1 !== 1) fail(`${f} (${lang}, simple): ${c.h1} elementos h1`);
       }
       // Régua do Simplificado (S2.1): marca a seção atual e as já percorridas; sem scroll horizontal em 1000 px
-      if (f === "aero/index.html") {
+      {
         await open(f, "?view=simple", 1280);
         await evalJs("document.getElementById('projetos').scrollIntoView();0");
         await sleep(400);

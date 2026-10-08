@@ -139,11 +139,13 @@
         <span class="ruler-trail" aria-hidden="true"></span>
         <span class="ruler-mark" aria-hidden="true"></span>
         <ol>
-          <li><a href="#sobre" aria-current="location"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></a></li>
-          <li><a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a></li>
+          <li><a href="#sobre" aria-current="location"><span class="t-only"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></span><span class="s-only"><span lang="pt-BR">Resumo</span><span lang="en">Summary</span><span lang="fr">Résumé</span></span></a></li>
+          <li id="r-experiencia"><a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a></li>
           <li><a href="#projetos"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></a></li>
           <li><a href="#formacao"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></a></li>
-          <li><a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></a></li>
+          <li class="s-only"><a href="#cursos"><span lang="pt-BR">Cursos e certificados</span><span lang="en">Courses and certificates</span><span lang="fr">Cours et certificats</span></a></li>
+          <li data-simple-before="r-experiencia"><a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></a></li>
+          <li class="s-only"><a href="#idiomas"><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></a></li>
           <li><a href="#contato"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></a></li>
         </ol>
       </div>
@@ -172,6 +174,12 @@
       <p lang="en" class="muted">Available for junior roles in data analysis, data engineering, data science or IT.</p>
       <p lang="fr" class="muted">Disponible pour des postes junior en analyse de données, ingénierie des données, science des données ou informatique.</p>
     </div>
+    <ul class="s-contact s-only">
+      <li class="s-c s-c--mail"><span lang="pt-BR">E-mail:</span><span lang="en">Email:</span><span lang="fr">E-mail&nbsp;:</span> <a href="mailto:igor_amelo@usp.br">igor_amelo@usp.br</a></li>
+      <li class="s-c s-c--in"><span lang="pt-BR">LinkedIn:</span><span lang="en">LinkedIn:</span><span lang="fr">LinkedIn&nbsp;:</span> <a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener">linkedin.com/in/igorademelo</a></li>
+      <li class="s-c s-c--gh"><span lang="pt-BR">GitHub:</span><span lang="en">GitHub:</span><span lang="fr">GitHub&nbsp;:</span> <a href="https://github.com/igor-de-melo" target="_blank" rel="noopener">github.com/igor-de-melo</a></li>
+      <li class="s-c s-c--cv"><a href="../assets/docs/cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf" data-print-url="https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo.pdf"><span lang="pt-BR">Baixar currículo (PDF)</span><span lang="en">Download résumé (PDF)</span><span lang="fr">Télécharger le CV (PDF)</span></a></li>
+    </ul>
   </div>
   <figure class="portrait"><img src="../assets/img/me-portrait.jpg" width="560" height="700" alt="Retrato de Igor Augusto de Melo" data-alt-pt-br="Retrato de Igor Augusto de Melo" data-alt-en="Portrait of Igor Augusto de Melo" data-alt-fr="Portrait d’Igor Augusto de Melo"></figure>
 </section>
@@ -188,29 +196,43 @@
       </div>
 </div>
 
+<nav class="s-nav s-only" aria-label="Nesta página / On this page / Sur cette page">
+  <p class="s-nav-h"><span lang="pt-BR">Nesta página</span><span lang="en">On this page</span><span lang="fr">Sur cette page</span></p>
+  <ul>
+    <li><a href="#sobre"><span lang="pt-BR">Resumo</span><span lang="en">Summary</span><span lang="fr">Résumé</span></a></li>
+    <li><a href="#competencias"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></a></li>
+    <li><a href="#experiencia"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></a></li>
+    <li><a href="#projetos"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></a></li>
+    <li><a href="#formacao"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></a></li>
+    <li><a href="#cursos"><span lang="pt-BR">Cursos e certificados</span><span lang="en">Courses and certificates</span><span lang="fr">Cours et certificats</span></a></li>
+    <li><a href="#idiomas"><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></a></li>
+    <li><a href="#contato"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></a></li>
+  </ul>
+</nav>
+
 <main id="conteudo">
 
-  <section class="section" id="sobre" aria-labelledby="h-sobre">
+  <section class="section" id="sobre" data-section="summary" aria-labelledby="h-sobre">
     <header class="sec-h">
-      <h2 id="h-sobre"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></h2>
+      <h2 id="h-sobre"><span class="t-only"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></span><span class="s-only"><span lang="pt-BR">Resumo</span><span lang="en">Summary</span><span lang="fr">Résumé</span></span></h2>
       <p class="sec-n" data-count='.md > p[lang="pt-BR"]' data-pt-br="parágrafo|parágrafos" data-en="paragraph|paragraphs" data-fr="paragraphe|paragraphes"><span lang="pt-BR">4 parágrafos</span><span lang="en">4 paragraphs</span><span lang="fr">4 paragraphes</span></p>
     </header>
     <div class="body">
       <div class="md">
-        <p class="lead" lang="pt-BR">Minha transição para TI e dados parte de três bases: a formação quantitativa da graduação, a experiência com SQL e Python em dados reais de e-commerce e os projetos de automação que construo por conta própria.</p>
-        <p class="lead" lang="en">My transition into IT and data builds on three things: the quantitative foundation of my undergraduate studies, hands-on SQL and Python experience with real e-commerce data, and the automation projects I build on my own.</p>
-        <p class="lead" lang="fr">Ma transition vers l’informatique et les données repose sur trois bases&nbsp;: la formation quantitative de mon cursus, mon expérience en SQL et en Python sur des données réelles d’e-commerce et les projets d’automatisation que je développe de ma propre initiative.</p>
-        <p lang="pt-BR">Da engenharia, trago prática de computação científica: simulação de Monte Carlo, otimização com algoritmos genéticos e redes neurais, análise de incerteza e rotinas numéricas em ambiente de HPC. Em TI, trabalho com Linux, Git, Bash, Google Cloud e integração de APIs, incluindo as de modelos de linguagem.</p>
-        <p lang="en">From engineering, I bring hands-on scientific computing experience: Monte Carlo simulation, optimization with genetic algorithms and neural networks, uncertainty analysis and numerical routines in HPC environments. In IT, I work with Linux, Git, Bash, Google Cloud and API integration, including language models.</p>
-        <p lang="fr">De l’ingénierie, j’apporte une pratique du calcul scientifique&nbsp;: simulation de Monte-Carlo, optimisation par algorithmes génétiques et réseaux de neurones, analyse d’incertitude et routines numériques en environnement HPC. En informatique, je travaille avec Linux, Git, Bash, Google Cloud et l’intégration d’API, y compris de modèles de langage.</p>
-        <p class="muted" lang="pt-BR">A cibersegurança é uma área que estou estudando. Ela tem uma <a href="../it-security/index.html" data-face>página própria</a>, que vou preencher com certificados, laboratórios e estudos conforme os concluir.</p>
-        <p class="muted" lang="en">Cybersecurity is an area I am studying. It has its <a href="../it-security/index.html" data-face>own page</a>, which I will fill with certificates, labs and studies as I complete them.</p>
-        <p class="muted" lang="fr">La cybersécurité est un domaine que j’étudie. Elle a sa <a href="../it-security/index.html" data-face>propre page</a>, que je compléterai avec des certificats, des labs et des études, au fur et à mesure que je les terminerai.</p>
-        <p class="bridge" lang="pt-BR">Os projetos de engenharia de onde vêm esses métodos (simulação de trajetória, Monte Carlo, CFD) estão na página de <a href="../aero/index.html" data-face>Engenharia Aeronáutica</a>.</p>
-        <p class="bridge" lang="en">The quantitative methods I use with data come from engineering: see trajectory simulation, Monte Carlo and CFD work on the <a href="../aero/index.html" data-face>Aeronautical Engineering</a> page.</p>
-        <p class="bridge" lang="fr">Les méthodes quantitatives que j’utilise avec les données viennent de l’ingénierie&nbsp;: simulation de trajectoire, Monte-Carlo et CFD sont sur la page <a href="../aero/index.html" data-face>Ingénierie aéronautique</a>.</p>
+        <p class="lead" data-f="desc" lang="pt-BR">Minha transição para TI e dados parte de três bases: a formação quantitativa da graduação, a experiência com SQL e Python em dados reais de e-commerce e os projetos de automação que construo por conta própria.</p>
+        <p class="lead" data-f="desc" lang="en">My transition into IT and data builds on three things: the quantitative foundation of my undergraduate studies, hands-on SQL and Python experience with real e-commerce data, and the automation projects I build on my own.</p>
+        <p class="lead" data-f="desc" lang="fr">Ma transition vers l’informatique et les données repose sur trois bases&nbsp;: la formation quantitative de mon cursus, mon expérience en SQL et en Python sur des données réelles d’e-commerce et les projets d’automatisation que je développe de ma propre initiative.</p>
+        <p data-f="desc" lang="pt-BR">Da engenharia, trago prática de computação científica: simulação de Monte Carlo, otimização com algoritmos genéticos e redes neurais, análise de incerteza e rotinas numéricas em ambiente de HPC. Em TI, trabalho com Linux, Git, Bash, Google Cloud e integração de APIs, incluindo as de modelos de linguagem.</p>
+        <p data-f="desc" lang="en">From engineering, I bring hands-on scientific computing experience: Monte Carlo simulation, optimization with genetic algorithms and neural networks, uncertainty analysis and numerical routines in HPC environments. In IT, I work with Linux, Git, Bash, Google Cloud and API integration, including language models.</p>
+        <p data-f="desc" lang="fr">De l’ingénierie, j’apporte une pratique du calcul scientifique&nbsp;: simulation de Monte-Carlo, optimisation par algorithmes génétiques et réseaux de neurones, analyse d’incertitude et routines numériques en environnement HPC. En informatique, je travaille avec Linux, Git, Bash, Google Cloud et l’intégration d’API, y compris de modèles de langage.</p>
+        <p class="muted" data-f="desc" lang="pt-BR">A cibersegurança é uma área que estou estudando. Ela tem uma <a href="../it-security/index.html" data-face>página própria</a>, que vou preencher com certificados, laboratórios e estudos conforme os concluir.</p>
+        <p class="muted" data-f="desc" lang="en">Cybersecurity is an area I am studying. It has its <a href="../it-security/index.html" data-face>own page</a>, which I will fill with certificates, labs and studies as I complete them.</p>
+        <p class="muted" data-f="desc" lang="fr">La cybersécurité est un domaine que j’étudie. Elle a sa <a href="../it-security/index.html" data-face>propre page</a>, que je compléterai avec des certificats, des labs et des études, au fur et à mesure que je les terminerai.</p>
+        <p class="bridge" data-f="desc" lang="pt-BR">Os projetos de engenharia de onde vêm esses métodos (simulação de trajetória, Monte Carlo, CFD) estão na página de <a href="../aero/index.html" data-face>Engenharia Aeronáutica</a>.</p>
+        <p class="bridge" data-f="desc" lang="en">The quantitative methods I use with data come from engineering: see trajectory simulation, Monte Carlo and CFD work on the <a href="../aero/index.html" data-face>Aeronautical Engineering</a> page.</p>
+        <p class="bridge" data-f="desc" lang="fr">Les méthodes quantitatives que j’utilise avec les données viennent de l’ingénierie&nbsp;: simulation de trajectoire, Monte-Carlo et CFD sont sur la page <a href="../aero/index.html" data-face>Ingénierie aéronautique</a>.</p>
       </div>
-      <div class="cell cell--sim">
+      <div class="cell cell--sim" id="simulacoes">
         <div class="cell-body sims" data-sims>
 <figure class="tunnel sim-panel" data-sim="maze" data-label-pt-br="q_learning()" data-label-en="q_learning()" data-label-fr="q_learning()" data-hint-pt-br="Agente aprendendo um labirinto" data-hint-en="Agent learning a maze" data-hint-fr="Agent apprenant un labyrinthe" aria-describedby="legenda-rl">
   <div class="tunnel-frame tunnel-frame--maze">
@@ -273,51 +295,52 @@
 </figure>
         </div>
       </div>
+      <p class="sim-link s-only"><a href="index.html?view=themed#simulacoes" data-view-go="themed"><span lang="pt-BR">Ver simulação no modo Temático</span><span lang="en">View simulation in Themed mode</span><span lang="fr">Voir la simulation en mode Thématique</span></a></p>
     </div>
   </section>
 
-  <section class="section" id="experiencia" aria-labelledby="h-exp">
+  <section class="section" id="experiencia" data-section="experience" aria-labelledby="h-exp">
     <header class="sec-h">
       <h2 id="h-exp"><span lang="pt-BR">Experiência</span><span lang="en">Experience</span><span lang="fr">Expérience</span></h2>
       <p class="sec-n" data-count='.cell--tl' data-pt-br="experiência|experiências" data-en="role|roles" data-fr="expérience|expériences"><span lang="pt-BR">6 experiências</span><span lang="en">6 roles</span><span lang="fr">6 expériences</span></p>
     </header>
     <div class="body">
       <div class="cell-group"><h3><span lang="pt-BR">Dados e TI</span><span lang="en">Data and IT</span><span lang="fr">Données et informatique</span></h3></div>
-      <div class="cell cell--tl is-first is-last">
+      <div class="cell cell--tl is-first is-last" data-item="experience">
         <span class="cell-tm" aria-hidden="true"></span>
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span>(
-    <span class="k">role</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Analista de Dados</span><span lang="en">Data Analyst</span><span lang="fr">Analyste de données</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v">Pilea Labs</span>"</span>,
-    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">dez. 2024 – mar. 2025</span><span lang="en">Dec 2024 – Mar 2025</span><span lang="fr">déc. 2024 – mars 2025</span></span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span><span class="sx">(
+    </span><span class="k">role</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Analista de Dados</span><span lang="en">Data Analyst</span><span lang="fr">Analyste de données</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">where</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org">Pilea Labs</span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">period</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><span lang="pt-BR"><time datetime="2024-12">dez. 2024</time> – <time datetime="2025-03">mar. 2025</time></span><span lang="en"><time datetime="2024-12">Dec 2024</time> – <time datetime="2025-03">Mar 2025</time></span><span lang="fr"><time datetime="2024-12">déc. 2024</time> – <time datetime="2025-03">mars 2025</time></span></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
           <div class="cell-out">
-            <p class="sub"><span lang="pt-BR">Plataforma de marketing de influência e afiliados para e-commerce</span><span lang="en">Influencer and affiliate marketing platform for e-commerce</span><span lang="fr">Plateforme de marketing d’influence et d’affiliation pour l’e-commerce</span></p>
+            <p class="sub" data-f="desc"><span lang="pt-BR">Plataforma de marketing de influência e afiliados para e-commerce</span><span lang="en">Influencer and affiliate marketing platform for e-commerce</span><span lang="fr">Plateforme de marketing d’influence et d’affiliation pour l’e-commerce</span></p>
             <ul lang="pt-BR">
-            <li>Modelagem e construção, em MySQL no Google Cloud, das bases e consultas que alimentavam listas, tabelas e gráficos nas interfaces da plataforma.</li>
-            <li>Cruzamento das vendas atribuídas aos cupons de cada influenciador com métricas de redes sociais, como visualizações e comentários.</li>
-            <li>Escala: dezenas de influenciadores, dezenas de cupons e milhares de pedidos de e-commerce.</li>
-                <li>Levantamento de cerca de 15 indicadores candidatos a painel.</li>
-            <li>Análises que se atualizavam em tempo real a partir do banco, com uma nova entrega quase todos os dias.</li>
-            <li>Versionamento de código e consultas com Git e GitHub e integração de scripts em Python ao site da empresa.</li>
+            <li data-f="bullet">Modelagem e construção, em MySQL no Google Cloud, das bases e consultas que alimentavam listas, tabelas e gráficos nas interfaces da plataforma.</li>
+            <li data-f="bullet">Cruzamento das vendas atribuídas aos cupons de cada influenciador com métricas de redes sociais, como visualizações e comentários.</li>
+            <li data-f="bullet">Escala: dezenas de influenciadores, dezenas de cupons e milhares de pedidos de e-commerce.</li>
+                <li data-f="bullet">Levantamento de cerca de 15 indicadores candidatos a painel.</li>
+            <li data-f="bullet">Análises que se atualizavam em tempo real a partir do banco, com uma nova entrega quase todos os dias.</li>
+            <li data-f="bullet">Versionamento de código e consultas com Git e GitHub e integração de scripts em Python ao site da empresa.</li>
             </ul>
             <ul lang="en">
-            <li>Designed and built the MySQL databases (on Google Cloud) and queries that powered the lists, tables and charts in the platform’s interface.</li>
-            <li>Joined sales attributed to each influencer’s coupons with social media metrics such as views and comments.</li>
-            <li>Scale: dozens of influencers, dozens of coupons and thousands of e-commerce orders.</li>
-                <li>Proposed about 15 KPIs to be turned into dashboards.</li>
-            <li>Delivered analyses that updated in real time from the database, shipping something new almost every day.</li>
-            <li>Versioned the queries with Git and GitHub and integrated Python scripts into the company website.</li>
+            <li data-f="bullet">Designed and built the MySQL databases (on Google Cloud) and queries that powered the lists, tables and charts in the platform’s interface.</li>
+            <li data-f="bullet">Joined sales attributed to each influencer’s coupons with social media metrics such as views and comments.</li>
+            <li data-f="bullet">Scale: dozens of influencers, dozens of coupons and thousands of e-commerce orders.</li>
+                <li data-f="bullet">Proposed about 15 KPIs to be turned into dashboards.</li>
+            <li data-f="bullet">Delivered analyses that updated in real time from the database, shipping something new almost every day.</li>
+            <li data-f="bullet">Versioned the queries with Git and GitHub and integrated Python scripts into the company website.</li>
             </ul>
             <ul lang="fr">
-            <li>Modélisation et construction, sous MySQL sur Google Cloud, des bases et des requêtes qui alimentaient les listes, tableaux et graphiques des interfaces de la plateforme.</li>
-            <li>Croisement des ventes attribuées aux codes promo de chaque influenceur avec des indicateurs de réseaux sociaux, comme les vues et les commentaires.</li>
-            <li>Échelle&nbsp;: des dizaines d’influenceurs, des dizaines de codes promo et des milliers de commandes e-commerce.</li>
-                <li>Recensement d’environ 15 idées d’indicateurs à transformer en tableaux de bord.</li>
-            <li>Analyses mises à jour en temps réel à partir de la base, avec une nouvelle livraison presque chaque jour.</li>
-            <li>Versionnage des requêtes avec Git et GitHub et intégration de scripts Python au site web de l’entreprise.</li>
+            <li data-f="bullet">Modélisation et construction, sous MySQL sur Google Cloud, des bases et des requêtes qui alimentaient les listes, tableaux et graphiques des interfaces de la plateforme.</li>
+            <li data-f="bullet">Croisement des ventes attribuées aux codes promo de chaque influenceur avec des indicateurs de réseaux sociaux, comme les vues et les commentaires.</li>
+            <li data-f="bullet">Échelle&nbsp;: des dizaines d’influenceurs, des dizaines de codes promo et des milliers de commandes e-commerce.</li>
+                <li data-f="bullet">Recensement d’environ 15 idées d’indicateurs à transformer en tableaux de bord.</li>
+            <li data-f="bullet">Analyses mises à jour en temps réel à partir de la base, avec une nouvelle livraison presque chaque jour.</li>
+            <li data-f="bullet">Versionnage des requêtes avec Git et GitHub et intégration de scripts Python au site web de l’entreprise.</li>
             </ul>
-            <pre class="cell-in sn" tabindex="0"><code><span class="kw">WITH</span> sales <span class="kw">AS</span> (
+            <details class="sample" open><summary class="s-only"><span lang="pt-BR">Ver trecho de código</span><span lang="en">View code sample</span><span lang="fr">Voir un extrait de code</span></summary><pre class="cell-in sn" tabindex="0"><code><span class="kw">WITH</span> sales <span class="kw">AS</span> (
   <span class="kw">SELECT</span> coupon_id, <span class="kw">COUNT</span>(*) <span class="kw">AS</span> orders, <span class="kw">SUM</span>(amount) <span class="kw">AS</span> revenue
   <span class="kw">FROM</span> orders <span class="kw">GROUP BY</span> coupon_id
 )
@@ -325,158 +348,158 @@
 <span class="kw">FROM</span> coupons c
 <span class="kw">JOIN</span> sales v <span class="kw">ON</span> v.coupon_id = c.id
 <span class="kw">JOIN</span> influencers i <span class="kw">ON</span> i.id = c.influencer_id
-<span class="kw">JOIN</span> social_metrics m <span class="kw">ON</span> m.influencer_id = i.id;</code></pre>
+<span class="kw">JOIN</span> social_metrics m <span class="kw">ON</span> m.influencer_id = i.id;</code></pre></details>
           </div>
         </div>
       </div>
       <div class="cell-group"><h3><span lang="pt-BR">Computação científica na engenharia</span><span lang="en">Scientific computing in engineering</span><span lang="fr">Calcul scientifique en ingénierie</span></h3></div>
-      <div class="cell cell--tl is-first is-current">
+      <div class="cell cell--tl is-first is-current" data-item="experience">
         <span class="cell-tm" aria-hidden="true"></span>
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span>(
-    <span class="k">role</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Gerente de projeto, VANT autônomo de asa fixa</span><span lang="en">Project Manager, autonomous fixed-wing UAV</span><span lang="fr">Chef de projet, drone autonome à voilure fixe</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v"><span lang="pt-BR">Grupo SEMEAR, Núcleo de Robótica Aérea, EESC-USP</span><span lang="en">SEMEAR Aerial Robotics Group, EESC-USP</span><span lang="fr">Groupe SEMEAR, pôle de robotique aérienne, EESC-USP</span></span>"</span>,
-    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">abr. 2025 – atual</span><span lang="en">Apr 2025 – present</span><span lang="fr">avr. 2025 – aujourd’hui</span></span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span><span class="sx">(
+    </span><span class="k">role</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Gerente de projeto, VANT autônomo de asa fixa</span><span lang="en">Project Manager, autonomous fixed-wing UAV</span><span lang="fr">Chef de projet, drone autonome à voilure fixe</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">where</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org"><span lang="pt-BR">Grupo SEMEAR, Núcleo de Robótica Aérea, EESC-USP</span><span lang="en">SEMEAR Aerial Robotics Group, EESC-USP</span><span lang="fr">Groupe SEMEAR, pôle de robotique aérienne, EESC-USP</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">period</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><span lang="pt-BR"><time datetime="2025-04">abr. 2025</time> – atual</span><span lang="en"><time datetime="2025-04">Apr 2025</time> – present</span><span lang="fr"><time datetime="2025-04">avr. 2025</time> – aujourd’hui</span></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
           <div class="cell-out">
             <ul lang="pt-BR">
-            <li>Definição da arquitetura do sistema e dos requisitos técnicos.</li>
-            <li>Coordenação das frentes de aerodinâmica, propulsão, aviônica, controle e telecomunicações.</li>
-            <li>Modelagem de dinâmica de voo e simulações voltadas ao controle.</li>
+            <li data-f="bullet">Definição da arquitetura do sistema e dos requisitos técnicos.</li>
+            <li data-f="bullet">Coordenação das frentes de aerodinâmica, propulsão, aviônica, controle e telecomunicações.</li>
+            <li data-f="bullet">Modelagem de dinâmica de voo e simulações voltadas ao controle.</li>
             </ul>
             <ul lang="en">
-            <li>Defining the system architecture and technical requirements.</li>
-            <li>Coordinating the aerodynamics, propulsion, avionics, control and telecommunications teams.</li>
-            <li>Flight dynamics modeling and control-oriented simulations.</li>
+            <li data-f="bullet">Defining the system architecture and technical requirements.</li>
+            <li data-f="bullet">Coordinating the aerodynamics, propulsion, avionics, control and telecommunications teams.</li>
+            <li data-f="bullet">Flight dynamics modeling and control-oriented simulations.</li>
             </ul>
             <ul lang="fr">
-            <li>Définition de l’architecture système et des exigences techniques.</li>
-            <li>Coordination des équipes aérodynamique, propulsion, avionique, commande et télécommunications.</li>
-            <li>Modélisation de la dynamique du vol et simulations orientées commande.</li>
+            <li data-f="bullet">Définition de l’architecture système et des exigences techniques.</li>
+            <li data-f="bullet">Coordination des équipes aérodynamique, propulsion, avionique, commande et télécommunications.</li>
+            <li data-f="bullet">Modélisation de la dynamique du vol et simulations orientées commande.</li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="cell cell--tl">
+      <div class="cell cell--tl" data-item="experience">
         <span class="cell-tm" aria-hidden="true"></span>
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span>(
-    <span class="k">role</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Cargas aerodinâmicas não estacionárias</span><span lang="en">Unsteady aerodynamic loads</span><span lang="fr">Charges aérodynamiques instationnaires</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v"><span lang="pt-BR">Iniciação científica, EESC-USP, orientação do Prof. Flávio Donizeti Marques</span><span lang="en">Undergraduate research, EESC-USP, advised by Prof. Flávio Donizeti Marques</span><span lang="fr">Initiation à la recherche, EESC-USP, sous la direction du Prof. Flávio Donizeti Marques</span></span>"</span>,
-    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">jul. 2023 – dez. 2024</span><span lang="en">Jul 2023 – Dec 2024</span><span lang="fr">juil. 2023 – déc. 2024</span></span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span><span class="sx">(
+    </span><span class="k">role</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Cargas aerodinâmicas não estacionárias</span><span lang="en">Unsteady aerodynamic loads</span><span lang="fr">Charges aérodynamiques instationnaires</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">where</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org"><span lang="pt-BR">Iniciação científica, EESC-USP, orientação do Prof. Flávio Donizeti Marques</span><span lang="en">Undergraduate research, EESC-USP, advised by Prof. Flávio Donizeti Marques</span><span lang="fr">Initiation à la recherche, EESC-USP, sous la direction du Prof. Flávio Donizeti Marques</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">period</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><span lang="pt-BR"><time datetime="2023-07">jul. 2023</time> – <time datetime="2024-12">dez. 2024</time></span><span lang="en"><time datetime="2023-07">Jul 2023</time> – <time datetime="2024-12">Dec 2024</time></span><span lang="fr"><time datetime="2023-07">juil. 2023</time> – <time datetime="2024-12">déc. 2024</time></span></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
           <div class="cell-out">
             <ul lang="pt-BR">
-            <li>Modelos semiempíricos de cargas aerodinâmicas não estacionárias, com identificação e calibração de parâmetros a partir de dados experimentais e de CFD.</li>
-            <li>Algoritmos genéticos e redes neurais aplicados à otimização dos parâmetros.</li>
+            <li data-f="bullet">Modelos semiempíricos de cargas aerodinâmicas não estacionárias, com identificação e calibração de parâmetros a partir de dados experimentais e de CFD.</li>
+            <li data-f="bullet">Algoritmos genéticos e redes neurais aplicados à otimização dos parâmetros.</li>
             </ul>
             <ul lang="en">
-            <li>Semi-empirical models of unsteady aerodynamic loads, with parameter identification and calibration against experimental and CFD data.</li>
-            <li>Genetic algorithms and neural networks applied to parameter optimization.</li>
+            <li data-f="bullet">Semi-empirical models of unsteady aerodynamic loads, with parameter identification and calibration against experimental and CFD data.</li>
+            <li data-f="bullet">Genetic algorithms and neural networks applied to parameter optimization.</li>
             </ul>
             <ul lang="fr">
-            <li>Modèles semi-empiriques de charges aérodynamiques instationnaires, avec identification et calibration des paramètres à partir de données expérimentales et CFD.</li>
-            <li>Algorithmes génétiques et réseaux de neurones appliqués à l’optimisation des paramètres.</li>
+            <li data-f="bullet">Modèles semi-empiriques de charges aérodynamiques instationnaires, avec identification et calibration des paramètres à partir de données expérimentales et CFD.</li>
+            <li data-f="bullet">Algorithmes génétiques et réseaux de neurones appliqués à l’optimisation des paramètres.</li>
             </ul>
-            <pre class="cell-in sn" tabindex="0"><code>population = <span class="fn">initial_population</span>(size=<span class="nu">100</span>)
+            <details class="sample" open><summary class="s-only"><span lang="pt-BR">Ver trecho de código</span><span lang="en">View code sample</span><span lang="fr">Voir un extrait de code</span></summary><pre class="cell-in sn" tabindex="0"><code>population = <span class="fn">initial_population</span>(size=<span class="nu">100</span>)
 <span class="kw">for</span> generation <span class="kw">in</span> <span class="fn">range</span>(<span class="nu">200</span>):
     error = [<span class="fn">model_error</span>(p) <span class="kw">for</span> p <span class="kw">in</span> population]  <span class="cm"># <span lang="pt-BR">dados experimentais e de CFD</span><span lang="en">experimental and CFD data</span><span lang="fr">données expérimentales et CFD</span></span>
     parents = <span class="fn">select</span>(population, error, best=<span class="nu">20</span>)
-    population = <span class="fn">crossover_and_mutate</span>(parents, size=<span class="nu">100</span>)</code></pre>
+    population = <span class="fn">crossover_and_mutate</span>(parents, size=<span class="nu">100</span>)</code></pre></details>
           </div>
         </div>
       </div>
-      <div class="cell cell--tl">
+      <div class="cell cell--tl" data-item="experience">
         <span class="cell-tm" aria-hidden="true"></span>
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span>(
-    <span class="k">role</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Simulação de escoamentos turbulentos</span><span lang="en">Turbulent flow simulation</span><span lang="fr">Simulation d’écoulements turbulents</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v"><span lang="pt-BR">ICMC-USP, bolsa FAPESP</span><span lang="en">ICMC-USP (Institute of Mathematics and Computer Sciences), FAPESP grant</span><span lang="fr">ICMC-USP, bourse FAPESP</span></span>"</span>,
-    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">jul. 2023 – dez. 2024</span><span lang="en">Jul 2023 – Dec 2024</span><span lang="fr">juil. 2023 – déc. 2024</span></span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span><span class="sx">(
+    </span><span class="k">role</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Simulação de escoamentos turbulentos</span><span lang="en">Turbulent flow simulation</span><span lang="fr">Simulation d’écoulements turbulents</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">where</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org"><span lang="pt-BR">ICMC-USP, bolsa FAPESP</span><span lang="en">ICMC-USP (Institute of Mathematics and Computer Sciences), FAPESP grant</span><span lang="fr">ICMC-USP, bourse FAPESP</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">period</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><span lang="pt-BR"><time datetime="2023-07">jul. 2023</time> – <time datetime="2024-12">dez. 2024</time></span><span lang="en"><time datetime="2023-07">Jul 2023</time> – <time datetime="2024-12">Dec 2024</time></span><span lang="fr"><time datetime="2023-07">juil. 2023</time> – <time datetime="2024-12">déc. 2024</time></span></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
           <div class="cell-out">
-            <p lang="pt-BR">Simulação de grandes escalas (LES) de escoamento turbulento em canal com força de Coriolis, com artigo no EPTT 2024. Desenvolvimento e execução de rotinas numéricas em ambiente de HPC.</p>
-            <p lang="en">Large-eddy simulation (LES) of turbulent channel flow with Coriolis force, with a paper at EPTT 2024. Developed and ran numerical routines in HPC environments.</p>
-            <p lang="fr">Simulation des grandes échelles (LES) d’un écoulement turbulent en canal avec force de Coriolis, avec un article à l’EPTT 2024. Développement et exécution de routines numériques en environnement HPC.</p>
+            <p data-f="desc" lang="pt-BR">Simulação de grandes escalas (LES) de escoamento turbulento em canal com força de Coriolis, com artigo no EPTT 2024. Desenvolvimento e execução de rotinas numéricas em ambiente de HPC.</p>
+            <p data-f="desc" lang="en">Large-eddy simulation (LES) of turbulent channel flow with Coriolis force, with a paper at EPTT 2024. Developed and ran numerical routines in HPC environments.</p>
+            <p data-f="desc" lang="fr">Simulation des grandes échelles (LES) d’un écoulement turbulent en canal avec force de Coriolis, avec un article à l’EPTT 2024. Développement et exécution de routines numériques en environnement HPC.</p>
           </div>
         </div>
       </div>
-      <div class="cell cell--tl">
+      <div class="cell cell--tl" data-item="experience">
         <span class="cell-tm" aria-hidden="true"></span>
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span>(
-    <span class="k">role</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Pesquisa em modelagem atmosférica e energia eólica</span><span lang="en">Atmospheric modeling and wind energy research</span><span lang="fr">Recherche en modélisation atmosphérique et énergie éolienne</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v">IRPHE, École Centrale de Marseille</span>"</span>,
-    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">fev. – jul. 2023</span><span lang="en">Feb – Jul 2023</span><span lang="fr">févr. – juil. 2023</span></span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span><span class="sx">(
+    </span><span class="k">role</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Pesquisa em modelagem atmosférica e energia eólica</span><span lang="en">Atmospheric modeling and wind energy research</span><span lang="fr">Recherche en modélisation atmosphérique et énergie éolienne</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">where</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org">IRPHE, École Centrale de Marseille</span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">period</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><span lang="pt-BR"><time datetime="2023-02">fev.</time> – <time datetime="2023-07">jul. 2023</time></span><span lang="en"><time datetime="2023-02">Feb</time> – <time datetime="2023-07">Jul 2023</time></span><span lang="fr"><time datetime="2023-02">févr.</time> – <time datetime="2023-07">juil. 2023</time></span></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
           <div class="cell-out">
-            <p lang="pt-BR">Simulações atmosféricas com o modelo meteorológico WRF, análise de incerteza na previsão de vento e avaliação do desempenho de turbinas eólicas sob diferentes condições atmosféricas.</p>
-            <p lang="en">Atmospheric simulations with the WRF weather model, uncertainty analysis in wind forecasting and assessment of wind turbine performance under varying atmospheric conditions.</p>
-            <p lang="fr">Simulations atmosphériques avec le modèle météorologique WRF, analyse d’incertitude de la prévision du vent et analyse des performances d’éoliennes dans différentes conditions atmosphériques.</p>
-            <p class="method"><b lang="pt-BR">Ferramentas:</b><b lang="en">Tools:</b><b lang="fr">Outils&nbsp;:</b> <span lang="pt-BR">WRF, Python, scripts em Bash, Linux.</span><span lang="en">WRF, Python, Bash scripting, Linux.</span><span lang="fr">WRF, Python, scripts Bash, Linux.</span></p>
+            <p data-f="desc" lang="pt-BR">Simulações atmosféricas com o modelo meteorológico WRF, análise de incerteza na previsão de vento e avaliação do desempenho de turbinas eólicas sob diferentes condições atmosféricas.</p>
+            <p data-f="desc" lang="en">Atmospheric simulations with the WRF weather model, uncertainty analysis in wind forecasting and assessment of wind turbine performance under varying atmospheric conditions.</p>
+            <p data-f="desc" lang="fr">Simulations atmosphériques avec le modèle météorologique WRF, analyse d’incertitude de la prévision du vent et analyse des performances d’éoliennes dans différentes conditions atmosphériques.</p>
+            <p class="method" data-f="stack"><b lang="pt-BR">Ferramentas:</b><b lang="en">Tools:</b><b lang="fr">Outils&nbsp;:</b> <span lang="pt-BR">WRF, Python, scripts em Bash, Linux.</span><span lang="en">WRF, Python, Bash scripting, Linux.</span><span lang="fr">WRF, Python, scripts Bash, Linux.</span></p>
           </div>
         </div>
       </div>
-      <div class="cell cell--tl is-last">
+      <div class="cell cell--tl is-last" data-item="experience">
         <span class="cell-tm" aria-hidden="true"></span>
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span>(
-    <span class="k">role</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Membro da equipe, simulação e modelagem</span><span lang="en">Team member, simulation and modeling</span><span lang="fr">Membre de l’équipe, simulation et modélisation</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v">TOPUS Projetos Aeroespaciais</span>"</span>,
-    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">mar. 2020 – dez. 2023</span><span lang="en">Mar 2020 – Dec 2023</span><span lang="fr">mars 2020 – déc. 2023</span></span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">experience</span><span class="sx">(
+    </span><span class="k">role</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Membro da equipe, simulação e modelagem</span><span lang="en">Team member, simulation and modeling</span><span lang="fr">Membre de l’équipe, simulation et modélisation</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">where</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org">TOPUS Projetos Aeroespaciais</span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">period</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><span lang="pt-BR"><time datetime="2020-03">mar. 2020</time> – <time datetime="2023-12">dez. 2023</time></span><span lang="en"><time datetime="2020-03">Mar 2020</time> – <time datetime="2023-12">Dec 2023</time></span><span lang="fr"><time datetime="2020-03">mars 2020</time> – <time datetime="2023-12">déc. 2023</time></span></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
           <div class="cell-out">
             <ul lang="pt-BR">
-            <li>Modelo de dinâmica de voo com 6 graus de liberdade em MATLAB e simulações de Monte Carlo para dispersão de trajetória e análise de segurança.</li>
-            <li>Modelagem numérica e CFD de sistemas de propulsão e de alimentação de oxidante.</li>
+            <li data-f="bullet">Modelo de dinâmica de voo com 6 graus de liberdade em MATLAB e simulações de Monte Carlo para dispersão de trajetória e análise de segurança.</li>
+            <li data-f="bullet">Modelagem numérica e CFD de sistemas de propulsão e de alimentação de oxidante.</li>
             </ul>
             <ul lang="en">
-            <li>6-DOF flight dynamics model in MATLAB and Monte Carlo simulations for trajectory dispersion and safety analysis.</li>
-            <li>Numerical modeling and CFD of propulsion and oxidizer feed systems.</li>
+            <li data-f="bullet">6-DOF flight dynamics model in MATLAB and Monte Carlo simulations for trajectory dispersion and safety analysis.</li>
+            <li data-f="bullet">Numerical modeling and CFD of propulsion and oxidizer feed systems.</li>
             </ul>
             <ul lang="fr">
-            <li>Modèle de dynamique du vol à 6 degrés de liberté sous MATLAB et simulations de Monte-Carlo pour la dispersion des trajectoires et l’analyse de sécurité.</li>
-            <li>Modélisation numérique et CFD des systèmes de propulsion et d’alimentation en oxydant.</li>
+            <li data-f="bullet">Modèle de dynamique du vol à 6 degrés de liberté sous MATLAB et simulations de Monte-Carlo pour la dispersion des trajectoires et l’analyse de sécurité.</li>
+            <li data-f="bullet">Modélisation numérique et CFD des systèmes de propulsion et d’alimentation en oxydant.</li>
             </ul>
-            <pre class="cell-in sn" tabindex="0"><code>N = <span class="nu">10000</span>;
+            <details class="sample" open><summary class="s-only"><span lang="pt-BR">Ver trecho de código</span><span lang="en">View code sample</span><span lang="fr">Voir un extrait de code</span></summary><pre class="cell-in sn" tabindex="0"><code>N = <span class="nu">10000</span>;
 landings = <span class="fn">zeros</span>(N, <span class="nu">2</span>);
 <span class="kw">for</span> k = <span class="nu">1</span>:N
     landings(k, :) = <span class="fn">simulate_flight</span>(<span class="fn">draw_conditions</span>());  <span class="cm">% <span lang="pt-BR">modelo de 6 graus de liberdade</span><span lang="en">6-DOF model</span><span lang="fr">modèle à 6 degrés de liberté</span></span>
 <span class="kw">end</span>
-dispersion = <span class="fn">cov</span>(landings);</code></pre>
+dispersion = <span class="fn">cov</span>(landings);</code></pre></details>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="projetos" aria-labelledby="h-proj">
+  <section class="section" id="projetos" data-section="projects" aria-labelledby="h-proj">
     <header class="sec-h">
       <h2 id="h-proj"><span lang="pt-BR">Projetos</span><span lang="en">Projects</span><span lang="fr">Projets</span></h2>
       <p class="sec-n" data-count='.cell--proj' data-pt-br="projeto|projetos" data-en="project|projects" data-fr="projet|projets"><span lang="pt-BR">2 projetos</span><span lang="en">2 projects</span><span lang="fr">2 projets</span></p>
     </header>
     <div class="body">
-      <div class="cell cell--proj">
+      <div class="cell cell--proj" data-item="project">
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">project</span>(
-    <span class="k">name</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Triagem inteligente de e-mails</span><span lang="en">Intelligent email triage</span><span lang="fr">Tri intelligent d’e-mails</span></span>"</span>,
-    <span class="k">type</span>=<span class="s">"<span class="v"><span lang="pt-BR">Projeto pessoal</span><span lang="en">Personal project</span><span lang="fr">Projet personnel</span></span>"</span>,
-    <span class="k">status</span>=<span class="s">"<span class="v"><span lang="pt-BR">Em desenvolvimento</span><span lang="en">In development</span><span lang="fr">En développement</span></span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">project</span><span class="sx">(
+    </span><span class="k">name</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Triagem inteligente de e-mails</span><span lang="en">Intelligent email triage</span><span lang="fr">Tri intelligent d’e-mails</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">type</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org"><span lang="pt-BR">Projeto pessoal</span><span lang="en">Personal project</span><span lang="fr">Projet personnel</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">status</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><span lang="pt-BR">Em desenvolvimento</span><span lang="en">In development</span><span lang="fr">En développement</span></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
           <div class="cell-out">
             <dl class="par">
-          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Acompanhar duas contas Gmail, uma pessoal e uma institucional da USP, sem perder prazos nem ações pendentes.</span><span lang="en">Keep track of two Gmail accounts, one personal and one institutional at USP, without missing deadlines or action items.</span><span lang="fr">Suivre deux comptes Gmail, l’un personnel et l’autre institutionnel de l’USP, sans manquer d’échéances ni d’actions en attente.</span></dd></div>
-          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Pipeline em Python que classifica e organiza os e-mails com a API do Claude (um modelo de linguagem), com acesso por IMAP e OAuth2. A arquitetura é híbrida: a formatação determinística fica no Python e a IA entra só na análise estratégica, o que reduz o consumo de tokens.</span><span lang="en">A Python pipeline classifies and organizes the emails using the Claude API (a large language model), accessing mailboxes via IMAP with OAuth2. The architecture is hybrid: deterministic formatting stays in Python and the AI is used only for strategic analysis, which reduces token consumption.</span><span lang="fr">Un pipeline Python classe et organise les e-mails avec l’API Claude (un modèle de langage), via un accès IMAP et OAuth2. L’architecture est hybride&nbsp;: la mise en forme déterministe reste en Python et l’IA n’intervient que pour l’analyse stratégique, ce qui réduit la consommation de tokens.</span></dd></div>
-          <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Resumos diários e semanais com os prazos em ordem cronológica e as ações sugeridas, entregues pelo Telegram, onde um bot também aceita comandos manuais. Em desenvolvimento: está planejada a migração para um servidor virtual (VPS) na Oracle Cloud, com cron, implantação por Git e acesso por SSH, para o sistema rodar sem depender do meu computador.</span><span lang="en">Daily and weekly summaries with deadlines in chronological order and suggested actions, delivered through Telegram, where a bot also accepts manual commands. In development: a migration to a virtual private server (VPS) on Oracle Cloud, with cron, Git deployment and SSH access, is planned so the system can run without depending on my computer.</span><span lang="fr">Des synthèses quotidiennes et hebdomadaires avec les échéances dans l’ordre chronologique et les actions suggérées, envoyées via Telegram, où un bot accepte aussi des commandes manuelles. En développement&nbsp;: une migration vers un serveur privé virtuel (VPS) sur Oracle Cloud, avec cron, déploiement par Git et accès SSH, est prévue pour que le système fonctionne sans dépendre de mon ordinateur.</span></dd></div>
+          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd data-f="desc"><span lang="pt-BR">Acompanhar duas contas Gmail, uma pessoal e uma institucional da USP, sem perder prazos nem ações pendentes.</span><span lang="en">Keep track of two Gmail accounts, one personal and one institutional at USP, without missing deadlines or action items.</span><span lang="fr">Suivre deux comptes Gmail, l’un personnel et l’autre institutionnel de l’USP, sans manquer d’échéances ni d’actions en attente.</span></dd></div>
+          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd data-f="desc"><span lang="pt-BR">Pipeline em Python que classifica e organiza os e-mails com a API do Claude (um modelo de linguagem), com acesso por IMAP e OAuth2. A arquitetura é híbrida: a formatação determinística fica no Python e a IA entra só na análise estratégica, o que reduz o consumo de tokens.</span><span lang="en">A Python pipeline classifies and organizes the emails using the Claude API (a large language model), accessing mailboxes via IMAP with OAuth2. The architecture is hybrid: deterministic formatting stays in Python and the AI is used only for strategic analysis, which reduces token consumption.</span><span lang="fr">Un pipeline Python classe et organise les e-mails avec l’API Claude (un modèle de langage), via un accès IMAP et OAuth2. L’architecture est hybride&nbsp;: la mise en forme déterministe reste en Python et l’IA n’intervient que pour l’analyse stratégique, ce qui réduit la consommation de tokens.</span></dd></div>
+          <div class="par-result"><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd data-f="desc"><span lang="pt-BR">Resumos diários e semanais com os prazos em ordem cronológica e as ações sugeridas, entregues pelo Telegram, onde um bot também aceita comandos manuais. Em desenvolvimento: está planejada a migração para um servidor virtual (VPS) na Oracle Cloud, com cron, implantação por Git e acesso por SSH, para o sistema rodar sem depender do meu computador.</span><span lang="en">Daily and weekly summaries with deadlines in chronological order and suggested actions, delivered through Telegram, where a bot also accepts manual commands. In development: a migration to a virtual private server (VPS) on Oracle Cloud, with cron, Git deployment and SSH access, is planned so the system can run without depending on my computer.</span><span lang="fr">Des synthèses quotidiennes et hebdomadaires avec les échéances dans l’ordre chronologique et les actions suggérées, envoyées via Telegram, où un bot accepte aussi des commandes manuelles. En développement&nbsp;: une migration vers un serveur privé virtuel (VPS) sur Oracle Cloud, avec cron, déploiement par Git et accès SSH, est prévue pour que le système fonctionne sans dépendre de mon ordinateur.</span></dd></div>
             </dl>
-            <pre class="cell-in sn" tabindex="0"><code><span class="kw">with</span> imaplib.<span class="fn">IMAP4_SSL</span>(host) <span class="kw">as</span> imap:
+            <details class="sample" open><summary class="s-only"><span lang="pt-BR">Ver trecho de código</span><span lang="en">View code sample</span><span lang="fr">Voir un extrait de code</span></summary><pre class="cell-in sn" tabindex="0"><code><span class="kw">with</span> imaplib.<span class="fn">IMAP4_SSL</span>(host) <span class="kw">as</span> imap:
     imap.<span class="fn">authenticate</span>(<span class="s">"XOAUTH2"</span>, get_token)
     imap.<span class="fn">select</span>(<span class="s">"INBOX"</span>)
-    _, ids = imap.<span class="fn">search</span>(<span class="kw">None</span>, <span class="s">"UNSEEN"</span>)</code></pre>
+    _, ids = imap.<span class="fn">search</span>(<span class="kw">None</span>, <span class="s">"UNSEEN"</span>)</code></pre></details>
             <p class="cell-label"><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></p>
-            <ul class="chips" lang="pt-BR"><li>Python</li><li>API do Claude</li><li>IMAP</li><li>OAuth2</li><li>API de bots do Telegram</li><li>Linux</li><li>cron</li><li>Git</li><li>SSH</li><li>Oracle Cloud (VPS, planejado)</li></ul>
-            <ul class="chips" lang="en"><li>Python</li><li>Claude API</li><li>IMAP</li><li>OAuth2</li><li>Telegram Bot API</li><li>Linux</li><li>cron</li><li>Git</li><li>SSH</li><li>Oracle Cloud (VPS, planned)</li></ul>
-            <ul class="chips" lang="fr"><li>Python</li><li>API Claude</li><li>IMAP</li><li>OAuth2</li><li>API Telegram Bot</li><li>Linux</li><li>cron</li><li>Git</li><li>SSH</li><li>Oracle Cloud (VPS, prévu)</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Python</li><li>API do Claude</li><li>IMAP</li><li>OAuth2</li><li>API de bots do Telegram</li><li>Linux</li><li>cron</li><li>Git</li><li>SSH</li><li>Oracle Cloud (VPS, planejado)</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>Python</li><li>Claude API</li><li>IMAP</li><li>OAuth2</li><li>Telegram Bot API</li><li>Linux</li><li>cron</li><li>Git</li><li>SSH</li><li>Oracle Cloud (VPS, planned)</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Python</li><li>API Claude</li><li>IMAP</li><li>OAuth2</li><li>API Telegram Bot</li><li>Linux</li><li>cron</li><li>Git</li><li>SSH</li><li>Oracle Cloud (VPS, prévu)</li></ul>
             <!-- REPO: quando publicar, troque este parágrafo (3 idiomas) por um link para o repositório -->
             <p class="repo-soon" lang="pt-BR">Repositório: será publicado em breve.</p>
             <p class="repo-soon" lang="en">Repository: coming soon.</p>
@@ -484,27 +507,27 @@ dispersion = <span class="fn">cov</span>(landings);</code></pre>
           </div>
         </div>
       </div>
-      <div class="cell cell--proj">
+      <div class="cell cell--proj" data-item="project">
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">project</span>(
-    <span class="k">name</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Motor de busca e classificação de vagas</span><span lang="en">Job search and ranking engine</span><span lang="fr">Moteur de recherche et de classement d’offres</span></span>"</span>,
-    <span class="k">type</span>=<span class="s">"<span class="v"><span lang="pt-BR">Projeto pessoal</span><span lang="en">Personal project</span><span lang="fr">Projet personnel</span></span>"</span>,
-    <span class="k">status</span>=<span class="s">"<span class="v"><span lang="pt-BR">Em desenvolvimento</span><span lang="en">In development</span><span lang="fr">En développement</span></span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">project</span><span class="sx">(
+    </span><span class="k">name</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Motor de busca e classificação de vagas</span><span lang="en">Job search and ranking engine</span><span lang="fr">Moteur de recherche et de classement d’offres</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">type</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org"><span lang="pt-BR">Projeto pessoal</span><span lang="en">Personal project</span><span lang="fr">Projet personnel</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">status</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><span lang="pt-BR">Em desenvolvimento</span><span lang="en">In development</span><span lang="fr">En développement</span></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
           <div class="cell-out">
             <dl class="par">
-          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd><span lang="pt-BR">Encontrar e triar vagas de estágio e emprego espalhadas por muitas fontes.</span><span lang="en">Find and screen internship and job listings spread across many sources.</span><span lang="fr">Trouver et trier des offres de stage et d’emploi réparties sur de nombreuses sources.</span></dd></div>
-          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd><span lang="pt-BR">Pipeline que percorre fontes cadastradas, remove duplicatas e atribui a cada vaga uma nota de aderência de 0 a 10, com base em critérios definidos: tipo de vaga, localização e requisitos de elegibilidade.</span><span lang="en">A pipeline scans a predefined list of sources, removes duplicates and gives each listing a fit score from 0 to 10 based on defined criteria: type of role, location and eligibility requirements.</span><span lang="fr">Un pipeline parcourt des sources enregistrées, supprime les doublons et attribue à chaque offre une note d’adéquation de 0 à 10 selon des critères définis&nbsp;: type de poste, localisation et conditions d’éligibilité.</span></dd></div>
-          <div><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd><span lang="pt-BR">Uma planilha de controle com o resumo dos requisitos e das atividades de cada vaga. Nenhuma candidatura é enviada sem a minha revisão e confirmação: a automação prepara, a decisão é minha.</span><span lang="en">A tracking spreadsheet with a summary of each listing’s requirements and duties. No application is sent without my review and confirmation: the automation does the prep work; I make the decisions.</span><span lang="fr">Un tableau de suivi avec un résumé des exigences et des missions de chaque offre. Aucune candidature n’est envoyée sans ma relecture et ma confirmation&nbsp;: l’automatisation prépare, la décision m’appartient.</span></dd></div>
+          <div><dt><span lang="pt-BR">Problema</span><span lang="en">Problem</span><span lang="fr">Problème</span></dt><dd data-f="desc"><span lang="pt-BR">Encontrar e triar vagas de estágio e emprego espalhadas por muitas fontes.</span><span lang="en">Find and screen internship and job listings spread across many sources.</span><span lang="fr">Trouver et trier des offres de stage et d’emploi réparties sur de nombreuses sources.</span></dd></div>
+          <div><dt><span lang="pt-BR">Abordagem</span><span lang="en">Approach</span><span lang="fr">Approche</span></dt><dd data-f="desc"><span lang="pt-BR">Pipeline que percorre fontes cadastradas, remove duplicatas e atribui a cada vaga uma nota de aderência de 0 a 10, com base em critérios definidos: tipo de vaga, localização e requisitos de elegibilidade.</span><span lang="en">A pipeline scans a predefined list of sources, removes duplicates and gives each listing a fit score from 0 to 10 based on defined criteria: type of role, location and eligibility requirements.</span><span lang="fr">Un pipeline parcourt des sources enregistrées, supprime les doublons et attribue à chaque offre une note d’adéquation de 0 à 10 selon des critères définis&nbsp;: type de poste, localisation et conditions d’éligibilité.</span></dd></div>
+          <div class="par-result"><dt><span lang="pt-BR">Resultado</span><span lang="en">Result</span><span lang="fr">Résultat</span></dt><dd data-f="desc"><span lang="pt-BR">Uma planilha de controle com o resumo dos requisitos e das atividades de cada vaga. Nenhuma candidatura é enviada sem a minha revisão e confirmação: a automação prepara, a decisão é minha.</span><span lang="en">A tracking spreadsheet with a summary of each listing’s requirements and duties. No application is sent without my review and confirmation: the automation does the prep work; I make the decisions.</span><span lang="fr">Un tableau de suivi avec un résumé des exigences et des missions de chaque offre. Aucune candidature n’est envoyée sans ma relecture et ma confirmation&nbsp;: l’automatisation prépare, la décision m’appartient.</span></dd></div>
             </dl>
-            <pre class="cell-in sn" tabindex="0"><code>jobs = <span class="fn">remove_duplicates</span>(<span class="fn">collect</span>(sources))
+            <details class="sample" open><summary class="s-only"><span lang="pt-BR">Ver trecho de código</span><span lang="en">View code sample</span><span lang="fr">Voir un extrait de code</span></summary><pre class="cell-in sn" tabindex="0"><code>jobs = <span class="fn">remove_duplicates</span>(<span class="fn">collect</span>(sources))
 <span class="kw">for</span> job <span class="kw">in</span> jobs:
     job.score = <span class="fn">score_job</span>(job)  <span class="cm"># <span lang="pt-BR">0 a 10</span><span lang="en">0 to 10</span><span lang="fr">0 à 10</span></span>
-sheet.<span class="fn">update</span>(jobs)      <span class="cm"># <span lang="pt-BR">nenhuma candidatura sem revisão</span><span lang="en">no application without review</span><span lang="fr">aucune candidature sans relecture</span></span></code></pre>
+sheet.<span class="fn">update</span>(jobs)      <span class="cm"># <span lang="pt-BR">nenhuma candidatura sem revisão</span><span lang="en">no application without review</span><span lang="fr">aucune candidature sans relecture</span></span></code></pre></details>
             <p class="cell-label"><span lang="pt-BR">Stack</span><span lang="en">Stack</span><span lang="fr">Stack</span></p>
-            <ul class="chips" lang="pt-BR"><li>Claude</li><li>Claude Code</li><li>Automação de navegador</li></ul>
-            <ul class="chips" lang="en"><li>Claude</li><li>Claude Code</li><li>Browser automation</li></ul>
-            <ul class="chips" lang="fr"><li>Claude</li><li>Claude Code</li><li>Automatisation du navigateur</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Claude</li><li>Claude Code</li><li>Automação de navegador</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>Claude</li><li>Claude Code</li><li>Browser automation</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Claude</li><li>Claude Code</li><li>Automatisation du navigateur</li></ul>
             <!-- REPO: quando publicar a versão higienizada (só o motor, sem dados pessoais), troque este parágrafo (3 idiomas) por um link -->
             <p class="repo-soon" lang="pt-BR">Repositório: será publicado em breve, em versão sem dados pessoais.</p>
             <p class="repo-soon" lang="en">Repository: coming soon, with personal data removed.</p>
@@ -515,136 +538,149 @@ sheet.<span class="fn">update</span>(jobs)      <span class="cm"># <span lang="p
     </div>
   </section>
 
-  <section class="section" id="formacao" aria-labelledby="h-form">
+  <section class="section" id="formacao" data-section="education" aria-labelledby="h-form">
     <header class="sec-h">
       <h2 id="h-form"><span lang="pt-BR">Formação</span><span lang="en">Education</span><span lang="fr">Formation</span></h2>
       <p class="sec-n" data-count='.cell--tl' data-pt-br="item|itens" data-en="item|items" data-fr="élément|éléments"><span lang="pt-BR">5 itens</span><span lang="en">5 items</span><span lang="fr">5 éléments</span></p>
     </header>
     <div class="body">
-      <div class="cell cell--tl is-first is-current">
+      <div class="cell cell--tl is-first is-current" data-item="education">
         <span class="cell-tm" aria-hidden="true"></span>
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">education</span>(
-    <span class="k">course</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Certificado de Estudos Especiais em Dinâmica dos Fluidos Computacional</span><span lang="en">Special Studies Certificate in Computational Fluid Dynamics</span><span lang="fr">Certificat d’études spéciales en dynamique des fluides numérique</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v">ICMC-USP</span>"</span>,
-    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">2023 – atual</span><span lang="en">2023 – present</span><span lang="fr">2023 – aujourd’hui</span></span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">education</span><span class="sx">(
+    </span><span class="k">course</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Certificado de Estudos Especiais em Dinâmica dos Fluidos Computacional</span><span lang="en">Special Studies Certificate in Computational Fluid Dynamics</span><span lang="fr">Certificat d’études spéciales en dynamique des fluides numérique</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">where</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org">ICMC-USP</span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">period</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><span lang="pt-BR"><time datetime="2023">2023</time> – atual</span><span lang="en"><time datetime="2023">2023</time> – present</span><span lang="fr"><time datetime="2023">2023</time> – aujourd’hui</span></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
         </div>
       </div>
-      <div class="cell cell--tl">
+      <div class="cell cell--tl" data-item="education">
         <span class="cell-tm" aria-hidden="true"></span>
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">education</span>(
-    <span class="k">course</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Intercâmbio acadêmico, engenharia generalista</span><span lang="en">Academic exchange, general engineering program</span><span lang="fr">Échange académique, cursus ingénieur généraliste</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v">École Centrale de Marseille</span>"</span>,
-    <span class="k">period</span>=<span class="s">"<span class="v">2022 – 2023</span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">education</span><span class="sx">(
+    </span><span class="k">course</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Intercâmbio acadêmico, engenharia generalista</span><span lang="en">Academic exchange, general engineering program</span><span lang="fr">Échange académique, cursus ingénieur généraliste</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">where</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org">École Centrale de Marseille</span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">period</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><time datetime="2022">2022</time> – <time datetime="2023">2023</time></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
         </div>
       </div>
-      <div class="cell cell--tl is-last is-current">
+      <div class="cell cell--tl is-last is-current" data-item="education">
         <span class="cell-tm" aria-hidden="true"></span>
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">education</span>(
-    <span class="k">course</span>=<span class="s">"<span class="v v1"><span lang="pt-BR">Graduação em Engenharia Aeronáutica (em andamento)</span><span lang="en">Aeronautical Engineering, undergraduate studies (in progress)</span><span lang="fr">Cursus ingénieur en aéronautique (en cours)</span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v"><span lang="pt-BR">Escola de Engenharia de São Carlos, USP</span><span lang="en">São Carlos School of Engineering, University of São Paulo</span><span lang="fr">École d’ingénieurs de São Carlos (EESC), Université de São Paulo</span></span>"</span>,
-    <span class="k">period</span>=<span class="s">"<span class="v"><span lang="pt-BR">2020 – atual</span><span lang="en">2020 – present</span><span lang="fr">2020 – aujourd’hui</span></span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">education</span><span class="sx">(
+    </span><span class="k">course</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Graduação em Engenharia Aeronáutica (em andamento)</span><span lang="en">Aeronautical Engineering, undergraduate studies (in progress)</span><span lang="fr">Cursus ingénieur en aéronautique (en cours)</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">where</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org"><span lang="pt-BR">Escola de Engenharia de São Carlos, USP</span><span lang="en">São Carlos School of Engineering, University of São Paulo</span><span lang="fr">École d’ingénieurs de São Carlos (EESC), Université de São Paulo</span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">period</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><span lang="pt-BR"><time datetime="2020">2020</time> – atual</span><span lang="en"><time datetime="2020">2020</time> – present</span><span lang="fr"><time datetime="2020">2020</time> – aujourd’hui</span></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
         </div>
       </div>
+      <div class="cell-sub" id="cursos" data-section="courses">
       <div class="cell-group"><h3><span lang="pt-BR">Cursos e certificados</span><span lang="en">Courses and certificates</span><span lang="fr">Cours et certificats</span></h3></div>
-      <div class="cell cell--tl is-first">
+      <div class="cell cell--tl is-first" data-item="course">
         <span class="cell-tm" aria-hidden="true"></span>
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">course</span>(
-    <span class="k">name</span>=<span class="s">"<span class="v v1"><span lang="pt-BR"><a href="https://github.com/icmc-data/Curso-de-Machine-Learning-2025" target="_blank" rel="noopener">Curso de Machine Learning</a></span><span lang="en"><a href="https://github.com/icmc-data/Curso-de-Machine-Learning-2025" target="_blank" rel="noopener">Machine Learning course</a></span><span lang="fr"><a href="https://github.com/icmc-data/Curso-de-Machine-Learning-2025" target="_blank" rel="noopener">Cours d’apprentissage automatique (machine learning)</a></span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v">Data ICMC-USP</span>"</span>,
-    <span class="k">period</span>=<span class="s">"<span class="v">2025</span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">course</span><span class="sx">(
+    </span><span class="k">name</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR"><a data-f="link" href="https://github.com/icmc-data/Curso-de-Machine-Learning-2025" target="_blank" rel="noopener">Curso de Machine Learning</a></span><span lang="en"><a data-f="link" href="https://github.com/icmc-data/Curso-de-Machine-Learning-2025" target="_blank" rel="noopener">Machine Learning course</a></span><span lang="fr"><a data-f="link" href="https://github.com/icmc-data/Curso-de-Machine-Learning-2025" target="_blank" rel="noopener">Cours d’apprentissage automatique (machine learning)</a></span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">where</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org">Data ICMC-USP</span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">period</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><time datetime="2025">2025</time></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
         </div>
       </div>
-      <div class="cell cell--tl is-last">
+      <div class="cell cell--tl is-last" data-item="course">
         <span class="cell-tm" aria-hidden="true"></span>
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="fn">course</span>(
-    <span class="k">name</span>=<span class="s">"<span class="v v1"><span lang="pt-BR"><a href="https://github.com/icmc-data/Curso-RL-2025" target="_blank" rel="noopener">Curso de Aprendizado por Reforço</a></span><span lang="en"><a href="https://github.com/icmc-data/Curso-RL-2025" target="_blank" rel="noopener">Reinforcement Learning course</a></span><span lang="fr"><a href="https://github.com/icmc-data/Curso-RL-2025" target="_blank" rel="noopener">Cours d’apprentissage par renforcement</a></span></span>"</span>,
-    <span class="k">where</span>=<span class="s">"<span class="v">Data ICMC-USP</span>"</span>,
-    <span class="k">period</span>=<span class="s">"<span class="v">2025</span>"</span>,
-)</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="fn">course</span><span class="sx">(
+    </span><span class="k">name</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR"><a data-f="link" href="https://github.com/icmc-data/Curso-RL-2025" target="_blank" rel="noopener">Curso de Aprendizado por Reforço</a></span><span lang="en"><a data-f="link" href="https://github.com/icmc-data/Curso-RL-2025" target="_blank" rel="noopener">Reinforcement Learning course</a></span><span lang="fr"><a data-f="link" href="https://github.com/icmc-data/Curso-RL-2025" target="_blank" rel="noopener">Cours d’apprentissage par renforcement</a></span></span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">where</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="org">Data ICMC-USP</span><span class="sx">"</span></span><span class="sx">,
+    </span><span class="k">period</span><span class="sx">=</span><span class="s"><span class="sx">"</span><span class="v" data-f="period"><time datetime="2025">2025</time></span><span class="sx">"</span></span><span class="sx">,
+)</span></code></pre>
         </div>
+      </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="competencias" aria-labelledby="h-comp">
+  <section class="section" id="competencias" data-section="skills" aria-labelledby="h-comp" data-simple-before="experiencia">
     <header class="sec-h">
       <h2 id="h-comp"><span lang="pt-BR">Competências</span><span lang="en">Skills</span><span lang="fr">Compétences</span></h2>
       <p class="sec-n" data-count='.cell--skill' data-pt-br="grupo|grupos" data-en="group|groups" data-fr="groupe|groupes"><span lang="pt-BR">6 grupos</span><span lang="en">6 groups</span><span lang="fr">6 groupes</span></p>
     </header>
     <div class="body">
-      <div class="cell cell--skill">
+      <div class="cell cell--skill" data-item="skill-group">
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="k">skills</span>[<span class="s">"<span class="v v1"><span lang="pt-BR">Linguagens de programação</span><span lang="en">Programming languages</span><span lang="fr">Langages de programmation</span></span>"</span>]</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="k">skills</span><span class="sx">[</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Linguagens de programação</span><span lang="en">Programming languages</span><span lang="fr">Langages de programmation</span></span><span class="sx">"</span></span><span class="sx">]</span></code></pre>
           <div class="cell-out">
-            <ul class="chips" lang="pt-BR"><li>Python</li><li>SQL (MySQL)</li><li>Bash</li><li>MATLAB</li><li>Fortran</li><li>C++ (básico)</li><li>Java (básico)</li></ul>
-            <ul class="chips" lang="en"><li>Python</li><li>SQL (MySQL)</li><li>Bash</li><li>MATLAB</li><li>Fortran</li><li>C++ (basic)</li><li>Java (basic)</li></ul>
-            <ul class="chips" lang="fr"><li>Python</li><li>SQL (MySQL)</li><li>Bash</li><li>MATLAB</li><li>Fortran</li><li>C++ (notions)</li><li>Java (notions)</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Python</li><li>SQL (MySQL)</li><li>Bash</li><li>MATLAB</li><li>Fortran</li><li>C++ (básico)</li><li>Java (básico)</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>Python</li><li>SQL (MySQL)</li><li>Bash</li><li>MATLAB</li><li>Fortran</li><li>C++ (basic)</li><li>Java (basic)</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Python</li><li>SQL (MySQL)</li><li>Bash</li><li>MATLAB</li><li>Fortran</li><li>C++ (notions)</li><li>Java (notions)</li></ul>
           </div>
         </div>
       </div>
-      <div class="cell cell--skill">
+      <div class="cell cell--skill" data-item="skill-group">
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="k">skills</span>[<span class="s">"<span class="v v1"><span lang="pt-BR">Análise de dados</span><span lang="en">Data analysis</span><span lang="fr">Analyse de données</span></span>"</span>]</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="k">skills</span><span class="sx">[</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Análise de dados</span><span lang="en">Data analysis</span><span lang="fr">Analyse de données</span></span><span class="sx">"</span></span><span class="sx">]</span></code></pre>
           <div class="cell-out">
-            <ul class="chips" lang="pt-BR"><li>Consultas SQL com junções</li><li>Agregações</li><li>Modelagem de dados</li><li>Definição de indicadores (KPIs)</li><li>Painéis</li><li>Relatórios</li><li>Análises em tempo real</li></ul>
-            <ul class="chips" lang="en"><li>SQL queries with joins</li><li>Aggregations</li><li>Data modeling</li><li>KPI definition</li><li>Dashboards</li><li>Reporting</li><li>Real-time analytics</li></ul>
-            <ul class="chips" lang="fr"><li>Requêtes SQL avec jointures</li><li>Agrégations</li><li>Modélisation de données</li><li>Définition d’indicateurs (KPI)</li><li>Tableaux de bord</li><li>Reporting</li><li>Analyses en temps réel</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Consultas SQL com junções</li><li>Agregações</li><li>Modelagem de dados</li><li>Definição de indicadores (KPIs)</li><li>Painéis</li><li>Relatórios</li><li>Análises em tempo real</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>SQL queries with joins</li><li>Aggregations</li><li>Data modeling</li><li>KPI definition</li><li>Dashboards</li><li>Reporting</li><li>Real-time analytics</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Requêtes SQL avec jointures</li><li>Agrégations</li><li>Modélisation de données</li><li>Définition d’indicateurs (KPI)</li><li>Tableaux de bord</li><li>Reporting</li><li>Analyses en temps réel</li></ul>
           </div>
         </div>
       </div>
-      <div class="cell cell--skill">
+      <div class="cell cell--skill" data-item="skill-group">
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="k">skills</span>[<span class="s">"<span class="v v1"><span lang="pt-BR">Machine learning e estatística</span><span lang="en">Machine learning and statistics</span><span lang="fr">Machine learning et statistiques</span></span>"</span>]</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="k">skills</span><span class="sx">[</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Machine learning e estatística</span><span lang="en">Machine learning and statistics</span><span lang="fr">Machine learning et statistiques</span></span><span class="sx">"</span></span><span class="sx">]</span></code></pre>
           <div class="cell-out">
-            <ul class="chips" lang="pt-BR"><li>Redes neurais</li><li>Aprendizado por reforço (Q-learning)</li><li>Algoritmos genéticos</li><li>Simulação de Monte Carlo</li><li>Análise de incerteza</li></ul>
-            <ul class="chips" lang="en"><li>Neural networks</li><li>Reinforcement learning (Q-learning)</li><li>Genetic algorithms</li><li>Monte Carlo simulation</li><li>Uncertainty analysis</li></ul>
-            <ul class="chips" lang="fr"><li>Réseaux de neurones</li><li>Apprentissage par renforcement (Q-learning)</li><li>Algorithmes génétiques</li><li>Simulation de Monte-Carlo</li><li>Analyse d’incertitude</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Redes neurais</li><li>Aprendizado por reforço (Q-learning)</li><li>Algoritmos genéticos</li><li>Simulação de Monte Carlo</li><li>Análise de incerteza</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>Neural networks</li><li>Reinforcement learning (Q-learning)</li><li>Genetic algorithms</li><li>Monte Carlo simulation</li><li>Uncertainty analysis</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Réseaux de neurones</li><li>Apprentissage par renforcement (Q-learning)</li><li>Algorithmes génétiques</li><li>Simulation de Monte-Carlo</li><li>Analyse d’incertitude</li></ul>
           </div>
         </div>
       </div>
-      <div class="cell cell--skill">
+      <div class="cell cell--skill" data-item="skill-group">
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="k">skills</span>[<span class="s">"<span class="v v1"><span lang="pt-BR">IA aplicada e automação</span><span lang="en">Applied AI and automation</span><span lang="fr">IA appliquée et automatisation</span></span>"</span>]</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="k">skills</span><span class="sx">[</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">IA aplicada e automação</span><span lang="en">Applied AI and automation</span><span lang="fr">IA appliquée et automatisation</span></span><span class="sx">"</span></span><span class="sx">]</span></code></pre>
           <div class="cell-out">
-            <ul class="chips" lang="pt-BR"><li>Integração de LLMs por API (API do Claude)</li><li>Bots do Telegram</li><li>Pipelines híbridos com regras determinísticas e IA</li><li>Agendamento com cron</li></ul>
-            <ul class="chips" lang="en"><li>LLM integration via API (Claude API)</li><li>Telegram bots</li><li>Hybrid rule-based and AI pipelines</li><li>cron scheduling</li></ul>
-            <ul class="chips" lang="fr"><li>Intégration de LLM par API (API Claude)</li><li>Bots Telegram</li><li>Pipelines hybrides (règles déterministes et IA)</li><li>Planification avec cron</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Integração de LLMs por API (API do Claude)</li><li>Bots do Telegram</li><li>Pipelines híbridos com regras determinísticas e IA</li><li>Agendamento com cron</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>LLM integration via API (Claude API)</li><li>Telegram bots</li><li>Hybrid rule-based and AI pipelines</li><li>cron scheduling</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Intégration de LLM par API (API Claude)</li><li>Bots Telegram</li><li>Pipelines hybrides (règles déterministes et IA)</li><li>Planification avec cron</li></ul>
           </div>
         </div>
       </div>
-      <div class="cell cell--skill">
+      <div class="cell cell--skill" data-item="skill-group">
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="k">skills</span>[<span class="s">"<span class="v v1"><span lang="pt-BR">Nuvem e infraestrutura</span><span lang="en">Cloud and infrastructure</span><span lang="fr">Cloud et infrastructure</span></span>"</span>]</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="k">skills</span><span class="sx">[</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Nuvem e infraestrutura</span><span lang="en">Cloud and infrastructure</span><span lang="fr">Cloud et infrastructure</span></span><span class="sx">"</span></span><span class="sx">]</span></code></pre>
           <div class="cell-out">
-            <ul class="chips" lang="pt-BR"><li>Google Cloud</li><li>Oracle Cloud (VPS, migração planejada)</li><li>Linux</li><li>SSH</li><li>Git</li><li>GitHub</li><li>HPC</li></ul>
-            <ul class="chips" lang="en"><li>Google Cloud</li><li>Oracle Cloud (VPS, migration planned)</li><li>Linux</li><li>SSH</li><li>Git</li><li>GitHub</li><li>HPC</li></ul>
-            <ul class="chips" lang="fr"><li>Google Cloud</li><li>Oracle Cloud (VPS, migration prévue)</li><li>Linux</li><li>SSH</li><li>Git</li><li>GitHub</li><li>HPC</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Google Cloud</li><li>Oracle Cloud (VPS, migração planejada)</li><li>Linux</li><li>SSH</li><li>Git</li><li>GitHub</li><li>HPC</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>Google Cloud</li><li>Oracle Cloud (VPS, migration planned)</li><li>Linux</li><li>SSH</li><li>Git</li><li>GitHub</li><li>HPC</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Google Cloud</li><li>Oracle Cloud (VPS, migration prévue)</li><li>Linux</li><li>SSH</li><li>Git</li><li>GitHub</li><li>HPC</li></ul>
           </div>
         </div>
       </div>
-      <div class="cell cell--skill">
+      <div class="cell cell--skill t-only" data-item="skill-group">
         <div class="cell-body">
-          <pre class="cell-in cell-in--cv"><code><span class="k">skills</span>[<span class="s">"<span class="v v1"><span lang="pt-BR">Idiomas</span><span lang="en">Spoken languages</span><span lang="fr">Langues</span></span>"</span>]</code></pre>
+          <pre class="cell-in cell-in--cv"><code><span class="k">skills</span><span class="sx">[</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Idiomas</span><span lang="en">Spoken languages</span><span lang="fr">Langues</span></span><span class="sx">"</span></span><span class="sx">]</span></code></pre>
           <div class="cell-out">
-            <ul class="chips" lang="pt-BR"><li>Português (nativo)</li><li>Inglês (avançado)</li><li>Francês (avançado)</li><li>Alemão (básico)</li></ul>
-            <ul class="chips" lang="en"><li>Portuguese (native)</li><li>English (advanced)</li><li>French (advanced)</li><li>German (basic)</li></ul>
-            <ul class="chips" lang="fr"><li>Portugais (langue maternelle)</li><li>Anglais (avancé)</li><li>Français (avancé)</li><li>Allemand (notions)</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Português (nativo)</li><li>Inglês (avançado)</li><li>Francês (avançado)</li><li>Alemão (básico)</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>Portuguese (native)</li><li>English (advanced)</li><li>French (advanced)</li><li>German (basic)</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Portugais (langue maternelle)</li><li>Anglais (avancé)</li><li>Français (avancé)</li><li>Allemand (notions)</li></ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="contato" aria-labelledby="h-cont">
+  <section class="section s-only" id="idiomas" data-section="languages" aria-labelledby="h-idi">
+    <header class="sec-h">
+      <h2 id="h-idi"><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></h2>
+    </header>
+    <div class="body">
+      <p data-f="desc" lang="pt-BR">Português (nativo), inglês (avançado), francês (avançado), alemão (básico).</p>
+      <p data-f="desc" lang="en">Portuguese (native), English (advanced), French (advanced), German (basic).</p>
+      <p data-f="desc" lang="fr">Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions).</p>
+    </div>
+  </section>
+
+  <section class="section" id="contato" data-section="contact" aria-labelledby="h-cont">
     <header class="sec-h">
       <h2 id="h-cont"><span lang="pt-BR">Contato</span><span lang="en">Contact</span><span lang="fr">Contact</span></h2>
     </header>
@@ -655,15 +691,21 @@ sheet.<span class="fn">update</span>(jobs)      <span class="cm"># <span lang="p
     <span class="k">to</span>=<span class="s">"<span lang="pt-BR">vagas júnior ou projetos em dados e TI</span><span lang="en">junior roles or projects in data and IT</span><span lang="fr">un poste junior ou un projet en données et informatique</span>"</span>,
 )</code></pre>
           <div class="cell-out">
-            <p lang="pt-BR">Para vagas júnior ou projetos em dados e TI, escreva para:</p>
-            <p lang="en">For junior roles or projects in data and IT, reach me at:</p>
-            <p lang="fr">Pour un poste junior ou un projet en données et informatique, écrivez-moi&nbsp;:</p>
+            <p data-f="desc" lang="pt-BR">Para vagas júnior ou projetos em dados e TI, escreva para:</p>
+            <p data-f="desc" lang="en">For junior roles or projects in data and IT, reach me at:</p>
+            <p data-f="desc" lang="fr">Pour un poste junior ou un projet en données et informatique, écrivez-moi&nbsp;:</p>
             <p class="contact-icons">
               <a class="ic-link" href="mailto:igor_amelo@usp.br" aria-label="E-mail: igor_amelo@usp.br" title="E-mail: igor_amelo@usp.br"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6.5L20.5 7"/></svg></a>
               <a class="ic-link" href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener" aria-label="LinkedIn: linkedin.com/in/igorademelo" title="LinkedIn: linkedin.com/in/igorademelo"><svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg></a>
               <a class="ic-link" href="https://github.com/igor-de-melo" target="_blank" rel="noopener" aria-label="GitHub: github.com/igor-de-melo" title="GitHub: github.com/igor-de-melo"><svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></a>
             </p>
-            <p class="muted"><span lang="pt-BR">São Carlos, SP, Brasil</span><span lang="en">São Carlos, São Paulo, Brazil</span><span lang="fr">São Carlos, État de São Paulo, Brésil</span></p>
+            <ul class="s-contact s-only">
+              <li class="s-c s-c--mail"><span lang="pt-BR">E-mail:</span><span lang="en">Email:</span><span lang="fr">E-mail&nbsp;:</span> <a href="mailto:igor_amelo@usp.br" data-f="link">igor_amelo@usp.br</a></li>
+              <li class="s-c s-c--in"><span lang="pt-BR">LinkedIn:</span><span lang="en">LinkedIn:</span><span lang="fr">LinkedIn&nbsp;:</span> <a href="https://www.linkedin.com/in/igorademelo" target="_blank" rel="noopener" data-f="link">linkedin.com/in/igorademelo</a></li>
+              <li class="s-c s-c--gh"><span lang="pt-BR">GitHub:</span><span lang="en">GitHub:</span><span lang="fr">GitHub&nbsp;:</span> <a href="https://github.com/igor-de-melo" target="_blank" rel="noopener" data-f="link">github.com/igor-de-melo</a></li>
+              <li class="s-c s-c--cv"><a href="../assets/docs/cv-igor-de-melo.pdf" download="Igor_de_Melo_CV.pdf" data-print-url="https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo.pdf" data-f="link"><span lang="pt-BR">Baixar currículo (PDF)</span><span lang="en">Download résumé (PDF)</span><span lang="fr">Télécharger le CV (PDF)</span></a></li>
+            </ul>
+            <p class="muted" data-f="place"><span lang="pt-BR">São Carlos, SP, Brasil</span><span lang="en">São Carlos, São Paulo, Brazil</span><span lang="fr">São Carlos, État de São Paulo, Brésil</span></p>
           </div>
         </div>
       </div>
