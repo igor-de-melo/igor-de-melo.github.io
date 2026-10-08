@@ -2031,7 +2031,7 @@ html[lang="fr"][data-view="simple"] body[data-area] .content .research .chips::b
 
 /* Impressão compacta: corpo de 10 pt, espaçamentos menores, só a foto do Igor (sem figuras de projeto) */
 @media print{
-  :root[data-view="simple"] body[data-area],:root[data-view="simple"][data-theme="dark"] body[data-area]{--fs-display:15pt;--fs-h2:15pt;--fs-h3:11.5pt;--fs-lead:10pt;--fs-body:10pt;--fs-ui:9.5pt;--fs-small:8.5pt;--fs-xs:8pt;--lh-body:1.22;--lh-small:1.2;--lh-h3:1.12}
+  :root[data-view="simple"] body[data-area],:root[data-view="simple"][data-theme="dark"] body[data-area]{--fs-display:15pt;--fs-h2:15pt;--fs-h3:11.5pt;--fs-lead:10pt;--fs-body:10pt;--fs-ui:9.5pt;--fs-small:8.5pt;--fs-xs:8pt;--lh-body:1.19;--lh-small:1.17;--lh-h3:1.12}
   [data-view="simple"] body{font-size:10pt}
   [data-view="simple"] body[data-area] .content .hero .s-name{grid-column:2;grid-row:1;order:0}
   [data-view="simple"] body[data-area] .content .hero .s-area{grid-column:2;grid-row:2;order:0;margin-top:2pt}
@@ -2068,14 +2068,9 @@ html[lang="fr"][data-view="simple"] body[data-area] .content .research .chips::b
 }
 
 /* =====================================================================
-   S4b — Simplificado: figuras de projeto (ul.s-figs, só nesta visão): miniaturas com legenda; fora da impressão
+   S4c — Galerias: várias imagens por projeto, com legenda por imagem (data-cap-* no botão da miniatura)
    ===================================================================== */
-[data-view="simple"] body[data-area] .content ul.s-figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 12px;margin:14px 0 0!important;padding:0!important;list-style:none!important}
-[data-view="simple"] body[data-area] .content ul.s-figs li{margin:0!important;padding:0;min-width:0}
-[data-view="simple"] body[data-area] .content ul.s-figs figure{margin:0}
-[data-view="simple"] body[data-area] .content .s-fig{display:block;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--bg)}
-[data-view="simple"] body[data-area] .content .s-fig::after{content:none!important}
-[data-view="simple"] body[data-area] .content .s-fig img{display:block;width:100%;height:120px;object-fit:contain}
-[data-view="simple"] body[data-area] .content ul.s-figs figcaption{margin:4px 0 0;color:var(--ink2);font:400 var(--fs-small)/var(--lh-small) var(--sans);text-align:left}
-@media (max-width:760px){[data-view="simple"] body[data-area] .content ul.s-figs{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media print{[data-view="simple"] body[data-area] .content ul.s-figs{display:none!important}}
+.gallery--inline{max-width:420px;margin-top:14px}
+.gallery-thumb:only-child{display:none}
+.gallery-main img{object-fit:contain}
+[data-view="simple"] body[data-area] .content .gallery--inline{max-width:none}

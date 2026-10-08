@@ -408,11 +408,22 @@
             <li data-f="bullet">Modèles semi-empiriques de charges aérodynamiques instationnaires, avec identification et calibration des paramètres à partir de données expérimentales et CFD.</li>
             <li data-f="bullet">Réseau de neurones codé de zéro, appliqué à l’optimisation des paramètres.</li>
             </ul>
-            <details class="sample" open><summary class="s-only"><span lang="pt-BR">Ver trecho de código</span><span lang="en">View code sample</span><span lang="fr">Voir un extrait de code</span></summary><pre class="cell-in sn" tabindex="0"><code>population = <span class="fn">initial_population</span>(size=<span class="nu">100</span>)
-<span class="kw">for</span> generation <span class="kw">in</span> <span class="fn">range</span>(<span class="nu">200</span>):
-    error = [<span class="fn">model_error</span>(p) <span class="kw">for</span> p <span class="kw">in</span> population]  <span class="cm"># <span lang="pt-BR">dados experimentais e de CFD</span><span lang="en">experimental and CFD data</span><span lang="fr">données expérimentales et CFD</span></span>
-    parents = <span class="fn">select</span>(population, error, best=<span class="nu">20</span>)
-    population = <span class="fn">crossover_and_mutate</span>(parents, size=<span class="nu">100</span>)</code></pre></details>
+            <details class="sample" open><summary class="s-only"><span lang="pt-BR">Ver trecho de código</span><span lang="en">View code sample</span><span lang="fr">Voir un extrait de code</span></summary><pre class="cell-in sn" tabindex="0"><code><span class="cm"># <span lang="pt-BR">Trecho simplificado ilustrativo</span><span lang="en">Simplified illustrative snippet</span><span lang="fr">Extrait simplifié à titre d’illustration</span></span>
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+<span class="kw">def</span> <span class="fn">forward</span>(X, W1, b1, W2, b2):
+    h = np.<span class="fn">tanh</span>(X @ W1 + b1)
+    <span class="kw">return</span> h, h @ W2 + b2
+
+<span class="kw">def</span> <span class="fn">train_step</span>(X, y, W1, b1, W2, b2, lr=<span class="nu">1e-2</span>):
+    h, y_hat = <span class="fn">forward</span>(X, W1, b1, W2, b2)
+    err = y_hat - y
+    dW2 = h.T @ err / <span class="fn">len</span>(X)
+    dh = (err @ W2.T) * (<span class="nu">1</span> - h**<span class="nu">2</span>)
+    dW1 = X.T @ dh / <span class="fn">len</span>(X)
+    W1 -= lr * dW1; b1 -= lr * dh.<span class="fn">mean</span>(<span class="nu">0</span>)
+    W2 -= lr * dW2; b2 -= lr * err.<span class="fn">mean</span>(<span class="nu">0</span>)
+    <span class="kw">return</span> (err**<span class="nu">2</span>).<span class="fn">mean</span>()</code></pre></details>
           </div>
         </div>
       </div>
@@ -637,9 +648,9 @@ sheet.<span class="fn">update</span>(jobs)      <span class="cm"># <span lang="p
         <div class="cell-body">
           <pre class="cell-in cell-in--cv"><code><span class="k">skills</span><span class="sx">[</span><span class="s"><span class="sx">"</span><span class="v v1" data-f="title"><span lang="pt-BR">Machine learning e estatística</span><span lang="en">Machine learning and statistics</span><span lang="fr">Machine learning et statistiques</span></span><span class="sx">"</span></span><span class="sx">]</span></code></pre>
           <div class="cell-out">
-            <ul class="chips" data-f="stack" lang="pt-BR"><li>Redes neurais</li><li>Aprendizado por reforço (Q-learning)</li><li>Algoritmos genéticos</li><li>Simulação de Monte Carlo</li><li>Análise de incerteza</li></ul>
-            <ul class="chips" data-f="stack" lang="en"><li>Neural networks</li><li>Reinforcement learning (Q-learning)</li><li>Genetic algorithms</li><li>Monte Carlo simulation</li><li>Uncertainty analysis</li></ul>
-            <ul class="chips" data-f="stack" lang="fr"><li>Réseaux de neurones</li><li>Apprentissage par renforcement (Q-learning)</li><li>Algorithmes génétiques</li><li>Simulation de Monte-Carlo</li><li>Analyse d’incertitude</li></ul>
+            <ul class="chips" data-f="stack" lang="pt-BR"><li>Redes neurais</li><li>Aprendizado por reforço (Q-learning)</li><li>Simulação de Monte Carlo</li><li>Análise de incerteza</li></ul>
+            <ul class="chips" data-f="stack" lang="en"><li>Neural networks</li><li>Reinforcement learning (Q-learning)</li><li>Monte Carlo simulation</li><li>Uncertainty analysis</li></ul>
+            <ul class="chips" data-f="stack" lang="fr"><li>Réseaux de neurones</li><li>Apprentissage par renforcement (Q-learning)</li><li>Simulation de Monte-Carlo</li><li>Analyse d’incertitude</li></ul>
           </div>
         </div>
       </div>

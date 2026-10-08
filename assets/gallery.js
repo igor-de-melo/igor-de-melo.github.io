@@ -2,7 +2,7 @@
    Marcação:
    <figure class="gallery" data-gallery>
      <button class="gallery-main"><img ...></button>
-     <div class="gallery-thumbs"><button class="gallery-thumb" aria-pressed data-src data-w data-h>...</button> ...</div>
+     <div class="gallery-thumbs"><button class="gallery-thumb" aria-pressed data-src data-w data-h [data-cap-pt-br/-en/-fr]>...</button> ...</div>
      <figcaption> ... <span class="gallery-i">1</span> ... </figcaption>   (uma vez por idioma)
    </figure>
    Clicar numa miniatura troca a imagem principal; clicar na principal abre o <dialog class="lightbox">.
@@ -27,6 +27,11 @@
         if (from) Array.prototype.forEach.call(from.attributes, function (at) { if (at.name === "alt" || at.name.indexOf("data-alt-") === 0) img.setAttribute(at.name, at.value); });
         thumbs.forEach(function (o) { o.setAttribute("aria-pressed", String(o === t)); });
         Array.prototype.forEach.call(fig.querySelectorAll(".gallery-i"), function (n) { n.textContent = i + 1; });
+        // Legenda por imagem: data-cap-pt-br / -en / -fr no botão da miniatura preenchem o .gallery-c de cada língua.
+        Array.prototype.forEach.call(fig.querySelectorAll("figcaption > [lang]"), function (sp) {
+          var cap = t.getAttribute("data-cap-" + sp.lang.toLowerCase()), box = sp.querySelector(".gallery-c");
+          if (cap && box) box.textContent = cap;
+        });
         if (open && !main.offsetParent) open();
       });
     });
