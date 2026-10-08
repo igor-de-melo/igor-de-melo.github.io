@@ -47,11 +47,9 @@ Pilea Labs · Dec 2024 – Mar 2025
 
 TOPUS Projetos Aeroespaciais · Mar 2020 – Dec 2023
 
-- Propulsion (team work): solid rocket motor for the 2022 rocket, K class, with fine KNSB propellant in 3 grains of 150 mm (Ø 65.7 mm, 33 mm core), a Ø 69.85 mm × 502 mm chamber and 1.93 kg of propellant. One motor tested per project.
-- Values calculated with an internal ballistics spreadsheet (Nakka): average thrust of 1,212 N, peak thrust of 1,410 N, total impulse of 2,418 N·s, specific impulse of 127.8 s, burn time of about 1.9 s and maximum chamber pressure of 4.74 MPa.
+- Propulsion (team work): design and analysis of solid rocket motors applying thermodynamics, heat transfer, structural analysis and CFD, with computational and experimental testing.
 - Oxidizer injection for a hybrid motor: design and testing of the tank, piping and valves, and development of a swirl injector.
-- Flight mechanics and performance (individual work, on every project I took part in): flight simulation in MATLAB of the 2022 rocket with wind, a 3 m launch rail, 84° elevation and two-stage recovery (0.43 m² drogue and 2.81 m² main parachute, deployed at 480 m). Simulated results: apogee of 1,160 m, maximum velocity of 166 m/s and descent rate of 8.6 m/s under the main parachute. Apogee reached at LASC 2022: 1,168 m (source: [Portal USP São Carlos](https://saocarlos.usp.br/topus-conquista-dois-titulos-na-latin-america-space-challenge-2022/), in Portuguese).
-- Landing dispersion analysis by Monte Carlo in MATLAB for the 2022 rocket: 5,000 simulations with dispersions of 10% in thrust, 25% in drag coefficient, 50% in wind speed and 15° in wind direction, to estimate the landing area; simulated mean apogee of 1,153 m, within a range of about 920 to 1,420 m. 2021 rocket (Rigel, 1 km): simulated apogee of 1,001 m and simulated maximum velocity of 155 m/s, also with a Monte Carlo analysis.
+- Flight mechanics and performance (individual work, on the projects I took part in): 6-DOF flight simulation tools in MATLAB and Monte Carlo dispersion analysis, for trajectory dispersion and impact area mapping.
 - Systems engineering: NASA methods applied to the management and control of internal projects and to documentation standardization.
 
 ### Team Member, structures
@@ -87,6 +85,13 @@ TOPUS, Latin American Space Challenge · 2020 – 2022
 
 Stack: MATLAB, 6-DOF simulation, Monte Carlo method, CFD
 
+- 2022, Rigel (1 km), motor (team work): K-class solid rocket motor, with fine KNSB propellant in 3 grains of 150 mm (Ø 65.7 mm, 33 mm core), a Ø 69.85 mm × 502 mm chamber and 1.93 kg of propellant. One motor tested per project.
+- 2022, values calculated with an internal ballistics spreadsheet (Nakka): average thrust of 1,212 N, peak thrust of 1,410 N, total impulse of 2,418 N·s, specific impulse of 127.8 s, burn time of about 1.9 s and maximum chamber pressure of 4.74 MPa.
+- 2022, flight simulated in MATLAB: with wind, a 3 m launch rail, 84° elevation and two-stage recovery (0.43 m² drogue and 2.81 m² main parachute, deployed at 480 m). Simulated results: apogee of 1,160 m, maximum velocity of 166 m/s and descent rate of 8.6 m/s under the main parachute. Apogee reached at LASC 2022: 1,168 m (source: [Portal USP São Carlos](https://saocarlos.usp.br/topus-conquista-dois-titulos-na-latin-america-space-challenge-2022/), in Portuguese).
+- 2022, Monte Carlo: 5,000 simulations with dispersions of 10% in thrust, 25% in drag coefficient, 50% in wind speed and 15° in wind direction, to estimate the landing area; simulated mean apogee of 1,153 m, within a range of about 920 to 1,420 m.
+- 2021, Rigel (1 km): simulated apogee of 1,001 m and simulated maximum velocity of 155 m/s, also with a Monte Carlo analysis.
+- 2020, Curupira (500 m): 1st place in the Entry-Level 0.5 km category (8th overall).
+
 ### Rocket with a 5 km apogee
 
 LASC Cooperation Program · 2020 – 2022
@@ -103,11 +108,11 @@ TOPUS · 2020 – 2023
 
 **Problem:** Deliver the oxidizer safely to the combustion chamber of a hybrid rocket motor.
 
-**Approach:** On the oxidizer injection team, I designed and tested the tank, piping and valves, and worked on the swirl injector.
+**Approach:** On the oxidizer injection team, I designed and tested the tank, piping and valves, and worked on the design of the swirl injector for nitrous oxide, with the supply tank at 60 bar and the combustion chamber at 30 bar. I ran the CFD simulations of the injector in ANSYS CFX.
 
 **Result:** The project received a test stand grant from the Brazilian Space Agency (AEB) in 2020.
 
-Stack: Thermodynamics, Numerical modeling, Experimental testing
+Stack: ANSYS CFX, CFD, Thermodynamics, Numerical modeling, Experimental testing
 
 ## Research and publications
 

@@ -47,11 +47,9 @@ Pilea Labs · déc. 2024 – mars 2025
 
 TOPUS Projetos Aeroespaciais · mars 2020 – déc. 2023
 
-- Propulsion (travail d’équipe) : moteur-fusée à propergol solide de la fusée de 2022, classe K, avec propergol KNSB fin en 3 grains de 150 mm (Ø 65,7 mm, canal central de 33 mm), chambre de Ø 69,85 mm × 502 mm et 1,93 kg de propergol. Un moteur testé par projet.
-- Valeurs calculées avec une feuille de calcul de balistique interne (Nakka) : poussée moyenne de 1 212 N, poussée maximale de 1 410 N, impulsion totale de 2 418 N·s, impulsion spécifique de 127,8 s, combustion d’environ 1,9 s et pression maximale de chambre de 4,74 MPa.
+- Propulsion (travail d’équipe) : conception et analyse de moteurs-fusées à propergol solide en appliquant la thermodynamique, les transferts thermiques, l’analyse structurale et la CFD, avec des essais numériques et expérimentaux.
 - Injection d’oxydant pour un moteur hybride : conception et essais du réservoir, de la tuyauterie et des vannes, et développement d’un injecteur tourbillonnaire.
-- Mécanique du vol et performances (travail individuel, dans tous les projets auxquels j’ai participé) : simulation de vol sous MATLAB de la fusée de 2022 avec vent, rampe de 3 m, élévation de 84° et récupération en deux étapes (parachute stabilisateur de 0,43 m² et parachute principal de 2,81 m², éjecté à 480 m). Résultats simulés : apogée de 1 160 m, vitesse maximale de 166 m/s et vitesse de descente de 8,6 m/s sous le parachute principal. Apogée atteint à la LASC 2022 : 1 168 m (source : [Portal USP São Carlos](https://saocarlos.usp.br/topus-conquista-dois-titulos-na-latin-america-space-challenge-2022/), en portugais).
-- Analyse de dispersion d’atterrissage par Monte-Carlo sous MATLAB pour la fusée de 2022 : 5 000 simulations avec des dispersions de 10 % sur la poussée, 25 % sur le coefficient de traînée, 50 % sur la vitesse du vent et 15° sur la direction du vent, afin d’estimer la zone d’atterrissage ; apogée moyen simulé de 1 153 m, dans une plage d’environ 920 à 1 420 m. Fusée de 2021 (Rigel, 1 km) : apogée simulé de 1 001 m et vitesse maximale simulée de 155 m/s, également avec une analyse de Monte-Carlo.
+- Mécanique du vol et performances (travail individuel, dans les projets auxquels j’ai participé) : outils de simulation de vol à 6 degrés de liberté sous MATLAB et analyse de dispersion par Monte-Carlo, pour la dispersion des trajectoires et la cartographie des zones de retombée.
 - Ingénierie système : application des méthodes de la NASA à la gestion et au suivi des projets internes et à la standardisation de la documentation.
 
 ### Membre de l’équipe, structures
@@ -87,6 +85,13 @@ TOPUS, Latin American Space Challenge · 2020 – 2022
 
 Stack : MATLAB, Simulation à 6 degrés de liberté, Méthode de Monte-Carlo, CFD
 
+- 2022, Rigel (1 km), moteur (travail d’équipe) : moteur-fusée à propergol solide de classe K, avec propergol KNSB fin en 3 grains de 150 mm (Ø 65,7 mm, canal central de 33 mm), chambre de Ø 69,85 mm × 502 mm et 1,93 kg de propergol. Un moteur testé par projet.
+- 2022, valeurs calculées avec une feuille de calcul de balistique interne (Nakka) : poussée moyenne de 1 212 N, poussée maximale de 1 410 N, impulsion totale de 2 418 N·s, impulsion spécifique de 127,8 s, combustion d’environ 1,9 s et pression maximale de chambre de 4,74 MPa.
+- 2022, vol simulé sous MATLAB : avec vent, rampe de 3 m, élévation de 84° et récupération en deux étapes (parachute stabilisateur de 0,43 m² et parachute principal de 2,81 m², éjecté à 480 m). Résultats simulés : apogée de 1 160 m, vitesse maximale de 166 m/s et vitesse de descente de 8,6 m/s sous le parachute principal. Apogée atteint à la LASC 2022 : 1 168 m (source : [Portal USP São Carlos](https://saocarlos.usp.br/topus-conquista-dois-titulos-na-latin-america-space-challenge-2022/), en portugais).
+- 2022, Monte-Carlo : 5 000 simulations avec des dispersions de 10 % sur la poussée, 25 % sur le coefficient de traînée, 50 % sur la vitesse du vent et 15° sur la direction du vent, afin d’estimer la zone d’atterrissage ; apogée moyen simulé de 1 153 m, dans une plage d’environ 920 à 1 420 m.
+- 2021, Rigel (1 km) : apogée simulé de 1 001 m et vitesse maximale simulée de 155 m/s, également avec une analyse de Monte-Carlo.
+- 2020, Curupira (500 m) : 1re place dans la catégorie Entry-Level 0,5 km (8e au général).
+
 ### Fusée à apogée de 5 km
 
 LASC Cooperation Program · 2020 – 2022
@@ -103,11 +108,11 @@ TOPUS · 2020 – 2023
 
 **Problème :** Acheminer l’oxydant en toute sécurité jusqu’à la chambre de combustion d’un moteur-fusée hybride.
 
-**Approche :** Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes, et j’ai travaillé sur l’injecteur tourbillonnaire.
+**Approche :** Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes, et j’ai travaillé à la conception de l’injecteur tourbillonnaire pour le protoxyde d’azote, avec le réservoir d’alimentation à 60 bar et la chambre de combustion à 30 bar. J’ai réalisé les simulations CFD de l’injecteur sous ANSYS CFX.
 
 **Résultat :** Le projet a obtenu en 2020 un financement « Banc d’essai » de l’Agence spatiale brésilienne (AEB).
 
-Stack : Thermodynamique, Modélisation numérique, Essais expérimentaux
+Stack : ANSYS CFX, CFD, Thermodynamique, Modélisation numérique, Essais expérimentaux
 
 ## Recherche et publications
 
