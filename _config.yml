@@ -7,4 +7,5 @@ exclude:
   - index.template.html
   - tests/
   - tools/
+  - package.json
   - .gitignore

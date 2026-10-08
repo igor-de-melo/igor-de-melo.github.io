@@ -1,0 +1,134 @@
+Gerado automaticamente do conteúdo visível de https://igor-de-melo.github.io/data/.
+
+# Igor Augusto de Melo
+
+**Ciência de Dados**
+
+Engenharia Aeronáutica, EESC-USP · São Carlos, SP
+
+Disponível para vagas júnior em análise, engenharia ou ciência de dados ou em TI.
+
+## Resumo
+
+Estudante de Engenharia Aeronáutica na EESC-USP (em andamento), em transição para dados e TI. Experiência como analista de dados na Pilea Labs, projetando e construindo as bases MySQL (no Google Cloud) e as consultas SQL por trás das listas, tabelas e gráficos da plataforma. Cursos de Machine Learning e Aprendizado por Reforço (Data ICMC-USP, 2025) e prática de computação científica em simulação Monte Carlo, otimização e análise de incerteza. Desenvolve projetos próprios de automação, como um sistema de triagem de e-mails com IA.
+
+Da engenharia, trago prática de computação científica: simulação de Monte Carlo, otimização com uma rede neural implementada do zero, análise de incerteza e rotinas numéricas em ambiente de HPC. Em TI, trabalho com Linux, Git, Bash, Google Cloud e integração de APIs, incluindo as de modelos de linguagem.
+
+## Competências
+
+- **Linguagens de programação:** Python, SQL (MySQL), Bash, MATLAB, Fortran, C++ (básico), Java (básico)
+- **Análise de dados:** Consultas SQL com junções, Agregações, Modelagem de dados, Definição de indicadores (KPIs), Painéis, Relatórios, Análises em tempo real
+- **Machine learning e estatística:** Redes neurais, Aprendizado por reforço (Q-learning), Simulação de Monte Carlo, Análise de incerteza
+- **IA aplicada e automação:** Integração de LLMs por API (API do Claude), Bots do Telegram, Pipelines híbridos com regras determinísticas e IA, Agendamento com cron
+- **Nuvem e infraestrutura:** Google Cloud, Oracle Cloud (VPS), Linux, SSH, Git, GitHub, HPC
+
+## Experiência
+
+### Analista de Dados
+
+Pilea Labs · dez. 2024 – mar. 2025
+
+Plataforma de marketing de influência e afiliados para e-commerce
+
+- Modelagem e construção, em MySQL no Google Cloud, das bases e consultas que alimentavam listas, tabelas e gráficos nas interfaces da plataforma.
+- Cruzamento das vendas atribuídas aos cupons de cada influenciador com métricas de redes sociais, como visualizações e comentários.
+- Escala: dezenas de influenciadores, dezenas de cupons e milhares de pedidos de e-commerce.
+- Levantamento de cerca de 15 indicadores candidatos a painel.
+- Análises que se atualizavam em tempo real a partir do banco, com uma nova entrega quase todos os dias.
+- Versionamento de código e consultas com Git e GitHub e integração de scripts em Python ao site da empresa.
+
+### Gerente de projeto, VANT autônomo de asa fixa
+
+Grupo SEMEAR, Núcleo de Robótica Aérea, EESC-USP · abr. 2025 – atual
+
+- Definição da arquitetura do sistema e dos requisitos técnicos.
+- Coordenação do trabalho dos cinco subsistemas (Telecom; Visão computacional e missão; GNC e Aviônica; Mecânica; Propulsão, Energia e Autonomia).
+- Modelagem de dinâmica de voo e simulações voltadas ao controle.
+
+### Cargas aerodinâmicas não estacionárias
+
+Iniciação científica, EESC-USP, orientação do Prof. Flávio Donizeti Marques · jul. 2023 – dez. 2024
+
+- Modelos semiempíricos de cargas aerodinâmicas não estacionárias, com identificação e calibração de parâmetros a partir de dados experimentais e de CFD.
+- Rede neural implementada do zero, aplicada à otimização dos parâmetros.
+
+### Simulação de escoamentos turbulentos
+
+ICMC-USP, bolsa FAPESP · jul. 2023 – dez. 2024
+
+Simulação de grandes escalas (LES) de escoamento turbulento em canal com força de Coriolis, com número de Reynolds de atrito 180, malha LES de 64 × 64 × 64 e quatro números de rotação (Ro) (0; 0,018; 0,054; 0,091), comparada com simulação numérica direta (DNS). Artigo no EPTT 2024. Autores: Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza e Matheus Tozo de Araujo. Desenvolvimento e execução de rotinas numéricas em ambiente de HPC.
+
+### Pesquisa em modelagem atmosférica e energia eólica
+
+IRPHE, École Centrale de Marseille · fev. – jul. 2023
+
+Configuração e execução de simulações com o modelo meteorológico WRF, com três domínios aninhados, para o estudo do desempenho de uma turbina eólica sob condições atmosféricas variáveis.
+
+Stack: Ferramentas: WRF, Python, scripts em Bash, Linux.
+
+### Membro da equipe, simulação e modelagem
+
+TOPUS Projetos Aeroespaciais · mar. 2020 – dez. 2023
+
+- Modelo de dinâmica de voo com 6 graus de liberdade em MATLAB e simulações de Monte Carlo para dispersão de trajetória e análise de segurança.
+- Modelagem numérica e CFD de sistemas de propulsão e de alimentação de oxidante.
+
+## Projetos
+
+### Triagem inteligente de e-mails
+
+Projeto pessoal · Em desenvolvimento
+
+**Problema:** Acompanhar duas contas Gmail, uma pessoal e uma institucional da USP, sem perder prazos nem ações pendentes.
+
+**Abordagem:** Pipeline em Python que classifica e organiza os e-mails com a API do Claude (um modelo de linguagem), com acesso por IMAP e OAuth2. A arquitetura é híbrida: a formatação determinística fica no Python e a IA entra só na análise estratégica, o que reduz o consumo de tokens.
+
+**Resultado:** Resumos diários e semanais com os prazos em ordem cronológica e as ações sugeridas, entregues pelo Telegram, onde um bot também aceita comandos manuais. O sistema executa localmente e em um VPS (Oracle Cloud), com agendamento por cron, e processa qualquer quantidade de e-mails, sem limite fixo (depende da caixa de entrada). Estimativa: de 1 a 3 minutos economizados por e-mail. Planejado: migração para um servidor local 24 h em Raspberry Pi.
+
+Stack: Python, API do Claude, IMAP, OAuth2, API de bots do Telegram, Linux, cron, Git, SSH, Oracle Cloud (VPS)
+
+### Motor de busca e classificação de vagas
+
+Projeto pessoal · Em desenvolvimento
+
+**Problema:** Encontrar e triar vagas de estágio e emprego espalhadas por muitas fontes.
+
+**Abordagem:** Pipeline que percorre fontes cadastradas, remove duplicatas e atribui a cada vaga uma nota de aderência de 0 a 10, com base em critérios definidos: tipo de vaga, localização e requisitos de elegibilidade.
+
+**Resultado:** Uma planilha de controle com o resumo dos requisitos e das atividades de cada vaga. Nenhuma candidatura é enviada sem a minha revisão e confirmação: a automação prepara, a decisão é minha.
+
+Stack: Claude, Claude Code, Automação de navegador
+
+## Formação
+
+### Certificado de Estudos Especiais em Dinâmica dos Fluidos Computacional
+
+ICMC-USP · 2023 – atual
+
+### Intercâmbio acadêmico, engenharia generalista
+
+École Centrale de Marseille · 2022 – 2023
+
+### Graduação em Engenharia Aeronáutica (em andamento)
+
+Escola de Engenharia de São Carlos, USP · 2020 – atual
+
+### Cursos e certificados
+
+- [Curso de Machine Learning](https://github.com/icmc-data/Curso-de-Machine-Learning-2025) — Data ICMC-USP · 2025
+- [Curso de Aprendizado por Reforço](https://github.com/icmc-data/Curso-RL-2025) — Data ICMC-USP · 2025
+
+## Idiomas
+
+Português (nativo), inglês (avançado), francês (avançado), alemão (básico).
+
+## Contato
+
+Para vagas júnior ou projetos em dados e TI, escreva para:
+
+- E-mail: [igor_amelo@usp.br](mailto:igor_amelo@usp.br)
+- LinkedIn: [linkedin.com/in/igorademelo](https://www.linkedin.com/in/igorademelo)
+- GitHub: [github.com/igor-de-melo](https://github.com/igor-de-melo)
+- [Baixar currículo (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo.pdf)
+
+São Carlos, SP, Brasil

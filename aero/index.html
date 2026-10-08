@@ -10,6 +10,9 @@
 <meta name="description" content="Igor Augusto de Melo, estudante de Engenharia Aeronáutica na EESC-USP, disponível para vagas júnior em engenharia aeroespacial: aerodinâmica, CFD, mecânica de voo, propulsão e engenharia de sistemas.">
 <meta property="og:description" content="Igor Augusto de Melo, estudante de Engenharia Aeronáutica na EESC-USP, disponível para vagas júnior em engenharia aeroespacial: aerodinâmica, CFD, mecânica de voo, propulsão e engenharia de sistemas.">
 <link rel="canonical" href="https://igor-de-melo.github.io/aero/">
+<link rel="alternate" type="text/markdown" hreflang="pt-BR" href="cv.pt-BR.md">
+<link rel="alternate" type="text/markdown" hreflang="en" href="cv.en.md">
+<link rel="alternate" type="text/markdown" hreflang="fr" href="cv.fr.md">
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <meta property="og:title" content="Igor Augusto de Melo | Engenharia Aeronáutica">
 <meta property="og:type" content="website">
@@ -21,50 +24,107 @@
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
- "@type": "Person",
- "name": "Igor Augusto de Melo",
- "jobTitle": "Aeronautical Engineering student",
- "url": "https://igor-de-melo.github.io/aero/",
- "email": "mailto:igor_amelo@usp.br",
- "address": {
-  "@type": "PostalAddress",
-  "addressLocality": "São Carlos",
-  "addressRegion": "SP",
-  "addressCountry": "BR"
- },
- "affiliation": {
-  "@type": "CollegeOrUniversity",
-  "name": "University of São Paulo (EESC-USP)"
- },
- "alumniOf": [
+ "@graph": [
   {
-   "@type": "CollegeOrUniversity",
-   "name": "École Centrale de Marseille"
+   "@type": "ProfilePage",
+   "url": "https://igor-de-melo.github.io/aero/",
+   "inLanguage": [
+    "pt-BR",
+    "en",
+    "fr"
+   ],
+   "mainEntity": {
+    "@type": "Person",
+    "name": "Igor Augusto de Melo",
+    "url": "https://igor-de-melo.github.io/aero/",
+    "description": "Aeronautical Engineering student at EESC-USP (in progress), with a year of exchange at École Centrale de Marseille and a special studies certificate in Computational Fluid Dynamics (CFD) at ICMC-USP. Worked on propulsion, flight mechanics, aerostructures and systems engineering in competition teams, with three titles at the Latin American Space Challenge (LASC), and currently manages an autonomous fixed-wing UAV (unmanned aerial vehicle) project at the SEMEAR group. Research in turbulent flow simulation (LES), atmospheric modeling (WRF) and unsteady aerodynamic loads.",
+    "email": "igor_amelo@usp.br",
+    "alumniOf": [
+     {
+      "@type": "CollegeOrUniversity",
+      "name": "École Centrale de Marseille"
+     },
+     {
+      "@type": "CollegeOrUniversity",
+      "name": "São Carlos School of Engineering, University of São Paulo"
+     }
+    ],
+    "knowsAbout": [
+     "Aerodynamics",
+     "CFD",
+     "Propulsion",
+     "Flight mechanics",
+     "Systems engineering",
+     "Finite element analysis",
+     "Control systems (fundamentals)",
+     "ANSYS Fluent",
+     "ANSYS CFX",
+     "OpenFOAM",
+     "XFOIL",
+     "XFLR5",
+     "WRF",
+     "Patran/Nastran (basic)",
+     "Abaqus (basic)",
+     "Python",
+     "MATLAB/Simulink",
+     "Fortran",
+     "SQL",
+     "Bash",
+     "C++ (basic)",
+     "Java (basic)",
+     "Git",
+     "Linux",
+     "HPC",
+     "Google Cloud",
+     "SolidWorks",
+     "Fusion 360",
+     "CATIA (basic)",
+     "LaTeX",
+     "UAV project management",
+     "Systems engineering (NASA Systems Engineering Handbook)",
+     "Technical documentation",
+     "Traceability"
+    ],
+    "knowsLanguage": [
+     "Portuguese (native)",
+     "English (advanced)",
+     "French (advanced)",
+     "German (basic)"
+    ],
+    "sameAs": [
+     "https://www.linkedin.com/in/igorademelo",
+     "https://github.com/igor-de-melo"
+    ]
+   }
+  },
+  {
+   "@type": "ScholarlyArticle",
+   "name": "Turbulent Channel flow with Coriolis force using Large-Eddy Simulation",
+   "author": [
+    {
+     "@type": "Person",
+     "name": "Igor Augusto de Melo"
+    },
+    {
+     "@type": "Person",
+     "name": "Livia S. Freire"
+    },
+    {
+     "@type": "Person",
+     "name": "Leandro Franco de Souza"
+    },
+    {
+     "@type": "Person",
+     "name": "Matheus Tozo de Araujo"
+    }
+   ],
+   "isPartOf": {
+    "@type": "PublicationEvent",
+    "name": "EPTT 2024"
+   },
+   "inLanguage": "en",
+   "url": "https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf"
   }
- ],
- "knowsLanguage": [
-  "pt-BR",
-  "en",
-  "fr",
-  "de"
- ],
- "knowsAbout": [
-  "Aerodynamics",
-  "Computational Fluid Dynamics (CFD)",
-  "Flight Mechanics",
-  "Propulsion",
-  "Systems Engineering",
-  "Finite Element Analysis",
-  "ANSYS Fluent",
-  "OpenFOAM",
-  "MATLAB/Simulink",
-  "Python",
-  "UAV",
-  "Project Management"
- ],
- "sameAs": [
-  "https://www.linkedin.com/in/igorademelo",
-  "https://github.com/igor-de-melo"
  ]
 }
 </script>
@@ -552,9 +612,9 @@
             </span>
           </a>
           <h3 data-f="title"><span lang="pt-BR">Simulação de escoamentos turbulentos</span><span lang="en">Turbulent flow simulation</span><span lang="fr">Simulation d’écoulements turbulents</span></h3>
-          <p data-f="desc" lang="pt-BR">Simulação de grandes escalas (LES) de escoamento turbulento em canal com força de Coriolis, com número de Reynolds de atrito 180, malha LES de 64 × 64 × 64 e quatro taxas de rotação (0; 0,018; 0,054; 0,091), comparada com simulação numérica direta (DNS). Artigo no EPTT 2024. Autores: Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza e Matheus Tozo de Araujo. Desenvolvimento e execução de rotinas numéricas em ambiente de HPC.</p>
-          <p data-f="desc" lang="en">Large-eddy simulation (LES) of turbulent channel flow with Coriolis force, at friction Reynolds number 180, on a 64 × 64 × 64 LES grid and four rotation rates (0, 0.018, 0.054, 0.091), compared with direct numerical simulation (DNS). Paper at EPTT 2024. Authors: Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza and Matheus Tozo de Araujo. Development and execution of numerical routines in HPC environments.</p>
-          <p data-f="desc" lang="fr">Simulation des grandes échelles (LES) d’un écoulement turbulent en canal avec force de Coriolis, à un nombre de Reynolds de frottement de 180, avec un maillage LES de 64 × 64 × 64 et quatre taux de rotation (0&nbsp;; 0,018&nbsp;; 0,054&nbsp;; 0,091), comparée à la simulation numérique directe (DNS). Article à l’EPTT 2024. Auteurs&nbsp;: Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza et Matheus Tozo de Araujo. Développement et exécution de routines numériques en environnement HPC.</p>
+          <p data-f="desc" lang="pt-BR">Simulação de grandes escalas (LES) de escoamento turbulento em canal com força de Coriolis, com número de Reynolds de atrito 180, malha LES de 64 × 64 × 64 e quatro números de rotação (Ro) (0; 0,018; 0,054; 0,091), comparada com simulação numérica direta (DNS). Artigo no EPTT 2024. Autores: Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza e Matheus Tozo de Araujo. Desenvolvimento e execução de rotinas numéricas em ambiente de HPC.</p>
+          <p data-f="desc" lang="en">Large-eddy simulation (LES) of turbulent channel flow with Coriolis force, at friction Reynolds number 180, on a 64 × 64 × 64 LES grid and four rotation numbers (Ro) (0, 0.018, 0.054, 0.091), compared with direct numerical simulation (DNS). Paper at EPTT 2024. Authors: Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza and Matheus Tozo de Araujo. Development and execution of numerical routines in HPC environments.</p>
+          <p data-f="desc" lang="fr">Simulation des grandes échelles (LES) d’un écoulement turbulent en canal avec force de Coriolis, à un nombre de Reynolds de frottement de 180, avec un maillage LES de 64 × 64 × 64 et quatre nombres de rotation (Ro) (0&nbsp;; 0,018&nbsp;; 0,054&nbsp;; 0,091), comparée à la simulation numérique directe (DNS). Article à l’EPTT 2024. Auteurs&nbsp;: Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza et Matheus Tozo de Araujo. Développement et exécution de routines numériques en environnement HPC.</p>
           <ul class="chips" data-f="stack" lang="pt-BR"><li>LES</li><li>Modelos de submalha</li><li>Fortran</li><li>HPC</li><li>Linux</li></ul>
           <ul class="chips" data-f="stack" lang="en"><li>LES</li><li>Subgrid-scale models</li><li>Fortran</li><li>HPC</li><li>Linux</li></ul>
           <ul class="chips" data-f="stack" lang="fr"><li>LES</li><li>Modèles de sous-maille</li><li>Fortran</li><li>HPC</li><li>Linux</li></ul>
@@ -718,9 +778,9 @@
       <h2 id="h-idi"><span lang="pt-BR">Idiomas</span><span lang="en">Languages</span><span lang="fr">Langues</span></h2>
     </header>
     <div class="body">
-      <p lang="pt-BR">Português (nativo), inglês (avançado), francês (avançado), alemão (básico).</p>
-      <p lang="en">Portuguese (native), English (advanced), French (advanced), German (basic).</p>
-      <p lang="fr">Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions).</p>
+      <p data-f="desc" lang="pt-BR">Português (nativo), inglês (avançado), francês (avançado), alemão (básico).</p>
+      <p data-f="desc" lang="en">Portuguese (native), English (advanced), French (advanced), German (basic).</p>
+      <p data-f="desc" lang="fr">Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions).</p>
     </div>
   </section>
 
