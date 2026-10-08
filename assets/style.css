@@ -1932,7 +1932,7 @@ html[lang="fr"][data-view="simple"] body[data-area] .content .research .chips::b
 [data-view="simple"] body[data-area="data"] .cell-in--cv .s{display:contents}
 [data-view="simple"] body[data-area="data"] .cell-in--cv .v{display:block;order:3;color:var(--ink2);font:400 var(--fs-small)/var(--lh-small) var(--sans)}
 [data-view="simple"] body[data-area="data"] .cell-in--cv [data-f="title"]{order:1;flex:0 0 100%;color:var(--ink);font:700 var(--fs-body)/var(--lh-body) var(--sans)}
-[data-view="simple"] body[data-area="data"] .cell-in--cv [data-f="period"],[data-view="simple"] body[data-area="it-security"] .content .when{order:2;margin:0;padding:1px 10px;border:1px solid var(--ac30);border-radius:999px;background:var(--tint);color:var(--accent);font:600 var(--fs-small)/var(--lh-small) var(--sans);white-space:nowrap}
+[data-view="simple"] body[data-area="data"] .cell-in--cv :is([data-f="period"],[data-f="status"]),[data-view="simple"] body[data-area="it-security"] .content .when{order:2;margin:0;padding:1px 10px;border:1px solid var(--ac30);border-radius:999px;background:var(--tint);color:var(--accent);font:600 var(--fs-small)/var(--lh-small) var(--sans);white-space:nowrap}
 [data-view="simple"] body[data-area="data"] .content .cell-group{margin:0 0 12px}
 [data-view="simple"] body[data-area="data"] .content .cell+.cell-group{margin-top:24px}
 [data-view="simple"] body[data-area="data"] .content .cell-group h3{margin:0;color:var(--ink2);font:700 var(--fs-small)/var(--lh-small) var(--sans)}
@@ -2004,7 +2004,7 @@ html[lang="fr"][data-view="simple"] body[data-area] .content .research .chips::b
   [data-view="simple"] body[data-area="it-security"] .content .hero .pn .muted{display:block;width:auto;margin:0 0 6pt;padding:0;background:none;font:700 var(--fs-body)/var(--lh-body) var(--sans)}
   [data-view="simple"] body[data-area="it-security"] .content .hero .pn .muted::before,[data-view="simple"] body:is([data-area="data"],[data-area="it-security"]) .content :is([data-item="experience"],[data-item="education"],[data-item="course"])::before,[data-view="simple"] body:is([data-area="data"],[data-area="it-security"]) .content :is([data-item="experience"],[data-item="education"],[data-item="course"])::after,[data-view="simple"] body[data-area="data"] .content .cell-sub>.cell-group h3::before{content:none!important}
   [data-view="simple"] body:is([data-area="data"],[data-area="it-security"]) .content :is([data-item="experience"],[data-item="education"],[data-item="course"]){padding:0 0 12pt}
-  [data-view="simple"] body[data-area="data"] .cell-in--cv [data-f="period"],[data-view="simple"] body[data-area="it-security"] .content .when{order:3;padding:0;border:0;background:none;color:var(--ink2);font-weight:400}
+  [data-view="simple"] body[data-area="data"] .cell-in--cv :is([data-f="period"],[data-f="status"]),[data-view="simple"] body[data-area="it-security"] .content .when{order:3;padding:0;border:0;background:none;color:var(--ink2);font-weight:400}
   [data-view="simple"] body[data-area="data"] .cell-in--cv [data-f="org"],[data-view="simple"] body[data-area="it-security"] .content .kv dd[data-f="org"]{order:2}
   [data-view="simple"] body[data-area="data"] .cell-in--cv code,[data-view="simple"] body[data-area="it-security"] .content .tl .pn,[data-view="simple"] body[data-area="it-security"] .content .kv--proj{gap:0 6px}
   [data-view="simple"] body[data-area="data"] .cell-in--cv [data-f="org"]::after,[data-view="simple"] body[data-area="it-security"] .content .tl .kv dd[data-f="org"]::after{content:" ·"}
@@ -2014,4 +2014,52 @@ html[lang="fr"][data-view="simple"] body[data-area] .content .research .chips::b
   [data-view="simple"] body[data-area] .content :is(.cell-label,.pn-label)::after{content:": "}
   [data-view="simple"] body[data-area] .content :is(.cell-label,.pn-label)~.chips{display:inline;margin:0;padding:0}
   [data-view="simple"] body[data-area="data"] .content .cell--skill .cell-body,[data-view="simple"] body[data-area="it-security"] .content .yml{grid-template-columns:11rem minmax(0,1fr);gap:4pt 16px}
+}
+
+/* =====================================================================
+   S4a — Simplificado: h1 com o nome, resumo próprio e impressão compacta
+   ===================================================================== */
+/* Nome como h1; o título da área vira subtítulo */
+[data-view="simple"] body[data-area] .content .hero .s-name{grid-column:2;grid-row:1;order:0;margin:0;font:700 var(--fs-h2)/var(--lh-h2) var(--sans);letter-spacing:0}
+[data-view="simple"] body[data-area] .content .hero .s-area{grid-column:2;grid-row:2;order:0;margin:4px 0 0;color:var(--ink);font:600 var(--fs-h3)/var(--lh-h3) var(--sans)}
+[data-view="simple"] body[data-area] .content .s-summary p{margin:0 0 12px}
+@media (max-width:760px){
+  [data-view="simple"] body[data-area] .content .hero .s-name,[data-view="simple"] body[data-area] .content .hero .s-area{grid-column:1;grid-row:auto}
+  [data-view="simple"] body[data-area] .content .hero .s-name{order:-3}
+  [data-view="simple"] body[data-area] .content .hero .s-area{order:-2}
+}
+
+/* Impressão compacta: corpo de 10 pt, espaçamentos menores, só a foto do Igor (sem figuras de projeto) */
+@media print{
+  :root[data-view="simple"] body[data-area],:root[data-view="simple"][data-theme="dark"] body[data-area]{--fs-display:15pt;--fs-h2:15pt;--fs-h3:11.5pt;--fs-lead:10pt;--fs-body:10pt;--fs-ui:9.5pt;--fs-small:8.5pt;--fs-xs:8pt;--lh-body:1.3;--lh-small:1.28;--lh-h3:1.15}
+  [data-view="simple"] body{font-size:10pt}
+  [data-view="simple"] body[data-area] .content .hero .s-name{grid-column:2;grid-row:1;order:0}
+  [data-view="simple"] body[data-area] .content .hero .s-area{grid-column:2;grid-row:2;order:0;margin-top:2pt}
+  [data-view="simple"] body[data-area] .content .hero{padding-bottom:5pt}
+  [data-view="simple"] body[data-area] .content .hero .intro,[data-view="simple"] body[data-area] .content .hero .blk{margin-top:6pt}
+  [data-view="simple"] body[data-area] .content .intro p,[data-view="simple"] body[data-area] .content .hero .pn p,[data-view="simple"] body[data-area] .content .s-summary p,[data-view="simple"] body[data-area] .content p{margin-bottom:4pt}
+  [data-view="simple"] body[data-area] .content .s-contact{display:grid;grid-template-columns:repeat(2,max-content);gap:0 28pt}
+  [data-view="simple"] body[data-area] .content .section,[data-view="simple"] body[data-area] .content .sublist,[data-view="simple"] body[data-area] .content .cell-sub{margin-top:7pt}
+  [data-view="simple"] body[data-area] .sec-h,[data-view="simple"] body[data-area] .content .sublist>h3,[data-view="simple"] body[data-area] .content .cell-sub>.cell-group{margin-bottom:4pt;padding-bottom:2pt}
+  [data-view="simple"] body[data-area] .content :is(.timeline>li,.research),[data-view="simple"] body[data-area] .content article.project,[data-view="simple"] body[data-area] .content :is(.cell,.pn)[data-item="project"]{margin-bottom:5pt}
+  [data-view="simple"] body:is([data-area="data"],[data-area="it-security"]) .content :is([data-item="experience"],[data-item="education"],[data-item="course"]){padding-bottom:6pt}
+  [data-view="simple"] body[data-area] .content :is(.entry ul:not(.chips),.plain),[data-view="simple"] body[data-area] .content :is(.cell-out,.pn) ul:not(.chips):not(.s-contact){margin-top:2pt}
+  [data-view="simple"] body[data-area] .content :is(.entry ul:not(.chips),.plain) li,[data-view="simple"] body[data-area] .content :is(.cell-out,.pn) ul:not(.chips):not(.s-contact) li{margin-bottom:1pt}
+  [data-view="simple"] body[data-area] .content .research-main>p,[data-view="simple"] body[data-area] .content .entry .note,[data-view="simple"] body[data-area] .content :is(.cell-out,.pn,.md)>p{margin-top:2pt}
+  [data-view="simple"] body[data-area] .content .par{margin-top:3pt}
+  [data-view="simple"] body[data-area] .content .par>div{margin-bottom:1.5pt}
+  [data-view="simple"] body[data-area] .content .skills,[data-view="simple"] body[data-area="data"] .content .cell--skill .cell-body,[data-view="simple"] body[data-area] .content .yml{gap:1.5pt 14px}
+  [data-view="simple"] body[data-area="data"] .content .cell--skill{margin-bottom:1.5pt}
+  [data-view="simple"] body[data-area="data"] .content .cell+.cell-group{margin-top:6pt}
+  [data-view="simple"] body[data-area="data"] .content .cell-group{margin-bottom:3pt}
+  [data-view="simple"] body[data-area] .content .results{margin-top:3pt}
+  [data-view="simple"] body[data-area] .content .results :is(th,td){padding:1.5pt 16px 1.5pt 0}
+  [data-view="simple"] body[data-area] .content :is(.gallery,.paper img){display:none!important}
+  [data-view="simple"] body[data-area] .content .paper{margin-top:2pt}
+  [data-view="simple"] [data-item]{break-inside:avoid}
+  [data-view="simple"] body[data-area] .content :is(.timeline,.research) :is(.when,.org),[data-view="simple"] body[data-area] .content .project .org{margin-top:0}
+  [data-view="simple"] body[data-area] .content .research .chips{margin-top:1pt}
+  [data-view="simple"] body[data-area] .content .plain{columns:2;column-gap:20pt}
+  [data-view="simple"] body[data-area] .content .plain li{break-inside:avoid}
+  [data-view="simple"] body[data-area] .content .paper-body{gap:0}
 }

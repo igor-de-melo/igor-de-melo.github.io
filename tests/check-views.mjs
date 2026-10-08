@@ -135,12 +135,19 @@ async function browser() {
           var noAlt=[].filter.call(document.querySelectorAll('img'),function(i){return vis(i)&&!i.alt.trim()}).length;
           var secs=[].filter.call(document.querySelectorAll('main > section'),vis).map(function(s){return s.id}).join(' ');
           var open=[].filter.call(document.querySelectorAll('details.sample'),function(x){return x.open}).length;
-          return {n:fields.length,hidden:hidden,leak:leak,h1:hs.filter(function(n){return n===1}).length,jump:jump,noAlt:noAlt,secs:secs,open:open,sw:d.scrollWidth,iw:innerWidth}})()`); browserChecks++;
+          var h1e=[].filter.call(document.querySelectorAll('h1'),vis),sm=document.querySelector('.s-summary');
+          var soon=[].filter.call(document.querySelectorAll('.repo-soon'),vis).length;
+          return {h1t:h1e.length?h1e[0].textContent.trim():'',sum:!!sm&&vis(sm)&&sm.innerText.trim().length>80,lead:[].filter.call(document.querySelectorAll('#sobre .lead'),vis).length,soon:soon,
+            n:fields.length,hidden:hidden,leak:leak,h1:hs.filter(function(n){return n===1}).length,jump:jump,noAlt:noAlt,secs:secs,open:open,sw:d.scrollWidth,iw:innerWidth}})()`); browserChecks++;
         const at = `${f} (${lang}, ${width}px, simple)`;
         if (!c.n) fail(`${at}: nenhum campo data-f encontrado`);
         if (c.hidden.length) fail(`${at}: ${c.hidden.length} campo(s) de CV oculto(s): ${c.hidden.slice(0, 3).join(" | ")}`);
         if (c.leak) fail(`${at}: ${c.leak} elemento(s) só do Temático à mostra (sintaxe, prompt, rótulo de painel…)`);
         if (c.h1 !== 1) fail(`${at}: ${c.h1} elementos h1 visíveis`);
+        if (c.h1t !== "Igor Augusto de Melo") fail(`${at}: o h1 deveria ser o nome, achei "${c.h1t}"`);
+        if (!c.sum) fail(`${at}: o resumo do Simplificado (.s-summary) não está visível`);
+        if (c.lead) fail(`${at}: o primeiro parágrafo do Sobre deveria ficar só no Temático`);
+        if (c.soon) fail(`${at}: ${c.soon} aviso(s) de "em breve" à mostra`);
         if (c.jump) fail(`${at}: ${c.jump} salto(s) na hierarquia de títulos`);
         if (c.noAlt) fail(`${at}: ${c.noAlt} imagem(ns) visível(is) sem alt`);
         if (c.open) fail(`${at}: ${c.open} trecho(s) de código aberto(s); deveriam começar recolhidos`);
@@ -150,7 +157,9 @@ async function browser() {
       }
       // Temático: os trechos de código continuam abertos e sem o resumo
       { await open(f, "?view=themed", 1280);
-        const t = await evalJs(`(function(){var d=document.querySelectorAll('details.sample');return {n:d.length,open:[].filter.call(d,function(x){return x.open}).length,sum:[].filter.call(document.querySelectorAll('details.sample > summary'),function(e){return e.getClientRects().length>0}).length}})()`); browserChecks++;
+        const t = await evalJs(`(function(){var d=document.querySelectorAll('details.sample');var vis=function(e){return e.getClientRects().length>0};var h=[].filter.call(document.querySelectorAll('h1'),vis);
+          return {h1:h.length,h1name:h.length===1&&h[0].classList.contains('area-title'),n:d.length,open:[].filter.call(d,function(x){return x.open}).length,sum:[].filter.call(document.querySelectorAll('details.sample > summary'),function(e){return e.getClientRects().length>0}).length}})()`); browserChecks++;
+        if (t.h1 !== 1 || !t.h1name) fail(`${f} (themed): esperava um único h1 visível, o título da área (${t.h1} visíveis)`);
         if (t.open !== t.n || t.sum) fail(`${f} (themed): trechos de código devem ficar abertos e sem resumo (${t.open}/${t.n} abertos, ${t.sum} resumos à mostra)`);
       }
       // Simplificado de Aero (S2): imagens visíveis com alt, nada do Temático à mostra e ordem do CV
@@ -160,7 +169,7 @@ async function browser() {
           var noAlt=[].filter.call(document.querySelectorAll('main img, .hero img'),function(i){return vis(i)&&!i.alt.trim()}).length;
           var themedOnly=[].filter.call(document.querySelectorAll('.t-only, .sims, .sec-n, .chain-sig, .actions, .contact-icons'),vis).length;
           var a=document.getElementById('competencias'),b=document.getElementById('experiencia');
-          return {noAlt:noAlt,themedOnly:themedOnly,order:!a||!b||!!(a.compareDocumentPosition(b)&4),h1:document.querySelectorAll('h1').length}})()`); browserChecks++;
+          return {noAlt:noAlt,themedOnly:themedOnly,order:!a||!b||!!(a.compareDocumentPosition(b)&4),h1:[].filter.call(document.querySelectorAll('h1'),vis).length}})()`); browserChecks++;
         if (c.noAlt) fail(`${f} (${lang}, simple): ${c.noAlt} imagem(ns) visível(is) sem alt`);
         if (c.themedOnly) fail(`${f} (${lang}, simple): ${c.themedOnly} elemento(s) só do Temático à mostra`);
         if (!c.order) fail(`${f} (${lang}, simple): Competências deveria vir antes de Experiência`);

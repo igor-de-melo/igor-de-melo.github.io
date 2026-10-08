@@ -78,9 +78,37 @@ function eachItem(el, fn) {
   if (el.attrs["data-item"]) fn(el);
   for (const c of el.children) eachItem(c, fn);
 }
+const FIELD_VALUES = {
+  "data-section": ["summary", "skills", "experience", "projects", "research", "education", "courses", "languages", "contact", "volunteering"],
+  "data-item": ["experience", "project", "research", "education", "course", "skill-group", "volunteering"],
+  "data-f": ["title", "org", "place", "period", "status", "desc", "bullet", "stack", "link"],
+};
+function findAll(el, test, out = []) {
+  if (el.text !== undefined) return out;
+  if (test(el)) out.push(el);
+  for (const c of el.children) findAll(c, test, out);
+  return out;
+}
+const hasClass = (el, c) => (el.attrs.class || "").split(/\s+/).includes(c);
 for (const f of files) {
   if (!/[\\/]/.test(f)) continue; // a Home não tem campos de CV
   const tree = parse(readFileSync(join(root, f), "utf8"));
+  // Valores permitidos (status é o estado de um projeto, e não um período).
+  for (const [attr, ok] of Object.entries(FIELD_VALUES)) for (const el of findAll(tree, (e) => e.attrs[attr])) {
+    if (!ok.includes(el.attrs[attr])) fail(f, el.line, `${attr}="${el.attrs[attr]}" não é um valor previsto`);
+  }
+  // Resumo do Simplificado: um bloco .s-only com data-section="summary" e o texto (data-f="desc") nas três línguas.
+  const sums = findAll(tree, (e) => e.attrs["data-section"] === "summary");
+  if (sums.length !== 1 || !hasClass(sums[0], "s-only")) fail(f, 1, 'esperava um único data-section="summary", num bloco .s-only');
+  else for (const l of LANGS) if (fieldCount(sums[0], l, {})["data-f=desc"] !== 1) fail(f, sums[0].line, `resumo do Simplificado sem data-f="desc" em ${l}`);
+  // h1: o do Temático (título da área, .t-only) e o do Simplificado (o nome, .s-only).
+  const h1s = findAll(tree, (e) => e.tag === "h1");
+  if (h1s.length !== 2 || !h1s.some((e) => hasClass(e, "t-only")) || !h1s.some((e) => hasClass(e, "s-only"))) fail(f, 1, "esperava dois h1: um .t-only (título da área) e um .s-only (o nome)");
+  // Campo marcado nunca fica num elemento só do Temático que não tenha par no Simplificado: projeto com status não usa período.
+  for (const item of findAll(tree, (e) => e.attrs["data-item"] === "project")) {
+    const c = fieldCount(item, "pt-BR", {});
+    if (c["data-f=status"] && c["data-f=period"]) fail(f, item.line, "projeto com data-f=\"status\" não deve ter data-f=\"period\"");
+  }
   const per = LANGS.map((l) => fieldCount(tree, l, {}));
   if (!Object.keys(per[0]).some((k) => k.startsWith("data-section="))) fail(f, 1, "falta a marcação de campos (data-section, data-item, data-f)");
   for (const k of new Set(per.flatMap((o) => Object.keys(o)))) {
