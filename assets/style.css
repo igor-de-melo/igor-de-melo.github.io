@@ -2085,3 +2085,10 @@ html[lang="fr"][data-view="simple"] body[data-area] .content .research .chips::b
 @media print{[data-view="simple"] body[data-area] .content .editions{columns:1;margin-top:3pt}[data-view="simple"] body[data-area] .content .editions li:is(:nth-child(-n+2),:nth-child(6)){display:none}}
 /* Na folha, o cartão de projeto vira bloco comum para poder quebrar entre linhas (a ordem do HTML já é a de leitura) */
 @media print{[data-view="simple"] body[data-area] .content article.project{display:block;break-inside:auto}[data-view="simple"] body[data-area] .content article.project :is(h3,.org){break-after:avoid}}
+
+/* ---------- S5.2: tabela de resultados com a largura do conteúdo, centralizada no bloco (as duas visões e a impressão) ---------- */
+body[data-area] .content .project .results{width:fit-content;max-width:100%;margin-left:auto;margin-right:auto}
+/* No Simplificado o cartão é uma linha flexível: a tabela deixa de ocupar a linha inteira para poder centralizar */
+[data-view="simple"] body[data-area] .content .project .results{flex:0 0 auto;width:fit-content;max-width:100%;margin-left:auto;margin-right:auto}
+/* Celular: células mais justas para a tabela caber dentro do cartão */
+@media (max-width:760px){[data-view="simple"] body[data-area] .content .project .results :is(th,td){padding:6px 6px 6px 4px}}

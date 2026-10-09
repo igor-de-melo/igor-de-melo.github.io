@@ -48,7 +48,7 @@ Pilea Labs · déc. 2024 – mars 2025
 TOPUS Projetos Aeroespaciais · mars 2020 – déc. 2023
 
 - Propulsion (travail d’équipe) : conception et analyse de moteurs-fusées à propergol solide en appliquant la thermodynamique, les transferts thermiques, l’analyse structurale et la CFD, avec des essais numériques et expérimentaux.
-- Injection d’oxydant pour un moteur hybride : conception et essais du réservoir, de la tuyauterie et des vannes, et développement d’un injecteur tourbillonnaire.
+- Injection d’oxydant pour un moteur hybride : conception et essais du réservoir, de la tuyauterie et des vannes, et développement d’un injecteur à vortex.
 - Mécanique du vol et performances (travail individuel, dans les projets auxquels j’ai participé) : outils de simulation de vol à 6 degrés de liberté sous MATLAB et analyse de dispersion par Monte-Carlo, pour la dispersion des trajectoires et la cartographie des zones de retombée.
 - Ingénierie système : application des méthodes de la NASA à la gestion et au suivi des projets internes et à la standardisation de la documentation.
 

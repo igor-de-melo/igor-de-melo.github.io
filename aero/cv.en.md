@@ -48,7 +48,7 @@ Pilea Labs · Dec 2024 – Mar 2025
 TOPUS Projetos Aeroespaciais · Mar 2020 – Dec 2023
 
 - Propulsion (team work): design and analysis of solid rocket motors applying thermodynamics, heat transfer, structural analysis and CFD, with computational and experimental testing.
-- Oxidizer injection for a hybrid motor: design and testing of the tank, piping and valves, and development of a swirl injector.
+- Oxidizer injection for a hybrid motor: design and testing of the tank, piping and valves, and development of a vortex injector.
 - Flight mechanics and performance (individual work, on the projects I took part in): 6-DOF flight simulation tools in MATLAB and Monte Carlo dispersion analysis, for trajectory dispersion and impact area mapping.
 - Systems engineering: NASA methods applied to the management and control of internal projects and to documentation standardization.
 
