@@ -65,8 +65,6 @@ Keep Flying, équipe AeroDesign (USP) · mars 2017 – janv. 2018
 
 SEMEAR · 2025 – aujourd’hui
 
-**Problème :** Développer un drone autonome à voilure fixe à partir de la plateforme Talon 1400, en maximisant les performances aérodynamiques et l’autonomie de vol.
-
 **Approche :** En tant que chef de projet, je suis responsable de l’architecture, des exigences, de l’intégration des sous-systèmes et de la planification de la vérification et des risques, selon l’**ingénierie système de la NASA**. L’autonomie vient de l’optimisation de la **propulsion électrique**.
 
 **Résultat :** En cours depuis 2025.
@@ -76,8 +74,6 @@ Stack : Ingénierie système (NASA), Ingénierie des exigences, Modélisation d
 ### Fusées de compétition à la LASC
 
 TOPUS, Latin American Space Challenge · 2020 – 2022
-
-**Problème :** Concevoir des fusées de compétition qui atteignent l’apogée de leur catégorie et volent en toute sécurité.
 
 **Approche :** J’ai travaillé en propulsion et mécanique du vol : simulation de trajectoire à **6 degrés de liberté** pour vérifier les performances et les conditions de vol, et **Monte-Carlo** pour cartographier les zones de retombée balistique et non balistique pour l’analyse de sécurité.
 
@@ -96,8 +92,6 @@ Stack : MATLAB, Simulation à 6 degrés de liberté, Méthode de Monte-Carlo, C
 
 LASC Cooperation Program · 2020 – 2022
 
-**Problème :** Concevoir, construire et lancer une fusée à apogée de 5 km dans un programme de coopération internationale, où l’équipe TOPUS était responsable de l’aérostructure.
-
 **Approche :** J’ai réalisé les plans techniques et les dossiers de fabrication de l’ogive, participé aux études de fabrication en composites et simulé en **CFD 2D et 3D** les performances aérodynamiques du véhicule.
 
 Stack : ANSYS Fluent (CFD 2D et 3D), Dessin technique, Composites
@@ -105,8 +99,6 @@ Stack : ANSYS Fluent (CFD 2D et 3D), Dessin technique, Composites
 ### Moteur hybride Boitatá
 
 TOPUS · 2020 – 2023
-
-**Problème :** Acheminer l’oxydant en toute sécurité jusqu’à la chambre de combustion d’un moteur-fusée hybride.
 
 **Approche :** Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes, et j’ai conçu l’**injecteur à vortex** pour le protoxyde d’azote, avec le réservoir d’alimentation à 60 bar et la chambre de combustion à 30 bar. J’ai réalisé les simulations CFD de l’injecteur sous **ANSYS CFX**.
 

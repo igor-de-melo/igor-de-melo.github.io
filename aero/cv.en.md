@@ -65,8 +65,6 @@ Keep Flying, AeroDesign team (USP) · Mar 2017 – Jan 2018
 
 SEMEAR · 2025 – present
 
-**Problem:** Develop an autonomous fixed-wing UAV based on the Talon 1400 platform, maximizing aerodynamic performance and flight endurance.
-
 **Approach:** As project manager, I own the architecture, requirements, subsystem integration, and verification and risk planning, using **NASA systems engineering**. Endurance comes from optimizing the **electric propulsion**.
 
 **Result:** In progress since 2025.
@@ -76,8 +74,6 @@ Stack: Systems engineering (NASA), Requirements engineering, Flight dynamics mod
 ### Competition rockets at LASC
 
 TOPUS, Latin American Space Challenge · 2020 – 2022
-
-**Problem:** Design competition rockets that reach their category’s target apogee and fly safely.
 
 **Approach:** I worked on propulsion and flight mechanics: **6-DOF** trajectory simulation to verify performance and flight conditions, and **Monte Carlo** runs to map ballistic and non-ballistic impact regions for the safety analysis.
 
@@ -96,8 +92,6 @@ Stack: MATLAB, 6-DOF simulation, Monte Carlo method, CFD
 
 LASC Cooperation Program · 2020 – 2022
 
-**Problem:** Design, build and launch a rocket with a 5 km apogee in an international cooperation program, in which TOPUS was responsible for the aerostructure.
-
 **Approach:** I produced the technical drawings and manufacturing plans for the nose cone, supported composite manufacturing studies and ran **2D and 3D CFD** simulations of the vehicle’s aerodynamic performance.
 
 Stack: ANSYS Fluent (2D and 3D CFD), Technical drawing, Composites
@@ -105,8 +99,6 @@ Stack: ANSYS Fluent (2D and 3D CFD), Technical drawing, Composites
 ### Boitatá hybrid rocket motor
 
 TOPUS · 2020 – 2023
-
-**Problem:** Deliver the oxidizer safely to the combustion chamber of a hybrid rocket motor.
 
 **Approach:** On the oxidizer injection team, I designed and tested the tank, piping and valves, and I designed the **vortex injector** for nitrous oxide, with the supply tank at 60 bar and the combustion chamber at 30 bar. I ran the CFD simulations of the injector in **ANSYS CFX**.
 

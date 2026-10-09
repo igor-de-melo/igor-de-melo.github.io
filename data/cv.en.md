@@ -10,7 +10,7 @@ Available for junior roles in data analysis, data engineering, data science or I
 
 ## Summary
 
-Aeronautical Engineering student at EESC-USP (in progress), transitioning into **data and IT**. Data Analyst at Pilea Labs: designed and built the **MySQL** databases (on Google Cloud) and the **SQL** queries behind the platform’s lists, tables and charts. Machine Learning and Reinforcement Learning courses (Data ICMC-USP, 2025) and hands-on scientific computing: Monte Carlo simulation, optimization and uncertainty analysis. Builds personal automation projects with the **Claude API**, such as an AI-assisted email triage system.
+Aeronautical Engineering student at EESC-USP (in progress), transitioning into **data and IT**. Data Analyst at Pilea Labs: designed and built the **MySQL** databases (on Google Cloud) and the **SQL** queries behind the platform’s lists, tables and charts. Machine Learning and Reinforcement Learning courses (Data ICMC-USP, 2025) and hands-on scientific computing: Monte Carlo simulation, optimization and uncertainty analysis. I build personal automation projects with the **Claude API**, such as an AI-assisted email triage system.
 
 From engineering: **Monte Carlo** simulation, optimization with a neural network implemented from scratch, uncertainty analysis and numerical routines on **HPC**. In IT: Linux, Git, Bash, Google Cloud and API integration, including language models.
 
@@ -19,7 +19,7 @@ From engineering: **Monte Carlo** simulation, optimization with a neural network
 - **Programming languages:** Python, SQL (MySQL), Bash, MATLAB, Fortran, C++ (basic), Java (basic)
 - **Data analysis:** SQL queries with joins, Aggregations, Data modeling, KPI definition, Dashboards, Reporting, Real-time analytics
 - **Machine learning and statistics:** Neural networks, Reinforcement learning (Q-learning), Monte Carlo simulation, Uncertainty analysis
-- **Applied AI and automation:** Claude API: email triage and job triage with a fit score from 0 to 10, Claude Code: AI-assisted development of this portfolio, with automated tests (parity, links, résumé sync) and manual review, LLMs (Claude) as support for study and coding, Automation: Telegram bots, hybrid rule-based and AI pipelines, and cron scheduling
+- **Applied AI and automation:** Claude API, Claude Code, AI-assisted development, LLMs (Claude), Telegram bots, Hybrid pipelines (rules and AI), Scheduling with cron
 - **Cloud and infrastructure:** Google Cloud, Oracle Cloud (VPS), Linux, SSH, Git, GitHub, HPC
 
 ## Experience
@@ -79,8 +79,6 @@ TOPUS Projetos Aeroespaciais · Mar 2020 – Dec 2023
 
 Personal project · In development
 
-**Problem:** Keep track of two Gmail accounts, one personal and one institutional at USP, without missing deadlines or action items.
-
 **Approach:** A **Python** pipeline classifies and organizes the emails with the **Claude API** (a language model), accessing mailboxes via IMAP and **OAuth2**. Hybrid architecture: deterministic formatting in Python and AI only for strategic analysis, which cuts token usage.
 
 **Result:** Daily and weekly summaries with deadlines in chronological order and suggested actions, delivered through **Telegram**, where a bot accepts manual commands. Runs locally and on a **VPS (Oracle Cloud)** with cron; processes any number of emails, with no fixed limit (it depends on the inbox). Estimate: 1 to 3 minutes saved per email. Planned: migration to a 24-hour local server on a Raspberry Pi.
@@ -91,13 +89,23 @@ Stack: Python, Claude API, IMAP, OAuth2, Telegram Bot API, Linux, cron, Git, SSH
 
 Personal project · In development
 
-**Problem:** Find and screen internship and job listings spread across many sources.
-
 **Approach:** A pipeline crawls registered sources, removes duplicates and gives each listing a **fit score from 0 to 10** on defined criteria: type of role, location and eligibility requirements. The triage uses Claude, through the **Claude API**.
 
 **Result:** A tracking spreadsheet with a summary of each listing’s requirements and duties. No application is sent without my review: the automation prepares, the decision is mine.
 
 Stack: Claude API, Browser automation
+
+### Trilingual professional portfolio
+
+Personal project
+
+**Approach:** Static site in PT, EN and FR, with two views (Themed and Simple). Built with **Claude Code**, with automated tests (language parity, links, résumé sync) and manual review.
+
+**Result:** Published on **GitHub Pages**, with Markdown generated automatically from the HTML, plus **JSON-LD** and llms.txt for machine reading.
+
+Stack: HTML, CSS, JavaScript, Node.js, GitHub Pages, JSON-LD, Claude Code
+
+- [github.com/igor-de-melo/igor-de-melo.github.io](https://github.com/igor-de-melo/igor-de-melo.github.io)
 
 ## Education
 

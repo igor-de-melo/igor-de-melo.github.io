@@ -2095,3 +2095,6 @@ body[data-area] .content .project .results{width:fit-content;max-width:100%;marg
 
 /* ---------- S6: destaque de palavras-chave (<strong>): peso 600, cor herdada, sem fundo, nas duas visões e na impressão ---------- */
 body[data-area] .content strong{font-weight:600;color:inherit;background:none}
+
+/* ---------- S7.1: link do repositório no cartão de projeto (Dados) ---------- */
+.repo{margin:10px 0 0;font-size:var(--fs-small);color:var(--ink2)}

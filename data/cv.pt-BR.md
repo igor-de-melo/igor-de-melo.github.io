@@ -10,7 +10,7 @@ Disponível para vagas júnior em análise, engenharia ou ciência de dados ou e
 
 ## Resumo
 
-Estudante de Engenharia Aeronáutica na EESC-USP (em andamento), em transição para **dados e TI**. Analista de dados na Pilea Labs: projetei e construí as bases **MySQL** (no Google Cloud) e as consultas **SQL** por trás das listas, tabelas e gráficos da plataforma. Cursos de Machine Learning e Aprendizado por Reforço (Data ICMC-USP, 2025) e prática de computação científica: simulação Monte Carlo, otimização e análise de incerteza. Desenvolve projetos próprios de automação com a **API do Claude**, como um sistema de triagem de e-mails com IA.
+Estudante de Engenharia Aeronáutica na EESC-USP (em andamento), em transição para **dados e TI**. Analista de dados na Pilea Labs: projetei e construí as bases **MySQL** (no Google Cloud) e as consultas **SQL** por trás das listas, tabelas e gráficos da plataforma. Cursos de Machine Learning e Aprendizado por Reforço (Data ICMC-USP, 2025) e prática de computação científica: simulação Monte Carlo, otimização e análise de incerteza. Desenvolvo projetos próprios de automação com a **API do Claude**, como um sistema de triagem de e-mails com IA.
 
 Da engenharia: simulação de **Monte Carlo**, otimização com uma rede neural implementada do zero, análise de incerteza e rotinas numéricas em **HPC**. Em TI: Linux, Git, Bash, Google Cloud e integração de APIs, incluindo as de modelos de linguagem.
 
@@ -19,7 +19,7 @@ Da engenharia: simulação de **Monte Carlo**, otimização com uma rede neural 
 - **Linguagens de programação:** Python, SQL (MySQL), Bash, MATLAB, Fortran, C++ (básico), Java (básico)
 - **Análise de dados:** Consultas SQL com junções, Agregações, Modelagem de dados, Definição de indicadores (KPIs), Painéis, Relatórios, Análises em tempo real
 - **Machine learning e estatística:** Redes neurais, Aprendizado por reforço (Q-learning), Simulação de Monte Carlo, Análise de incerteza
-- **IA aplicada e automação:** API do Claude: triagem de e-mails e triagem de vagas com nota de aderência de 0 a 10, Claude Code: desenvolvimento assistido por IA deste portfólio, com testes automatizados (paridade, links, sincronia do CV) e revisão manual, LLMs (Claude) como apoio a estudo e a código, Automação: bots do Telegram, pipelines híbridos (regras determinísticas e IA) e agendamento com cron
+- **IA aplicada e automação:** API do Claude, Claude Code, Desenvolvimento assistido por IA, LLMs (Claude), Bots do Telegram, Pipelines híbridos (regras e IA), Agendamento com cron
 - **Nuvem e infraestrutura:** Google Cloud, Oracle Cloud (VPS), Linux, SSH, Git, GitHub, HPC
 
 ## Experiência
@@ -79,8 +79,6 @@ TOPUS Projetos Aeroespaciais · mar. 2020 – dez. 2023
 
 Projeto pessoal · Em desenvolvimento
 
-**Problema:** Acompanhar duas contas Gmail, uma pessoal e uma institucional da USP, sem perder prazos nem ações pendentes.
-
 **Abordagem:** Pipeline em **Python** que classifica e organiza os e-mails com a **API do Claude** (modelo de linguagem), com acesso por IMAP e **OAuth2**. Arquitetura híbrida: formatação determinística no Python e IA só na análise estratégica, o que reduz o consumo de tokens.
 
 **Resultado:** Resumos diários e semanais com prazos em ordem cronológica e ações sugeridas, entregues pelo **Telegram**, onde um bot aceita comandos manuais. Executa localmente e em um **VPS (Oracle Cloud)** com cron; processa qualquer quantidade de e-mails, sem limite fixo (depende da caixa de entrada). Estimativa: de 1 a 3 minutos economizados por e-mail. Planejado: migração para um servidor local 24 h em Raspberry Pi.
@@ -91,13 +89,23 @@ Stack: Python, API do Claude, IMAP, OAuth2, API de bots do Telegram, Linux, cron
 
 Projeto pessoal · Em desenvolvimento
 
-**Problema:** Encontrar e triar vagas de estágio e emprego espalhadas por muitas fontes.
-
 **Abordagem:** Pipeline que percorre fontes cadastradas, remove duplicatas e dá a cada vaga uma **nota de aderência de 0 a 10** por critérios definidos: tipo de vaga, localização e requisitos de elegibilidade. A triagem usa o Claude, pela **API do Claude**.
 
 **Resultado:** Planilha de controle com o resumo dos requisitos e das atividades de cada vaga. Nenhuma candidatura é enviada sem a minha revisão: a automação prepara, a decisão é minha.
 
 Stack: API do Claude, Automação de navegador
+
+### Portfólio profissional trilíngue
+
+Projeto pessoal
+
+**Abordagem:** Site estático em PT, EN e FR, com duas visões (Temático e Simplificado). Desenvolvido com **Claude Code**, com testes automatizados (paridade entre idiomas, links, sincronia do CV) e revisão manual.
+
+**Resultado:** Publicado no **GitHub Pages**, com Markdown gerado automaticamente a partir do HTML, e **JSON-LD** e llms.txt para leitura por máquinas.
+
+Stack: HTML, CSS, JavaScript, Node.js, GitHub Pages, JSON-LD, Claude Code
+
+- [github.com/igor-de-melo/igor-de-melo.github.io](https://github.com/igor-de-melo/igor-de-melo.github.io)
 
 ## Formação
 

@@ -65,8 +65,6 @@ Keep Flying, equipe AeroDesign (USP) · mar. 2017 – jan. 2018
 
 SEMEAR · 2025 – atual
 
-**Problema:** Desenvolver um VANT autônomo de asa fixa, a partir da plataforma Talon 1400, maximizando o desempenho aerodinâmico e a autonomia de voo.
-
 **Abordagem:** Como gerente de projeto, respondo por arquitetura, requisitos, integração entre subsistemas e planejamento de verificação e de riscos, com a **engenharia de sistemas da NASA**. A autonomia vem da otimização da **propulsão elétrica**.
 
 **Resultado:** Em andamento.
@@ -76,8 +74,6 @@ Stack: Engenharia de sistemas (NASA), Engenharia de requisitos, Modelagem de din
 ### Foguetes de competição na LASC
 
 TOPUS, Latin American Space Challenge · 2020 – 2022
-
-**Problema:** Projetar foguetes de competição que atinjam o apogeu da categoria e voem com segurança.
 
 **Abordagem:** Atuei em propulsão e mecânica de voo: simulação de trajetória com **6 graus de liberdade** para verificar desempenho e condições de voo, e **Monte Carlo** para mapear as regiões de queda balística e não balística na análise de segurança.
 
@@ -96,8 +92,6 @@ Stack: MATLAB, Simulação com 6 graus de liberdade, Método de Monte Carlo, CFD
 
 LASC Cooperation Program · 2020 – 2022
 
-**Problema:** Projetar, construir e lançar um foguete com apogeu de 5 km num programa de cooperação internacional, no qual a TOPUS era responsável pela aeroestrutura.
-
 **Abordagem:** Fiz os desenhos técnicos e os planos de fabricação da coifa, apoiei estudos de fabricação em compósitos e simulei em **CFD 2D e 3D** o desempenho aerodinâmico do veículo.
 
 Stack: ANSYS Fluent (CFD 2D e 3D), Desenho técnico, Compósitos
@@ -105,8 +99,6 @@ Stack: ANSYS Fluent (CFD 2D e 3D), Desenho técnico, Compósitos
 ### Motor híbrido Boitatá
 
 TOPUS · 2020 – 2023
-
-**Problema:** Levar o oxidante com segurança até a câmara de combustão de um motor-foguete híbrido.
 
 **Abordagem:** Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas e projetei o **injetor de vórtice** para óxido nitroso, com tanque de abastecimento a 60 bar e câmara de combustão a 30 bar. Fiz as simulações de CFD do injetor no **ANSYS CFX**.
 
