@@ -155,12 +155,12 @@ async function browser() {
         const want = { "aero/index.html": "sobre competencias experiencia projetos pesquisa formacao idiomas contato", "data/index.html": "sobre competencias experiencia projetos formacao idiomas contato", "it-security/index.html": "sobre competencias experiencia projetos formacao idiomas contato" }[f];
         if (c.secs !== want) fail(`${at}: seções "${c.secs}", esperado "${want}"`);
       }
-      // Temático: os trechos de código continuam abertos e sem o resumo
+      // Temático: os trechos de código também ficam num menu recolhível, fechado por padrão, com o resumo à mostra
       { await open(f, "?view=themed", 1280);
         const t = await evalJs(`(function(){var d=document.querySelectorAll('details.sample');var vis=function(e){return e.getClientRects().length>0};var h=[].filter.call(document.querySelectorAll('h1'),vis);
           return {h1:h.length,h1name:h.length===1&&h[0].classList.contains('area-title'),n:d.length,open:[].filter.call(d,function(x){return x.open}).length,sum:[].filter.call(document.querySelectorAll('details.sample > summary'),function(e){return e.getClientRects().length>0}).length}})()`); browserChecks++;
         if (t.h1 !== 1 || !t.h1name) fail(`${f} (themed): esperava um único h1 visível, o título da área (${t.h1} visíveis)`);
-        if (t.open !== t.n || t.sum) fail(`${f} (themed): trechos de código devem ficar abertos e sem resumo (${t.open}/${t.n} abertos, ${t.sum} resumos à mostra)`);
+        if (t.open !== 0 || t.sum !== t.n) fail(`${f} (themed): trechos de código devem começar fechados, cada um com o seu resumo visível (${t.open}/${t.n} abertos, ${t.sum} resumos à mostra)`);
       }
       // Simplificado de Aero (S2): imagens visíveis com alt, nada do Temático à mostra e ordem do CV
       if (f === "aero/index.html") for (const lang of ["pt-BR", "en", "fr"]) {

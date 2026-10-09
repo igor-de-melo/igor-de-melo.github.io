@@ -79,13 +79,13 @@ TOPUS Projetos Aeroespaciais · mars 2020 – déc. 2023
 
 Projet personnel · En développement
 
-**Approche :** J’utilise **Claude Haiku**, via l’API Claude, uniquement pour transformer du texte libre en données : l’API lit chaque e-mail (expéditeur, objet, date et corps tronqué) et renvoie un **JSON** avec dossier, priorité de 1 à 5, résumé, échéance (si explicite), action suggérée et alerte. Le prompt définit les dossiers, l’échelle de priorité et un protocole en 3 étapes pour le spam (seulement avec au moins 2 signaux de fraude ; en cas de doute, Corbeille) ; le **prompt caching** réduit le coût des tokens d’entrée. Python fait le reste, sans IA : OAuth2 sur deux comptes Gmail, IMAP, déplacement des e-mails, journal JSONL, Telegram et cron.
+**Approche :** J’utilise **Claude Haiku**, via l’API, pour transformer les e-mails en données : l’API lit chaque message et renvoie un **JSON** avec dossier, priorité de 1 à 5, résumé, échéance, action suggérée et alerte. Le prompt fixe les dossiers, l’échelle de priorité et un protocole en 3 étapes contre les faux positifs de spam ; le **prompt caching** réduit le coût d’entrée. Python fait le reste, sans IA : **OAuth2** sur deux comptes Gmail, **IMAP**, journal JSONL, Telegram et cron.
 
-**Résultat :** Tri toutes les 15 minutes et synthèses quotidienne et hebdomadaire via **Telegram**, où un bot accepte des commandes manuelles : Python construit les cartes, trie les échéances et sépare les échues des futures, et l’API n’écrit qu’un paragraphe d’analyse stratégique. S’exécute en local et sur un **VPS (Oracle Cloud)** ; traite un nombre quelconque d’e-mails, sans limite fixe (selon la boîte de réception). Estimation : 1 à 3 minutes gagnées par e-mail. Prévu : migration vers un serveur local 24 h/24 sur Raspberry Pi.
+**Résultat :** Tri toutes les 15 minutes, avec synthèses quotidienne et hebdomadaire sur Telegram, où un bot accepte des commandes manuelles : Python construit les cartes et trie les échéances, et l’API n’écrit qu’un paragraphe d’analyse stratégique. S’exécute en local et sur un VPS (Oracle Cloud) ; migration vers un Raspberry Pi prévue. Estimation : 1 à 3 minutes gagnées par e-mail.
 
 Stack : Python, API Claude, Claude Haiku, IMAP, OAuth2, API Telegram Bot, Linux, cron, Git, SSH, Oracle Cloud (VPS)
 
-### Moteur de recherche et de classement d’offres
+### Tri d’offres avec Claude
 
 Projet personnel · En développement
 

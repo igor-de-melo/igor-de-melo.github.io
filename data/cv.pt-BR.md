@@ -79,13 +79,13 @@ TOPUS Projetos Aeroespaciais · mar. 2020 – dez. 2023
 
 Projeto pessoal · Em desenvolvimento
 
-**Abordagem:** Uso o **Claude Haiku**, pela API do Claude, só para transformar texto livre em dados: a API lê cada e-mail (remetente, assunto, data e corpo truncado) e devolve um **JSON** com pasta, prioridade de 1 a 5, resumo, prazo (se explícito), ação sugerida e alerta. O prompt define as pastas, a escala de prioridade e um protocolo de 3 etapas para spam (só com pelo menos 2 sinais de fraude; na dúvida, Lixeira); o **prompt caching** reduz o custo dos tokens de entrada. O Python faz o resto, sem IA: OAuth2 em duas contas Gmail, IMAP, mover e-mails, log JSONL, Telegram e cron.
+**Abordagem:** Uso o **Claude Haiku**, pela API, para transformar e-mails em dados: a API lê cada mensagem e devolve um **JSON** com pasta, prioridade de 1 a 5, resumo, prazo, ação sugerida e alerta. O prompt traz as pastas, a escala de prioridade e um protocolo de 3 etapas contra falsos positivos de spam; o **prompt caching** reduz o custo de entrada. O Python faz o resto, sem IA: **OAuth2** em duas contas Gmail, **IMAP**, log JSONL, Telegram e cron.
 
-**Resultado:** Triagem a cada 15 minutos e resumos diário e semanal pelo **Telegram**, onde um bot aceita comandos manuais: o Python monta os cards, ordena os prazos e separa vencidos de futuros, e a API escreve só um parágrafo de análise estratégica. Executa localmente e em um **VPS (Oracle Cloud)**; processa qualquer quantidade de e-mails, sem limite fixo (depende da caixa de entrada). Estimativa: de 1 a 3 minutos economizados por e-mail. Planejado: migração para um servidor local 24 h em Raspberry Pi.
+**Resultado:** Triagem a cada 15 minutos, com resumo diário e semanal no Telegram, onde um bot aceita comandos manuais: o Python monta os cards e ordena os prazos, e a API escreve só um parágrafo de análise estratégica. Roda localmente e em VPS (Oracle Cloud); migração para Raspberry Pi planejada. Estimativa: 1 a 3 minutos economizados por e-mail.
 
 Stack: Python, API do Claude, Claude Haiku, IMAP, OAuth2, API de bots do Telegram, Linux, cron, Git, SSH, Oracle Cloud (VPS)
 
-### Motor de busca e classificação de vagas
+### Triagem de vagas com Claude
 
 Projeto pessoal · Em desenvolvimento
 

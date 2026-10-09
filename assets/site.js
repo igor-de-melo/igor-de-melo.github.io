@@ -382,9 +382,8 @@
       var parent = simple ? to && to.parentNode : m.home.parentNode;
       if (parent && to !== m.el) parent.insertBefore(m.el, to);
     });
-    // Trechos de código de exemplo (<details class="sample">): abertos no Temático, onde o resumo fica oculto,
-    // e recolhidos no Simplificado.
-    Array.prototype.forEach.call(document.querySelectorAll("details.sample"), function (d) { d.open = !simple; });
+    // Trechos de código de exemplo (<details class="sample">): fechados por padrão nas duas visões; ao trocar de visão, voltam a fechar.
+    Array.prototype.forEach.call(document.querySelectorAll("details.sample"), function (d) { d.open = false; });
   }
   orderForView();
   // target (opcional): elemento que deve ficar visível depois da troca; sem ele, fica a seção atual.

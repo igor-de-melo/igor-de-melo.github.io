@@ -2098,3 +2098,12 @@ body[data-area] .content strong{font-weight:600;color:inherit;background:none}
 
 /* ---------- S7.1: link do repositório no cartão de projeto (Dados) ---------- */
 .repo{margin:10px 0 0;font-size:var(--fs-small);color:var(--ink2)}
+
+/* ---------- S7.3: trechos de código num menu recolhível (<details class="sample">), fechado por padrão nas duas visões ---------- */
+details.sample{margin:10px 0 0;min-width:0}
+details.sample>summary{width:fit-content;padding:4px 0;color:var(--accent);font:500 var(--fs-small)/1.4 var(--mono);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+details.sample>summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details.sample>pre{max-width:100%;margin-top:6px;overflow-x:auto}
+@media (pointer:coarse){details.sample>summary{padding:13px 0}}
+/* Impressão do Temático: o código continua saindo, mesmo com o menu fechado (como antes) */
+@media print{html:not([data-view="simple"]) details.sample>summary{display:none}html:not([data-view="simple"]) details.sample::details-content{display:block;content-visibility:visible}}
