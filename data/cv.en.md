@@ -79,21 +79,21 @@ TOPUS Projetos Aeroespaciais · Mar 2020 – Dec 2023
 
 Personal project · In development
 
-**Approach:** A **Python** pipeline classifies and organizes the emails with the **Claude API** (a language model), accessing mailboxes via IMAP and **OAuth2**. Hybrid architecture: deterministic formatting in Python and AI only for strategic analysis, which cuts token usage.
+**Approach:** I use **Claude Haiku**, through the Claude API, only to turn free text into data: the API reads each email (sender, subject, date and truncated body) and returns **JSON** with folder, priority from 1 to 5, summary, deadline (if explicit), suggested action and alert flag. The prompt defines the folders, the priority scale and a 3-step protocol for spam (only with at least 2 fraud signals; when in doubt, Trash); **prompt caching** cuts the cost of input tokens. Python does the rest, without AI: OAuth2 on two Gmail accounts, IMAP, moving emails, JSONL log, Telegram and cron.
 
-**Result:** Daily and weekly summaries with deadlines in chronological order and suggested actions, delivered through **Telegram**, where a bot accepts manual commands. Runs locally and on a **VPS (Oracle Cloud)** with cron; processes any number of emails, with no fixed limit (it depends on the inbox). Estimate: 1 to 3 minutes saved per email. Planned: migration to a 24-hour local server on a Raspberry Pi.
+**Result:** Triage every 15 minutes and daily and weekly summaries through **Telegram**, where a bot accepts manual commands: Python builds the cards, sorts the deadlines and separates overdue from upcoming, and the API writes only one paragraph of strategic analysis. Runs locally and on a **VPS (Oracle Cloud)**; processes any number of emails, with no fixed limit (it depends on the inbox). Estimate: 1 to 3 minutes saved per email. Planned: migration to a 24-hour local server on a Raspberry Pi.
 
-Stack: Python, Claude API, IMAP, OAuth2, Telegram Bot API, Linux, cron, Git, SSH, Oracle Cloud (VPS)
+Stack: Python, Claude API, Claude Haiku, IMAP, OAuth2, Telegram Bot API, Linux, cron, Git, SSH, Oracle Cloud (VPS)
 
 ### Job search and ranking engine
 
 Personal project · In development
 
-**Approach:** A pipeline crawls registered sources, removes duplicates and gives each listing a **fit score from 0 to 10** on defined criteria: type of role, location and eligibility requirements. The triage uses Claude, through the **Claude API**.
+**Approach:** I use **Claude** (Projects and Cowork) with the **Chrome extension** to collect job listings in the browser, read each one and give it a **fit score from 0 to 10** against my criteria, discard those outside them (seniority, required experience), draft cover letters and fill in application forms.
 
-**Result:** A tracking spreadsheet with a summary of each listing’s requirements and duties. No application is sent without my review: the automation prepares, the decision is mine.
+**Result:** Claude records the output in a tracking spreadsheet that organizes the listings. No application is sent without my confirmation: the automation prepares, the decision is mine.
 
-Stack: Claude API, Browser automation
+Stack: Claude (Projects), Cowork, Chrome extension, Tracking spreadsheet, Browser automation
 
 ### Trilingual professional portfolio
 

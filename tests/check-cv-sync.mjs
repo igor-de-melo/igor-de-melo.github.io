@@ -5,7 +5,7 @@
 // 4) Nenhum telefone, e nenhum e-mail que a página não mostre, nos arquivos gerados nem no llms.txt.
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { ROOT, SITE, AREAS, LANGS, LD_RE, build, parse, all, text } from "../tools/build-cv.mjs";
+import { ROOT, SITE, AREAS, LANGS, LD_RE, build, parse, all, text, thirdPerson } from "../tools/build-cv.mjs";
 
 const errors = [];
 const fail = (m) => errors.push(m);
@@ -66,6 +66,8 @@ for (const area of AREAS) {
     if (["telephone", "jobTitle", "worksFor", "address"].includes(key)) fail(`${area}/index.html: JSON-LD não deve ter "${key}"`);
     if (key === "inLanguage") { if (![...LANGS, "en"].includes(v)) fail(`${area}/index.html: inLanguage "${v}"`); return; }
     if (/^https?:/.test(v)) { const rel = [...hrefs].some((h) => h === v || new URL(h.split("?")[0], SITE + area + "/").href === v); if (v !== SITE + area + "/" && !rel) fail(`${area}/index.html: endereço do JSON-LD que a página não traz: ${v}`); return; }
+    // A description vem do resumo visível, só com a pessoa gramatical trocada (1ª na página, 3ª nos dados estruturados).
+    if (key === "description" && thirdPerson(pageEn).includes(norm(v))) return;
     if (!pageEn.includes(norm(v))) fail(`${area}/index.html: valor do JSON-LD (${key}) fora do texto visível: "${v.slice(0, 60)}"`);
   };
   walk(data);

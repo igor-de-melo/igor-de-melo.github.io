@@ -167,7 +167,7 @@ export function jsonld(area, src) {
   const edu = all(tree, (e) => e.attrs["data-item"] === "education", L).map((it) => all(it, (e) => e.attrs["data-f"] === "org", L).map(txt)[0]);
   const person = {
     "@type": "Person", name: txt(all(tree, (e) => cls(e, "s-name"), L)[0]), url,
-    ...(summary ? { description: txt(all(summary, (e) => e.attrs["data-f"] === "desc", L)[0]) } : {}),
+    ...(summary ? { description: thirdPerson(txt(all(summary, (e) => e.attrs["data-f"] === "desc", L)[0])) } : {}),
     ...(mail ? { email: txt(mail) } : {}),
     // Graduação em andamento: a EESC-USP entra como afiliação, não como curso concluído; o intercâmbio (encerrado) fica em alumniOf.
     affiliation: edu.filter((n) => /São Carlos School of Engineering/.test(n)).map((name) => ({ "@type": "CollegeOrUniversity", name })),
@@ -189,6 +189,8 @@ export function jsonld(area, src) {
   }
   return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 1);
 }
+// O resumo visível está na 1ª pessoa ("I build…"); nos dados estruturados ele vai na 3ª ("Builds…"), com os mesmos fatos.
+export const thirdPerson = (s) => s.replace(/(^|[.!?;:] )I ([a-z]+)\b/g, (m, p, v) => p + v[0].toUpperCase() + v.slice(1) + "s");
 export const LD_RE = /(<script type="application\/ld\+json">\n)[\s\S]*?(\n<\/script>)/;
 
 export function build() {

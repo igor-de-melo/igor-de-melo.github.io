@@ -79,21 +79,21 @@ TOPUS Projetos Aeroespaciais · mar. 2020 – dez. 2023
 
 Projeto pessoal · Em desenvolvimento
 
-**Abordagem:** Pipeline em **Python** que classifica e organiza os e-mails com a **API do Claude** (modelo de linguagem), com acesso por IMAP e **OAuth2**. Arquitetura híbrida: formatação determinística no Python e IA só na análise estratégica, o que reduz o consumo de tokens.
+**Abordagem:** Uso o **Claude Haiku**, pela API do Claude, só para transformar texto livre em dados: a API lê cada e-mail (remetente, assunto, data e corpo truncado) e devolve um **JSON** com pasta, prioridade de 1 a 5, resumo, prazo (se explícito), ação sugerida e alerta. O prompt define as pastas, a escala de prioridade e um protocolo de 3 etapas para spam (só com pelo menos 2 sinais de fraude; na dúvida, Lixeira); o **prompt caching** reduz o custo dos tokens de entrada. O Python faz o resto, sem IA: OAuth2 em duas contas Gmail, IMAP, mover e-mails, log JSONL, Telegram e cron.
 
-**Resultado:** Resumos diários e semanais com prazos em ordem cronológica e ações sugeridas, entregues pelo **Telegram**, onde um bot aceita comandos manuais. Executa localmente e em um **VPS (Oracle Cloud)** com cron; processa qualquer quantidade de e-mails, sem limite fixo (depende da caixa de entrada). Estimativa: de 1 a 3 minutos economizados por e-mail. Planejado: migração para um servidor local 24 h em Raspberry Pi.
+**Resultado:** Triagem a cada 15 minutos e resumos diário e semanal pelo **Telegram**, onde um bot aceita comandos manuais: o Python monta os cards, ordena os prazos e separa vencidos de futuros, e a API escreve só um parágrafo de análise estratégica. Executa localmente e em um **VPS (Oracle Cloud)**; processa qualquer quantidade de e-mails, sem limite fixo (depende da caixa de entrada). Estimativa: de 1 a 3 minutos economizados por e-mail. Planejado: migração para um servidor local 24 h em Raspberry Pi.
 
-Stack: Python, API do Claude, IMAP, OAuth2, API de bots do Telegram, Linux, cron, Git, SSH, Oracle Cloud (VPS)
+Stack: Python, API do Claude, Claude Haiku, IMAP, OAuth2, API de bots do Telegram, Linux, cron, Git, SSH, Oracle Cloud (VPS)
 
 ### Motor de busca e classificação de vagas
 
 Projeto pessoal · Em desenvolvimento
 
-**Abordagem:** Pipeline que percorre fontes cadastradas, remove duplicatas e dá a cada vaga uma **nota de aderência de 0 a 10** por critérios definidos: tipo de vaga, localização e requisitos de elegibilidade. A triagem usa o Claude, pela **API do Claude**.
+**Abordagem:** Uso o **Claude** (Projects e Cowork) com a **extensão do Chrome** para coletar vagas no navegador, ler cada uma e dar uma **nota de aderência de 0 a 10** pelos meus critérios, descartar as que ficam fora deles (senioridade, experiência exigida), redigir rascunhos de carta de apresentação e preencher formulários de candidatura.
 
-**Resultado:** Planilha de controle com o resumo dos requisitos e das atividades de cada vaga. Nenhuma candidatura é enviada sem a minha revisão: a automação prepara, a decisão é minha.
+**Resultado:** O Claude registra o resultado numa planilha de apoio, que organiza as vagas. Nenhuma candidatura é enviada sem a minha confirmação: a automação prepara, a decisão é minha.
 
-Stack: API do Claude, Automação de navegador
+Stack: Claude (Projects), Cowork, Extensão do Chrome, Planilha de apoio, Automação de navegador
 
 ### Portfólio profissional trilíngue
 
