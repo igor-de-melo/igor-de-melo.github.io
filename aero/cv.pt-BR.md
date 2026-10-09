@@ -108,7 +108,7 @@ TOPUS · 2020 – 2023
 
 **Problema:** Levar o oxidante com segurança até a câmara de combustão de um motor-foguete híbrido.
 
-**Abordagem:** Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas, e trabalhei no projeto do injetor de vórtice para óxido nitroso, com o tanque de abastecimento a 60 bar e a câmara de combustão a 30 bar. Fiz as simulações de CFD do injetor no ANSYS CFX.
+**Abordagem:** Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas, e projetei o injetor de vórtice para óxido nitroso, com o tanque de abastecimento a 60 bar e a câmara de combustão a 30 bar. Fiz as simulações de CFD do injetor no ANSYS CFX.
 
 **Resultado:** O projeto recebeu, em 2020, uma bolsa de Bancada de Testes da Agência Espacial Brasileira (AEB).
 
@@ -122,7 +122,7 @@ ICMC-USP, bolsa FAPESP · jul. 2023 – dez. 2024
 
 - [Artigo no EPTT 2024 (PDF)](https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf): Turbulent Channel flow with Coriolis force using Large-Eddy Simulation. Artigo, EPTT 2024, em inglês.
 
-Simulação de grandes escalas (LES) de escoamento turbulento em canal com força de Coriolis, com número de Reynolds de atrito 180, malha LES de 64 × 64 × 64 e quatro números de rotação (Ro) (0; 0,018; 0,054; 0,091), comparada com simulação numérica direta (DNS). Artigo no EPTT 2024. Autores: Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza e Matheus Tozo de Araujo. Desenvolvimento e execução de rotinas numéricas em ambiente de HPC.
+Simulação de grandes escalas (LES) de escoamento turbulento em canal com força de Coriolis, com número de Reynolds de atrito 180, malha LES de 64 × 64 × 64 e quatro números de rotação (Ro) (0; 0,018; 0,054; 0,091), comparada com simulação numérica direta (DNS). Artigo no EPTT 2024. Autores: Igor Augusto de Melo (EESC-USP), Livia S. Freire e Leandro Franco de Souza (ICMC-USP) e Matheus Tozo de Araujo (IFPR). Desenvolvimento e execução de rotinas numéricas em ambiente de HPC.
 
 Stack: LES, Modelos de submalha, Fortran, HPC, Linux
 

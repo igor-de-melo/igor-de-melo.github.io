@@ -5,7 +5,13 @@ exclude:
   - CLAUDE.md
   - HANDOFF.md
   - index.template.html
+  - docs/
   - tests/
   - tools/
+  - screenshots/
+  - photos_pdf_certificate/
+  - node_modules/
   - package.json
+  - package-lock.json
+  - "*.mjs"
   - .gitignore

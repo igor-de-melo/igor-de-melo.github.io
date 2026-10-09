@@ -10,7 +10,9 @@ import { fileURLToPath } from "node:url";
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 export const SITE = "https://igor-de-melo.github.io/";
-export const AREAS = ["aero", "data", "it-security"];
+// Páginas de área sem Markdown por enquanto: it-security tem noindex (remover daqui quando o noindex sair).
+export const SKIP = ["it-security"];
+export const AREAS = ["aero", "data", "it-security"].filter((a) => !SKIP.includes(a));
 export const LANGS = ["pt-BR", "en", "fr"];
 const HEADER = {
   "pt-BR": (u) => `Gerado automaticamente do conteúdo visível de ${u}.`,
@@ -166,7 +168,9 @@ export function jsonld(area, src) {
     "@type": "Person", name: txt(all(tree, (e) => cls(e, "s-name"), L)[0]), url,
     ...(summary ? { description: txt(all(summary, (e) => e.attrs["data-f"] === "desc", L)[0]) } : {}),
     ...(mail ? { email: txt(mail) } : {}),
-    alumniOf: edu.filter((n) => /São Carlos School of Engineering|École Centrale de Marseille/.test(n)).map((name) => ({ "@type": "CollegeOrUniversity", name })),
+    // Graduação em andamento: a EESC-USP entra como afiliação, não como curso concluído; o intercâmbio (encerrado) fica em alumniOf.
+    affiliation: edu.filter((n) => /São Carlos School of Engineering/.test(n)).map((name) => ({ "@type": "CollegeOrUniversity", name })),
+    alumniOf: edu.filter((n) => /École Centrale de Marseille/.test(n)).map((name) => ({ "@type": "CollegeOrUniversity", name })),
     knowsAbout: skills,
     ...(langs ? { knowsLanguage: txt(all(langs, (e) => e.attrs["data-f"] === "desc", L)[0]).replace(/\.$/, "").split(", ") } : {}),
     sameAs: same,
@@ -175,8 +179,12 @@ export function jsonld(area, src) {
   const paper = all(tree, (e) => cls(e, "paper") && !cls(e, "paper--slides"), L)[0];
   if (paper) { // artigo: só quando o cartão com o título está na página
     const item = within(paper, (p) => p.attrs["data-item"]);
-    const authors = (/Authors: (.+? and [^.]+)\./.exec(all(item, (e) => e.attrs["data-f"] === "desc", L).map(txt).join(" ")) || [, ""])[1].split(/, | and /).filter(Boolean);
-    graph.push({ "@type": "ScholarlyArticle", name: txt(all(paper, (e) => cls(e, "paper-title"), L)[0]), author: authors.map((name) => ({ "@type": "Person", name })), isPartOf: { "@type": "PublicationEvent", name: "EPTT 2024" }, inLanguage: "en", url: abs(paper.attrs.href, area) });
+    // "Authors: A (X), B and C (Y), and D (Z)." -> cada grupo de nomes recebe a afiliação entre parênteses, quando a página a mostra.
+    const sentence = (/Authors: (.+?)\.(?= |$)/.exec(all(item, (e) => e.attrs["data-f"] === "desc", L).map(txt).join(" ").replace(/ S\. /g, " S․ ")) || [, ""])[1].replace(/S․/g, "S.");
+    const authors = [];
+    for (const m of sentence.matchAll(/(.+?)(?: \(([^)]+)\))(?:,? and |, |$)/g)) for (const name of m[1].split(/, | and /).filter(Boolean)) authors.push({ "@type": "Person", name, ...(m[2] ? { affiliation: { "@type": "Organization", name: m[2] } } : {}) });
+    if (!authors.length) for (const name of sentence.split(/, | and /).filter(Boolean)) authors.push({ "@type": "Person", name });
+    graph.push({ "@type": "ScholarlyArticle", name: txt(all(paper, (e) => cls(e, "paper-title"), L)[0]), author: authors, isPartOf: { "@type": "PublicationEvent", name: "EPTT 2024" }, inLanguage: "en", url: abs(paper.attrs.href, area) });
   }
   return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 1);
 }
@@ -189,6 +197,8 @@ export function build() {
     for (const lang of LANGS) files[`${area}/cv.${lang}.md`] = markdown(area, lang, src);
     files[`${area}/index.html`] = src.replace(LD_RE, (m, a, b) => a + jsonld(area, src) + b);
   }
+  // As páginas em SKIP ficam sem Markdown, mas o JSON-LD delas continua gerado do conteúdo visível.
+  for (const area of SKIP) { const src = readFileSync(join(ROOT, area, "index.html"), "utf8"); files[`${area}/index.html`] = src.replace(LD_RE, (m, a, b) => a + jsonld(area, src) + b); }
   return files;
 }
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

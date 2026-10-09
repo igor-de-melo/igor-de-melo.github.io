@@ -1,14 +1,13 @@
 # Igor Augusto de Melo
 
-> Portfólio e currículo de Igor Augusto de Melo, estudante de Engenharia Aeronáutica na EESC-USP, em três páginas: Engenharia Aeronáutica, Ciência de Dados, e TI e Cibersegurança. Cada página tem o currículo em Markdown em português, inglês e francês, gerado do conteúdo visível da própria página.
+> Portfólio e currículo de Igor Augusto de Melo, estudante de Engenharia Aeronáutica na EESC-USP, em duas páginas: Engenharia Aeronáutica e Ciência de Dados. Cada página tem o currículo em Markdown em português, inglês e francês, gerado do conteúdo visível da própria página.
 >
-> Portfolio and résumé of Igor Augusto de Melo, Aeronautical Engineering student at EESC-USP, in three pages: Aeronautical Engineering, Data Science, and IT & Cybersecurity. Each page has its résumé in Markdown in Portuguese, English and French, generated from the visible content of the page itself.
+> Portfolio and résumé of Igor Augusto de Melo, Aeronautical Engineering student at EESC-USP, in two pages: Aeronautical Engineering and Data Science. Each page has its résumé in Markdown in Portuguese, English and French, generated from the visible content of the page itself.
 
 ## Páginas / Pages
 
 - [Engenharia Aeronáutica / Aeronautical Engineering](https://igor-de-melo.github.io/aero/)
 - [Ciência de Dados / Data Science](https://igor-de-melo.github.io/data/)
-- [TI e Cibersegurança / IT & Cybersecurity](https://igor-de-melo.github.io/it-security/)
 
 ## Currículo em Markdown / Résumé in Markdown
 
@@ -18,9 +17,6 @@
 - [Data Science, português](https://igor-de-melo.github.io/data/cv.pt-BR.md)
 - [Data Science, English](https://igor-de-melo.github.io/data/cv.en.md)
 - [Data Science, français](https://igor-de-melo.github.io/data/cv.fr.md)
-- [IT & Cybersecurity, português](https://igor-de-melo.github.io/it-security/cv.pt-BR.md)
-- [IT & Cybersecurity, English](https://igor-de-melo.github.io/it-security/cv.en.md)
-- [IT & Cybersecurity, français](https://igor-de-melo.github.io/it-security/cv.fr.md)
 
 ## Contato / Contact
 

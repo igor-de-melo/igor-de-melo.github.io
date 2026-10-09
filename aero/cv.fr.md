@@ -108,7 +108,7 @@ TOPUS · 2020 – 2023
 
 **Problème :** Acheminer l’oxydant en toute sécurité jusqu’à la chambre de combustion d’un moteur-fusée hybride.
 
-**Approche :** Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes, et j’ai travaillé à la conception de l’injecteur tourbillonnaire pour le protoxyde d’azote, avec le réservoir d’alimentation à 60 bar et la chambre de combustion à 30 bar. J’ai réalisé les simulations CFD de l’injecteur sous ANSYS CFX.
+**Approche :** Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes, et j’ai conçu l’injecteur à vortex pour le protoxyde d’azote, avec le réservoir d’alimentation à 60 bar et la chambre de combustion à 30 bar. J’ai réalisé les simulations CFD de l’injecteur sous ANSYS CFX.
 
 **Résultat :** Le projet a obtenu en 2020 un financement « Banc d’essai » de l’Agence spatiale brésilienne (AEB).
 
@@ -122,7 +122,7 @@ ICMC-USP, bourse FAPESP · juil. 2023 – déc. 2024
 
 - [Article à l’EPTT 2024 (PDF)](https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf): Turbulent Channel flow with Coriolis force using Large-Eddy Simulation. Article, EPTT 2024, en anglais.
 
-Simulation des grandes échelles (LES) d’un écoulement turbulent en canal avec force de Coriolis, à un nombre de Reynolds de frottement de 180, avec un maillage LES de 64 × 64 × 64 et quatre nombres de rotation (Ro) (0 ; 0,018 ; 0,054 ; 0,091), comparée à la simulation numérique directe (DNS). Article à l’EPTT 2024. Auteurs : Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza et Matheus Tozo de Araujo. Développement et exécution de routines numériques en environnement HPC.
+Simulation des grandes échelles (LES) d’un écoulement turbulent en canal avec force de Coriolis, à un nombre de Reynolds de frottement de 180, avec un maillage LES de 64 × 64 × 64 et quatre nombres de rotation (Ro) (0 ; 0,018 ; 0,054 ; 0,091), comparée à la simulation numérique directe (DNS). Article à l’EPTT 2024. Auteurs : Igor Augusto de Melo (EESC-USP), Livia S. Freire et Leandro Franco de Souza (ICMC-USP) et Matheus Tozo de Araujo (IFPR). Développement et exécution de routines numériques en environnement HPC.
 
 Stack : LES, Modèles de sous-maille, Fortran, HPC, Linux
 

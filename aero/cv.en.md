@@ -108,7 +108,7 @@ TOPUS · 2020 – 2023
 
 **Problem:** Deliver the oxidizer safely to the combustion chamber of a hybrid rocket motor.
 
-**Approach:** On the oxidizer injection team, I designed and tested the tank, piping and valves, and worked on the design of the swirl injector for nitrous oxide, with the supply tank at 60 bar and the combustion chamber at 30 bar. I ran the CFD simulations of the injector in ANSYS CFX.
+**Approach:** On the oxidizer injection team, I designed and tested the tank, piping and valves, and I designed the vortex injector for nitrous oxide, with the supply tank at 60 bar and the combustion chamber at 30 bar. I ran the CFD simulations of the injector in ANSYS CFX.
 
 **Result:** The project received a test stand grant from the Brazilian Space Agency (AEB) in 2020.
 
@@ -122,7 +122,7 @@ ICMC-USP, FAPESP grant · Jul 2023 – Dec 2024
 
 - [Paper at EPTT 2024 (PDF)](https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf): Turbulent Channel flow with Coriolis force using Large-Eddy Simulation. Paper, EPTT 2024, in English.
 
-Large-eddy simulation (LES) of turbulent channel flow with Coriolis force, at friction Reynolds number 180, on a 64 × 64 × 64 LES grid and four rotation numbers (Ro) (0, 0.018, 0.054, 0.091), compared with direct numerical simulation (DNS). Paper at EPTT 2024. Authors: Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza and Matheus Tozo de Araujo. Development and execution of numerical routines in HPC environments.
+Large-eddy simulation (LES) of turbulent channel flow with Coriolis force, at friction Reynolds number 180, on a 64 × 64 × 64 LES grid and four rotation numbers (Ro) (0, 0.018, 0.054, 0.091), compared with direct numerical simulation (DNS). Paper at EPTT 2024. Authors: Igor Augusto de Melo (EESC-USP), Livia S. Freire and Leandro Franco de Souza (ICMC-USP), and Matheus Tozo de Araujo (IFPR). Development and execution of numerical routines in HPC environments.
 
 Stack: LES, Subgrid-scale models, Fortran, HPC, Linux
 
