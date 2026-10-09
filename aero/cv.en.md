@@ -12,9 +12,12 @@ Available for junior roles in aerospace.
 
 **Aeronautical Engineering** student at EESC-USP (in progress), with a year of exchange at École Centrale de Marseille and a special studies certificate in **Computational Fluid Dynamics (CFD)** at ICMC-USP. Experience in propulsion, flight mechanics, aerostructures and systems engineering on competition teams, with **three titles at the Latin American Space Challenge (LASC)**; project manager of an autonomous fixed-wing UAV (unmanned aerial vehicle) at the SEMEAR group. Research in turbulent flows (LES), atmospheric modeling (WRF) and unsteady aerodynamic loads.
 
-Areas of interest: aerodynamics, turbulence and CFD, aeroelasticity, thermodynamics, flight control, systems engineering and technical project management; also embedded systems and cybersecurity.
+Areas of interest: aerodynamics, turbulence and CFD, aeroelasticity, thermodynamics, flight control, systems engineering and technical project management.
 
-Outside engineering, I volunteered with Gatos do C2 (Mar – Oct 2024) on Campus 2 of USP São Carlos, coordinating rescue logistics for its spay/neuter, care and release program.
+Also: embedded systems and cybersecurity.
+
+- Volunteer with Gatos do C2 (Mar – Oct 2024), on Campus 2 of USP São Carlos.
+- Coordinated rescue logistics for its spay/neuter, care and release program.
 
 ## Skills
 
@@ -65,7 +68,10 @@ Keep Flying, AeroDesign team (USP) · Mar 2017 – Jan 2018
 
 SEMEAR · 2025 – present
 
-**Approach:** As project manager, I own the architecture, requirements, subsystem integration, and verification and risk planning, using **NASA systems engineering**. Endurance comes from optimizing the **electric propulsion**.
+**Approach:**
+
+- As project manager, I own the architecture, requirements, subsystem integration, and verification and risk planning, using **NASA systems engineering**.
+- Endurance comes from optimizing the **electric propulsion**.
 
 **Result:** In progress since 2025.
 
@@ -75,7 +81,11 @@ Stack: Systems engineering (NASA), Requirements engineering, Flight dynamics mod
 
 TOPUS, Latin American Space Challenge · 2020 – 2022
 
-**Approach:** I worked on propulsion and flight mechanics: **6-DOF** trajectory simulation to verify performance and flight conditions, and **Monte Carlo** runs to map ballistic and non-ballistic impact regions for the safety analysis.
+**Approach:**
+
+- I worked on propulsion and flight mechanics.
+- **6-DOF** trajectory simulation to verify performance and flight conditions.
+- **Monte Carlo** runs to map ballistic and non-ballistic impact regions for the safety analysis.
 
 **Result:** **First place** in all three editions (table below).
 
@@ -100,7 +110,10 @@ Stack: ANSYS Fluent (2D and 3D CFD), Technical drawing, Composites
 
 TOPUS · 2020 – 2023
 
-**Approach:** On the oxidizer injection team, I designed and tested the tank, piping and valves, and I designed the **vortex injector** for nitrous oxide, with the supply tank at 60 bar and the combustion chamber at 30 bar. I ran the CFD simulations of the injector in **ANSYS CFX**.
+**Approach:**
+
+- On the oxidizer injection team, I designed and tested the tank, piping and valves, and I designed the **vortex injector** for nitrous oxide, with the supply tank at 60 bar and the combustion chamber at 30 bar.
+- I ran the CFD simulations of the injector in **ANSYS CFX**.
 
 **Result:** Test stand grant from the **Brazilian Space Agency (AEB)** in 2020.
 
@@ -113,8 +126,10 @@ Stack: ANSYS CFX, CFD, Thermodynamics, Numerical modeling, Experimental testing
 ICMC-USP, FAPESP grant · Jul 2023 – Dec 2024
 
 - [Paper at EPTT 2024 (PDF)](https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf): Turbulent Channel flow with Coriolis force using Large-Eddy Simulation. Paper, EPTT 2024, in English.
-
-**LES** (large-eddy simulation) of turbulent channel flow with Coriolis force: friction Reynolds number 180, 64 × 64 × 64 grid and four rotation numbers (Ro) (0, 0.018, 0.054, 0.091), compared with **DNS** (direct numerical simulation). Paper at **EPTT 2024**. Authors: Igor Augusto de Melo (EESC-USP), Livia S. Freire and Leandro Franco de Souza (ICMC-USP), and Matheus Tozo de Araujo (IFPR). Numerical routines developed and run on HPC.
+- **LES** (large-eddy simulation) of turbulent channel flow with Coriolis force: friction Reynolds number 180, 64 × 64 × 64 grid and four rotation numbers (Ro) (0, 0.018, 0.054, 0.091), compared with **DNS** (direct numerical simulation).
+- Paper at **EPTT 2024**.
+- Authors: Igor Augusto de Melo (EESC-USP), Livia S. Freire and Leandro Franco de Souza (ICMC-USP), and Matheus Tozo de Araujo (IFPR).
+- Numerical routines developed and run on HPC.
 
 Stack: LES, Subgrid-scale models, Fortran, HPC, Linux
 

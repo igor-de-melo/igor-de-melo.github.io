@@ -111,6 +111,11 @@ for (const f of files) {
   // h1: o do Temático (título da área, .t-only) e o do Simplificado (o nome, .s-only).
   const h1s = findAll(tree, (e) => e.tag === "h1");
   if (h1s.length !== 2 || !h1s.some((e) => hasClass(e, "t-only")) || !h1s.some((e) => hasClass(e, "s-only"))) fail(f, 1, "esperava dois h1: um .t-only (título da área) e um .s-only (o nome)");
+  // Tópicos: o mesmo número de data-f="bullet" em cada língua, item por item.
+  for (const item of findAll(tree, (e) => e.attrs["data-item"] && !LANGS.includes(e.attrs.lang))) { // item que já é de uma língua só entra na contagem geral
+    const n = LANGS.map((l) => fieldCount(item, l, {})["data-f=bullet"] || 0);
+    if (n.some((v) => v !== n[0])) fail(f, item.line, `tópicos desiguais entre línguas em ${item.attrs["data-item"]} (pt-BR=${n[0]}, en=${n[1]}, fr=${n[2]})`);
+  }
   // Destaques de palavra-chave: o mesmo número de <strong> em cada língua, item por item; e nenhum <b> solto no conteúdo.
   const strongs = (el, lang) => findAllLang(el, (e) => e.tag === "strong", lang).length;
   for (const item of findAll(tree, (e) => e.attrs["data-item"] || e.attrs["data-section"])) {

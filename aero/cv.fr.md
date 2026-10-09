@@ -12,9 +12,12 @@ Disponible pour des postes junior dans le secteur aérospatial.
 
 Étudiant en **ingénierie aéronautique** à l’EESC-USP (en cours), avec une année d’échange à l’École Centrale de Marseille et un certificat d’études spéciales en **dynamique des fluides numérique (CFD)** à l’ICMC-USP. Expérience en propulsion, mécanique du vol, aérostructures et ingénierie système en équipes de compétition, avec **trois titres au Latin American Space Challenge (LASC)** ; chef de projet d’un drone (UAV) autonome à voilure fixe au sein du groupe SEMEAR. Recherche en écoulements turbulents (LES), modélisation atmosphérique (WRF) et charges aérodynamiques instationnaires.
 
-Domaines d’intérêt : aérodynamique, turbulence et CFD, aéroélasticité, thermodynamique, commande de vol, ingénierie système et gestion technique de projets ; également systèmes embarqués et cybersécurité.
+Domaines d’intérêt : aérodynamique, turbulence et CFD, aéroélasticité, thermodynamique, commande de vol, ingénierie système et gestion technique de projets.
 
-En dehors de l’ingénierie, j’ai été bénévole au sein du groupe Gatos do C2 (mars – oct. 2024), sur le campus 2 de l’USP São Carlos, où je coordonnais la logistique des sauvetages du programme de capture, stérilisation, soins et remise en liberté des chats du campus.
+Également : systèmes embarqués et cybersécurité.
+
+- Bénévole au sein du groupe Gatos do C2 (mars – oct. 2024), sur le campus 2 de l’USP São Carlos.
+- Coordination de la logistique des sauvetages du programme de capture, stérilisation, soins et remise en liberté des chats du campus.
 
 ## Compétences
 
@@ -65,7 +68,10 @@ Keep Flying, équipe AeroDesign (USP) · mars 2017 – janv. 2018
 
 SEMEAR · 2025 – aujourd’hui
 
-**Approche :** En tant que chef de projet, je suis responsable de l’architecture, des exigences, de l’intégration des sous-systèmes et de la planification de la vérification et des risques, selon l’**ingénierie système de la NASA**. L’autonomie vient de l’optimisation de la **propulsion électrique**.
+**Approche :**
+
+- En tant que chef de projet, je suis responsable de l’architecture, des exigences, de l’intégration des sous-systèmes et de la planification de la vérification et des risques, selon l’**ingénierie système de la NASA**.
+- L’autonomie vient de l’optimisation de la **propulsion électrique**.
 
 **Résultat :** En cours depuis 2025.
 
@@ -75,7 +81,11 @@ Stack : Ingénierie système (NASA), Ingénierie des exigences, Modélisation d
 
 TOPUS, Latin American Space Challenge · 2020 – 2022
 
-**Approche :** J’ai travaillé en propulsion et mécanique du vol : simulation de trajectoire à **6 degrés de liberté** pour vérifier les performances et les conditions de vol, et **Monte-Carlo** pour cartographier les zones de retombée balistique et non balistique pour l’analyse de sécurité.
+**Approche :**
+
+- J’ai travaillé en propulsion et mécanique du vol.
+- Simulation de trajectoire à **6 degrés de liberté** pour vérifier les performances et les conditions de vol.
+- **Monte-Carlo** pour cartographier les zones de retombée balistique et non balistique pour l’analyse de sécurité.
 
 **Résultat :** **Trois titres** en trois éditions (tableau ci-dessous).
 
@@ -100,7 +110,10 @@ Stack : ANSYS Fluent (CFD 2D et 3D), Dessin technique, Composites
 
 TOPUS · 2020 – 2023
 
-**Approche :** Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes, et j’ai conçu l’**injecteur à vortex** pour le protoxyde d’azote, avec le réservoir d’alimentation à 60 bar et la chambre de combustion à 30 bar. J’ai réalisé les simulations CFD de l’injecteur sous **ANSYS CFX**.
+**Approche :**
+
+- Au sein de l’équipe injection d’oxydant, j’ai conçu et testé le réservoir, la tuyauterie et les vannes, et j’ai conçu l’**injecteur à vortex** pour le protoxyde d’azote, avec le réservoir d’alimentation à 60 bar et la chambre de combustion à 30 bar.
+- J’ai réalisé les simulations CFD de l’injecteur sous **ANSYS CFX**.
 
 **Résultat :** Financement « Banc d’essai » de l’**Agence spatiale brésilienne (AEB)** en 2020.
 
@@ -113,8 +126,10 @@ Stack : ANSYS CFX, CFD, Thermodynamique, Modélisation numérique, Essais expé
 ICMC-USP, bourse FAPESP · juil. 2023 – déc. 2024
 
 - [Article à l’EPTT 2024 (PDF)](https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf): Turbulent Channel flow with Coriolis force using Large-Eddy Simulation. Article, EPTT 2024, en anglais.
-
-**LES** (simulation des grandes échelles) d’un écoulement turbulent en canal avec force de Coriolis : nombre de Reynolds de frottement de 180, maillage de 64 × 64 × 64 et quatre nombres de rotation (Ro) (0 ; 0,018 ; 0,054 ; 0,091), comparée à la **DNS** (simulation numérique directe). Article à l’**EPTT 2024**. Auteurs : Igor Augusto de Melo (EESC-USP), Livia S. Freire et Leandro Franco de Souza (ICMC-USP) et Matheus Tozo de Araujo (IFPR). Routines numériques développées et exécutées en HPC.
+- **LES** (simulation des grandes échelles) d’un écoulement turbulent en canal avec force de Coriolis : nombre de Reynolds de frottement de 180, maillage de 64 × 64 × 64 et quatre nombres de rotation (Ro) (0 ; 0,018 ; 0,054 ; 0,091), comparée à la **DNS** (simulation numérique directe).
+- Article à l’**EPTT 2024**.
+- Auteurs : Igor Augusto de Melo (EESC-USP), Livia S. Freire et Leandro Franco de Souza (ICMC-USP) et Matheus Tozo de Araujo (IFPR).
+- Routines numériques développées et exécutées en HPC.
 
 Stack : LES, Modèles de sous-maille, Fortran, HPC, Linux
 

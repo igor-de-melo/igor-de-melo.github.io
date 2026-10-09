@@ -2107,3 +2107,24 @@ details.sample>pre{max-width:100%;margin-top:6px;overflow-x:auto}
 @media (pointer:coarse){details.sample>summary{padding:13px 0}}
 /* Impressão do Temático: o código continua saindo, mesmo com o menu fechado (como antes) */
 @media print{html:not([data-view="simple"]) details.sample>summary{display:none}html:not([data-view="simple"]) details.sample::details-content{display:block;content-visibility:visible}}
+
+/* ---------- S8: blocos de texto em tópicos (ul.par-list), nos cartões e nos itens de pesquisa ---------- */
+.par-list{margin:0;padding-left:1.1em}
+.par-list li{margin-bottom:4px}
+.par-list li:last-child{margin-bottom:0}
+.par-list.muted{margin-top:12px;color:var(--ink2)}
+[data-view="simple"] body[data-area] .content .par-list,[data-view="simple"] body[data-area] .content .par dd .par-list{margin:0;padding:0 0 0 1.25em;list-style:disc}
+[data-view="simple"] body[data-area] .content .par-list li{margin:0 0 4px;padding:0}
+[data-view="simple"] body[data-area] .content .par-list li::before{content:none}
+[data-view="simple"] body[data-area] .content :is(.research-main,.cell-out,.body)>.par-list{margin-top:8px}
+@media print{
+  [data-view="simple"] body[data-area] .content .par dd:has(.par-list){display:block}
+  [data-view="simple"] body[data-area] .content .par-list li{margin-bottom:0}
+  [data-view="simple"] body[data-area] .content :is(.research-main,.cell-out,.body)>.par-list{margin-top:2pt}
+  /* Itens de pesquisa também podem quebrar entre tópicos na folha */
+  [data-view="simple"] body[data-area] .content .research{display:block;break-inside:auto}
+  [data-view="simple"] body[data-area] .content .research :is(h3,.org,.when){break-after:avoid}
+}
+/* Código da simulação dentro de "Como funciona": bloco com rolagem própria, sem alargar o painel */
+.how{min-width:0}
+.how>pre.cell-in{box-sizing:border-box;width:auto;max-width:calc(100% - 32px);margin:4px 16px 14px;overflow-x:auto;white-space:pre}

@@ -129,11 +129,16 @@ export function markdown(area, lang, src) {
         for (const f of own) {
           const k = f.attrs["data-f"]; if (["title", "org", "period", "status", "place"].includes(k)) continue;
           const s = field(f, lang, area); if (!s) continue;
-          if (k === "bullet") out.push("- " + s); else if (k === "stack") out.push("", "Stack" + colon(lang) + " " + s, ""); else if (k === "link") out.push("", "- " + s, ""); else out.push(s, "");
+          if (k === "bullet") {
+            // Tópicos dentro de Abordagem / Resultado: o rótulo vem numa linha própria, antes do primeiro tópico.
+            const dd = f.parent.parent, dt = dd?.tag === "dd" ? dd.parent.children.find((c) => c.tag === "dt" && !skip(c, lang)) : null;
+            if (dt && f.parent.children.filter((c) => c.tag === "li")[0] === f) out.push("", `**${T(dt, lang, area)}${colon(lang)}**`, "");
+            out.push("- " + s);
+          } else if (k === "stack") out.push("", "Stack" + colon(lang) + " " + s, ""); else if (k === "link") out.push("", "- " + s, ""); else out.push(s, "");
         }
         out.push("");
       }
-      for (const sub of all(block, (e) => e.attrs["data-section"] && e !== block, lang).filter((s) => !cls(s, "s-summary"))) {
+      for (const sub of all(block, (e) => e.attrs["data-section"] && e !== block, lang).filter((s) => !cls(s, "s-summary") && !s.attrs["data-item"])) { // seção que é o próprio item já saiu acima
         const h3 = all(sub, (e) => e.tag === "h3" && !e.attrs["data-f"] && !within(e, (p) => p.attrs["data-item"]), lang)[0];
         if (h3) out.push("", "### " + T(h3, lang, area), "");
         emit(sub);
@@ -181,7 +186,7 @@ export function jsonld(area, src) {
   if (paper) { // artigo: só quando o cartão com o título está na página
     const item = within(paper, (p) => p.attrs["data-item"]);
     // "Authors: A (X), B and C (Y), and D (Z)." -> cada grupo de nomes recebe a afiliação entre parênteses, quando a página a mostra.
-    const sentence = (/Authors: (.+?)\.(?= |$)/.exec(all(item, (e) => e.attrs["data-f"] === "desc", L).map(txt).join(" ").replace(/ S\. /g, " S․ ")) || [, ""])[1].replace(/S․/g, "S.");
+    const sentence = (/Authors: (.+?)\.(?= |$)/.exec(all(item, (e) => ["desc", "bullet"].includes(e.attrs["data-f"]), L).map(txt).join(" ").replace(/ S\. /g, " S․ ")) || [, ""])[1].replace(/S․/g, "S.");
     const authors = [];
     for (const m of sentence.matchAll(/(.+?)(?: \(([^)]+)\))(?:,? and |, |$)/g)) for (const name of m[1].split(/, | and /).filter(Boolean)) authors.push({ "@type": "Person", name, ...(m[2] ? { affiliation: { "@type": "Organization", name: m[2] } } : {}) });
     if (!authors.length) for (const name of sentence.split(/, | and /).filter(Boolean)) authors.push({ "@type": "Person", name });

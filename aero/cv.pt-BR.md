@@ -12,9 +12,12 @@ Disponível para vagas júnior no setor aeroespacial.
 
 Estudante de **Engenharia Aeronáutica** na EESC-USP (em andamento), com um ano de intercâmbio na École Centrale de Marseille e certificado de estudos especiais em **Dinâmica dos Fluidos Computacional (CFD)** no ICMC-USP. Experiência em propulsão, mecânica de voo, aeroestruturas e engenharia de sistemas em equipes de competição, com **três títulos na Latin American Space Challenge (LASC)**; gerente de projeto de um VANT (veículo aéreo não tripulado) autônomo de asa fixa no grupo SEMEAR. Pesquisa em escoamentos turbulentos (LES), modelagem atmosférica (WRF) e cargas aerodinâmicas não estacionárias.
 
-Áreas de interesse: aerodinâmica, turbulência e CFD, aeroelasticidade, termodinâmica, controle de voo, engenharia de sistemas e gestão técnica de projetos; também sistemas embarcados e cibersegurança.
+Áreas de interesse: aerodinâmica, turbulência e CFD, aeroelasticidade, termodinâmica, controle de voo, engenharia de sistemas e gestão técnica de projetos.
 
-Fora da engenharia, fui voluntário no grupo Gatos do C2 (mar. – out. 2024), no Campus 2 da USP em São Carlos, coordenando a logística de resgates do programa de castração, cuidados e soltura.
+Também: sistemas embarcados e cibersegurança.
+
+- Voluntário no grupo Gatos do C2 (mar. – out. 2024), no Campus 2 da USP em São Carlos.
+- Coordenei a logística de resgates do programa de castração, cuidados e soltura.
 
 ## Competências
 
@@ -65,7 +68,10 @@ Keep Flying, equipe AeroDesign (USP) · mar. 2017 – jan. 2018
 
 SEMEAR · 2025 – atual
 
-**Abordagem:** Como gerente de projeto, respondo por arquitetura, requisitos, integração entre subsistemas e planejamento de verificação e de riscos, com a **engenharia de sistemas da NASA**. A autonomia vem da otimização da **propulsão elétrica**.
+**Abordagem:**
+
+- Como gerente de projeto, respondo por arquitetura, requisitos, integração entre subsistemas e planejamento de verificação e de riscos, com a **engenharia de sistemas da NASA**.
+- A autonomia vem da otimização da **propulsão elétrica**.
 
 **Resultado:** Em andamento.
 
@@ -75,7 +81,11 @@ Stack: Engenharia de sistemas (NASA), Engenharia de requisitos, Modelagem de din
 
 TOPUS, Latin American Space Challenge · 2020 – 2022
 
-**Abordagem:** Atuei em propulsão e mecânica de voo: simulação de trajetória com **6 graus de liberdade** para verificar desempenho e condições de voo, e **Monte Carlo** para mapear as regiões de queda balística e não balística na análise de segurança.
+**Abordagem:**
+
+- Atuei em propulsão e mecânica de voo.
+- Simulação de trajetória com **6 graus de liberdade** para verificar desempenho e condições de voo.
+- **Monte Carlo** para mapear as regiões de queda balística e não balística na análise de segurança.
 
 **Resultado:** **Três títulos** em três edições (tabela abaixo).
 
@@ -100,7 +110,10 @@ Stack: ANSYS Fluent (CFD 2D e 3D), Desenho técnico, Compósitos
 
 TOPUS · 2020 – 2023
 
-**Abordagem:** Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas e projetei o **injetor de vórtice** para óxido nitroso, com tanque de abastecimento a 60 bar e câmara de combustão a 30 bar. Fiz as simulações de CFD do injetor no **ANSYS CFX**.
+**Abordagem:**
+
+- Na equipe de injeção de oxidante, projetei e testei o tanque, a tubulação e as válvulas e projetei o **injetor de vórtice** para óxido nitroso, com tanque de abastecimento a 60 bar e câmara de combustão a 30 bar.
+- Fiz as simulações de CFD do injetor no **ANSYS CFX**.
 
 **Resultado:** Bolsa de Bancada de Testes da **Agência Espacial Brasileira (AEB)** em 2020.
 
@@ -113,8 +126,10 @@ Stack: ANSYS CFX, CFD, Termodinâmica, Modelagem numérica, Ensaios experimentai
 ICMC-USP, bolsa FAPESP · jul. 2023 – dez. 2024
 
 - [Artigo no EPTT 2024 (PDF)](https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf): Turbulent Channel flow with Coriolis force using Large-Eddy Simulation. Artigo, EPTT 2024, em inglês.
-
-**LES** (simulação de grandes escalas) de escoamento turbulento em canal com força de Coriolis: número de Reynolds de atrito 180, malha de 64 × 64 × 64 e quatro números de rotação (Ro) (0; 0,018; 0,054; 0,091), comparada com **DNS** (simulação numérica direta). Artigo no **EPTT 2024**. Autores: Igor Augusto de Melo (EESC-USP), Livia S. Freire e Leandro Franco de Souza (ICMC-USP) e Matheus Tozo de Araujo (IFPR). Rotinas numéricas desenvolvidas e executadas em HPC.
+- **LES** (simulação de grandes escalas) de escoamento turbulento em canal com força de Coriolis: número de Reynolds de atrito 180, malha de 64 × 64 × 64 e quatro números de rotação (Ro) (0; 0,018; 0,054; 0,091), comparada com **DNS** (simulação numérica direta).
+- Artigo no **EPTT 2024**.
+- Autores: Igor Augusto de Melo (EESC-USP), Livia S. Freire e Leandro Franco de Souza (ICMC-USP) e Matheus Tozo de Araujo (IFPR).
+- Rotinas numéricas desenvolvidas e executadas em HPC.
 
 Stack: LES, Modelos de submalha, Fortran, HPC, Linux
 

@@ -56,7 +56,10 @@ Undergraduate research, EESC-USP, advised by Prof. Flávio Donizeti Marques · J
 
 ICMC-USP (Institute of Mathematics and Computer Sciences), FAPESP grant · Jul 2023 – Dec 2024
 
-**LES** (large-eddy simulation) of turbulent channel flow with Coriolis force: friction Reynolds number 180, 64 × 64 × 64 grid and four rotation numbers (Ro) (0, 0.018, 0.054, 0.091), compared with **DNS** (direct numerical simulation). Paper at **EPTT 2024**. Authors: Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza and Matheus Tozo de Araujo. Numerical routines developed and run on HPC.
+- **LES** (large-eddy simulation) of turbulent channel flow with Coriolis force: friction Reynolds number 180, 64 × 64 × 64 grid and four rotation numbers (Ro) (0, 0.018, 0.054, 0.091), compared with **DNS** (direct numerical simulation).
+- Paper at **EPTT 2024**.
+- Authors: Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza and Matheus Tozo de Araujo.
+- Numerical routines developed and run on HPC.
 
 ### Atmospheric modeling and wind energy research
 
@@ -79,9 +82,17 @@ TOPUS Projetos Aeroespaciais · Mar 2020 – Dec 2023
 
 Personal project · In development
 
-**Approach:** I use **Claude Haiku**, through the API, to turn emails into data: the API reads each message and returns **JSON** with folder, priority from 1 to 5, summary, deadline, suggested action and alert flag. The prompt defines the folders, the priority scale and a 3-step protocol against spam false positives; **prompt caching** lowers input cost. Python does the rest, without AI: **OAuth2** on two Gmail accounts, **IMAP**, JSONL log, Telegram and cron.
+**Approach:**
 
-**Result:** Triage every 15 minutes, with daily and weekly summaries on Telegram, where a bot accepts manual commands: Python builds the cards and sorts deadlines, and the API writes only one paragraph of strategic analysis. Runs locally and on a VPS (Oracle Cloud); migration to a Raspberry Pi planned. Estimate: 1 to 3 minutes saved per email.
+- I use **Claude Haiku**, through the API, to turn emails into data: the API reads each message and returns **JSON** with folder, priority from 1 to 5, summary, deadline, suggested action and alert flag.
+- The prompt defines the folders, the priority scale and a 3-step protocol against spam false positives; **prompt caching** lowers input cost.
+- Python does the rest, without AI: **OAuth2** on two Gmail accounts, **IMAP**, JSONL log, Telegram and cron.
+
+**Result:**
+
+- Triage every 15 minutes, with daily and weekly summaries on Telegram, where a bot accepts manual commands: Python builds the cards and sorts deadlines, and the API writes only one paragraph of strategic analysis.
+- Runs locally and on a VPS (Oracle Cloud); migration to a Raspberry Pi planned.
+- Estimate: 1 to 3 minutes saved per email.
 
 Stack: Python, Claude API, Claude Haiku, IMAP, OAuth2, Telegram Bot API, Linux, cron, Git, SSH, Oracle Cloud (VPS)
 
@@ -91,7 +102,10 @@ Personal project · In development
 
 **Approach:** I use **Claude** (Projects and Cowork) with the **Chrome extension** to collect job listings in the browser, read each one and give it a **fit score from 0 to 10** against my criteria, discard those outside them (seniority, required experience), draft cover letters and fill in application forms.
 
-**Result:** Claude records the output in a tracking spreadsheet that organizes the listings. No application is sent without my confirmation: the automation prepares, the decision is mine.
+**Result:**
+
+- Claude records the output in a tracking spreadsheet that organizes the listings.
+- No application is sent without my confirmation: the automation prepares, the decision is mine.
 
 Stack: Claude (Projects), Cowork, Chrome extension, Tracking spreadsheet, Browser automation
 
@@ -99,7 +113,10 @@ Stack: Claude (Projects), Cowork, Chrome extension, Tracking spreadsheet, Browse
 
 Personal project
 
-**Approach:** Static site in PT, EN and FR, with two views (Themed and Simple). Built with **Claude Code**, with automated tests (language parity, links, résumé sync) and manual review.
+**Approach:**
+
+- Static site in PT, EN and FR, with two views (Themed and Simple).
+- Built with **Claude Code**, with automated tests (language parity, links, résumé sync) and manual review.
 
 **Result:** Published on **GitHub Pages**, with Markdown generated automatically from the HTML, plus **JSON-LD** and llms.txt for machine reading.
 
