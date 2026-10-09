@@ -10,7 +10,7 @@ Disponível para vagas júnior em análise, engenharia ou ciência de dados ou e
 
 ## Resumo
 
-Estudante de Engenharia Aeronáutica na EESC-USP (em andamento), em transição para **dados e TI**. Analista de dados na Pilea Labs: projetei e construí as bases **MySQL** (no Google Cloud) e as consultas **SQL** por trás das listas, tabelas e gráficos da plataforma. Cursos de Machine Learning e Aprendizado por Reforço (Data ICMC-USP, 2025) e prática de computação científica: simulação Monte Carlo, otimização e análise de incerteza. Desenvolve projetos próprios de automação, como um sistema de triagem de e-mails com IA.
+Estudante de Engenharia Aeronáutica na EESC-USP (em andamento), em transição para **dados e TI**. Analista de dados na Pilea Labs: projetei e construí as bases **MySQL** (no Google Cloud) e as consultas **SQL** por trás das listas, tabelas e gráficos da plataforma. Cursos de Machine Learning e Aprendizado por Reforço (Data ICMC-USP, 2025) e prática de computação científica: simulação Monte Carlo, otimização e análise de incerteza. Desenvolve projetos próprios de automação com a **API do Claude**, como um sistema de triagem de e-mails com IA.
 
 Da engenharia: simulação de **Monte Carlo**, otimização com uma rede neural implementada do zero, análise de incerteza e rotinas numéricas em **HPC**. Em TI: Linux, Git, Bash, Google Cloud e integração de APIs, incluindo as de modelos de linguagem.
 
@@ -19,7 +19,7 @@ Da engenharia: simulação de **Monte Carlo**, otimização com uma rede neural 
 - **Linguagens de programação:** Python, SQL (MySQL), Bash, MATLAB, Fortran, C++ (básico), Java (básico)
 - **Análise de dados:** Consultas SQL com junções, Agregações, Modelagem de dados, Definição de indicadores (KPIs), Painéis, Relatórios, Análises em tempo real
 - **Machine learning e estatística:** Redes neurais, Aprendizado por reforço (Q-learning), Simulação de Monte Carlo, Análise de incerteza
-- **IA aplicada e automação:** Integração de LLMs por API (API do Claude), Bots do Telegram, Pipelines híbridos com regras determinísticas e IA, Agendamento com cron
+- **IA aplicada e automação:** API do Claude: triagem de e-mails e triagem de vagas com nota de aderência de 0 a 10, Claude Code: desenvolvimento assistido por IA deste portfólio, com testes automatizados (paridade, links, sincronia do CV) e revisão manual, LLMs (Claude) como apoio a estudo e a código, Automação: bots do Telegram, pipelines híbridos (regras determinísticas e IA) e agendamento com cron
 - **Nuvem e infraestrutura:** Google Cloud, Oracle Cloud (VPS), Linux, SSH, Git, GitHub, HPC
 
 ## Experiência
@@ -93,11 +93,11 @@ Projeto pessoal · Em desenvolvimento
 
 **Problema:** Encontrar e triar vagas de estágio e emprego espalhadas por muitas fontes.
 
-**Abordagem:** Pipeline que percorre fontes cadastradas, remove duplicatas e dá a cada vaga uma **nota de aderência de 0 a 10** por critérios definidos: tipo de vaga, localização e requisitos de elegibilidade.
+**Abordagem:** Pipeline que percorre fontes cadastradas, remove duplicatas e dá a cada vaga uma **nota de aderência de 0 a 10** por critérios definidos: tipo de vaga, localização e requisitos de elegibilidade. A triagem usa o Claude, pela **API do Claude**.
 
 **Resultado:** Planilha de controle com o resumo dos requisitos e das atividades de cada vaga. Nenhuma candidatura é enviada sem a minha revisão: a automação prepara, a decisão é minha.
 
-Stack: Claude, Claude Code, Automação de navegador
+Stack: API do Claude, Automação de navegador
 
 ## Formação
 

@@ -10,7 +10,7 @@ Disponible pour des postes junior en analyse de données, ingénierie des donné
 
 ## Résumé
 
-Étudiant en ingénierie aéronautique à l’EESC-USP (en cours), en transition vers **la donnée et l’informatique**. Analyste de données chez Pilea Labs : conception des bases **MySQL** (sur Google Cloud) et des requêtes **SQL** derrière les listes, tableaux et graphiques de la plateforme. Cours de Machine Learning et d’apprentissage par renforcement (Data ICMC-USP, 2025) et pratique du calcul scientifique : simulation Monte-Carlo, optimisation et analyse d’incertitude. Développe des projets d’automatisation personnels, dont un système de tri d’e-mails assisté par IA.
+Étudiant en ingénierie aéronautique à l’EESC-USP (en cours), en transition vers **la donnée et l’informatique**. Analyste de données chez Pilea Labs : conception des bases **MySQL** (sur Google Cloud) et des requêtes **SQL** derrière les listes, tableaux et graphiques de la plateforme. Cours de Machine Learning et d’apprentissage par renforcement (Data ICMC-USP, 2025) et pratique du calcul scientifique : simulation Monte-Carlo, optimisation et analyse d’incertitude. Développe des projets d’automatisation personnels avec l’**API Claude**, dont un système de tri d’e-mails assisté par IA.
 
 De l’ingénierie : simulation de **Monte-Carlo**, optimisation par un réseau de neurones codé de zéro, analyse d’incertitude et routines numériques en **HPC**. En informatique : Linux, Git, Bash, Google Cloud et intégration d’API, y compris de modèles de langage.
 
@@ -19,7 +19,7 @@ De l’ingénierie : simulation de **Monte-Carlo**, optimisation par un réseau
 - **Langages de programmation :** Python, SQL (MySQL), Bash, MATLAB, Fortran, C++ (notions), Java (notions)
 - **Analyse de données :** Requêtes SQL avec jointures, Agrégations, Modélisation de données, Définition d’indicateurs (KPI), Tableaux de bord, Reporting, Analyses en temps réel
 - **Machine learning et statistiques :** Réseaux de neurones, Apprentissage par renforcement (Q-learning), Simulation de Monte-Carlo, Analyse d’incertitude
-- **IA appliquée et automatisation :** Intégration de LLM par API (API Claude), Bots Telegram, Pipelines hybrides (règles déterministes et IA), Planification avec cron
+- **IA appliquée et automatisation :** API Claude : tri d’e-mails et tri d’offres avec une note d’adéquation de 0 à 10, Claude Code : développement assisté par IA de ce portfolio, avec tests automatisés (parité, liens, synchronisation du CV) et relecture manuelle, LLM (Claude) en appui à l’étude et au code, Automatisation : bots Telegram, pipelines hybrides (règles déterministes et IA) et planification avec cron
 - **Cloud et infrastructure :** Google Cloud, Oracle Cloud (VPS), Linux, SSH, Git, GitHub, HPC
 
 ## Expérience
@@ -93,11 +93,11 @@ Projet personnel · En développement
 
 **Problème :** Trouver et trier des offres de stage et d’emploi réparties sur de nombreuses sources.
 
-**Approche :** Pipeline qui parcourt des sources enregistrées, supprime les doublons et attribue à chaque offre une **note d’adéquation de 0 à 10** selon des critères définis : type de poste, localisation et conditions d’éligibilité.
+**Approche :** Pipeline qui parcourt des sources enregistrées, supprime les doublons et attribue à chaque offre une **note d’adéquation de 0 à 10** selon des critères définis : type de poste, localisation et conditions d’éligibilité. Le tri utilise Claude, via l’**API Claude**.
 
 **Résultat :** Un tableau de suivi avec le résumé des exigences et des missions de chaque offre. Aucune candidature n’est envoyée sans ma relecture : l’automatisation prépare, la décision me revient.
 
-Stack : Claude, Claude Code, Automatisation du navigateur
+Stack : API Claude, Automatisation du navigateur
 
 ## Formation
 
