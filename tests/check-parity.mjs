@@ -89,6 +89,13 @@ function findAll(el, test, out = []) {
   for (const c of el.children) findAll(c, test, out);
   return out;
 }
+function findAllLang(el, test, lang, out = []) {
+  if (el.text !== undefined) return out;
+  if (el.tag !== "html" && LANGS.includes(el.attrs.lang) && el.attrs.lang !== lang) return out;
+  if (test(el)) out.push(el);
+  for (const c of el.children) findAllLang(c, test, lang, out);
+  return out;
+}
 const hasClass = (el, c) => (el.attrs.class || "").split(/\s+/).includes(c);
 for (const f of files) {
   if (!/[\\/]/.test(f)) continue; // a Home não tem campos de CV
@@ -104,6 +111,13 @@ for (const f of files) {
   // h1: o do Temático (título da área, .t-only) e o do Simplificado (o nome, .s-only).
   const h1s = findAll(tree, (e) => e.tag === "h1");
   if (h1s.length !== 2 || !h1s.some((e) => hasClass(e, "t-only")) || !h1s.some((e) => hasClass(e, "s-only"))) fail(f, 1, "esperava dois h1: um .t-only (título da área) e um .s-only (o nome)");
+  // Destaques de palavra-chave: o mesmo número de <strong> em cada língua, item por item; e nenhum <b> solto no conteúdo.
+  const strongs = (el, lang) => findAllLang(el, (e) => e.tag === "strong", lang).length;
+  for (const item of findAll(tree, (e) => e.attrs["data-item"] || e.attrs["data-section"])) {
+    const n = LANGS.map((l) => strongs(item, l));
+    if (n.some((x) => x !== n[0])) fail(f, item.line, `<strong> desigual entre línguas em ${item.attrs["data-item"] || item.attrs["data-section"]} (pt-BR=${n[0]}, en=${n[1]}, fr=${n[2]})`);
+  }
+  for (const s of findAll(tree, (e) => e.tag === "strong")) if (["h1", "h2", "h3"].includes(s.parent.tag) || ["h1", "h2", "h3"].includes(s.parent.parent?.tag)) fail(f, s.line, "<strong> dentro de título");
   // Campo marcado nunca fica num elemento só do Temático que não tenha par no Simplificado: projeto com status não usa período.
   for (const item of findAll(tree, (e) => e.attrs["data-item"] === "project")) {
     const c = fieldCount(item, "pt-BR", {});

@@ -59,6 +59,7 @@ export function text(el, lang, area, md = false) {
   if (skip(el, lang) || el.tag === "img") return "";
   const inner = el.children.map((c) => text(c, lang, area, md)).join("");
   if (el.tag === "sup") return inner; // 1re, 8e
+  if (md && el.tag === "strong" && inner.trim()) return `**${inner.trim()}**`; // destaque de palavra-chave
   if (md && el.tag === "a" && el.attrs.href && inner.trim()) return `[${inner.replace(/\s+/g, " ").trim()}](${abs(el.attrs.href, area)})`;
   return inner;
 }
