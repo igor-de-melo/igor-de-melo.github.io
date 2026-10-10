@@ -146,7 +146,7 @@
   </div>
 </header>
 
-<div class="now">
+<div class="now" role="region" aria-label="Seção atual e menu / Current section and menu / Section actuelle et menu">
   <div class="now-row">
     <p class="now-title"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></p>
     <div class="now-tools">
@@ -354,11 +354,11 @@
         <div class="pn">
           <p class="pn-t">[ <span lang="pt-BR">malware numa rede</span><span lang="en">malware on a network</span><span lang="fr">malware dans un réseau</span> ]</p>
 <div class="sims" data-sims>
-<figure class="tunnel sim-panel" data-sim="malware" data-label-pt-br="Malware numa rede" data-label-en="Malware on a network" data-label-fr="Malware dans un réseau" aria-describedby="legenda-mw">
+<div class="tunnel sim-panel" data-sim="malware" data-label-pt-br="Malware numa rede" data-label-en="Malware on a network" data-label-fr="Malware dans un réseau" aria-describedby="legenda-mw">
   <div class="tunnel-frame tunnel-frame--net">
     <canvas id="net" role="img" aria-label="Simulação: um malware se espalha por uma rede de computadores enquanto um defensor isola as máquinas infectadas"></canvas>
   </div>
-  <figcaption class="tunnel-meta">
+  <div class="tunnel-meta">
     <p id="legenda-mw">
       <span lang="pt-BR">Propagação de malware numa rede de 64 máquinas, com o modelo epidemiológico SIR rodando no navegador. A cada passo, cada máquina infectada (vermelho) contamina cada vizinha vulnerável (cinza) com probabilidade β, e o defensor detecta e isola cada infectada (anel azul) com probabilidade γ. Clique numa máquina para infectá-la.</span>
       <span lang="en">Malware spreading through a 64-machine network, with the SIR epidemic model running in the browser. At each step, an infected machine (red) compromises each susceptible neighbor (gray) with probability β, and the defender detects and isolates each infected machine (blue ring) with probability γ. Click a machine to infect it.</span>
@@ -405,8 +405,8 @@
         <li>En sécurité, concrètement, γ représente la détection et la réponse (supervision, isolement des machines) et β, la surface d’attaque (correctifs, segmentation, moindre privilège).</li>
       </ol>
     </details>
-  </figcaption>
-</figure>
+  </div>
+</div>
 </div>
         </div>
       </div>

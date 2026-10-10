@@ -1,8 +1,8 @@
 /* Seletor de simulações. Cada página pode ter várias simulações, mas só uma aparece por vez.
    Marcação:
    <div class="sims" data-sims>
-     <figure class="tunnel sim-panel" data-sim="id"
-             data-label-pt-br="..." data-label-en="..." data-label-fr="..."> ... </figure>
+     <div class="tunnel sim-panel" data-sim="id"
+             data-label-pt-br="..." data-label-en="..." data-label-fr="..."> ... </div>
      (mais painéis)
    </div>
    Com um painel só, nada muda. Com dois ou mais, cria uma barra de abas acima e mostra o primeiro.

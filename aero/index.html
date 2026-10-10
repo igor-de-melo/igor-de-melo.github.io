@@ -181,7 +181,7 @@
   </div>
 </header>
 
-<div class="now">
+<div class="now" role="region" aria-label="Seção atual e menu / Current section and menu / Section actuelle et menu">
   <div class="now-row">
     <p class="now-title"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></p>
     <div class="now-tools">
@@ -289,11 +289,11 @@
 </nav>
 
 <div class="sims glass" id="simulacoes" data-sims role="region" aria-label="Simulações / Simulations / Simulations">
-<figure class="tunnel sim-panel" data-sim="flow" data-label-pt-br="Aerofólio de Joukowski" data-label-en="Joukowski airfoil" data-label-fr="Profil de Joukowski" aria-describedby="legenda-tunel">
+<div class="tunnel sim-panel" data-sim="flow" data-label-pt-br="Aerofólio de Joukowski" data-label-en="Joukowski airfoil" data-label-fr="Profil de Joukowski" aria-describedby="legenda-tunel">
   <div class="tunnel-frame">
     <canvas id="flow" role="img" aria-label="Simulação: linhas de corrente em torno de um aerofólio"></canvas>
   </div>
-  <figcaption class="tunnel-meta">
+  <div class="tunnel-meta">
     <p id="legenda-tunel">
       <span lang="pt-BR">Escoamento potencial em torno de um aerofólio de Joukowski com condição de Kutta, calculado no navegador. As partículas são coloridas pelo coeficiente de pressão. O modelo é invíscido e não prevê estol.</span>
       <span lang="en">Potential flow around a Joukowski airfoil with the Kutta condition, computed in the browser. Particles are colored by pressure coefficient. The model is inviscid and does not predict stall.</span>
@@ -330,14 +330,14 @@
         <li>Chaque particule suit la vitesse locale, intégrée par la méthode du point milieu à chaque image, et prend la couleur de <i>C<sub>p</sub></i> = 1 − (<i>V</i>/<i>U</i>)².</li>
       </ol>
     </details>
-  </figcaption>
-</figure>
-<figure class="tunnel sim-panel sim-soon" data-sim="sim2" data-label-pt-br="Simulação 2" data-label-en="Simulation 2" data-label-fr="Simulation 2">
+  </div>
+</div>
+<div class="tunnel sim-panel sim-soon" data-sim="sim2" data-label-pt-br="Simulação 2" data-label-en="Simulation 2" data-label-fr="Simulation 2">
   <p><span lang="pt-BR">Simulação em preparação.</span><span lang="en">Simulation in preparation.</span><span lang="fr">Simulation en préparation.</span></p>
-</figure>
-<figure class="tunnel sim-panel sim-soon" data-sim="sim3" data-label-pt-br="Simulação 3" data-label-en="Simulation 3" data-label-fr="Simulation 3">
+</div>
+<div class="tunnel sim-panel sim-soon" data-sim="sim3" data-label-pt-br="Simulação 3" data-label-en="Simulation 3" data-label-fr="Simulation 3">
   <p><span lang="pt-BR">Simulação em preparação.</span><span lang="en">Simulation in preparation.</span><span lang="fr">Simulation en préparation.</span></p>
-</figure>
+</div>
 </div>
 <p class="sim-link s-only" role="region" aria-label="Simulação / Simulation / Simulation"><a href="index.html?view=themed#simulacoes" data-view-go="themed"><span lang="pt-BR">Ver simulação no modo Temático</span><span lang="en">View simulation in Themed mode</span><span lang="fr">Voir la simulation en mode Thématique</span></a></p>
 
@@ -547,6 +547,7 @@
               <ul class="chips" data-f="stack" lang="fr"><li>MATLAB</li><li>Simulation à 6 degrés de liberté</li><li>Méthode de Monte-Carlo</li><li>CFD</li></ul>
             </dd></div>
           </dl>
+          <div class="results-wrap">
           <table class="results">
             <caption><span lang="pt-BR">Resultados na LASC</span><span lang="en">LASC results</span><span lang="fr">Résultats à la LASC</span></caption>
             <thead>
@@ -563,6 +564,7 @@
               <tr><td>2022</td><td>Rigel</td><td>1 km</td><td><span lang="pt-BR">1º lugar</span><span lang="en">1st place</span><span lang="fr">1<sup>re</sup> place</span></td></tr>
             </tbody>
           </table>
+          </div>
           <ul class="plain editions" lang="pt-BR">
             <li data-f="bullet"><strong>2022, Rigel (1&nbsp;km), motor (trabalho em equipe):</strong> sólido classe K, propelente <strong>KNSB</strong> fino em 3 grãos de 150&nbsp;mm (Ø&nbsp;65,7&nbsp;mm, furo central de 33&nbsp;mm), câmara de Ø&nbsp;69,85&nbsp;mm × 502&nbsp;mm, 1,93&nbsp;kg de propelente. Um motor testado por projeto.</li>
             <li data-f="bullet"><strong>2022, valores calculados</strong> (planilha de balística interna Nakka): empuxo médio de 1&nbsp;212&nbsp;N, máximo de 1&nbsp;410&nbsp;N, impulso total de <strong>2&nbsp;418&nbsp;N·s</strong>, impulso específico de 127,8&nbsp;s, queima de cerca de 1,9&nbsp;s, pressão máxima de câmara de 4,74&nbsp;MPa.</li>

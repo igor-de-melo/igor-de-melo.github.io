@@ -211,6 +211,24 @@ async function browser() {
         if (!c.order) fail(`${f} (themed): a ordem das seções mudou`);
         if (f === "it-security/index.html" && c.theme !== "dark") fail(`${f} (themed): tema "${c.theme}", esperado "dark"`);
       }
+      // Tabela de resultados (Aero): ao lado da galeria e centralizada na coluna do texto quando há espaço; a lista de
+      // edições começa depois da tabela e da galeria; em qualquer largura, nada passa da borda interna do cartão.
+      if (f === "aero/index.html") for (const [view, width] of [["themed", 1280], ["themed", 375], ["simple", 375], ["simple", 1280]]) {
+        await open(f, "?lang=pt-BR&view=" + view, width);
+        const t = await evalJs(`(function(){var t=document.querySelector('.results'),a=t.closest('article'),g=a.querySelector('.gallery'),w=t.parentNode,
+          e=[].filter.call(a.querySelectorAll('.editions'),function(x){return x.getClientRects().length})[0],R=function(x){return x.getBoundingClientRect()},cs=getComputedStyle(a);
+          var r=R(t),gr=R(g),wr=R(w),inR=R(a).right-parseFloat(cs.paddingRight)-parseFloat(cs.borderRightWidth),over=0;
+          [].forEach.call(a.querySelectorAll('h3,.org,dl,.results-wrap,.editions,.gallery'),function(x){if(x.getClientRects().length)over=Math.max(over,R(x).right-inR)});
+          return {wrap:w.className,beside:r.top<gr.bottom-1&&r.bottom>gr.top+1,clear:r.right<=gr.left+1,off:Math.abs((r.left-wr.left)-(wr.right-r.right)),after:R(e).top>=Math.max(r.bottom,r.top<gr.top+1||r.top<gr.bottom?(R(e).top>gr.top?Math.min(gr.bottom,R(e).top):0):0)-1,
+            below:R(e).top>=r.bottom-1&&(gr.top>R(e).top||R(e).top>=gr.bottom-1),over:over}})()`); browserChecks++;
+        const at = `${f} (${view}, ${width}px)`;
+        if (t.wrap !== "results-wrap") fail(`${at}: a tabela de resultados deve ficar dentro de .results-wrap`);
+        if (t.off > 1.5) fail(`${at}: tabela fora do centro do seu bloco (${t.off.toFixed(1)} px de diferença entre as margens)`);
+        if (!t.below) fail(`${at}: a lista de edições deve começar depois da tabela e da galeria`);
+        if (t.over > 1) fail(`${at}: conteúdo do cartão passa ${t.over.toFixed(0)} px da borda interna`);
+        if (view === "themed" && width === 1280 && !(t.beside && t.clear)) fail(`${at}: a tabela deveria ficar ao lado da galeria, na coluna do texto`);
+        if (width === 375 && t.beside) fail(`${at}: no celular a tabela não fica ao lado da galeria`);
+      }
       // Temático: continua sem scroll horizontal
       for (const width of [375, 1280]) {
         await open(f, "?view=themed", width);

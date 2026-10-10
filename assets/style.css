@@ -1495,7 +1495,7 @@ html:not([data-view="simple"]) body[data-area="it-security"] .theme-toggle{displ
 
 /* ---------- Texto ---------- */
 [data-view="simple"] body[data-area] .content{font-family:var(--sans);font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink)}
-[data-view="simple"] body[data-area] .content :is(p,li,dd,dt,td,th,figcaption){font-family:var(--sans);font-size:var(--fs-body);line-height:var(--lh-body);letter-spacing:0;text-wrap:wrap}
+[data-view="simple"] body[data-area] .content :is(p,li,dd,dt,td,th,figcaption,.tunnel-meta){font-family:var(--sans);font-size:var(--fs-body);line-height:var(--lh-body);letter-spacing:0;text-wrap:wrap}
 [data-view="simple"] body[data-area] .content p{margin:0 0 12px}
 [data-view="simple"] body[data-area] .content p:last-child{margin-bottom:0}
 [data-view="simple"] body[data-area] .content .lead{font-size:var(--fs-body);line-height:var(--lh-body)}
@@ -2129,8 +2129,42 @@ details.sample>pre{max-width:100%;margin-top:6px;overflow-x:auto}
 .how{min-width:0}
 .how>pre.cell-in{box-sizing:border-box;width:auto;max-width:calc(100% - 32px);margin:4px 16px 14px;overflow-x:auto;white-space:pre}
 
-/* ---------- R8: tabela de resultados sempre centralizada ---------- */
-/* Temático: abaixo da figura flutuante (ao lado dela as margens automáticas não centralizam), na largura do conteúdo */
-body[data-area] .content .project .results{clear:both}
-/* Simplificado no celular: a tabela ocupa a linha inteira do cartão (sem dividir a linha flexível, o que a deslocava 6 px) */
-@media (max-width:760px){[data-view="simple"] body[data-area] .content .project .results{flex:0 0 100%;width:100%;margin-left:0;margin-right:0}}
+/* ---------- R8.1: tabela de resultados ao lado da galeria ---------- */
+/* .results-wrap é um contexto de formatação próprio: ao lado da figura flutuante ele fica só com a coluna do texto,
+   e a tabela se centraliza nela com margens automáticas. Sem espaço para 24rem ao lado da figura, o bloco desce para baixo dela.
+   A lista de edições vem depois do mais alto dos dois (tabela ou galeria), na largura inteira. */
+.results-wrap{display:flow-root;min-width:min(100%,24rem)}
+/* O espaço acima passa da tabela para o bloco (a margem da tabela não sai de dentro dele) */
+html:not([data-view="simple"]) body[data-area="aero"] .project .results-wrap{margin-top:20px}
+html:not([data-view="simple"]) body[data-area="aero"] .project .results-wrap>.results{margin-top:0}
+body[data-area] .content .project .editions{clear:both}
+@media (max-width:760px){
+  /* Celular: a tabela ocupa a largura do cartão */
+  body[data-area] .content .project .results,[data-view="simple"] body[data-area] .content .project .results{width:100%;margin-left:0;margin-right:0}
+  /* Simplificado: o cartão com figura continua em linhas. A coluna do Temático (.media-item) vazava para cá, e nela
+     "flex:0 0 100%" vira altura: o conteúdo passava 11 px da borda direita e a lista guardava a altura medida em outra largura. */
+  [data-view="simple"] body[data-area] .content .project.media-item{flex-direction:row}
+}
+
+/* ---------- R8.1: foco por teclado ---------- */
+/* Home, cartões de TI e Ciber: o anel verde fica por dentro da superfície escura (por fora, no tema claro, tinha 1,3:1 contra a página) */
+.hcard--it-security .hcard-link:focus-visible::after,.hcard-simple--it-security:focus-visible{outline-offset:-5px}
+/* TI e Ciber: o elemento focado não para atrás da barra fixa do rodapé */
+html:has(body[data-area="it-security"]){scroll-padding-bottom:calc(28px + 12px)}
+[data-view="simple"]:has(body[data-area="it-security"]){scroll-padding-bottom:0}
+
+/* ---------- R8.1: alvos de toque de 44 px no celular ---------- */
+@media (max-width:760px){
+  /* Área de toque ampliada sem mudar o desenho: um ::after invisível, centrado, com pelo menos 44 × 44 px */
+  :is(.ar,.hm,.theme-toggle,.lang button,.sim-step,.sim-tab,.rl-btn){position:relative}
+  :is(.ar,.hm,.theme-toggle,.lang button,.sim-step,.sim-tab,.rl-btn)::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
+  .controls input[type=range]{height:44px;margin-block:-14px}
+  body[data-area] .how summary{min-height:44px;padding-block:12px}
+  .foot-links,.foot-areas{row-gap:0}
+  .skip{display:inline-flex;align-items:center;min-height:44px}
+  .foot-links a,.foot-areas a{display:inline-flex;align-items:center;min-width:44px;min-height:44px}
+  /* Links de contato da abertura do Temático: altura de toque na própria linha (sem áreas sobrepostas quando quebram) */
+  .cell-links,.pn-links{row-gap:0}
+  :is(.cell-links,.pn-links) a{display:inline-flex;align-items:center;min-width:44px;min-height:44px}
+  [data-view="simple"] body[data-area] .s-nav a{min-width:44px;text-align:center}
+}

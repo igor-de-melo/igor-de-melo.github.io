@@ -404,7 +404,12 @@
     if (v === "simple") Array.prototype.forEach.call(document.querySelectorAll(".rise-wait"), function (el) { el.classList.remove("rise-wait"); });
     updateFaceLinks(root.lang);
     syncView(true);
-    if (typeof setMenu === "function" && root.classList.contains("menu-open")) setMenu(false);
+    if (typeof setMenu === "function" && root.classList.contains("menu-open")) {
+      // O botão de visão fica dentro do painel: ao fechá-lo, o foco volta para o botão do menu (senão se perde).
+      var hadFocus = rail.contains(document.activeElement);
+      setMenu(false);
+      if (hadFocus) menuBtn.focus();
+    }
     if (keep) window.requestAnimationFrame(function () { window.requestAnimationFrame(function () { keep.scrollIntoView({ block: "start", behavior: "instant" }); }); });
     document.dispatchEvent(new CustomEvent("siteviewchange", { detail: { view: v } }));
   }

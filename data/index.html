@@ -136,7 +136,7 @@
   </div>
 </header>
 
-<div class="now">
+<div class="now" role="region" aria-label="Seção atual e menu / Current section and menu / Section actuelle et menu">
   <div class="now-row">
     <p class="now-title"><span lang="pt-BR">Sobre</span><span lang="en">About</span><span lang="fr">À propos</span></p>
     <div class="now-tools">
@@ -278,11 +278,11 @@
       </div>
       <div class="cell cell--sim" id="simulacoes">
         <div class="cell-body sims" data-sims>
-<figure class="tunnel sim-panel" data-sim="maze" data-label-pt-br="q_learning()" data-label-en="q_learning()" data-label-fr="q_learning()" data-hint-pt-br="Agente aprendendo um labirinto" data-hint-en="Agent learning a maze" data-hint-fr="Agent apprenant un labyrinthe" aria-describedby="legenda-rl">
+<div class="tunnel sim-panel" data-sim="maze" data-label-pt-br="q_learning()" data-label-en="q_learning()" data-label-fr="q_learning()" data-hint-pt-br="Agente aprendendo um labirinto" data-hint-en="Agent learning a maze" data-hint-fr="Agent apprenant un labyrinthe" aria-describedby="legenda-rl">
   <div class="tunnel-frame tunnel-frame--maze">
     <canvas id="maze" role="img" aria-label="Simulação: um agente aprende por tentativa e erro a atravessar um labirinto e a evitar as armadilhas"></canvas>
   </div>
-  <figcaption class="tunnel-meta">
+  <div class="tunnel-meta">
     <p id="legenda-rl">
       <span lang="pt-BR">Q-learning tabular rodando no navegador. O agente começa sem saber nada, testa caminhos, cai nas armadilhas e atualiza o valor de cada célula (sombreado em verde) até achar a rota segura. As setas mostram a ação preferida em cada célula. O caminho pelas armadilhas é mais curto, mas o agente aprende que não compensa. Recompensas: +1 na meta, −1 nas armadilhas, −0,04 por passo.</span>
       <span lang="en">Tabular Q-learning running in the browser. The agent starts knowing nothing, tries paths, falls into traps and updates the value of each cell (shaded in green) until it finds the safe route. Arrows show the preferred action in each cell. The path through the traps is shorter, but the agent learns it does not pay off. Reward: +1 at the goal, −1 on traps, −0.04 per step.</span>
@@ -329,14 +329,14 @@
       </ol>
       <pre class="cell-in sn" tabindex="0"><code>Q[s, a] += alpha * (r + gamma * Q[s_next].<span class="fn">max</span>() - Q[s, a])  <span class="cm"># <span lang="pt-BR">alpha = 0,5; gamma = 0,96</span><span lang="en">alpha = 0.5; gamma = 0.96</span><span lang="fr">alpha = 0,5&nbsp;; gamma = 0,96</span></span></code></pre>
     </details>
-  </figcaption>
-</figure>
-<figure class="tunnel sim-panel sim-soon" data-sim="sim2" data-label-pt-br="simulation_2()" data-label-en="simulation_2()" data-label-fr="simulation_2()">
+  </div>
+</div>
+<div class="tunnel sim-panel sim-soon" data-sim="sim2" data-label-pt-br="simulation_2()" data-label-en="simulation_2()" data-label-fr="simulation_2()">
   <p><span lang="pt-BR">Simulação em preparação.</span><span lang="en">Simulation in preparation.</span><span lang="fr">Simulation en préparation.</span></p>
-</figure>
-<figure class="tunnel sim-panel sim-soon" data-sim="sim3" data-label-pt-br="simulation_3()" data-label-en="simulation_3()" data-label-fr="simulation_3()">
+</div>
+<div class="tunnel sim-panel sim-soon" data-sim="sim3" data-label-pt-br="simulation_3()" data-label-en="simulation_3()" data-label-fr="simulation_3()">
   <p><span lang="pt-BR">Simulação em preparação.</span><span lang="en">Simulation in preparation.</span><span lang="fr">Simulation en préparation.</span></p>
-</figure>
+</div>
         </div>
       </div>
       <p class="sim-link s-only"><a href="index.html?view=themed#simulacoes" data-view-go="themed"><span lang="pt-BR">Ver simulação no modo Temático</span><span lang="en">View simulation in Themed mode</span><span lang="fr">Voir la simulation en mode Thématique</span></a></p>
