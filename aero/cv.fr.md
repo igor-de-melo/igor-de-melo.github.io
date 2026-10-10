@@ -105,8 +105,8 @@ LASC Cooperation Program · 2020 – 2022
 **Approche :**
 
 - J’ai réalisé les plans techniques et les dossiers de fabrication de l’ogive.
-- Participation aux études de fabrication en composites.
-- Simulation en **CFD 2D et 3D** des performances aérodynamiques du véhicule.
+- J’ai participé aux études de fabrication en composites.
+- J’ai simulé en **CFD 2D et 3D** les performances aérodynamiques du véhicule.
 
 Stack : ANSYS Fluent (CFD 2D et 3D), Dessin technique, Composites
 

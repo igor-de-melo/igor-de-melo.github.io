@@ -105,8 +105,8 @@ LASC Cooperation Program · 2020 – 2022
 **Approach:**
 
 - I produced the technical drawings and manufacturing plans for the nose cone.
-- Supported composite manufacturing studies.
-- Ran **2D and 3D CFD** simulations of the vehicle’s aerodynamic performance.
+- I supported composite manufacturing studies.
+- I ran **2D and 3D CFD** simulations of the vehicle’s aerodynamic performance.
 
 Stack: ANSYS Fluent (2D and 3D CFD), Technical drawing, Composites
 

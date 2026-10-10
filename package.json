@@ -6,5 +6,9 @@
     "build:cv": "node tools/build-cv.mjs",
     "test": "node tests/check-parity.mjs && node tests/check-maze.mjs && node tests/check-malware.mjs && node tests/check-views.mjs && node tests/check-links.mjs && node tests/check-cv-sync.mjs",
     "build:og": "node tools/build-og.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.0",
+    "lighthouse": "^13.5.0"
   }
 }

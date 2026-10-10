@@ -75,7 +75,7 @@ for (const area of AREAS) {
   if (data["@graph"]?.[0]?.["@type"] !== "ProfilePage" || person?.["@type"] !== "Person" || person.name !== "Igor Augusto de Melo") fail(`${area}/index.html: JSON-LD sem ProfilePage > Person`);
   checkPrivacy(`${area}/index.html (JSON-LD)`, m[0], pageEmails);
   // <head>: um link alternate em Markdown por língua, apontando para o arquivo da própria página
-  for (const lang of LANGS) if (!src.includes(`<link rel="alternate" type="text/markdown" hreflang="${lang}" href="cv.${lang}.md">`)) fail(`${area}/index.html: falta o <link rel="alternate" type="text/markdown" hreflang="${lang}">`);
+  for (const lang of LANGS) if (!src.includes(`<link rel="alternate" type="text/markdown" hreflang="${lang}" href="${SITE}${area}/cv.${lang}.md">`)) fail(`${area}/index.html: falta o <link rel="alternate" type="text/markdown" hreflang="${lang}">`);
   if (!src.includes(`<link rel="canonical" href="${SITE}${area}/">`)) fail(`${area}/index.html: canonical deve ser ${SITE}${area}/ (sem ?lang= nem ?view=)`);
 }
 

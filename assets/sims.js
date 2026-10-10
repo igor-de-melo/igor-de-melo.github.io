@@ -41,7 +41,8 @@
         var hint = function (lang) {
           var t = panel.getAttribute("data-hint-" + String(lang).toLowerCase()) || panel.getAttribute("data-hint-pt-br");
           b.title = t;
-          b.setAttribute("aria-label", t);
+          // O nome acessível da aba é o próprio texto visível (WCAG 2.5.3); a descrição fica só no title.
+          b.removeAttribute("aria-label");
         };
         hint(document.documentElement.lang);
         document.addEventListener("sitelangchange", function (e) { hint(e.detail.lang); });

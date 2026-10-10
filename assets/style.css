@@ -69,14 +69,14 @@ body[data-area="aero"]{
 /* Ciência de Dados "Caderno de análise" */
 body[data-area="data"]{
   --bg:#E3ECE8;--ink:#14211F;--ink2:#3F5154;--line:rgba(20,33,31,.22);--chip:rgba(20,33,31,.07);
-  --inp:#F2F6F4;--out:#FBFCFB;--code-faint:#6F8482;--ac:#0A5A53;--str:#235A36;--kw:#7A4610;--tag:rgba(10,90,83,.04);
+  --inp:#F2F6F4;--out:#FBFCFB;--code-faint:#5F7472;--ac:#0A5A53;--str:#235A36;--kw:#7A4610;--tag:rgba(10,90,83,.04);
   --w1:rgba(10,90,83,.06);--w2:rgba(68,1,84,.04);--cmo:.07;--fxo:.7;
   --surface:var(--inp);--raise:var(--chip);--accent:var(--ac);--on-ink:#fff;
   --mono:var(--jet);
 }
 :root[data-theme="dark"] body[data-area="data"]{
   --bg:#0E1719;--ink:#E3EEEC;--ink2:#869A9B;--line:rgba(255,255,255,.12);--chip:rgba(255,255,255,.08);
-  --inp:#152225;--out:#101B1D;--code-faint:#667C7E;--ac:#5FCFC0;--str:#8FD3A0;--kw:#E3B170;--tag:rgba(95,207,192,.1);
+  --inp:#152225;--out:#101B1D;--code-faint:#768C8E;--ac:#5FCFC0;--str:#8FD3A0;--kw:#E3B170;--tag:rgba(95,207,192,.1);
   --w1:rgba(95,207,192,.10);--w2:rgba(227,177,112,.06);--cmo:.08;--fxo:1;--on-ink:#0E1719;
 }
 
@@ -2128,3 +2128,9 @@ details.sample>pre{max-width:100%;margin-top:6px;overflow-x:auto}
 /* Código da simulação dentro de "Como funciona": bloco com rolagem própria, sem alargar o painel */
 .how{min-width:0}
 .how>pre.cell-in{box-sizing:border-box;width:auto;max-width:calc(100% - 32px);margin:4px 16px 14px;overflow-x:auto;white-space:pre}
+
+/* ---------- R8: tabela de resultados sempre centralizada ---------- */
+/* Temático: abaixo da figura flutuante (ao lado dela as margens automáticas não centralizam), na largura do conteúdo */
+body[data-area] .content .project .results{clear:both}
+/* Simplificado no celular: a tabela ocupa a linha inteira do cartão (sem dividir a linha flexível, o que a deslocava 6 px) */
+@media (max-width:760px){[data-view="simple"] body[data-area] .content .project .results{flex:0 0 100%;width:100%;margin-left:0;margin-right:0}}
