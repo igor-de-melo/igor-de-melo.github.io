@@ -27,7 +27,9 @@ const errors = [], external = new Map();
 for (const page of pages) {
   const src = readFileSync(page, "utf8").replace(/<!--[\s\S]*?-->/g, "");
   const rel = relative(root, page);
-  for (const m of src.matchAll(/\s(href|src)="([^"]*)"/g)) {
+  // srcset e data-srcset: cada variante de imagem entra como um endereço a conferir.
+  const sets = [...src.matchAll(/\s(?:data-)?srcset="([^"]*)"/g)].flatMap((m) => m[1].split(",").map((p) => [null, "src", p.trim().split(/\s+/)[0]]));
+  for (const m of [...src.matchAll(/\s(href|src)="([^"]*)"/g), ...sets]) {
     const url = m[2];
     if (!url) { errors.push(`${rel}: ${m[1]} vazio`); continue; }
     if (/^(mailto|tel|data|javascript):/i.test(url)) continue;
@@ -41,6 +43,11 @@ for (const page of pages) {
     if (clean && clean.endsWith("/")) target = join(target, "index.html");
     if (!existsSync(target)) { errors.push(`${rel}: "${url}" aponta para arquivo inexistente`); continue; }
     if (hash && target.endsWith(".html") && !idsOf(target).has(hash)) errors.push(`${rel}: "${url}" aponta para âncora inexistente #${hash}`);
+  }
+  // og:image e twitter:image: endereço absoluto do próprio site, que precisa existir no repositório.
+  for (const m of src.matchAll(/<meta (?:property|name)="(og:image|twitter:image)" content="([^"]*)"/g)) {
+    const file = m[2].replace(/^https:\/\/igor-de-melo\.github\.io\//, "");
+    if (file === m[2] || !existsSync(join(root, file))) errors.push(`${rel}: ${m[1]} "${m[2]}" não corresponde a um arquivo do site`);
   }
 }
 

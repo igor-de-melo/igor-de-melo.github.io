@@ -20,6 +20,8 @@
     if (!img || !thumbs.length) return;
     thumbs.forEach(function (t, i) {
       t.addEventListener("click", function () {
+        // Variantes responsivas: a principal troca o srcset junto com o src; a imagem ampliada usa sempre o src (a maior).
+        if (t.getAttribute("data-srcset")) img.srcset = t.getAttribute("data-srcset"); else img.removeAttribute("srcset");
         img.src = t.getAttribute("data-src");
         img.width = t.getAttribute("data-w");
         img.height = t.getAttribute("data-h");

@@ -102,7 +102,11 @@ Stack: MATLAB, Simulação com 6 graus de liberdade, Método de Monte Carlo, CFD
 
 LASC Cooperation Program · 2020 – 2022
 
-**Abordagem:** Fiz os desenhos técnicos e os planos de fabricação da coifa, apoiei estudos de fabricação em compósitos e simulei em **CFD 2D e 3D** o desempenho aerodinâmico do veículo.
+**Abordagem:**
+
+- Fiz os desenhos técnicos e os planos de fabricação da coifa.
+- Apoiei estudos de fabricação em compósitos.
+- Simulei em **CFD 2D e 3D** o desempenho aerodinâmico do veículo.
 
 Stack: ANSYS Fluent (CFD 2D e 3D), Desenho técnico, Compósitos
 
@@ -126,7 +130,8 @@ Stack: ANSYS CFX, CFD, Termodinâmica, Modelagem numérica, Ensaios experimentai
 ICMC-USP, bolsa FAPESP · jul. 2023 – dez. 2024
 
 - [Artigo no EPTT 2024 (PDF)](https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf): Turbulent Channel flow with Coriolis force using Large-Eddy Simulation. Artigo, EPTT 2024, em inglês.
-- **LES** (simulação de grandes escalas) de escoamento turbulento em canal com força de Coriolis: número de Reynolds de atrito 180, malha de 64 × 64 × 64 e quatro números de rotação (Ro) (0; 0,018; 0,054; 0,091), comparada com **DNS** (simulação numérica direta).
+- **LES** (simulação de grandes escalas) de escoamento turbulento em canal com força de Coriolis.
+- Número de Reynolds de atrito 180, malha de 64 × 64 × 64 e quatro números de rotação (Ro) (0; 0,018; 0,054; 0,091), comparada com **DNS** (simulação numérica direta).
 - Artigo no **EPTT 2024**.
 - Autores: Igor Augusto de Melo (EESC-USP), Livia S. Freire e Leandro Franco de Souza (ICMC-USP) e Matheus Tozo de Araujo (IFPR).
 - Rotinas numéricas desenvolvidas e executadas em HPC.

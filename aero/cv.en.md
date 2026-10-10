@@ -102,7 +102,11 @@ Stack: MATLAB, 6-DOF simulation, Monte Carlo method, CFD
 
 LASC Cooperation Program · 2020 – 2022
 
-**Approach:** I produced the technical drawings and manufacturing plans for the nose cone, supported composite manufacturing studies and ran **2D and 3D CFD** simulations of the vehicle’s aerodynamic performance.
+**Approach:**
+
+- I produced the technical drawings and manufacturing plans for the nose cone.
+- Supported composite manufacturing studies.
+- Ran **2D and 3D CFD** simulations of the vehicle’s aerodynamic performance.
 
 Stack: ANSYS Fluent (2D and 3D CFD), Technical drawing, Composites
 
@@ -126,7 +130,8 @@ Stack: ANSYS CFX, CFD, Thermodynamics, Numerical modeling, Experimental testing
 ICMC-USP, FAPESP grant · Jul 2023 – Dec 2024
 
 - [Paper at EPTT 2024 (PDF)](https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf): Turbulent Channel flow with Coriolis force using Large-Eddy Simulation. Paper, EPTT 2024, in English.
-- **LES** (large-eddy simulation) of turbulent channel flow with Coriolis force: friction Reynolds number 180, 64 × 64 × 64 grid and four rotation numbers (Ro) (0, 0.018, 0.054, 0.091), compared with **DNS** (direct numerical simulation).
+- **LES** (large-eddy simulation) of turbulent channel flow with Coriolis force.
+- Friction Reynolds number 180, 64 × 64 × 64 grid and four rotation numbers (Ro) (0, 0.018, 0.054, 0.091), compared with **DNS** (direct numerical simulation).
 - Paper at **EPTT 2024**.
 - Authors: Igor Augusto de Melo (EESC-USP), Livia S. Freire and Leandro Franco de Souza (ICMC-USP), and Matheus Tozo de Araujo (IFPR).
 - Numerical routines developed and run on HPC.

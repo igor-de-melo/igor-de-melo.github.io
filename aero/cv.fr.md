@@ -102,7 +102,11 @@ Stack : MATLAB, Simulation à 6 degrés de liberté, Méthode de Monte-Carlo, C
 
 LASC Cooperation Program · 2020 – 2022
 
-**Approche :** J’ai réalisé les plans techniques et les dossiers de fabrication de l’ogive, participé aux études de fabrication en composites et simulé en **CFD 2D et 3D** les performances aérodynamiques du véhicule.
+**Approche :**
+
+- J’ai réalisé les plans techniques et les dossiers de fabrication de l’ogive.
+- Participation aux études de fabrication en composites.
+- Simulation en **CFD 2D et 3D** des performances aérodynamiques du véhicule.
 
 Stack : ANSYS Fluent (CFD 2D et 3D), Dessin technique, Composites
 
@@ -126,7 +130,8 @@ Stack : ANSYS CFX, CFD, Thermodynamique, Modélisation numérique, Essais expé
 ICMC-USP, bourse FAPESP · juil. 2023 – déc. 2024
 
 - [Article à l’EPTT 2024 (PDF)](https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf): Turbulent Channel flow with Coriolis force using Large-Eddy Simulation. Article, EPTT 2024, en anglais.
-- **LES** (simulation des grandes échelles) d’un écoulement turbulent en canal avec force de Coriolis : nombre de Reynolds de frottement de 180, maillage de 64 × 64 × 64 et quatre nombres de rotation (Ro) (0 ; 0,018 ; 0,054 ; 0,091), comparée à la **DNS** (simulation numérique directe).
+- **LES** (simulation des grandes échelles) d’un écoulement turbulent en canal avec force de Coriolis.
+- Nombre de Reynolds de frottement de 180, maillage de 64 × 64 × 64 et quatre nombres de rotation (Ro) (0 ; 0,018 ; 0,054 ; 0,091), comparée à la **DNS** (simulation numérique directe).
 - Article à l’**EPTT 2024**.
 - Auteurs : Igor Augusto de Melo (EESC-USP), Livia S. Freire et Leandro Franco de Souza (ICMC-USP) et Matheus Tozo de Araujo (IFPR).
 - Routines numériques développées et exécutées en HPC.

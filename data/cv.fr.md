@@ -56,7 +56,8 @@ Initiation à la recherche, EESC-USP, sous la direction du Prof. Flávio Donizet
 
 ICMC-USP, bourse FAPESP · juil. 2023 – déc. 2024
 
-- **LES** (simulation des grandes échelles) d’un écoulement turbulent en canal avec force de Coriolis : nombre de Reynolds de frottement de 180, maillage de 64 × 64 × 64 et quatre nombres de rotation (Ro) (0 ; 0,018 ; 0,054 ; 0,091), comparée à la **DNS** (simulation numérique directe).
+- **LES** (simulation des grandes échelles) d’un écoulement turbulent en canal avec force de Coriolis.
+- Nombre de Reynolds de frottement de 180, maillage de 64 × 64 × 64 et quatre nombres de rotation (Ro) (0 ; 0,018 ; 0,054 ; 0,091), comparée à la **DNS** (simulation numérique directe).
 - Article à l’**EPTT 2024**.
 - Auteurs : Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza et Matheus Tozo de Araujo.
 - Routines numériques développées et exécutées en HPC.
@@ -84,13 +85,16 @@ Projet personnel · En développement
 
 **Approche :**
 
-- J’utilise **Claude Haiku**, via l’API, pour transformer les e-mails en données : l’API lit chaque message et renvoie un **JSON** avec dossier, priorité de 1 à 5, résumé, échéance, action suggérée et alerte.
-- Le prompt fixe les dossiers, l’échelle de priorité et un protocole en 3 étapes contre les faux positifs de spam ; le **prompt caching** réduit le coût d’entrée.
+- J’utilise **Claude Haiku**, via l’API, pour transformer les e-mails en données.
+- L’API lit chaque message et renvoie un **JSON** avec dossier, priorité de 1 à 5, résumé, échéance, action suggérée et alerte.
+- Le prompt fixe les dossiers, l’échelle de priorité et un protocole en 3 étapes contre les faux positifs de spam.
+- Le **prompt caching** réduit le coût d’entrée.
 - Python fait le reste, sans IA : **OAuth2** sur deux comptes Gmail, **IMAP**, journal JSONL, Telegram et cron.
 
 **Résultat :**
 
-- Tri toutes les 15 minutes, avec synthèses quotidienne et hebdomadaire sur Telegram, où un bot accepte des commandes manuelles : Python construit les cartes et trie les échéances, et l’API n’écrit qu’un paragraphe d’analyse stratégique.
+- Tri toutes les 15 minutes, avec synthèses quotidienne et hebdomadaire sur Telegram, où un bot accepte des commandes manuelles.
+- Python construit les cartes et trie les échéances, et l’API n’écrit qu’un paragraphe d’analyse stratégique.
 - S’exécute en local et sur un VPS (Oracle Cloud) ; migration vers un Raspberry Pi prévue.
 - Estimation : 1 à 3 minutes gagnées par e-mail.
 
@@ -100,7 +104,11 @@ Stack : Python, API Claude, Claude Haiku, IMAP, OAuth2, API Telegram Bot, Linux
 
 Projet personnel · En développement
 
-**Approche :** J’utilise **Claude** (Projects et Cowork) avec l’**extension Chrome** pour collecter des offres dans le navigateur, lire chacune et lui attribuer une **note d’adéquation de 0 à 10** selon mes critères, écarter celles qui en sortent (séniorité, expérience exigée), rédiger des brouillons de lettre de motivation et remplir les formulaires de candidature.
+**Approche :**
+
+- J’utilise **Claude** (Projects et Cowork) avec l’**extension Chrome** pour collecter des offres dans le navigateur.
+- Avec lui, je lis chaque offre et lui attribue une **note d’adéquation de 0 à 10** selon mes critères, en écartant celles qui en sortent (séniorité, expérience exigée).
+- Je rédige aussi des brouillons de lettre de motivation et remplis les formulaires de candidature.
 
 **Résultat :**
 

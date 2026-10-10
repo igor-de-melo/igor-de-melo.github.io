@@ -56,7 +56,8 @@ Iniciação científica, EESC-USP, orientação do Prof. Flávio Donizeti Marque
 
 ICMC-USP, bolsa FAPESP · jul. 2023 – dez. 2024
 
-- **LES** (simulação de grandes escalas) de escoamento turbulento em canal com força de Coriolis: número de Reynolds de atrito 180, malha de 64 × 64 × 64 e quatro números de rotação (Ro) (0; 0,018; 0,054; 0,091), comparada com **DNS** (simulação numérica direta).
+- **LES** (simulação de grandes escalas) de escoamento turbulento em canal com força de Coriolis.
+- Número de Reynolds de atrito 180, malha de 64 × 64 × 64 e quatro números de rotação (Ro) (0; 0,018; 0,054; 0,091), comparada com **DNS** (simulação numérica direta).
 - Artigo no **EPTT 2024**.
 - Autores: Igor Augusto de Melo, Livia S. Freire, Leandro Franco de Souza e Matheus Tozo de Araujo.
 - Rotinas numéricas desenvolvidas e executadas em HPC.
@@ -84,13 +85,16 @@ Projeto pessoal · Em desenvolvimento
 
 **Abordagem:**
 
-- Uso o **Claude Haiku**, pela API, para transformar e-mails em dados: a API lê cada mensagem e devolve um **JSON** com pasta, prioridade de 1 a 5, resumo, prazo, ação sugerida e alerta.
-- O prompt traz as pastas, a escala de prioridade e um protocolo de 3 etapas contra falsos positivos de spam; o **prompt caching** reduz o custo de entrada.
+- Uso o **Claude Haiku**, pela API, para transformar e-mails em dados.
+- A API lê cada mensagem e devolve um **JSON** com pasta, prioridade de 1 a 5, resumo, prazo, ação sugerida e alerta.
+- O prompt traz as pastas, a escala de prioridade e um protocolo de 3 etapas contra falsos positivos de spam.
+- O **prompt caching** reduz o custo de entrada.
 - O Python faz o resto, sem IA: **OAuth2** em duas contas Gmail, **IMAP**, log JSONL, Telegram e cron.
 
 **Resultado:**
 
-- Triagem a cada 15 minutos, com resumo diário e semanal no Telegram, onde um bot aceita comandos manuais: o Python monta os cards e ordena os prazos, e a API escreve só um parágrafo de análise estratégica.
+- Triagem a cada 15 minutos, com resumo diário e semanal no Telegram, onde um bot aceita comandos manuais.
+- O Python monta os cards e ordena os prazos, e a API escreve só um parágrafo de análise estratégica.
 - Roda localmente e em VPS (Oracle Cloud); migração para Raspberry Pi planejada.
 - Estimativa: 1 a 3 minutos economizados por e-mail.
 
@@ -100,7 +104,11 @@ Stack: Python, API do Claude, Claude Haiku, IMAP, OAuth2, API de bots do Telegra
 
 Projeto pessoal · Em desenvolvimento
 
-**Abordagem:** Uso o **Claude** (Projects e Cowork) com a **extensão do Chrome** para coletar vagas no navegador, ler cada uma e dar uma **nota de aderência de 0 a 10** pelos meus critérios, descartar as que ficam fora deles (senioridade, experiência exigida), redigir rascunhos de carta de apresentação e preencher formulários de candidatura.
+**Abordagem:**
+
+- Uso o **Claude** (Projects e Cowork) com a **extensão do Chrome** para coletar vagas no navegador.
+- Com ele, leio cada vaga e dou uma **nota de aderência de 0 a 10** pelos meus critérios, descartando as que ficam fora deles (senioridade, experiência exigida).
+- Também redijo rascunhos de carta de apresentação e preencho formulários de candidatura.
 
 **Resultado:**
 
