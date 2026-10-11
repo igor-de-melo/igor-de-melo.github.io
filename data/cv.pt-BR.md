@@ -10,7 +10,7 @@ Disponível para vagas júnior em análise, engenharia ou ciência de dados ou e
 
 ## Resumo
 
-Estudante de Engenharia Aeronáutica na EESC-USP (em andamento), em transição para **dados e TI**. Analista de dados na Pilea Labs: projetei e construí as bases **MySQL** (no Google Cloud) e as consultas **SQL** por trás das listas, tabelas e gráficos da plataforma. Cursos de Machine Learning e Aprendizado por Reforço (Data ICMC-USP, 2025) e prática de computação científica: simulação Monte Carlo, otimização e análise de incerteza. Desenvolvo projetos próprios de automação com a **API do Claude**, como um sistema de triagem de e-mails com IA.
+Estudante de Engenharia Aeronáutica na EESC-USP (em andamento), em transição para **dados e TI**. Estagiário de análise de dados na Pilea Labs: projetei e construí as bases **MySQL** (no Google Cloud) e as consultas **SQL** por trás das listas, tabelas e gráficos da plataforma. Cursos de Machine Learning e Aprendizado por Reforço (Data ICMC-USP, 2025) e prática de computação científica: simulação Monte Carlo, otimização e análise de incerteza. Desenvolvo projetos próprios de automação com a **API do Claude**, como um sistema de triagem de e-mails com IA.
 
 Da engenharia: simulação de **Monte Carlo**, otimização com uma rede neural implementada do zero, análise de incerteza e rotinas numéricas em **HPC**. Em TI: Linux, Git, Bash, Google Cloud e integração de APIs, incluindo as de modelos de linguagem.
 
@@ -24,7 +24,7 @@ Da engenharia: simulação de **Monte Carlo**, otimização com uma rede neural 
 
 ## Experiência
 
-### Analista de Dados
+### Estagiário de Análise de Dados
 
 Pilea Labs · dez. 2024 – mar. 2025
 
@@ -47,14 +47,14 @@ Grupo SEMEAR, Núcleo de Robótica Aérea, EESC-USP · abr. 2025 – atual
 
 ### Cargas aerodinâmicas não estacionárias
 
-Iniciação científica, EESC-USP, orientação do Prof. Flávio Donizeti Marques · jul. 2023 – dez. 2024
+Iniciação científica, EESC-USP, orientação do Prof. Flávio Donizeti Marques · set. 2023 – dez. 2024
 
 - Modelos semiempíricos de cargas aerodinâmicas não estacionárias, com identificação e calibração de parâmetros a partir de dados experimentais e de **CFD**.
 - **Rede neural** implementada do zero para otimizar os parâmetros.
 
 ### Simulação de escoamentos turbulentos
 
-ICMC-USP, bolsa FAPESP · jul. 2023 – dez. 2024
+ICMC-USP, bolsa FAPESP · set. 2023 – dez. 2024
 
 - **LES** (simulação de grandes escalas) de escoamento turbulento em canal com força de Coriolis.
 - Número de Reynolds de atrito 180, malha de 64 × 64 × 64 e quatro números de rotação (Ro) (0; 0,018; 0,054; 0,091), comparada com **DNS** (simulação numérica direta).
@@ -153,7 +153,7 @@ Escola de Engenharia de São Carlos, USP · 2020 – atual
 
 ## Idiomas
 
-Português (nativo), inglês (avançado), francês (avançado), alemão (básico).
+Português (nativo), inglês (avançado), francês (avançado), alemão (básico), espanhol (básico).
 
 ## Contato
 
@@ -162,6 +162,6 @@ Para vagas júnior ou projetos em dados e TI, escreva para:
 - E-mail: [igor_amelo@usp.br](mailto:igor_amelo@usp.br)
 - LinkedIn: [linkedin.com/in/igorademelo](https://www.linkedin.com/in/igorademelo)
 - GitHub: [github.com/igor-de-melo](https://github.com/igor-de-melo)
-- [Baixar currículo (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo.pdf)
+- [Baixar currículo (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo-pt.pdf)
 
 São Carlos, SP, Brasil

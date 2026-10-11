@@ -10,7 +10,7 @@ Disponible pour des postes junior dans le secteur aérospatial.
 
 ## Résumé
 
-Étudiant en **ingénierie aéronautique** à l’EESC-USP (en cours), avec une année d’échange à l’École Centrale de Marseille et un certificat d’études spéciales en **dynamique des fluides numérique (CFD)** à l’ICMC-USP. Expérience en propulsion, mécanique du vol, aérostructures et ingénierie système en équipes de compétition, avec **trois titres au Latin American Space Challenge (LASC)** ; chef de projet d’un drone (UAV) autonome à voilure fixe au sein du groupe SEMEAR. Recherche en écoulements turbulents (LES), modélisation atmosphérique (WRF) et charges aérodynamiques instationnaires.
+Étudiant en **ingénierie aéronautique** à l’EESC-USP (en cours), avec une année d’échange à l’École Centrale de Marseille et un certificat d’études spéciales en **dynamique des fluides numérique (CFD)** en cours à l’ICMC-USP. Expérience en propulsion, mécanique du vol, aérostructures et ingénierie système en équipes de compétition, avec **trois titres au Latin American Space Challenge (LASC)** ; chef de projet d’un drone (UAV) autonome à voilure fixe au sein du groupe SEMEAR. Recherche en écoulements turbulents (LES), modélisation atmosphérique (WRF) et charges aérodynamiques instationnaires.
 
 Domaines d’intérêt : aérodynamique, turbulence et CFD, aéroélasticité, thermodynamique, commande de vol, ingénierie système et gestion technique de projets.
 
@@ -22,7 +22,7 @@ Domaines d’intérêt : aérodynamique, turbulence et CFD, aéroélasticité, 
 ## Compétences
 
 - **Ingénierie aérospatiale :** Aérodynamique, CFD, Propulsion, Mécanique du vol, Ingénierie système, Analyse par éléments finis, Systèmes de commande (notions)
-- **Simulation :** ANSYS Fluent, ANSYS CFX, OpenFOAM, XFOIL, XFLR5, WRF, Patran/Nastran (notions), Abaqus (notions)
+- **Simulation :** ANSYS Fluent, ANSYS CFX, OpenFOAM, XFOIL, XFLR5, WRF, ANSYS Mechanical, Patran/Nastran (notions), Abaqus (notions)
 - **Programmation :** Python, MATLAB/Simulink, Fortran, SQL, Bash, C++ (notions), Java (notions)
 - **Outils :** Git, Linux, HPC, Google Cloud, SolidWorks, Fusion 360, CATIA (notions), LaTeX
 - **Gestion :** Gestion de projet de drone, Ingénierie système selon le NASA Systems Engineering Handbook, Documentation technique, Traçabilité
@@ -40,7 +40,7 @@ Groupe SEMEAR, pôle de robotique aérienne, EESC-USP · avr. 2025 – aujourd�
 
 Également en aérodynamique et dynamique du vol : analyse aérodynamique, évaluation des performances et simulations orientées commande.
 
-### Analyste de données
+### Stagiaire analyste de données
 
 Pilea Labs · déc. 2024 – mars 2025
 
@@ -50,14 +50,14 @@ Pilea Labs · déc. 2024 – mars 2025
 
 TOPUS Projetos Aeroespaciais · mars 2020 – déc. 2023
 
-- Propulsion (travail d’équipe) : conception et analyse de moteurs-fusées à propergol solide par thermodynamique, transferts thermiques, analyse structurale et **CFD**, avec essais numériques et expérimentaux.
+- Propulsion (travail d’équipe) : conception et analyse de moteurs-fusées solides et hybrides par thermodynamique, transferts thermiques, analyse structurale et **CFD**, avec essais numériques et expérimentaux.
 - Moteur hybride : conception et essais du réservoir, de la tuyauterie et des vannes d’oxydant, et développement d’un **injecteur à vortex**.
 - Mécanique du vol et performances (travail individuel, dans les projets auxquels j’ai participé) : développement d’outils de simulation de vol à 6 degrés de liberté sous **MATLAB** et analyse de dispersion par **Monte-Carlo** pour cartographier les zones de retombée.
 - Ingénierie système : application des méthodes de la **NASA** à la gestion des projets internes et à la standardisation de la documentation.
 
 ### Membre de l’équipe, structures
 
-Keep Flying, équipe AeroDesign (USP) · mars 2017 – janv. 2018
+Keep Flying, équipe AeroDesign (Poli-USP) · mars 2017 – janv. 2018
 
 - Dimensionnement de la structure et calcul des efforts d’un avion conçu pour la plus grande **charge utile** possible.
 - Études de compromis entre masse structurale et charge utile.
@@ -127,7 +127,7 @@ Stack : ANSYS CFX, CFD, Thermodynamique, Modélisation numérique, Essais expé
 
 ### Simulation d’écoulements turbulents
 
-ICMC-USP, bourse FAPESP · juil. 2023 – déc. 2024
+ICMC-USP, bourse FAPESP · sept. 2023 – déc. 2024
 
 - [Article à l’EPTT 2024 (PDF)](https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf): Turbulent Channel flow with Coriolis force using Large-Eddy Simulation. Article, EPTT 2024, en anglais.
 - **LES** (simulation des grandes échelles) d’un écoulement turbulent en canal avec force de Coriolis.
@@ -140,7 +140,7 @@ Stack : LES, Modèles de sous-maille, Fortran, HPC, Linux
 
 ### Charges aérodynamiques instationnaires
 
-Initiation à la recherche, EESC-USP, sous la direction du Prof. Flávio Donizeti Marques · juil. 2023 – déc. 2024
+Initiation à la recherche, EESC-USP, sous la direction du Prof. Flávio Donizeti Marques · sept. 2023 – déc. 2024
 
 Modèles semi-empiriques de charges aérodynamiques instationnaires sur des surfaces portantes, avec identification et calibration des paramètres à partir de données expérimentales et **CFD**.
 
@@ -182,7 +182,7 @@ ICMC-USP · 2023 – aujourd’hui
 
 ## Langues
 
-Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions).
+Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions), espagnol (notions).
 
 ## Contact
 
@@ -191,6 +191,6 @@ Pour un poste junior ou un projet de recherche, écrivez-moi :
 - E-mail : [igor_amelo@usp.br](mailto:igor_amelo@usp.br)
 - LinkedIn : [linkedin.com/in/igorademelo](https://www.linkedin.com/in/igorademelo)
 - GitHub : [github.com/igor-de-melo](https://github.com/igor-de-melo)
-- [Télécharger le CV (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo.pdf)
+- [Télécharger le CV (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo-fr.pdf)
 
 São Carlos, État de São Paulo, Brésil

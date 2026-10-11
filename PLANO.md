@@ -69,7 +69,7 @@ Duas páginas, uma base de código, três idiomas em cada:
 /assets/style.css                     CSS compartilhado
 /assets/site.js                       simulações, seletor de idioma, seletor de perfil
 /assets/fonts/                        fontes locais
-cv-igor-de-melo.pdf                   CV aeronáutico
+cv-igor-de-melo-pt.pdf, -en.pdf, -fr.pdf   CV por idioma (desde out. 2026; em assets/docs/)
 cv-igor-de-melo-ti.pdf                CV de TI e dados
 ```
 
@@ -97,8 +97,8 @@ Cada fase é independente e cabe numa conversa. A ordem é a recomendada.
 
 ### Fase 0 — Fechar pendências da v1 `[pendente]`
 
-- Substituir o `index.html` do repositório pela versão trilíngue mais recente, renomear o CV para
-  `cv-igor-de-melo.pdf` e apagar o PDF antigo, tudo num commit só.
+- Substituir o `index.html` do repositório pela versão trilíngue mais recente, renomear o CV (hoje
+  `cv-igor-de-melo-pt.pdf`, `-en.pdf` e `-fr.pdf`) e apagar o PDF antigo, tudo num commit só.
 - Confirmar a data do Certificado de Estudos Especiais em CFD do ICMC (está como "2023 – atual";
   a pesquisa FAPESP terminou em dez. 2024).
 - Corrigir no CV: "Curso de Machine Learning" → duas linhas, "Curso de Machine Learning, Data ICMC-USP
@@ -250,7 +250,7 @@ Uma página por projeto, com contexto, método, resultado e o papel do Igor. Só
 - **Paleta:** fundo `#E9EDF0`, tinta `#16233A`, sucção `#2F45B5`, estagnação `#B0232F`,
   neutro `#8792A2`, régua `#C5CDD6`. As cores da simulação são o mapa de Cp e têm significado.
 - **Tipografia:** Archivo (display, largura expandida no nome) e Source Serif 4 (texto).
-- **CV:** link fixo `cv-igor-de-melo.pdf` com `download="Igor_de_Melo_CV.pdf"`, para trocar o PDF sem
+- **CV:** link por idioma (`cv-igor-de-melo-pt.pdf`, `-en.pdf`, `-fr.pdf`) com `download="Igor_de_Melo_CV.pdf"`, para trocar o PDF sem
   mexer no HTML. A face TI usará `cv-igor-de-melo-ti.pdf` no mesmo padrão.
 - **Inglês:** grafia britânica, igual à do CV (optimisation, modelling, programme).
 - **Francês:** espaço inseparável antes de dois-pontos, apóstrofo tipográfico.

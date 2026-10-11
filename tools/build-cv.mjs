@@ -60,9 +60,11 @@ export function text(el, lang, area, md = false) {
   const inner = el.children.map((c) => text(c, lang, area, md)).join("");
   if (el.tag === "sup") return inner; // 1re, 8e
   if (md && el.tag === "strong" && inner.trim()) return `**${inner.trim()}**`; // destaque de palavra-chave
-  if (md && el.tag === "a" && el.attrs.href && inner.trim()) return `[${inner.replace(/\s+/g, " ").trim()}](${abs(el.attrs.href, area)})`;
+  if (md && el.tag === "a" && el.attrs.href && inner.trim()) return `[${inner.replace(/\s+/g, " ").trim()}](${abs(hrefOf(el, lang), area)})`;
   return inner;
 }
+// Endereço de um link numa língua: o currículo em PDF tem um arquivo por idioma (data-cv-pt-br, data-cv-en, data-cv-fr).
+const hrefOf = (el, lang) => el.attrs["data-cv-" + lang.toLowerCase()] || el.attrs.href;
 const clean = (s) => s.replace(/[ \t\r\n]+/g, " ").replace(/ ([,.;:)])/g, "$1").trim();
 const T = (el, lang, area, md = true) => clean(text(el, lang, area, md));
 const colon = (lang) => (lang === "fr" ? "\u00a0:" : ":");
@@ -90,7 +92,7 @@ function field(el, lang, area) {
   }
   let s = T(el, lang, area);
   if (f === "link") {
-    s = `[${T(el, lang, area, false)}](${abs(el.attrs.href, area)})`;
+    s = `[${T(el, lang, area, false)}](${abs(hrefOf(el, lang), area)})`;
     if (el.parent.tag === "li") { const label = clean(el.parent.children.filter((c) => c !== el).map((c) => text(c, lang, area)).join("")); if (label) s = `${label} ${s}`; }
   }
   if (f === "stack") s = (el.tag === "ul" ? all(el, (e) => e.tag === "li", lang).map((li) => T(li, lang, area)).join(", ") : s);

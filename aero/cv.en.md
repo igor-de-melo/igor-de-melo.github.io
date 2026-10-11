@@ -10,7 +10,7 @@ Available for junior roles in aerospace.
 
 ## Summary
 
-**Aeronautical Engineering** student at EESC-USP (in progress), with a year of exchange at École Centrale de Marseille and a special studies certificate in **Computational Fluid Dynamics (CFD)** at ICMC-USP. Experience in propulsion, flight mechanics, aerostructures and systems engineering on competition teams, with **three titles at the Latin American Space Challenge (LASC)**; project manager of an autonomous fixed-wing UAV (unmanned aerial vehicle) at the SEMEAR group. Research in turbulent flows (LES), atmospheric modeling (WRF) and unsteady aerodynamic loads.
+**Aeronautical Engineering** student at EESC-USP (in progress), with a year of exchange at École Centrale de Marseille, currently pursuing a special studies certificate in **Computational Fluid Dynamics (CFD)** at ICMC-USP. Experience in propulsion, flight mechanics, aerostructures and systems engineering on competition teams, with **three titles at the Latin American Space Challenge (LASC)**; project manager of an autonomous fixed-wing UAV (unmanned aerial vehicle) at the SEMEAR group. Research in turbulent flows (LES), atmospheric modeling (WRF) and unsteady aerodynamic loads.
 
 Areas of interest: aerodynamics, turbulence and CFD, aeroelasticity, thermodynamics, flight control, systems engineering and technical project management.
 
@@ -22,7 +22,7 @@ Also: embedded systems and cybersecurity.
 ## Skills
 
 - **Aerospace engineering:** Aerodynamics, CFD, Propulsion, Flight mechanics, Systems engineering, Finite element analysis, Control systems (fundamentals)
-- **Simulation:** ANSYS Fluent, ANSYS CFX, OpenFOAM, XFOIL, XFLR5, WRF, Patran/Nastran (basic), Abaqus (basic)
+- **Simulation:** ANSYS Fluent, ANSYS CFX, OpenFOAM, XFOIL, XFLR5, WRF, ANSYS Mechanical, Patran/Nastran (basic), Abaqus (basic)
 - **Programming:** Python, MATLAB/Simulink, Fortran, SQL, Bash, C++ (basic), Java (basic)
 - **Tools:** Git, Linux, HPC, Google Cloud, SolidWorks, Fusion 360, CATIA (basic), LaTeX
 - **Management:** UAV project management, Systems engineering (NASA Systems Engineering Handbook), Technical documentation, Traceability
@@ -40,7 +40,7 @@ SEMEAR Aerial Robotics Group, EESC-USP · Apr 2025 – present
 
 Also work on Aerodynamics and Flight Dynamics: aerodynamic analysis, performance assessment and control-oriented simulations.
 
-### Data Analyst
+### Data Analyst Intern
 
 Pilea Labs · Dec 2024 – Mar 2025
 
@@ -50,14 +50,14 @@ Pilea Labs · Dec 2024 – Mar 2025
 
 TOPUS Projetos Aeroespaciais · Mar 2020 – Dec 2023
 
-- Propulsion (team work): designed and analyzed solid rocket motors using thermodynamics, heat transfer, structural analysis and **CFD**, with computational and experimental testing.
+- Propulsion (team work): designed and analyzed solid and hybrid rocket motors using thermodynamics, heat transfer, structural analysis and **CFD**, with computational and experimental testing.
 - Hybrid motor: designed and tested the oxidizer tank, piping and valves, and developed a **vortex injector**.
 - Flight mechanics and performance (individual work, on the projects I took part in): built 6-DOF flight simulation tools in **MATLAB** and **Monte Carlo** dispersion analysis to map impact areas.
 - Systems engineering: applied **NASA** methods to the management of internal projects and to documentation standards.
 
 ### Team Member, structures
 
-Keep Flying, AeroDesign team (USP) · Mar 2017 – Jan 2018
+Keep Flying, AeroDesign team (Poli-USP) · Mar 2017 – Jan 2018
 
 - Sized the structure and computed the loads of an aircraft designed for the largest possible **payload**.
 - Ran trade-off studies between structural weight and payload.
@@ -127,7 +127,7 @@ Stack: ANSYS CFX, CFD, Thermodynamics, Numerical modeling, Experimental testing
 
 ### Turbulent flow simulation
 
-ICMC-USP, FAPESP grant · Jul 2023 – Dec 2024
+ICMC-USP, FAPESP grant · Sep 2023 – Dec 2024
 
 - [Paper at EPTT 2024 (PDF)](https://igor-de-melo.github.io/assets/docs/EPTT2024_paper.pdf): Turbulent Channel flow with Coriolis force using Large-Eddy Simulation. Paper, EPTT 2024, in English.
 - **LES** (large-eddy simulation) of turbulent channel flow with Coriolis force.
@@ -140,7 +140,7 @@ Stack: LES, Subgrid-scale models, Fortran, HPC, Linux
 
 ### Unsteady aerodynamic loads
 
-Undergraduate research, EESC-USP, advised by Prof. Flávio Donizeti Marques · Jul 2023 – Dec 2024
+Undergraduate research, EESC-USP, advised by Prof. Flávio Donizeti Marques · Sep 2023 – Dec 2024
 
 Semi-empirical models of unsteady aerodynamic loads on lifting surfaces, with parameter identification and calibration against experimental and **CFD** data.
 
@@ -182,7 +182,7 @@ São Carlos School of Engineering, University of São Paulo · 2020 – present
 
 ## Languages
 
-Portuguese (native), English (advanced), French (advanced), German (basic).
+Portuguese (native), English (advanced), French (advanced), German (basic), Spanish (basic).
 
 ## Contact
 
@@ -191,6 +191,6 @@ For junior roles or research projects, reach me at:
 - Email: [igor_amelo@usp.br](mailto:igor_amelo@usp.br)
 - LinkedIn: [linkedin.com/in/igorademelo](https://www.linkedin.com/in/igorademelo)
 - GitHub: [github.com/igor-de-melo](https://github.com/igor-de-melo)
-- [Download résumé (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo.pdf)
+- [Download résumé (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo-en.pdf)
 
 São Carlos, São Paulo, Brazil

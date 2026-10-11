@@ -29,7 +29,7 @@ for (const page of pages) {
   const rel = relative(root, page);
   // srcset e data-srcset: cada variante de imagem entra como um endereço a conferir.
   const sets = [...src.matchAll(/\s(?:data-)?srcset="([^"]*)"/g)].flatMap((m) => m[1].split(",").map((p) => [null, "src", p.trim().split(/\s+/)[0]]));
-  for (const m of [...src.matchAll(/\s(href|src)="([^"]*)"/g), ...sets]) {
+  for (const m of [...src.matchAll(/\s(href|src|data-cv-[a-z-]+)="([^"]*)"/g), ...sets]) {
     const url = m[2];
     if (!url) { errors.push(`${rel}: ${m[1]} vazio`); continue; }
     if (/^(mailto|tel|data|javascript):/i.test(url)) continue;
@@ -50,6 +50,28 @@ for (const page of pages) {
     if (file === m[2] || !existsSync(join(root, file))) errors.push(`${rel}: ${m[1]} "${m[2]}" não corresponde a um arquivo do site`);
   }
 }
+
+// Currículo em PDF: um arquivo por idioma. Os três existem, cada link de currículo aponta os três
+// (href em PT e data-cv-pt-br / -en / -fr) e o nome antigo, de arquivo único, não aparece mais em lugar nenhum.
+const CV = { "pt-br": "cv-igor-de-melo-pt.pdf", en: "cv-igor-de-melo-en.pdf", fr: "cv-igor-de-melo-fr.pdf" };
+for (const f of Object.values(CV)) if (!existsSync(join(root, "assets", "docs", f))) errors.push(`assets/docs/${f}: currículo não encontrado`);
+for (const page of [...pages, join(root, "index.template.html")]) {
+  const rel = relative(root, page);
+  for (const m of readFileSync(page, "utf8").matchAll(/<a\b[^>]*cv-igor-de-melo[^>]*>/g)) {
+    for (const [l, f] of Object.entries(CV)) if (!new RegExp(`data-cv-${l}="[^"]*/${f}"`).test(m[0])) errors.push(`${rel}: link de currículo sem data-cv-${l} apontando para ${f}`);
+    if (!/\shref="[^"]*\/cv-igor-de-melo-pt\.pdf"/.test(m[0])) errors.push(`${rel}: o href do link de currículo deve ser o PDF em português (o site.js troca conforme o idioma)`);
+  }
+}
+const OLD_CV = "cv-igor-de-melo" + ".pdf";
+const TEXT = /\.(html|md|mjs|js|json|txt|xml|yml|yaml|css)$/;
+(function scan(dir) {
+  for (const name of readdirSync(dir)) {
+    const p = join(dir, name);
+    if (statSync(p).isDirectory()) { if (![".git", "node_modules", "screenshots", "photos_pdf_certificate"].includes(name)) scan(p); }
+    else if (name === OLD_CV) errors.push(`${relative(root, p)}: o PDF antigo do currículo ainda existe`);
+    else if (TEXT.test(name) && name !== "package-lock.json" && readFileSync(p, "utf8").includes(OLD_CV)) errors.push(`${relative(root, p)}: ainda cita ${OLD_CV}`);
+  }
+})(root);
 
 if (errors.length) { console.log(errors.map((e) => "FALHA " + e).join("\n")); }
 else console.log(`Links internos OK em ${pages.length} páginas.`);

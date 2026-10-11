@@ -45,6 +45,12 @@
     document.querySelectorAll("button[data-title-" + l.toLowerCase() + "]").forEach(function (b) { b.title = b.getAttribute("data-title-" + l.toLowerCase()); });
     document.querySelectorAll("[data-aria-" + l.toLowerCase() + "]").forEach(function (e) { e.setAttribute("aria-label", e.getAttribute("data-aria-" + l.toLowerCase())); });
     document.querySelectorAll("img[data-alt-" + l.toLowerCase() + "]").forEach(function (i) { i.alt = i.getAttribute("data-alt-" + l.toLowerCase()); });
+    // Currículo em PDF: um arquivo por idioma (data-cv-pt-br, data-cv-en e data-cv-fr no próprio link).
+    document.querySelectorAll("a[data-cv-" + l.toLowerCase() + "]").forEach(function (a) {
+      var h = a.getAttribute("data-cv-" + l.toLowerCase());
+      a.setAttribute("href", h);
+      if (a.hasAttribute("data-print-url")) a.setAttribute("data-print-url", "https://igor-de-melo.github.io/assets/docs/" + h.split("/").pop());
+    });
     if (persist) store(l);
     document.dispatchEvent(new CustomEvent("sitelangchange", { detail: { lang: l } }));
   }

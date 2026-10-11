@@ -10,7 +10,7 @@ Disponible pour des postes junior en analyse de données, ingénierie des donné
 
 ## Résumé
 
-Étudiant en ingénierie aéronautique à l’EESC-USP (en cours), en transition vers **la donnée et l’informatique**. Analyste de données chez Pilea Labs : conception des bases **MySQL** (sur Google Cloud) et des requêtes **SQL** derrière les listes, tableaux et graphiques de la plateforme. Cours de Machine Learning et d’apprentissage par renforcement (Data ICMC-USP, 2025) et pratique du calcul scientifique : simulation Monte-Carlo, optimisation et analyse d’incertitude. Je développe des projets d’automatisation personnels avec l’**API Claude**, dont un système de tri d’e-mails assisté par IA.
+Étudiant en ingénierie aéronautique à l’EESC-USP (en cours), en transition vers **la donnée et l’informatique**. Stagiaire analyste de données chez Pilea Labs : conception des bases **MySQL** (sur Google Cloud) et des requêtes **SQL** derrière les listes, tableaux et graphiques de la plateforme. Cours de Machine Learning et d’apprentissage par renforcement (Data ICMC-USP, 2025) et pratique du calcul scientifique : simulation Monte-Carlo, optimisation et analyse d’incertitude. Je développe des projets d’automatisation personnels avec l’**API Claude**, dont un système de tri d’e-mails assisté par IA.
 
 De l’ingénierie : simulation de **Monte-Carlo**, optimisation par un réseau de neurones codé de zéro, analyse d’incertitude et routines numériques en **HPC**. En informatique : Linux, Git, Bash, Google Cloud et intégration d’API, y compris de modèles de langage.
 
@@ -24,7 +24,7 @@ De l’ingénierie : simulation de **Monte-Carlo**, optimisation par un réseau
 
 ## Expérience
 
-### Analyste de données
+### Stagiaire analyste de données
 
 Pilea Labs · déc. 2024 – mars 2025
 
@@ -47,14 +47,14 @@ Groupe SEMEAR, pôle de robotique aérienne, EESC-USP · avr. 2025 – aujourd�
 
 ### Charges aérodynamiques instationnaires
 
-Initiation à la recherche, EESC-USP, sous la direction du Prof. Flávio Donizeti Marques · juil. 2023 – déc. 2024
+Initiation à la recherche, EESC-USP, sous la direction du Prof. Flávio Donizeti Marques · sept. 2023 – déc. 2024
 
 - Modèles semi-empiriques de charges aérodynamiques instationnaires, avec identification et calibration des paramètres à partir de données expérimentales et **CFD**.
 - **Réseau de neurones** codé de zéro pour optimiser les paramètres.
 
 ### Simulation d’écoulements turbulents
 
-ICMC-USP, bourse FAPESP · juil. 2023 – déc. 2024
+ICMC-USP, bourse FAPESP · sept. 2023 – déc. 2024
 
 - **LES** (simulation des grandes échelles) d’un écoulement turbulent en canal avec force de Coriolis.
 - Nombre de Reynolds de frottement de 180, maillage de 64 × 64 × 64 et quatre nombres de rotation (Ro) (0 ; 0,018 ; 0,054 ; 0,091), comparée à la **DNS** (simulation numérique directe).
@@ -153,7 +153,7 @@ ICMC-USP · 2023 – aujourd’hui
 
 ## Langues
 
-Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions).
+Portugais (langue maternelle), anglais (avancé), français (avancé), allemand (notions), espagnol (notions).
 
 ## Contact
 
@@ -162,6 +162,6 @@ Pour un poste junior ou un projet en données et informatique, écrivez-moi :
 - E-mail : [igor_amelo@usp.br](mailto:igor_amelo@usp.br)
 - LinkedIn : [linkedin.com/in/igorademelo](https://www.linkedin.com/in/igorademelo)
 - GitHub : [github.com/igor-de-melo](https://github.com/igor-de-melo)
-- [Télécharger le CV (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo.pdf)
+- [Télécharger le CV (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo-fr.pdf)
 
 São Carlos, État de São Paulo, Brésil
