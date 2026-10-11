@@ -7,6 +7,8 @@
    </figure>
    Clicar numa miniatura troca a imagem principal; clicar na principal abre o <dialog class="lightbox">.
    Quando a principal está escondida (grade de miniaturas do Simplificado), a miniatura já abre a imagem ampliada.
+   A ampliada mostra sempre a figura escolhida na maior variante (o data-src da miniatura, sem sufixo) e nunca leva
+   srcset/sizes: com eles o navegador ignoraria o src trocado aqui.
    O <dialog> nativo prende o foco, fecha com Esc e devolve o foco ao botão que o abriu. */
 (function () {
   "use strict";
@@ -40,10 +42,14 @@
     var open = null;
     if (!box || typeof box.showModal !== "function") return;
     main.addEventListener("click", open = function () {
-      boxImg.src = img.getAttribute("src");
+      var cur = thumbs.filter(function (t) { return t.getAttribute("aria-pressed") === "true"; })[0] || thumbs[0];
+      boxImg.removeAttribute("srcset");
+      boxImg.removeAttribute("sizes");
+      boxImg.removeAttribute("loading");
+      boxImg.src = cur.getAttribute("data-src");
       boxImg.alt = img.alt;
-      boxImg.width = img.width;
-      boxImg.height = img.height;
+      boxImg.setAttribute("width", cur.getAttribute("data-w"));
+      boxImg.setAttribute("height", cur.getAttribute("data-h"));
       if (boxCap && cap) {
         boxCap.textContent = "";
         Array.prototype.forEach.call(cap.childNodes, function (n) { boxCap.appendChild(n.cloneNode(true)); });

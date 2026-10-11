@@ -375,7 +375,7 @@
     el.parentNode.insertBefore(home, el);
     return { el: el, home: home };
   });
-  function orderForView() {
+  function orderForView(keepSamples) {
     var simple = currentView() === "simple";
     movers.forEach(function (m) {
       var to = simple ? document.getElementById(m.el.getAttribute("data-simple-before")) : m.home.nextSibling;
@@ -383,7 +383,7 @@
       if (parent && to !== m.el) parent.insertBefore(m.el, to);
     });
     // Trechos de código de exemplo (<details class="sample">): fechados por padrão nas duas visões; ao trocar de visão, voltam a fechar.
-    Array.prototype.forEach.call(document.querySelectorAll("details.sample"), function (d) { d.open = false; });
+    if (!keepSamples) Array.prototype.forEach.call(document.querySelectorAll("details.sample"), function (d) { d.open = false; });
   }
   orderForView();
   // target (opcional): elemento que deve ficar visível depois da troca; sem ele, fica a seção atual.
@@ -425,6 +425,30 @@
     });
   });
   document.addEventListener("sitelangchange", function () { syncView(false); });
+
+  /* ---------- Impressão: sempre o layout do Simplificado ---------- */
+  // A folha usa a camada [data-view="simple"] qualquer que seja a visão na tela: antes de imprimir, a página passa
+  // para o Simplificado (com a ordem de seções do CV) e, depois, volta ao que estava. Nada é gravado nem muda na URL.
+  // A Home não tem Simplificado e fica de fora. Sem JavaScript, vale o @media print de cada visão.
+  if (viewButtons.length || viewToggles.length) {
+    var printBack = null;
+    var printOn = function () {
+      if (printBack || currentView() === "simple") return;
+      printBack = { y: window.scrollY };
+      root.dataset.view = "simple";
+      orderForView(true);
+      Array.prototype.forEach.call(document.querySelectorAll(".rise-wait"), function (el) { el.classList.remove("rise-wait"); });
+    };
+    var printOff = function () {
+      if (!printBack) return;
+      root.dataset.view = "themed";
+      orderForView(true);
+      window.scrollTo(0, printBack.y);
+      printBack = null;
+    };
+    window.addEventListener("beforeprint", printOn);
+    window.addEventListener("afterprint", printOff);
+  }
   // Chegou com ?view= na URL: guarda a escolha para as próximas páginas.
   // (A Home não tem seletor e é sempre Temático: lá o parâmetro é ignorado e a escolha gravada não muda.)
   if (viewButtons.length || viewToggles.length) {

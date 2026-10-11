@@ -611,7 +611,10 @@ body[data-area="aero"] .project .results{margin:20px 0 0}
 .lightbox-cap{margin:0}
 .lightbox-close{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;border:0;border-radius:var(--radius);background:transparent;color:var(--ink);cursor:pointer}
 .lightbox-close:hover{background:var(--raise)}
-.lightbox>img{display:block;width:auto;height:auto;max-width:100%;max-height:calc(100vh - 100px);max-height:calc(100dvh - 100px);margin:0 auto}
+.lightbox[open]{display:flex;flex-direction:column}
+.lightbox-bar{flex:none}
+/* A imagem cabe inteira no que sobra da janela depois da legenda (que pode ter várias linhas no celular) */
+.lightbox>img{display:block;flex:0 1 auto;min-height:0;width:auto;height:auto;max-width:100%;margin:0 auto;object-fit:contain}
 
 /* ---------- Pesquisa (layout dos cartões da C4): data e instituição à esquerda; título, texto e etiquetas à direita ---------- */
 .research-list{display:grid;gap:14px}
@@ -2168,3 +2171,77 @@ html:has(body[data-area="it-security"]){scroll-padding-bottom:calc(28px + 12px)}
   :is(.cell-links,.pn-links) a{display:inline-flex;align-items:center;min-width:44px;min-height:44px}
   [data-view="simple"] body[data-area] .s-nav a{min-width:44px;text-align:center}
 }
+
+/* ---------- R8.2: Simplificado de Dados em tela média (761 a 1100 px): os rótulos de grupo herdavam o recuo de 96 px do Temático ---------- */
+[data-view="simple"] body[data-area="data"] .content :is(.cell-group,.md){padding-left:0}
+[data-view="simple"] body[data-area="data"] .content .cell-sub>.cell-group{padding:0 0 8px}
+
+/* ---------- R8.2: folha impressa mais legível (uma página a mais por área: Aero e Dados até 4, TI e Ciber até 3) ----------
+   A impressão usa sempre esta camada (assets/site.js troca para o Simplificado no beforeprint).
+   Corpo de 10,5 pt com entrelinha 1,35, margens de 15 mm, respiro entre seções e itens; nada do conteúdo fica de fora. */
+@page cv{size:A4;margin:15mm}
+@media print{
+  :root[data-view="simple"] body[data-area],:root[data-view="simple"][data-theme="dark"] body[data-area]{--fs-display:17pt;--fs-h2:14pt;--fs-h3:11.5pt;--fs-lead:10.5pt;--fs-body:10.5pt;--fs-ui:10pt;--fs-small:9.5pt;--fs-xs:8.5pt;--lh-body:1.35;--lh-small:1.28;--lh-h3:1.2}
+  [data-view="simple"] body{font-size:10.5pt;line-height:1.35;orphans:2;widows:2}
+  [data-view="simple"] body[data-area] .content .section,[data-view="simple"] body[data-area] .content .sublist,[data-view="simple"] body[data-area] .content .cell-sub{margin-top:9pt}
+  [data-view="simple"] body[data-area] .sec-h,[data-view="simple"] body[data-area] .content .sublist>h3,[data-view="simple"] body[data-area] .content .cell-sub>.cell-group{margin-bottom:6pt;padding-bottom:3pt}
+  [data-view="simple"] body[data-area] .content :is(.timeline>li,.research),[data-view="simple"] body[data-area] .content article.project,[data-view="simple"] body[data-area] .content :is(.cell,.pn)[data-item="project"]{margin-bottom:6.5pt}
+  [data-view="simple"] body:is([data-area="data"],[data-area="it-security"]) .content :is([data-item="experience"],[data-item="education"],[data-item="course"]){padding-bottom:6.5pt}
+  [data-view="simple"] body[data-area] .content :is(.entry ul:not(.chips),.plain) li,[data-view="simple"] body[data-area] .content :is(.cell-out,.pn) ul:not(.chips):not(.s-contact) li,[data-view="simple"] body[data-area] .content .par-list li{margin-bottom:1.5pt}
+  [data-view="simple"] body[data-area] .content .par>div{margin-bottom:2.5pt}
+  [data-view="simple"] body[data-area] .content .skills,[data-view="simple"] body[data-area="data"] .content .cell--skill .cell-body,[data-view="simple"] body[data-area] .content .yml{gap:3pt 14px}
+  [data-view="simple"] body[data-area] .content .results{margin-top:6pt}
+  [data-view="simple"] body[data-area] .content .results :is(th,td){padding:2.5pt 16px 2.5pt 0}
+  [data-view="simple"] body[data-area] .content .editions{margin-top:6pt}
+  /* Voltam os tópicos que tinham saído só para caber (motor da TOPUS e edição de 2020) */
+  [data-view="simple"] body[data-area] .content .editions li:is(:nth-child(-n+2),:nth-child(6)){display:list-item}
+  /* Contatos do cabeçalho: a segunda coluna fica com o resto da linha, e o endereço do currículo quebra em vez de sair da margem */
+  [data-view="simple"] body[data-area] .content .s-contact{grid-template-columns:max-content minmax(0,1fr)}
+  [data-view="simple"] body[data-area] .content .s-contact .s-c{min-width:0;overflow-wrap:anywhere}
+  /* Contato, no fim: os endereços já estão no cabeçalho da folha; os ícones não imprimem */
+  [data-view="simple"] body[data-area] #contato :is(.ic-link,.contact-icons){display:none!important}
+  /* A frase "escreva para:" continua seguida do e-mail (só ele; LinkedIn e GitHub estão no cabeçalho) */
+  [data-view="simple"] body[data-area] #contato .s-contact{display:inline!important;margin:0 6pt 0 0;padding:0}
+  [data-view="simple"] body[data-area] #contato .s-contact .s-c{display:none}
+  [data-view="simple"] body[data-area] #contato .s-contact .s-c--mail{display:inline}
+  [data-view="simple"] body[data-area] #contato .s-contact .s-c--mail>span{display:none}
+  /* A lista de edições deixa de ser multicoluna na folha: dentro dela os tópicos se partiam entre páginas */
+  [data-view="simple"] body[data-area] .content .editions{columns:auto}
+  /* A folha tem ~794 px e caía na regra de tela média que recua os rótulos de grupo de Dados em 96 px */
+  [data-view="simple"] body[data-area="data"] .content :is(.cell-group,.md){padding-left:0}
+  /* Quebras: cartão curto, linha de tabela e tópico não se partem; título não fica sozinho no fim da página */
+  /* Item curto (formação, curso, cartão sem lista) fica inteiro; item com lista pode quebrar ENTRE tópicos: um cartão de
+     um terço de página sem quebra deixava buracos e fazia a contagem de páginas depender de uma linha a mais ou a menos */
+  [data-view="simple"] body[data-area] .content [data-item]{break-inside:avoid}
+  [data-view="simple"] body[data-area] .content [data-item]:has(ul:not(.chips) li){break-inside:auto}
+  [data-view="simple"] body[data-area] .content [data-item] :is(h3,[data-f="title"],.org,.when,.par dt){break-after:avoid}
+  [data-view="simple"] :is(tr,li,.results,figure){break-inside:avoid}
+  [data-view="simple"] :is(h1,h2,h3,.sec-h,.org,.when,dt,caption){break-after:avoid}
+}
+
+/* ---------- R8.2: Home na folha (sem barra, sem cadeia de sinal nem decoração de cartão; preto no branco) ---------- */
+@media print{
+  body[data-area="home"]{display:block;min-height:0;background:#FFFFFF!important;color:#000000;--ink:#000000;--ink2:#333333;--line:#999999}
+  body[data-area="home"] :is(.topbar,.skip,.gate-pick,.chain svg,.stage-rail,.avail-dot,.hc-lb,.hc-in,.hc-pm,.hc-pt,.hc-go,.hcard-simple,.site-footer .btn,.foot-cv){display:none!important}
+  body[data-area="home"] .home{max-width:none;padding:0}
+  body[data-area="home"] .gate-hero{padding:0}
+  body[data-area="home"] :is(.stage,.chain,.chain>div){display:block;margin:0;padding:0}
+  body[data-area="home"] .chain{margin-top:14pt}
+  body[data-area="home"] .hcard,body[data-area="home"] .hcard :is(.hc-glass,.hc-ou,.hc-pn){margin:0;padding:0;border:0;border-radius:0;background:none!important;box-shadow:none;color:#000000;font-family:inherit}
+  body[data-area="home"] .hcard{margin:0 0 10pt;padding:8pt 10pt;border:1px solid #999999;break-inside:avoid}
+  body[data-area="home"] .hcard :is(h2,p,a){color:#000000!important;font-family:inherit}
+  body[data-area="home"] :is(.hcard,.hc-glass,.hc-ou,.hc-pn){display:block;min-height:0;height:auto}
+  body[data-area="home"] :is(p,h1,h2,em,span,a){color:#000000!important}
+  body[data-area="home"] .home-foot .rail-cv{display:none}
+  body[data-area="home"] .home-foot{margin:0;padding:0}
+  /* Os ícones de contato viram texto: o endereço está no aria-label de cada link */
+  body[data-area="home"] .contact-icons{display:block}
+  body[data-area="home"] .contact-icons .ic-link{display:block;width:auto;height:auto;color:#000000}
+  body[data-area="home"] .contact-icons .ic-link svg{display:none}
+  body[data-area="home"] .contact-icons .ic-link::after{content:attr(aria-label);position:static;font:400 10.5pt/1.4 var(--display)}
+}
+
+/* ---------- R8.2: links de texto com pelo menos 24 px de altura de toque (WCAG 2.2 AA, 2.5.8) ---------- */
+[data-view="simple"] body[data-area="data"] .content [data-item="course"] [data-f="title"] a[data-f="link"]{display:inline-block}
+html:not([data-view="simple"]) body[data-area="it-security"] .contact-mail{padding-block:4px}
+@media print{[data-view="simple"] body[data-area="data"] .content [data-item="course"] [data-f="title"] a[data-f="link"]{display:inline;padding:0}}
