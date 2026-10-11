@@ -24,6 +24,9 @@ jobs:
         run: node tests/check-maze.mjs
       - name: Malware spread model (SIR)
         run: node tests/check-malware.mjs
+      # Diagnóstico: versão do navegador usado pelos três testes seguintes (tests/lib/cdp.mjs).
+      - name: Chrome version
+        run: google-chrome --version || google-chrome-stable --version || chromium-browser --version || chromium --version || echo "Chrome/Chromium not found in PATH"
       - name: Views (Simple / Themed)
         run: node tests/check-views.mjs
       - name: Figure lightbox

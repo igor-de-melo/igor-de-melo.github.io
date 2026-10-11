@@ -2,13 +2,11 @@
 // Parte estática (sempre): script de início e seletor em cada página, regra que desliga o movimento no Simplificado.
 // Parte em navegador (quando há Chrome/Chromium; defina CHROME_PATH se preciso): data-view válido conforme a URL,
 // nenhuma animação ou transição ativa em data-view="simple" e nenhum scroll horizontal em 375 e 1280 px.
-import { readFileSync, existsSync, mkdtempSync, rmSync } from "node:fs";
-import { spawn } from "node:child_process";
-import { dirname, join } from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
-import { tmpdir } from "node:os";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { pathToFileURL } from "node:url";
+import { root, hasBrowser, withBrowser, sleep } from "./lib/cdp.mjs";
 
-const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PAGES = ["index.html", "aero/index.html", "data/index.html", "it-security/index.html"];
 const errors = [];
 const fail = (msg) => errors.push(msg);
@@ -37,36 +35,13 @@ if (!/\[data-view="simple"\] \*,\[data-view="simple"\] \*::before,\[data-view="s
   fail('assets/style.css: falta a regra que desliga animações e transições em [data-view="simple"]');
 }
 
-/* ---------- Navegador (Chrome DevTools Protocol, sem dependências) ---------- */
-const CANDIDATES = [process.env.CHROME_PATH, "/usr/bin/google-chrome", "/usr/bin/google-chrome-stable", "/usr/bin/chromium", "/usr/bin/chromium-browser",
-  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", "C:/Program Files/Google/Chrome/Application/chrome.exe", "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"].filter(Boolean);
-const chromePath = CANDIDATES.find((p) => existsSync(p));
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+/* ---------- Navegador (tests/lib/cdp.mjs) ---------- */
 let browserChecks = 0;
 
 async function browser() {
-  const profile = mkdtempSync(join(tmpdir(), "check-views-"));
-  const port = 9400 + Math.floor(Math.random() * 400);
-  const chrome = spawn(chromePath, ["--headless=new", "--disable-gpu", "--no-sandbox", "--hide-scrollbars", "--no-first-run", "--allow-file-access-from-files",
-    "--remote-debugging-port=" + port, "--user-data-dir=" + profile, "about:blank"], { stdio: "ignore" });
-  let ws, seq = 0;
-  const pending = new Map();
-  try {
-    for (let i = 0; i < 60 && !ws; i++) {
-      try { const list = await (await fetch(`http://127.0.0.1:${port}/json`)).json(); const page = list.find((t) => t.type === "page"); if (page) ws = new WebSocket(page.webSocketDebuggerUrl); } catch { /* ainda subindo */ }
-      if (!ws) await sleep(250);
-    }
-    if (!ws) throw new Error("o navegador não respondeu");
-    await new Promise((res, rej) => { ws.addEventListener("open", res); ws.addEventListener("error", () => rej(new Error("falha na conexão com o navegador"))); });
-    ws.addEventListener("message", (ev) => { const m = JSON.parse(ev.data); const p = pending.get(m.id); if (p) { pending.delete(m.id); m.error ? p.rej(new Error(m.error.message)) : p.res(m.result); } });
-    const send = (method, params = {}) => new Promise((res, rej) => { const id = ++seq; pending.set(id, { res, rej }); ws.send(JSON.stringify({ id, method, params })); });
-    const evalJs = async (expression) => (await send("Runtime.evaluate", { expression, returnByValue: true })).result.value;
-    await send("Page.enable"); await send("Runtime.enable");
+  await withBrowser("check-views", async ({ send, evalJs, open: openPage }) => {
     const open = async (file, query, width) => {
-      await send("Emulation.setDeviceMetricsOverride", { width, height: 900, deviceScaleFactor: 1, mobile: width < 500 });
-      await send("Page.navigate", { url: "about:blank" });
-      await send("Page.navigate", { url: pathToFileURL(join(root, file)).href + query });
-      await sleep(900);
+      await openPage(file, query, width);
       await evalJs("try{localStorage.removeItem('view')}catch(e){};0");
     };
     const STATE = `(function(){var d=document.documentElement,run=document.getAnimations().filter(function(a){return a.playState==='running'}).length;
@@ -236,15 +211,10 @@ async function browser() {
         if (s.sw > s.iw) fail(`${f} (${width}px, themed): scroll horizontal (${s.sw} > ${s.iw})`);
       }
     }
-  } finally {
-    try { ws && ws.close(); } catch { /* já fechado */ }
-    chrome.kill();
-    await sleep(400);
-    try { rmSync(profile, { recursive: true, force: true }); } catch { /* perfil ainda em uso */ }
-  }
+  });
 }
 
-if (chromePath && typeof WebSocket === "function") {
+if (hasBrowser) {
   try { await browser(); } catch (e) { fail("navegador: " + e.message); }
 } else {
   console.log("AVISO  sem Chrome/Chromium (ou sem WebSocket no Node): só a parte estática foi verificada. Defina CHROME_PATH para rodar tudo.");
