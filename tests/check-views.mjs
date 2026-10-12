@@ -1,7 +1,8 @@
 // Verifica as duas visões do site (Simplificado e Temático). Uso: node tests/check-views.mjs
 // Parte estática (sempre): script de início e seletor em cada página, regra que desliga o movimento no Simplificado.
 // Parte em navegador (quando há Chrome/Chromium; defina CHROME_PATH se preciso): data-view válido conforme a URL,
-// nenhuma animação ou transição ativa em data-view="simple" e nenhum scroll horizontal em 375 e 1280 px.
+// nenhuma animação ou transição ativa em data-view="simple" e nenhum scroll horizontal em 375 e 1280 px; no celular, o
+// interruptor "Site Simplificado" (role="switch"): presença, texto nas três línguas, estado, clique, teclado e foco.
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
@@ -17,7 +18,7 @@ for (const f of PAGES) {
   const head = src.slice(0, src.indexOf("</head>"));
   if (f === "index.html") { // a Home é sempre Temático e não tem seletor
     if (!head.includes('<script>document.documentElement.dataset.view="themed"</script>')) fail(`${f}: o <head> deve fixar data-view="themed"`);
-    if (/data-view-set|data-view-toggle|class="[^"]*\bs-only\b/.test(src)) fail(`${f}: a Home não deve ter seletor de visão nem marcação .s-only`);
+    if (/data-view-set|data-view-toggle|role="switch"|class="[^"]*\bs-only\b/.test(src)) fail(`${f}: a Home não deve ter seletor de visão nem marcação .s-only`);
     for (const a of ["aero", "data", "it-security"]) {
       if (!src.includes(`href="${a}/index.html?view=simple" data-face data-face-view="simple"`)) fail(`${f}: falta o botão do Simplificado de ${a}`);
       if (!src.includes(`href="${a}/index.html?view=themed" data-face data-face-view="themed"`)) fail(`${f}: o cartão de ${a} deve abrir ?view=themed`);
@@ -27,10 +28,17 @@ for (const f of PAGES) {
   if (!/dataset\.view=v==="simple"\?"simple":"themed"/.test(head)) fail(`${f}: falta no <head> o script que aplica data-view (só "simple" ou "themed")`);
   if (!/try\{v=localStorage\.getItem\("view"\)\}catch/.test(head)) fail(`${f}: a leitura do localStorage "view" deve estar em try/catch`);
   for (const v of ["simple", "themed"]) if (!src.includes(`data-view-set="${v}"`)) fail(`${f}: falta o botão data-view-set="${v}"`);
-  if (!src.includes("data-view-toggle")) fail(`${f}: falta o botão compacto de visão (data-view-toggle)`);
+  // Celular: interruptor "Site Simplificado" na barra do título (.now) e no menu (.rail-view), com o texto visível nas três línguas
+  const SWITCH = '<button type="button" class="view-check" role="switch" aria-checked="false" data-view-toggle><svg class="view-check-ic" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">';
+  const LABEL = '</svg><span lang="pt-BR">Site Simplificado</span><span lang="en">Simplified Site</span><span lang="fr">Site simplifié</span></button>';
+  if (src.split(SWITCH).length - 1 !== 2 || src.split(LABEL).length - 1 !== 2 || (src.match(/data-view-toggle/g) || []).length !== 2) fail(`${f}: esperava dois interruptores "Site Simplificado" (barra do título e menu), com role="switch" e o texto nas três línguas`);
+  if (!/<div class="now-tools">\s*<button type="button" class="view-check"/.test(src) || !/<div class="rail-view">\s*<button type="button" class="view-check"/.test(src)) fail(`${f}: o interruptor deve ficar em .now-tools e em .rail-view`);
+  if (/class="view-toggle"|ic-simple|ic-themed/.test(src)) fail(`${f}: sobrou marcação do ícone antigo de troca de visão`);
   if (!/id="view-status" aria-live="polite"/.test(src)) fail(`${f}: falta a região aria-live que anuncia a troca de visão`);
 }
 const css = readFileSync(join(root, "assets", "style.css"), "utf8");
+if (/\.view-toggle|\.ic-themed|\.ic-simple/.test(css)) fail("assets/style.css: sobrou CSS do ícone antigo de troca de visão");
+if (!/\[data-view="simple"\] :is\([^)]*\.view-check[^)]*\)\{display:none!important\}/.test(css)) fail("assets/style.css: o interruptor de visão deve sumir na impressão");
 if (!/\[data-view="simple"\] \*,\[data-view="simple"\] \*::before,\[data-view="simple"\] \*::after\{animation:none!important;transition:none!important\}/.test(css)) {
   fail('assets/style.css: falta a regra que desliga animações e transições em [data-view="simple"]');
 }
@@ -64,7 +72,7 @@ async function browser() {
         await sleep(900);
         const h = await evalJs(`(function(){var st=null;try{st=localStorage.getItem('view')}catch(e){}
           var g=function(s){return [].map.call(document.querySelectorAll(s),function(a){return a.getAttribute('href')}).join(' ')};
-          return {view:document.documentElement.dataset.view,stored:st,simple:g('.hcard-simple'),cards:g('.hcard-link'),sw:document.querySelectorAll('[data-view-set],[data-view-toggle]').length}})()`); browserChecks++;
+          return {view:document.documentElement.dataset.view,stored:st,simple:g('.hcard-simple'),cards:g('.hcard-link'),sw:document.querySelectorAll('[data-view-set],[data-view-toggle],[role=switch],.view-check').length}})()`); browserChecks++;
         await evalJs("try{localStorage.removeItem('view')}catch(e){};0");
         if (h.view !== "themed") fail(`${f} (localStorage "simple" e ?view=simple): data-view="${h.view}", esperado "themed"`);
         if (h.stored !== null && h.stored !== "simple") fail(`${f}: a Home mudou a preferência gravada para "${h.stored}"`);
@@ -203,6 +211,98 @@ async function browser() {
         if (t.over > 1) fail(`${at}: conteúdo do cartão passa ${t.over.toFixed(0)} px da borda interna`);
         if (view === "themed" && width === 1280 && !(t.beside && t.clear)) fail(`${at}: a tabela deveria ficar ao lado da galeria, na coluna do texto`);
         if (width === 375 && t.beside) fail(`${at}: no celular a tabela não fica ao lado da galeria`);
+      }
+      // Celular: interruptor "Site Simplificado" (role="switch"). Um na barra do título e outro no menu.
+      {
+        const SW = `(function(){var d=document.documentElement,vis=function(e){return !!e&&e.getClientRects().length>0},R=function(e){return e.getBoundingClientRect()};
+          var all=[].slice.call(document.querySelectorAll('[role=switch]')),b=document.querySelector('.now .view-check'),m=document.querySelector('.rail .view-check'),r=R(b),row=R(document.querySelector('.now-row'));
+          var near=[].filter.call(document.querySelectorAll('.now-row .theme-toggle,.now-row .menu-toggle'),vis).map(R),t=R(document.querySelector('.now-title'));
+          var lab=[].filter.call(b.querySelectorAll('span'),vis)[0],a=document.activeElement,p=getComputedStyle(b.querySelector('path')).stroke,c=getComputedStyle(b.querySelector('circle')).fill;
+          return {view:d.dataset.view,n:all.length,checked:all.map(function(x){return x.getAttribute('aria-checked')}).join(','),bar:vis(b),menu:vis(m),desk:vis(document.querySelector('.view-switch')),
+            name:b.innerText.trim(),label:b.getAttribute('aria-label')||b.title||'',w:r.width,h:r.height,mh:vis(m)?R(m).height:0,
+            fits:r.left>=row.left-0.5&&r.right<=row.right+0.5&&t.right<=r.left+0.5&&!near.some(function(o){return o.left<r.right-0.5&&o.right>r.left+0.5}),
+            oneLine:!!lab&&R(lab).height<parseFloat(getComputedStyle(lab).fontSize)*1.6,mark:p!=='none',filled:c!=='none',
+            focus:a===b?'bar':a===m?'menu':a&&a.classList.contains('menu-toggle')?'menu-toggle':a?a.tagName:'',open:d.classList.contains('menu-open'),
+            pressed:[].map.call(document.querySelectorAll('.view-switch [data-view-set]'),function(x){return x.getAttribute('data-view-set')+'='+x.getAttribute('aria-pressed')}).join(','),
+            url:location.search,status:document.getElementById('view-status').textContent,sw:d.scrollWidth,iw:innerWidth}})()`;
+        const press = async (k) => { // Enter aciona no keydown (com o caractere) e Espaço, no keyup
+          const e = k === "Enter" ? { key: "Enter", code: "Enter", windowsVirtualKeyCode: 13, text: "\r" } : { key: " ", code: "Space", windowsVirtualKeyCode: 32, text: " " };
+          await send("Input.dispatchKeyEvent", { type: "keyDown", ...e });
+          await send("Input.dispatchKeyEvent", { type: "keyUp", key: e.key, code: e.code, windowsVirtualKeyCode: e.windowsVirtualKeyCode });
+          await sleep(150);
+        };
+        const NAMES = { "pt-BR": "Site Simplificado", en: "Simplified Site", fr: "Site simplifié" };
+        const state = (s, view, at) => { // o estado visual e o aria-checked acompanham <html data-view>
+          const on = view === "simple";
+          if (s.view !== view) fail(`${at}: data-view="${s.view}", esperado "${view}"`);
+          if (s.checked !== `${on},${on}`) fail(`${at}: aria-checked "${s.checked}", esperado "${on},${on}"`);
+          if (s.mark !== on || s.filled !== on) fail(`${at}: círculo ${s.filled ? "preenchido" : "vazio"} e marca ${s.mark ? "à mostra" : "oculta"}, esperado ${on ? "preenchido com a marca" : "só o contorno"}`);
+          if (s.pressed !== `simple=${on},themed=${!on}`) fail(`${at}: seletor do computador em "${s.pressed}"`);
+        };
+        // Presença, texto, estado inicial pela URL, alvo de toque e encaixe em cada largura de celular
+        for (const view of ["themed", "simple"]) for (const lang of ["pt-BR", "en", "fr"]) {
+          await open(f, `?lang=${lang}&view=${view}`, 375);
+          for (const width of [320, 360, 375, 390, 430]) {
+            await send("Emulation.setDeviceMetricsOverride", { width, height: 900, deviceScaleFactor: 1, mobile: true });
+            await sleep(120);
+            const s = await evalJs(SW), at = `${f} (${lang}, ${width}px, ${view}, interruptor)`; browserChecks++;
+            if (s.n !== 2 || !s.bar) fail(`${at}: esperava dois interruptores, com o da barra do título visível (${s.n}, visível: ${s.bar})`);
+            if (s.desk) fail(`${at}: o seletor do computador não deveria aparecer no celular`);
+            if (s.name !== NAMES[lang] || s.label) fail(`${at}: nome "${s.name}" (aria-label ou title: "${s.label}"), esperado só o texto visível "${NAMES[lang]}"`);
+            if (s.w < 44 || s.h < 44) fail(`${at}: alvo de toque de ${s.w.toFixed(0)} × ${s.h.toFixed(0)} px (mín. 44 × 44)`);
+            if (!s.fits) fail(`${at}: o interruptor sai da barra ou cobre o título, o tema ou o menu`);
+            if (!s.oneLine) fail(`${at}: o texto do interruptor quebrou em duas linhas`);
+            if (s.sw > s.iw) fail(`${at}: scroll horizontal (${s.sw} > ${s.iw})`);
+            state(s, view, at);
+          }
+        }
+        // Computador: o interruptor não aparece nas duas visões; vale o par de botões
+        for (const view of ["themed", "simple"]) {
+          await open(f, "?view=" + view, 1280);
+          const s = await evalJs(SW); browserChecks++;
+          if (s.bar || s.menu || !s.desk) fail(`${f} (1280px, ${view}): no computador vale o seletor de dois botões, sem o interruptor (barra: ${s.bar}, menu: ${s.menu}, seletor: ${s.desk})`);
+          state(s, view, `${f} (1280px, ${view})`);
+        }
+        // Troca por clique, Enter e Espaço na barra do título: o foco fica no interruptor, a URL e o anúncio acompanham
+        await open(f, "?lang=pt-BR&view=themed", 375);
+        let want = "themed";
+        for (const how of ["click", "Enter", " ", "click"]) {
+          if (how === "click") await evalJs("(function(){var b=document.querySelector('.now .view-check');b.focus();b.click()})();0");
+          else { await evalJs("document.querySelector('.now .view-check').focus();0"); await press(how); }
+          await sleep(150);
+          want = want === "themed" ? "simple" : "themed";
+          const s = await evalJs(SW), at = `${f} (375px, ${how === " " ? "Espaço" : how} na barra)`; browserChecks++;
+          state(s, want, at);
+          if (s.focus !== "bar") fail(`${at}: o foco foi para "${s.focus}", deveria continuar no interruptor`);
+          if (!new RegExp("[?&]view=" + want + "(&|$)").test(s.url)) fail(`${at}: a URL ficou "${s.url}"`);
+          if (s.status !== (want === "simple" ? "Visualização: Simplificado" : "Visualização: Temático")) fail(`${at}: anúncio "${s.status}"`);
+        }
+        // No menu: a troca fecha o painel e devolve o foco ao botão do menu
+        for (const how of ["Enter", " "]) {
+          await evalJs("document.querySelector('.menu-toggle').click();0"); await sleep(150);
+          const o = await evalJs(SW); browserChecks++;
+          if (!o.open || !o.menu || o.mh < 44) fail(`${f} (375px, menu): o interruptor do menu deveria estar visível, com 44 px de altura (aberto: ${o.open}, visível: ${o.menu}, altura: ${o.mh})`);
+          await evalJs("document.querySelector('.rail .view-check').focus();0"); await press(how);
+          await sleep(150);
+          want = want === "themed" ? "simple" : "themed";
+          const s = await evalJs(SW), at = `${f} (375px, ${how === " " ? "Espaço" : how} no menu)`; browserChecks++;
+          state(s, want, at);
+          if (s.open) fail(`${at}: o menu deveria fechar depois da troca`);
+          if (s.focus !== "menu-toggle") fail(`${at}: o foco foi para "${s.focus}", deveria voltar ao botão do menu`);
+        }
+        // Trocas feitas por outros controles: o par de botões do computador e o próprio atributo data-view
+        for (const [how, js] of [["botão do seletor do computador", "document.querySelector('.view-switch [data-view-set=WANT]').click()"], ["mudança direta de data-view", "document.documentElement.dataset.view='WANT'"]]) {
+          want = want === "themed" ? "simple" : "themed";
+          await evalJs(js.replace("WANT", want) + ";0"); await sleep(150);
+          const s = await evalJs(SW); browserChecks++;
+          state(s, want, `${f} (375px, ${how})`);
+        }
+        // Voltar do navegador: o estado segue a visão da página que reaparece
+        await open(f, "?view=simple", 375);
+        await evalJs("location.href='../index.html';0"); await sleep(900);
+        await evalJs("history.back();0"); await sleep(900);
+        { const s = await evalJs(SW); browserChecks++; state(s, "simple", `${f} (375px, voltar do navegador)`); }
+        await evalJs("try{localStorage.removeItem('view')}catch(e){};0");
       }
       // Temático: continua sem scroll horizontal
       for (const width of [375, 1280]) {

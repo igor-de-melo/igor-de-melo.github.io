@@ -361,9 +361,10 @@
 
   /* ---------- Visão: Simplificado (CV online) ou Temático ---------- */
   // O atributo <html data-view> é posto por um script no <head> (?view= > localStorage "view" > "themed").
-  // Aqui: os botões, a URL (history.replaceState, mantendo ?lang= e o #), o armazenamento e o anúncio da troca.
+  // No computador, o par de botões [data-view-set]; no celular, o interruptor "Site Simplificado" [data-view-toggle]
+  // (role="switch": ligado no Simplificado). Aqui: os botões, a URL (history.replaceState, mantendo ?lang= e o #), o armazenamento e o anúncio da troca.
   var VIEW_NAMES = { simple: { "pt-BR": "Simplificado", en: "Simple", fr: "Simplifié" }, themed: { "pt-BR": "Temático", en: "Themed", fr: "Thématique" } };
-  var VIEW_WORD = { "pt-BR": "Visualização", en: "View", fr: "Affichage" };
+  var VIEW_WORD = { "pt-BR": "Visualização", en: "View", fr: "Affichage" }; // anúncio da troca (#view-status)
   var viewButtons = Array.prototype.slice.call(document.querySelectorAll("[data-view-set]"));
   var viewToggles = Array.prototype.slice.call(document.querySelectorAll("[data-view-toggle]"));
   var viewStatus = document.getElementById("view-status");
@@ -371,7 +372,7 @@
   function syncView(announce) {
     var v = currentView(), l = VALID.indexOf(root.lang) >= 0 ? root.lang : "pt-BR";
     viewButtons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-view-set") === v)); });
-    viewToggles.forEach(function (b) { b.setAttribute("aria-pressed", String(v === "simple")); b.title = VIEW_WORD[l] + ": " + VIEW_NAMES[v][l]; });
+    viewToggles.forEach(function (b) { b.setAttribute("aria-checked", String(v === "simple")); });
     if (announce && viewStatus) viewStatus.textContent = VIEW_WORD[l] + ": " + VIEW_NAMES[v][l];
   }
   // Ordem do CV: no Simplificado, cada [data-simple-before="id"] vai para antes do elemento com esse id
@@ -411,7 +412,7 @@
     updateFaceLinks(root.lang);
     syncView(true);
     if (typeof setMenu === "function" && root.classList.contains("menu-open")) {
-      // O botão de visão fica dentro do painel: ao fechá-lo, o foco volta para o botão do menu (senão se perde).
+      // O interruptor também fica dentro do painel: ao fechá-lo, o foco volta para o botão do menu (senão se perde).
       var hadFocus = rail.contains(document.activeElement);
       setMenu(false);
       if (hadFocus) menuBtn.focus();
@@ -431,6 +432,9 @@
     });
   });
   document.addEventListener("sitelangchange", function () { syncView(false); });
+  // O estado dos controles segue <html data-view> por qualquer caminho: página devolvida pelo voltar/avançar e trocas feitas fora de setView.
+  window.addEventListener("pageshow", function () { syncView(false); });
+  if ((viewButtons.length || viewToggles.length) && "MutationObserver" in window) new MutationObserver(function () { syncView(false); }).observe(root, { attributes: true, attributeFilter: ["data-view"] });
 
   /* ---------- Impressão: sempre o layout do Simplificado ---------- */
   // A folha usa a camada [data-view="simple"] qualquer que seja a visão na tela: antes de imprimir, a página passa
