@@ -142,9 +142,9 @@ Stack: LES, Subgrid-scale models, Fortran, HPC, Linux
 
 Undergraduate research, EESC-USP, advised by Prof. Flávio Donizeti Marques · Sep 2023 – Dec 2024
 
-Semi-empirical models of unsteady aerodynamic loads on lifting surfaces, with parameter identification and calibration against experimental and **CFD** data.
+Semi-empirical models of unsteady aerodynamic loads on lifting surfaces, with parameter identification and calibration against experimental and **CFD** data. Multilayer neural network implemented in Python/NumPy and MATLAB without ML libraries, with a configurable number of layers and neurons, to optimize the parameters of the Beddoes-Leishman and ONERA semi-empirical models.
 
-Stack: Neural network implemented from scratch, Optimization
+Stack: Neural network, Optimization
 
 ### Atmospheric modeling and wind energy research
 

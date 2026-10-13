@@ -12,7 +12,7 @@ Disponible pour des postes junior en analyse de données, ingénierie des donné
 
 Étudiant en ingénierie aéronautique à l’EESC-USP (en cours), en transition vers **la donnée et l’informatique**. Stagiaire analyste de données chez Pilea Labs : conception des bases **MySQL** (sur Google Cloud) et des requêtes **SQL** derrière les listes, tableaux et graphiques de la plateforme. Cours de Machine Learning et d’apprentissage par renforcement (Data ICMC-USP, 2025) et pratique du calcul scientifique : simulation Monte-Carlo, optimisation et analyse d’incertitude. Je développe des projets d’automatisation personnels avec l’**API Claude**, dont un système de tri d’e-mails assisté par IA.
 
-De l’ingénierie : simulation de **Monte-Carlo**, optimisation par un réseau de neurones codé de zéro, analyse d’incertitude et routines numériques en **HPC**. En informatique : Linux, Git, Bash, Google Cloud et intégration d’API, y compris de modèles de langage.
+De l’ingénierie : simulation de **Monte-Carlo**, optimisation par un réseau de neurones codé sans bibliothèques de ML, analyse d’incertitude et routines numériques en **HPC**. En informatique : Linux, Git, Bash, Google Cloud et intégration d’API, y compris de modèles de langage.
 
 ## Compétences
 
@@ -50,7 +50,7 @@ Groupe SEMEAR, pôle de robotique aérienne, EESC-USP · avr. 2025 – aujourd�
 Initiation à la recherche, EESC-USP, sous la direction du Prof. Flávio Donizeti Marques · sept. 2023 – déc. 2024
 
 - Modèles semi-empiriques de charges aérodynamiques instationnaires, avec identification et calibration des paramètres à partir de données expérimentales et **CFD**.
-- **Réseau de neurones** codé de zéro pour optimiser les paramètres.
+- **Réseau de neurones** multicouche, codé en Python/NumPy et MATLAB sans bibliothèques de ML, à nombre de couches et de neurones configurable, pour optimiser les paramètres des modèles semi-empiriques de Beddoes-Leishman et ONERA.
 
 ### Simulation d’écoulements turbulents
 
@@ -162,6 +162,6 @@ Pour un poste junior ou un projet en données et informatique, écrivez-moi :
 - E-mail : [igor_amelo@usp.br](mailto:igor_amelo@usp.br)
 - LinkedIn : [linkedin.com/in/igorademelo](https://www.linkedin.com/in/igorademelo)
 - GitHub : [github.com/igor-de-melo](https://github.com/igor-de-melo)
-- [Télécharger le CV (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo-fr.pdf)
+- [Télécharger le CV (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo-data-fr.pdf)
 
 São Carlos, État de São Paulo, Brésil

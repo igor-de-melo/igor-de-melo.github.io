@@ -12,7 +12,7 @@ Available for junior roles in data analysis, data engineering, data science or I
 
 Aeronautical Engineering student at EESC-USP (in progress), transitioning into **data and IT**. Data Analyst Intern at Pilea Labs: designed and built the **MySQL** databases (on Google Cloud) and the **SQL** queries behind the platform’s lists, tables and charts. Machine Learning and Reinforcement Learning courses (Data ICMC-USP, 2025) and hands-on scientific computing: Monte Carlo simulation, optimization and uncertainty analysis. I build personal automation projects with the **Claude API**, such as an AI-assisted email triage system.
 
-From engineering: **Monte Carlo** simulation, optimization with a neural network implemented from scratch, uncertainty analysis and numerical routines on **HPC**. In IT: Linux, Git, Bash, Google Cloud and API integration, including language models.
+From engineering: **Monte Carlo** simulation, optimization with a neural network implemented without ML libraries, uncertainty analysis and numerical routines on **HPC**. In IT: Linux, Git, Bash, Google Cloud and API integration, including language models.
 
 ## Skills
 
@@ -50,7 +50,7 @@ SEMEAR Aerial Robotics Group, EESC-USP · Apr 2025 – present
 Undergraduate research, EESC-USP, advised by Prof. Flávio Donizeti Marques · Sep 2023 – Dec 2024
 
 - Semi-empirical models of unsteady aerodynamic loads, with parameter identification and calibration against experimental and **CFD** data.
-- **Neural network** implemented from scratch to optimize the parameters.
+- Multilayer **neural network** implemented in Python/NumPy and MATLAB without ML libraries, with a configurable number of layers and neurons, to optimize the parameters of the Beddoes-Leishman and ONERA semi-empirical models.
 
 ### Turbulent flow simulation
 
@@ -162,6 +162,6 @@ For junior roles or projects in data and IT, reach me at:
 - Email: [igor_amelo@usp.br](mailto:igor_amelo@usp.br)
 - LinkedIn: [linkedin.com/in/igorademelo](https://www.linkedin.com/in/igorademelo)
 - GitHub: [github.com/igor-de-melo](https://github.com/igor-de-melo)
-- [Download résumé (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo-en.pdf)
+- [Download résumé (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo-data-en.pdf)
 
 São Carlos, São Paulo, Brazil

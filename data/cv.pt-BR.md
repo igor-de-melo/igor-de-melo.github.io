@@ -12,7 +12,7 @@ Disponível para vagas júnior em análise, engenharia ou ciência de dados ou e
 
 Estudante de Engenharia Aeronáutica na EESC-USP (em andamento), em transição para **dados e TI**. Estagiário de análise de dados na Pilea Labs: projetei e construí as bases **MySQL** (no Google Cloud) e as consultas **SQL** por trás das listas, tabelas e gráficos da plataforma. Cursos de Machine Learning e Aprendizado por Reforço (Data ICMC-USP, 2025) e prática de computação científica: simulação Monte Carlo, otimização e análise de incerteza. Desenvolvo projetos próprios de automação com a **API do Claude**, como um sistema de triagem de e-mails com IA.
 
-Da engenharia: simulação de **Monte Carlo**, otimização com uma rede neural implementada do zero, análise de incerteza e rotinas numéricas em **HPC**. Em TI: Linux, Git, Bash, Google Cloud e integração de APIs, incluindo as de modelos de linguagem.
+Da engenharia: simulação de **Monte Carlo**, otimização com uma rede neural implementada sem bibliotecas de ML, análise de incerteza e rotinas numéricas em **HPC**. Em TI: Linux, Git, Bash, Google Cloud e integração de APIs, incluindo as de modelos de linguagem.
 
 ## Competências
 
@@ -50,7 +50,7 @@ Grupo SEMEAR, Núcleo de Robótica Aérea, EESC-USP · abr. 2025 – atual
 Iniciação científica, EESC-USP, orientação do Prof. Flávio Donizeti Marques · set. 2023 – dez. 2024
 
 - Modelos semiempíricos de cargas aerodinâmicas não estacionárias, com identificação e calibração de parâmetros a partir de dados experimentais e de **CFD**.
-- **Rede neural** implementada do zero para otimizar os parâmetros.
+- **Rede neural** multicamadas, implementada em Python/NumPy e MATLAB sem bibliotecas de ML, com número de camadas e de neurônios configurável, para otimizar os parâmetros dos modelos semiempíricos de Beddoes-Leishman e ONERA.
 
 ### Simulação de escoamentos turbulentos
 
@@ -162,6 +162,6 @@ Para vagas júnior ou projetos em dados e TI, escreva para:
 - E-mail: [igor_amelo@usp.br](mailto:igor_amelo@usp.br)
 - LinkedIn: [linkedin.com/in/igorademelo](https://www.linkedin.com/in/igorademelo)
 - GitHub: [github.com/igor-de-melo](https://github.com/igor-de-melo)
-- [Baixar currículo (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo-pt.pdf)
+- [Baixar currículo (PDF)](https://igor-de-melo.github.io/assets/docs/cv-igor-de-melo-data-pt.pdf)
 
 São Carlos, SP, Brasil

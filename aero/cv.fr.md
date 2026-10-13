@@ -142,9 +142,9 @@ Stack : LES, Modèles de sous-maille, Fortran, HPC, Linux
 
 Initiation à la recherche, EESC-USP, sous la direction du Prof. Flávio Donizeti Marques · sept. 2023 – déc. 2024
 
-Modèles semi-empiriques de charges aérodynamiques instationnaires sur des surfaces portantes, avec identification et calibration des paramètres à partir de données expérimentales et **CFD**.
+Modèles semi-empiriques de charges aérodynamiques instationnaires sur des surfaces portantes, avec identification et calibration des paramètres à partir de données expérimentales et **CFD**. Réseau de neurones multicouche, codé en Python/NumPy et MATLAB sans bibliothèques de ML, à nombre de couches et de neurones configurable, pour optimiser les paramètres des modèles semi-empiriques de Beddoes-Leishman et ONERA.
 
-Stack : Réseau de neurones codé de zéro, Optimisation
+Stack : Réseau de neurones, Optimisation
 
 ### Recherche en modélisation atmosphérique et énergie éolienne
 

@@ -142,9 +142,9 @@ Stack: LES, Modelos de submalha, Fortran, HPC, Linux
 
 Iniciação científica, EESC-USP, orientação do Prof. Flávio Donizeti Marques · set. 2023 – dez. 2024
 
-Modelos semiempíricos de cargas aerodinâmicas não estacionárias em superfícies sustentadoras, com identificação e calibração de parâmetros a partir de dados experimentais e de **CFD**.
+Modelos semiempíricos de cargas aerodinâmicas não estacionárias em superfícies sustentadoras, com identificação e calibração de parâmetros a partir de dados experimentais e de **CFD**. Rede neural multicamadas, implementada em Python/NumPy e MATLAB sem bibliotecas de ML, com número de camadas e de neurônios configurável, para otimizar os parâmetros dos modelos semiempíricos de Beddoes-Leishman e ONERA.
 
-Stack: Rede neural implementada do zero, Otimização
+Stack: Rede neural, Otimização
 
 ### Pesquisa em modelagem atmosférica e energia eólica
 
