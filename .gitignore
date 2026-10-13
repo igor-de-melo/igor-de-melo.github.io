@@ -29,3 +29,11 @@ tmp/
 # Pasta com fotos e arquivos de pdf e certificados
 photos_pdf_certificate/
 docs/mockups/
+
+# Arquivos de trabalho do Claude Code: ficam só no computador, fora do GitHub
+CLAUDE.md
+HANDOFF.md
+PLANO.md
+.ux-profile.md
+.claude/
+docs/

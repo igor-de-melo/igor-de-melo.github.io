@@ -1,6 +1,7 @@
 # Configuração do GitHub Pages (Jekyll).
 # Arquivos de trabalho que ficam no repositório, mas não devem ser publicados no site.
 exclude:
+  - README.md
   - PLANO.md
   - CLAUDE.md
   - HANDOFF.md
