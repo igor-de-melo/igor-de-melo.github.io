@@ -51,15 +51,24 @@ for (const page of pages) {
   }
 }
 
-// Currículo em PDF: um arquivo por idioma. Os três existem, cada link de currículo aponta os três
-// (href em PT e data-cv-pt-br / -en / -fr) e o nome antigo, de arquivo único, não aparece mais em lugar nenhum.
-const CV = { "pt-br": "cv-igor-de-melo-pt.pdf", en: "cv-igor-de-melo-en.pdf", fr: "cv-igor-de-melo-fr.pdf" };
-for (const f of Object.values(CV)) if (!existsSync(join(root, "assets", "docs", f))) errors.push(`assets/docs/${f}: currículo não encontrado`);
+// Currículo em PDF: um arquivo por idioma. Há dois conjuntos: o geral (Home, Aero e TI e Ciber) e o de Dados, usado só
+// na página /data/. Cada link de currículo aponta os três idiomas do conjunto da própria página (href em PT e
+// data-cv-pt-br / -en / -fr), o nome do arquivo baixado traz a área e o idioma (Igor_de_Melo_CV_<área>_pt.pdf, com o
+// sufixo trocado pelo site.js) e o nome antigo, de arquivo único, não aparece mais em lugar nenhum.
+const cvSet = (prefix) => ({ "pt-br": `${prefix}-pt.pdf`, en: `${prefix}-en.pdf`, fr: `${prefix}-fr.pdf` });
+const CV_GENERAL = cvSet("cv-igor-de-melo");
+const CV_DATA = cvSet("cv-igor-de-melo-data");
+for (const f of [...Object.values(CV_GENERAL), ...Object.values(CV_DATA)]) if (!existsSync(join(root, "assets", "docs", f))) errors.push(`assets/docs/${f}: currículo não encontrado`);
+const AREA_OF = { "aero/index.html": "aero", "data/index.html": "data", "it-security/index.html": "it-security" };
 for (const page of [...pages, join(root, "index.template.html")]) {
-  const rel = relative(root, page);
+  const rel = relative(root, page).split("\\").join("/");
+  const CV = rel === "data/index.html" ? CV_DATA : CV_GENERAL;
+  const area = AREA_OF[rel];
+  const wantDownload = area ? `Igor_de_Melo_CV_${area}_pt.pdf` : "Igor_de_Melo_CV_pt.pdf";
   for (const m of readFileSync(page, "utf8").matchAll(/<a\b[^>]*cv-igor-de-melo[^>]*>/g)) {
     for (const [l, f] of Object.entries(CV)) if (!new RegExp(`data-cv-${l}="[^"]*/${f}"`).test(m[0])) errors.push(`${rel}: link de currículo sem data-cv-${l} apontando para ${f}`);
-    if (!/\shref="[^"]*\/cv-igor-de-melo-pt\.pdf"/.test(m[0])) errors.push(`${rel}: o href do link de currículo deve ser o PDF em português (o site.js troca conforme o idioma)`);
+    if (!new RegExp(`\\shref="[^"]*/${CV["pt-br"]}"`).test(m[0])) errors.push(`${rel}: o href do link de currículo deve ser o PDF em português (o site.js troca conforme o idioma): ${CV["pt-br"]}`);
+    if (!m[0].includes(`download="${wantDownload}"`)) errors.push(`${rel}: o link de currículo deve ter download="${wantDownload}" (área e idioma no nome do arquivo)`);
   }
 }
 const OLD_CV = "cv-igor-de-melo" + ".pdf";

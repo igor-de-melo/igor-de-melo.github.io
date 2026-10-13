@@ -50,6 +50,8 @@
       var h = a.getAttribute("data-cv-" + l.toLowerCase());
       a.setAttribute("href", h);
       if (a.hasAttribute("data-print-url")) a.setAttribute("data-print-url", "https://igor-de-melo.github.io/assets/docs/" + h.split("/").pop());
+      // Nome do arquivo baixado: Igor_de_Melo_CV_<área>_<idioma>.pdf (a área vem do atributo download de cada página).
+      if (a.hasAttribute("download")) a.setAttribute("download", a.getAttribute("download").replace(/_(pt|en|fr)\.pdf$/, "_" + l.toLowerCase().slice(0, 2) + ".pdf"));
     });
     if (persist) store(l);
     document.dispatchEvent(new CustomEvent("sitelangchange", { detail: { lang: l } }));
