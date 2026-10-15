@@ -25,6 +25,7 @@ Também: sistemas embarcados e cibersegurança.
 - **Simulação:** ANSYS Fluent, ANSYS CFX, OpenFOAM, XFOIL, XFLR5, WRF, ANSYS Mechanical, Patran/Nastran (básico), Abaqus (básico)
 - **Programação:** Python, MATLAB/Simulink, Fortran, SQL, Bash, C++ (básico), Java (básico)
 - **Ferramentas:** Git, Linux, HPC, Google Cloud, SolidWorks, Fusion 360, CATIA (básico), LaTeX
+- **Planilhas e escritório:** Excel e Google Sheets (intermediário a avançado), Word, PowerPoint, Canva
 - **Gestão:** Gestão de projeto de VANT, Engenharia de sistemas segundo o NASA Systems Engineering Handbook, Documentação técnica, Rastreabilidade
 
 ## Experiência

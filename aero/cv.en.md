@@ -25,6 +25,7 @@ Also: embedded systems and cybersecurity.
 - **Simulation:** ANSYS Fluent, ANSYS CFX, OpenFOAM, XFOIL, XFLR5, WRF, ANSYS Mechanical, Patran/Nastran (basic), Abaqus (basic)
 - **Programming:** Python, MATLAB/Simulink, Fortran, SQL, Bash, C++ (basic), Java (basic)
 - **Tools:** Git, Linux, HPC, Google Cloud, SolidWorks, Fusion 360, CATIA (basic), LaTeX
+- **Spreadsheets and office:** Excel and Google Sheets (intermediate to advanced), Word, PowerPoint, Canva
 - **Management:** UAV project management, Systems engineering (NASA Systems Engineering Handbook), Technical documentation, Traceability
 
 ## Experience

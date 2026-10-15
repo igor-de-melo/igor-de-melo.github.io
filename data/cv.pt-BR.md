@@ -17,6 +17,7 @@ Da engenharia: simulação de **Monte Carlo**, otimização com uma rede neural 
 ## Competências
 
 - **Linguagens de programação:** Python, SQL (MySQL), Bash, MATLAB, Fortran, C++ (básico), Java (básico)
+- **Planilhas e escritório:** Excel e Google Sheets (intermediário a avançado), Word, PowerPoint, Canva
 - **Análise de dados:** Consultas SQL com junções, Agregações, Modelagem de dados, Definição de indicadores (KPIs), Painéis, Relatórios, Análises em tempo real
 - **Machine learning e estatística:** Redes neurais, Aprendizado por reforço (Q-learning), Simulação de Monte Carlo, Análise de incerteza
 - **IA aplicada e automação:** API do Claude, Claude Code, Desenvolvimento assistido por IA, LLMs (Claude), Bots do Telegram, Pipelines híbridos (regras e IA), Agendamento com cron

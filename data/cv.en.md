@@ -17,6 +17,7 @@ From engineering: **Monte Carlo** simulation, optimization with a neural network
 ## Skills
 
 - **Programming languages:** Python, SQL (MySQL), Bash, MATLAB, Fortran, C++ (basic), Java (basic)
+- **Spreadsheets and office:** Excel and Google Sheets (intermediate to advanced), Word, PowerPoint, Canva
 - **Data analysis:** SQL queries with joins, Aggregations, Data modeling, KPI definition, Dashboards, Reporting, Real-time analytics
 - **Machine learning and statistics:** Neural networks, Reinforcement learning (Q-learning), Monte Carlo simulation, Uncertainty analysis
 - **Applied AI and automation:** Claude API, Claude Code, AI-assisted development, LLMs (Claude), Telegram bots, Hybrid pipelines (rules and AI), Scheduling with cron

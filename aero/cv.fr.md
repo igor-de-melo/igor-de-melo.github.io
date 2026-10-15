@@ -25,6 +25,7 @@ Domaines d’intérêt : aérodynamique, turbulence et CFD, aéroélasticité, 
 - **Simulation :** ANSYS Fluent, ANSYS CFX, OpenFOAM, XFOIL, XFLR5, WRF, ANSYS Mechanical, Patran/Nastran (notions), Abaqus (notions)
 - **Programmation :** Python, MATLAB/Simulink, Fortran, SQL, Bash, C++ (notions), Java (notions)
 - **Outils :** Git, Linux, HPC, Google Cloud, SolidWorks, Fusion 360, CATIA (notions), LaTeX
+- **Tableurs et bureautique :** Excel et Google Sheets (intermédiaire à avancé), Word, PowerPoint, Canva
 - **Gestion :** Gestion de projet de drone, Ingénierie système selon le NASA Systems Engineering Handbook, Documentation technique, Traçabilité
 
 ## Expérience
